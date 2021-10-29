@@ -17,7 +17,6 @@ export default class Controller extends Base {
     this.isREv = true;
 
     this.$inner = $(".js-slider_inner");
-    this.$item = $(".js-slider_item");
     this.$right = $(".js-slider_right");
     this.$left = $(".js-slider_left");
     this.$indicator = $(".js-slider_indicator");
@@ -27,13 +26,15 @@ export default class Controller extends Base {
   }
 
   setup() {
-    this.len = this.$item.length;
-    this.r = new Renderer();
+    this.len = this.$indicator.length;
+    this.r = new Renderer(this.len);
     this.o = new Order(this.len);
   }
 
   right() {
-    if (this.o.next > this.len - 1) return;
+    // if (this.o.next > this.len - 1) return;
+
+    clearTimeout(this.timer);
     if (this.tl) this.tl.kill();
 
     this.o.right();
@@ -44,11 +45,17 @@ export default class Controller extends Base {
       // nav
       .add(this.r.changeNav(this.o.current))
       // inner
-      .add(this.r.right(), 0);
+      .add(this.r.right(), 0)
+      // autoSwitch
+      .add(this.autoSwitch());
+
+    return this.tl;
   }
 
   left() {
-    if (this.o.prev < 0) return;
+    // if (this.o.prev < 0) return;
+
+    clearTimeout(this.timer);
     if (this.tl) this.tl.kill();
 
     this.o.left();
@@ -59,7 +66,11 @@ export default class Controller extends Base {
       // nav
       .add(this.r.changeNav(this.o.current))
       // inner
-      .add(this.r.left(), 0);
+      .add(this.r.left(), 0)
+      // autoSwitch
+      .add(this.autoSwitch());
+
+    return this.tl;
   }
 
   move(current, index) {
@@ -74,6 +85,8 @@ export default class Controller extends Base {
       .add(this.r.changeNav(this.o.current))
       // inner
       .add(this.r.move(current, index), 0);
+
+    return this.tl;
   }
 
   onResize() {
@@ -85,8 +98,28 @@ export default class Controller extends Base {
     }
   }
 
+  autoSwitch() {
+    this.timer = setInterval(() => {
+      this.tl = gsap.timeline();
+
+      this.o.right();
+
+      this.tl = gsap.timeline();
+
+      this.tl
+        // nav
+        .add(this.r.changeNav(this.o.current))
+        // inner
+        .add(this.r.right(), 0);
+
+      return this.tl;
+    }, 6000);
+  }
+
   setEvents() {
     super.setEvents();
+
+    this.autoSwitch();
 
     // right
     this.$right.on("click" + "." + this.name, () => {

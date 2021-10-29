@@ -24,14 +24,28 @@ export default class Controller extends Base {
 
   right() {
     this.current++;
-    if (this.current > this.len - 1) this.current = this.len - 1;
+
+    // 端で止めない
+    // if (this.current > this.len - 1) this.current = this.len - 1;
+    // this.next = this.current + 1;
+    // this.prev = this.current - 1;
+
+    // ループ
+    if (this.current > this.len - 1) this.current = 0;
     this.next = this.current + 1;
     this.prev = this.current - 1;
   }
 
   left() {
     this.current--;
-    if (this.current < 0) this.current = 0;
+
+    // 端で止める
+    // if (this.current < 0) this.current = 0;
+    // this.next = this.current + 1;
+    // this.prev = this.current - 1;
+
+    // ループ
+    if (this.current < 0) this.current = this.len - 1;
     this.next = this.current + 1;
     this.prev = this.current - 1;
   }

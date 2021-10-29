@@ -6,11 +6,11 @@
   <div class="wrap">
     <div class="slider">
       <ul class="slider__inner js-slider_inner">
-        <% for (let i = 0; i < 8; i++) { %>
+        <% for (let i = 0; i < 3; i++) { %> <% for (let j = 0; j < 7; j++) { %>
         <li class="slider__item js-slider_item">
-          <img src="./assets/resource/img/pic_0<%-i + 1%>.jpg" alt="" />
+          <img src="./assets/resource/img/pic_0<%-j + 1%>.jpg" alt="" />
         </li>
-        <% }%>
+        <% }%> <% }%>
       </ul>
     </div>
 
@@ -20,7 +20,7 @@
         %>
       </div>
       <ul class="inidicator">
-        <% for (let i = 0; i < 8; i++) { %> <%if(i == 0) {%>
+        <% for (let i = 0; i < 7; i++) { %> <%if(i == 0) {%>
         <li class="inidicator__item js-slider_indicator is-active"></li>
         <%} else {%>
         <li class="inidicator__item js-slider_indicator"></li>

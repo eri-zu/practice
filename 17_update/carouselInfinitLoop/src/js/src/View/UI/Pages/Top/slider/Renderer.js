@@ -9,8 +9,10 @@ import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 
 export default class Controller extends Base {
-  constructor() {
+  constructor(len) {
     super();
+
+    this.len = len;
 
     this.$rect = $(".js-slider");
     this.$inner = $(".js-slider_inner");
@@ -39,6 +41,12 @@ export default class Controller extends Base {
 
     this.activeIndex = this.activeIndex + diff;
 
+    // 端の処理
+    if (this.activeIndex > this.len - 1) {
+      this.activeIndex = 0;
+      this.target.value = 1;
+    }
+
     tl.to(this.target, 1, {
       value: -this.activeIndex,
       ease: "expo.out",
@@ -55,6 +63,12 @@ export default class Controller extends Base {
     const tl = gsap.timeline();
 
     this.activeIndex = this.activeIndex + diff;
+
+    // 端の処理
+    if (this.activeIndex < -(this.len - 1)) {
+      this.activeIndex = 0;
+      this.target.value = -1;
+    }
 
     tl.to(this.target, 1, {
       value: -this.activeIndex,
@@ -79,6 +93,7 @@ export default class Controller extends Base {
   }
 
   changeNav(index) {
+    console.log(index);
     // クラス
     this.$indicator.removeClass("is-acitve");
     this.$indicator.eq(index).addClass("is-active");
