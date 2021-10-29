@@ -15,6 +15,8 @@ export default class Controller extends Base {
 
     this.len = len;
     this.current = 0;
+    this.next = 1;
+    this.prev = -1;
 
     this.setup();
     this.setEvents();
@@ -24,27 +26,25 @@ export default class Controller extends Base {
 
   right() {
     this.current++;
-
-    if (this.current > this.len - 1) {
-      this.current = this.len - 1;
-    }
+    if (this.current > this.len - 1) this.current = this.len - 1;
+    this.next = this.current + 1;
+    this.prev = this.current - 1;
   }
 
   left() {
     this.current--;
-
-    if (this.current < 0) {
-      this.current = 0;
-    }
+    if (this.current < 0) this.current = 0;
+    this.next = this.current + 1;
+    this.prev = this.current - 1;
   }
 
-  move(nextIndex) {
-    this.current = nextIndex;
+  move(index) {
+    this.current = index;
+    if (this.current > this.len - 1) this.current = this.len - 1;
+    if (this.current < 0) this.current = 0;
+    this.next = this.current + 1;
+    this.prev = this.current - 1;
   }
-
-  update() {}
-
-  onResize() {}
 
   setEvents() {
     super.setEvents();

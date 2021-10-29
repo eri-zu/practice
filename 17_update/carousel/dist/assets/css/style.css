@@ -1213,9 +1213,13 @@ a:active {
 #wrapper.id_top .inidicator__item {
   width: 10px;
   height: 10px;
-  background-color: #666;
+  background-color: #eee;
   border-radius: 10px;
   cursor: pointer;
+}
+
+#wrapper.id_top .inidicator__item.is-active {
+  background-color: #000;
 }
 
 #wrapper.id_top .inidicator__item:nth-child(n + 2) {

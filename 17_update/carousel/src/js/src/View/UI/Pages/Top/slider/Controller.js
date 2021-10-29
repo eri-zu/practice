@@ -30,23 +30,65 @@ export default class Controller extends Base {
     this.o = new Order(this.len);
   }
 
+  right() {
+    if (this.o.next > this.len - 1) return;
+    if (this.tl) this.tl.kill();
+
+    this.o.right();
+    this.tl = gsap.timeline();
+
+    this.tl
+      // nav
+      .add(this.r.changeNav(this.o.current))
+      // inner
+      .add(this.r.right(), 0);
+  }
+
+  left() {
+    if (this.o.prev < 0) return;
+    if (this.tl) this.tl.kill();
+
+    this.o.left();
+    this.tl = gsap.timeline();
+
+    this.tl
+      // nav
+      .add(this.r.changeNav(this.o.current))
+      // inner
+      .add(this.r.left(), 0);
+  }
+
+  move(current, index) {
+    if (this.tl) this.tl.kill();
+
+    this.o.move(index);
+    this.tl = gsap.timeline();
+
+    this.tl
+      // nav
+      .add(this.r.changeNav(this.o.current))
+      // inner
+      .add(this.r.move(current, index), 0);
+  }
+
   setEvents() {
     super.setEvents();
 
+    // right
     this.$right.on("click" + "." + this.name, () => {
-      this.o.right();
-      this.r.right();
-    });
-    this.$left.on("click" + "." + this.name, () => {
-      this.o.left();
-      this.r.left();
+      this.right();
     });
 
+    // left
+    this.$left.on("click" + "." + this.name, () => {
+      this.left();
+    });
+
+    // inidicator
     this.$indicator.on("click" + "." + this.name, (e) => {
       const current = this.o.current;
-      const nextIndex = $(e.currentTarget).index();
-      this.o.move(nextIndex);
-      this.r.move(current, nextIndex);
+      const index = $(e.currentTarget).index();
+      this.move(current, index);
     });
   }
 }
