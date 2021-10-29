@@ -7,7 +7,6 @@
 import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
-import Renderer from "./Renderer";
 
 export default class Controller extends Base {
   constructor() {
@@ -35,6 +34,17 @@ export default class Controller extends Base {
     this.activeIndex = 0; // 表示してる画像のindex番号
   }
 
+  reset() {
+    gsap.set(this.$inner, {
+      x: 0,
+    });
+
+    this.changeNav(0);
+
+    // this.$indicator.removeClass("is-active");
+    // this.$indicator.eq(0).addClass("is-active");
+  }
+
   right(diff = 1) {
     const tl = gsap.timeline();
 
@@ -52,10 +62,10 @@ export default class Controller extends Base {
     return tl;
   }
 
-  left(diff = 1) {
+  left(diff = -1) {
     const tl = gsap.timeline();
 
-    this.activeIndex = this.activeIndex - diff;
+    this.activeIndex = this.activeIndex + diff;
 
     tl.to(this.target, 1, {
       value: -this.activeIndex,
@@ -70,7 +80,7 @@ export default class Controller extends Base {
   }
 
   move(current, nextIndex) {
-    const diff = Math.abs(nextIndex - current);
+    const diff = nextIndex - current;
 
     if (nextIndex > current) {
       return this.right(diff);
@@ -111,7 +121,10 @@ export default class Controller extends Base {
 
   update() {}
 
-  onResize() {}
+  onResize() {
+    this.reset();
+    this.setParameter();
+  }
 
   setEvents() {
     super.setEvents();

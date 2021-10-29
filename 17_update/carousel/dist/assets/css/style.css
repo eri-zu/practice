@@ -1168,12 +1168,25 @@ a:active {
   max-width: 300px;
 }
 
+@media (max-width: 768px) {
+  #wrapper.id_top .slider__item {
+    min-width: 200px;
+    max-width: 200px;
+  }
+}
+
 #wrapper.id_top .slider__item img {
   width: 100%;
 }
 
 #wrapper.id_top .slider__item:nth-child(n + 2) {
   margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+  #wrapper.id_top .slider__item:nth-child(n + 2) {
+    margin-left: 10px;
+  }
 }
 
 #wrapper.id_top .btnwrap {

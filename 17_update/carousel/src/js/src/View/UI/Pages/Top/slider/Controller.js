@@ -9,10 +9,12 @@ import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 import Order from "./Order";
 import Renderer from "./Renderer";
-
+import { UAParser } from "ua-parser-js";
 export default class Controller extends Base {
   constructor() {
     super();
+
+    this.isREv = true;
 
     this.$inner = $(".js-slider_inner");
     this.$item = $(".js-slider_item");
@@ -35,6 +37,7 @@ export default class Controller extends Base {
     if (this.tl) this.tl.kill();
 
     this.o.right();
+
     this.tl = gsap.timeline();
 
     this.tl
@@ -49,6 +52,7 @@ export default class Controller extends Base {
     if (this.tl) this.tl.kill();
 
     this.o.left();
+
     this.tl = gsap.timeline();
 
     this.tl
@@ -62,6 +66,7 @@ export default class Controller extends Base {
     if (this.tl) this.tl.kill();
 
     this.o.move(index);
+
     this.tl = gsap.timeline();
 
     this.tl
@@ -69,6 +74,15 @@ export default class Controller extends Base {
       .add(this.r.changeNav(this.o.current))
       // inner
       .add(this.r.move(current, index), 0);
+  }
+
+  onResize() {
+    if (UAParser().device.type !== "mobile") {
+      this.o.onResize();
+      this.r.onResize();
+    } else {
+      return;
+    }
   }
 
   setEvents() {
