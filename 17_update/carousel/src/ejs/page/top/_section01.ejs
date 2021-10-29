@@ -15,7 +15,10 @@
     </div>
 
     <ul class="nav">
-      <div class="btn js-slider_left">left</div>
+      <div class="btn js-slider_left">
+        <%- include("../../../../dist/assets/resource/svg/icon_arrow_left.svg")
+        %>
+      </div>
       <ul class="inidicator">
         <% for (let i = 0; i < 8; i++) { %> <%if(i == 0) {%>
         <li class="inidicator__item js-slider_indicator is-active"></li>
@@ -23,7 +26,10 @@
         <li class="inidicator__item js-slider_indicator"></li>
         <%}%> <%}%>
       </ul>
-      <div class="btn js-slider_right">right</div>
+      <div class="btn js-slider_right">
+        <%- include("../../../../dist/assets/resource/svg/icon_arrow_right.svg")
+        %>
+      </div>
     </ul>
   </div>
 </div>

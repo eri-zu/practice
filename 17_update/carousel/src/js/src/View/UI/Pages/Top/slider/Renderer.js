@@ -34,17 +34,6 @@ export default class Controller extends Base {
     this.activeIndex = 0; // 表示してる画像のindex番号
   }
 
-  reset() {
-    gsap.set(this.$inner, {
-      x: 0,
-    });
-
-    this.changeNav(0);
-
-    // this.$indicator.removeClass("is-active");
-    // this.$indicator.eq(0).addClass("is-active");
-  }
-
   right(diff = 1) {
     const tl = gsap.timeline();
 
@@ -119,7 +108,13 @@ export default class Controller extends Base {
     return tl;
   }
 
-  update() {}
+  reset() {
+    gsap.set(this.$inner, {
+      x: 0,
+    });
+
+    this.changeNav(0);
+  }
 
   onResize() {
     this.reset();
