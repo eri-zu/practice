@@ -1146,7 +1146,7 @@ a:active {
 -------------------------------------------------------------------------------- */
 }
 
-#wrapper.id_top .section {
+#wrapper.id_top .wrap {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1160,6 +1160,20 @@ a:active {
   padding: 20px 10px;
   background-color: #111;
   border-radius: 16px;
+  position: relative;
+  z-index: 0;
+}
+
+#wrapper.id_top .menu__hover-bg {
+  position: absolute;
+  border-radius: 50px;
+  top: 20px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 36px;
+  background-color: #242424;
+  opacity: 0;
+  z-index: -1;
 }
 
 #wrapper.id_top .menu__item {
@@ -1169,6 +1183,7 @@ a:active {
 #wrapper.id_top .menu__item-link {
   color: #fff;
   font-size: 13px;
+  opacity: 0.6;
   width: 100%;
   height: 100%;
   padding: 0 15px;
