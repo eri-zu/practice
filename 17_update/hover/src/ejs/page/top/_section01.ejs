@@ -3,33 +3,28 @@
 // ************************************************************ -->
 
 <div class="section">
-  <div class="wrap">
-    <div class="slider">
-      <ul class="slider__inner js-slider_inner">
-        <% for (let i = 0; i < 8; i++) { %>
-        <li class="slider__item js-slider_item">
-          <img src="./assets/resource/img/pic_0<%-i + 1%>.jpg" alt="" />
-        </li>
-        <% }%>
-      </ul>
-    </div>
-
-    <ul class="nav">
-      <div class="btn js-slider_left">
-        <%- include("../../../../dist/assets/resource/svg/icon_arrow_left.svg")
-        %>
-      </div>
-      <ul class="inidicator">
-        <% for (let i = 0; i < 8; i++) { %> <%if(i == 0) {%>
-        <li class="inidicator__item js-slider_indicator is-active"></li>
-        <%} else {%>
-        <li class="inidicator__item js-slider_indicator"></li>
-        <%}%> <%}%>
-      </ul>
-      <div class="btn js-slider_right">
-        <%- include("../../../../dist/assets/resource/svg/icon_arrow_right.svg")
-        %>
-      </div>
-    </ul>
-  </div>
+  <ul class="menu">
+    <li class="menu__item">
+      <a href="" class="menu__item-link">
+        <span>ホーム</span>
+      </a>
+      <div class="menu-sub"></div>
+    </li>
+    <li class="menu__item">
+      <a href="" class="menu__item-link"><span>開催概要</span></a>
+      <div class="menu-sub"></div>
+    </li>
+    <li class="menu__item">
+      <a href="" class="menu__item-link">
+        <span>会場マップ</span>
+      </a>
+      <div class="menu-sub"></div>
+    </li>
+    <li class="menu__item">
+      <a href="" class="menu__item-link">
+        <span>タイムテーブル </span>
+      </a>
+      <div class="menu-sub"></div>
+    </li>
+  </ul>
 </div>
