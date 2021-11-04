@@ -119,6 +119,7 @@ export default class Controller extends Base {
   setEvents() {
     super.setEvents();
 
+    // autoswitch
     this.autoSwitch();
 
     // right

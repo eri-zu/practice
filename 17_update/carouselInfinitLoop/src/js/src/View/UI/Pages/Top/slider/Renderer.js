@@ -93,7 +93,6 @@ export default class Controller extends Base {
   }
 
   changeNav(index) {
-    console.log(index);
     // クラス
     this.$indicator.removeClass("is-acitve");
     this.$indicator.eq(index).addClass("is-active");

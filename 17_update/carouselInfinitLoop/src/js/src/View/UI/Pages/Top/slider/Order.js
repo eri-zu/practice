@@ -25,7 +25,7 @@ export default class Controller extends Base {
   right() {
     this.current++;
 
-    // 端で止めない
+    // 端で止める
     // if (this.current > this.len - 1) this.current = this.len - 1;
     // this.next = this.current + 1;
     // this.prev = this.current - 1;
