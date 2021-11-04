@@ -74,6 +74,7 @@ export default class Controller extends Base {
   }
 
   move(current, index) {
+    clearTimeout(this.timer);
     if (this.tl) this.tl.kill();
 
     this.o.move(index);
@@ -84,7 +85,9 @@ export default class Controller extends Base {
       // nav
       .add(this.r.changeNav(this.o.current))
       // inner
-      .add(this.r.move(current, index), 0);
+      .add(this.r.move(current, index), 0)
+      // autoSwitch
+      .add(this.autoSwitch());
 
     return this.tl;
   }
