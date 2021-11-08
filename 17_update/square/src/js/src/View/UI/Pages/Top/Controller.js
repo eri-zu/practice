@@ -6,7 +6,7 @@
 
 import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
-import Menu from "./Menu/Controller";
+import Square from "./Square/Controller";
 import gsap from "gsap";
 
 export default class Controller extends Base {
@@ -18,7 +18,7 @@ export default class Controller extends Base {
   }
 
   setup() {
-    new Menu();
+    new Square();
   }
 
   timeline() {}
