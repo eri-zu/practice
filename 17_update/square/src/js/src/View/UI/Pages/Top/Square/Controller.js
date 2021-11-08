@@ -9,11 +9,6 @@ import * as m from "@BALANCeLibs/Util/Math.js";
 import * as e from "@BALANCeLibs/Util/Ease.js";
 import gsap from "gsap";
 
-// pは現在の進捗率
-const easeOut = (p) => {
-  return p * (2 - p);
-};
-
 // t: current time
 // b: beginning value
 // c: change in value
@@ -41,7 +36,7 @@ export default class Controller extends Base {
   setup() {
     this.posX = 0; // 現在地
     this.targetX = 500; // 目標値
-    this.frame = 0; // 進捗 0 〜 100
+    this.t = 0; // 進捗 0 〜 100
     this.startTime = new Date();
     this.duration = 2000;
   }
@@ -75,11 +70,11 @@ export default class Controller extends Base {
     // step4
     // lerp（ease.outの一種）
     // --------------------------
-    if (this.posX <= window.innerWidth / 2 - this.$square.width() / 2) {
-      // this.posX = m.lerp(this.posX, this.targetX, 0.01);
-      this.posX += (this.targetX - this.posX) * 0.05;
-      this.$square.css({ transform: `translateX(${this.posX}px)` });
-    }
+    // if (this.posX <= window.innerWidth / 2 - this.$square.width() / 2) {
+    //   // this.posX = m.lerp(this.posX, this.targetX, 0.01);
+    //   this.posX += (this.targetX - this.posX) * 0.05;
+    //   this.$square.css({ transform: `translateX(${this.posX}px)` });
+    // }
 
     // --------------------------
     // step5
@@ -88,14 +83,21 @@ export default class Controller extends Base {
     // console.log(easeOut(0.25)); //進捗率25%
     // console.log(this.targetX * easeOut(0.25)); // targetXに対する進捗率25%の位置
     // 1sで60frame
-    // if (this.frame <= 100) {
-    //   this.frame++;
-    //   this.posX = this.targetX * easeOut(this.frame / 100);
+    // if (this.t <= 100) {
+    //   this.t++;
+    //   this.posX = this.targetX * e.inOutQuad(this.t / 100);
     //   this.$square.css({ transform: `translateX(${this.posX}px)` });
     // }
 
-    // let time = new Date() - this.startTime;
+    // 2sで移動
+    const duration = 2;
+    if (this.t <= 60 * duration) {
+      this.t += 0.5;
+      this.posX = this.targetX * e.inOutQuad(this.t / 100);
+      this.$square.css({ transform: `translateX(${this.posX}px)` });
+    }
 
+    // let time = new Date() - this.startTime;
     // if (time < this.duration) {
     //   let x = easeInOutQuad(
     //     time,
@@ -103,7 +105,6 @@ export default class Controller extends Base {
     //     this.targetX - this.posX,
     //     this.duration
     //   );
-
     //   this.$square.css({ transform: `translateX(${x}px)` });
     // }
   }
