@@ -1167,6 +1167,7 @@ a:active {
 
 #wrapper.id_top .modal__contents {
   background-color: #fff;
+  padding: 50px;
   height: 80vh;
   width: 160vh;
   z-index: 1;
@@ -1174,6 +1175,16 @@ a:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#wrapper.id_top .modal__title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#wrapper.id_top .modal__txt {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 #wrapper.id_top .section {
