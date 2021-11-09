@@ -1146,37 +1146,40 @@ a:active {
 -------------------------------------------------------------------------------- */
 }
 
-#wrapper.id_top .wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+#wrapper.id_top .modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#wrapper.id_top .modal__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+#wrapper.id_top .modal__contents {
+  background-color: #fff;
+  height: 80vh;
+  width: 160vh;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#wrapper.id_top .section {
   height: 100vh;
   width: 100%;
-  overflow: hidden;
-}
-
-#wrapper.id_top .square {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-
-#wrapper.id_top .btns {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-}
-
-#wrapper.id_top .btns__btn {
-  padding: 10px 20px;
-  border: 1px solid #000;
-  cursor: pointer;
-}
-
-#wrapper.id_top .btns__right {
-  margin-left: 100px;
+  background-color: #cee5d0;
 }
 
 .demoSvg {

@@ -26,6 +26,7 @@
 @function vwh($px, $base) {
   @return floor($px / 2) / $base * 100vw;
 }
+
 @function res($px) {
   @return $px / 2;
 }
