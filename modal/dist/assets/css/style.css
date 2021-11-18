@@ -1154,6 +1154,38 @@ a:active {
   left: 0;
 }
 
+#wrapper.id_top .modal.base_width .modal__contents {
+  padding: 3.57143vw;
+  width: 85.71429vw;
+  height: 42.85714vw;
+}
+
+#wrapper.id_top .modal.base_width .modal__title {
+  font-size: 2.14286vw;
+  margin-bottom: 0.71429vw;
+}
+
+#wrapper.id_top .modal.base_width .modal__txt {
+  font-size: 1.14286vw;
+  margin-bottom: 0.71429vw;
+}
+
+#wrapper.id_top .modal.base_hight .modal__contents {
+  padding: 6.66667vh;
+  width: 160vh;
+  height: 80vh;
+}
+
+#wrapper.id_top .modal.base_hight .modal__title {
+  font-size: 4vh;
+  margin-bottom: 1.33333vh;
+}
+
+#wrapper.id_top .modal.base_hight .modal__txt {
+  font-size: 2.13333vh;
+  margin-bottom: 1.33333vh;
+}
+
 #wrapper.id_top .modal__bg {
   position: absolute;
   top: 0;
@@ -1168,23 +1200,11 @@ a:active {
 #wrapper.id_top .modal__contents {
   background-color: #fff;
   padding: 50px;
-  height: 80vh;
-  width: 160vh;
   z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-#wrapper.id_top .modal__title {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-#wrapper.id_top .modal__txt {
-  font-size: 16px;
-  margin-bottom: 10px;
 }
 
 #wrapper.id_top .section {

@@ -6,8 +6,8 @@
 
 import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
-import Square from "./Square/Controller";
 import gsap from "gsap";
+import Modal from "./Modal/Controller";
 
 export default class Controller extends Base {
   constructor() {
@@ -18,7 +18,7 @@ export default class Controller extends Base {
   }
 
   setup() {
-    new Square();
+    new Modal();
   }
 
   timeline() {}

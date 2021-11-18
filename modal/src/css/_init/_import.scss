@@ -34,3 +34,8 @@
 @function half($value) {
   @return floor($value / 2);
 }
+
+// 横長の時はheightを常時80vhにして、それを元にはかの値を出す
+@function vh($px, $base) {
+  @return 80vh * $px / $base;
+}
