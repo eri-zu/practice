@@ -1,0 +1,1 @@
+(()=>{"use strict";alert("helloメソッド実行された")})();
