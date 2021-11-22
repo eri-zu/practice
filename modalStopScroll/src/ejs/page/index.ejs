@@ -1,0 +1,55 @@
+<% var rootPATH = '../', contentsPATH = './top/', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<!-- prettier-ignore -->
+<html lang="ja" class="htmlTop">
+<head>
+<%- include(rootPATH + 'inc/_meta', {data:data, meta:data['common']}); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+<%- include(rootPATH + 'inc/_log'); %>
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+  <%- include(rootPATH + 'parts/common/_header', {PATH: PATH}); %>
+
+    <div class="section">
+      section01
+    </div>
+    <div class="section">section02</div>
+    <div class="section">section03</div>
+    <div class="section">section04</div>
+
+    <div class="modal js-modal">
+      <div class="modal__bg js-modal_bg"></div>
+      <div class="modal__contents js-modal_contents">
+        <div class="modal__closebtn js-modal_closebtn">
+          <div class="modal__closebtn-inner js-modal_closebtn_inner">
+            <div class="modal__closebtn-barwrap js-modal_closebtn_barwrap">
+              <div class="modal__closebtn-bar js-modal_closebtn_bar"></div>
+            </div>
+            <div class="modal__closebtn-barwrap js-modal_closebtn_barwrap"></div>
+            <div class="modal__closebtn-barwrap js-modal_closebtn_barwrap">
+              <div class="modal__closebtn-bar js-modal_closebtn_bar"></div>
+            </div>
+          </div>
+        </div>
+        <h2 class="modal__title">モーダル</h2>
+        <div class="modal__txtwrap">
+          <p class="modal__txt">モーダルテキストモーダルテキストモーダルテキスト</p>
+          <p class="modal__txt">モーダルテキストモーダルテキストモーダルテキスト</p>
+          <p class="modal__txt">モーダルテキストモーダルテキストモーダルテキスト</p>
+          <p class="modal__txt">モーダルテキストモーダルテキストモーダルテキスト</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn js-modal_openbtn">modalbtn</div>
+
+  <%- include(rootPATH + 'parts/common/_footer', {PATH: PATH}); %>
+</div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+</body>
+</html>

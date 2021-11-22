@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   list
+*
+-------------------------------------------------------------------------------- */
+.list {
+  margin-left: 100px;
+
+  &__inner {
+    display: flex;
+    justify-content: flex-start;
+    // overflow: hidden;
+  }
+
+  &__item {
+    min-width: 300px;
+    max-width: 300px;
+
+    img {
+      width: 100%;
+    }
+
+    &:nth-child(n + 2) {
+      margin-left: 50px;
+    }
+  }
+}
