@@ -8,6 +8,7 @@ import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 import Scroll from "./Scroll/Controller";
+import { UAParser } from "ua-parser-js";
 
 export default class Controller extends Base {
   constructor() {
@@ -18,7 +19,9 @@ export default class Controller extends Base {
   }
 
   setup() {
-    new Scroll();
+    if (UAParser().device.type !== "mobile") {
+      new Scroll();
+    }
   }
 
   timeline() {}

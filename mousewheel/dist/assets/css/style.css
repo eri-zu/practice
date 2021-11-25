@@ -494,6 +494,7 @@ html {
 
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* --------------------------------------------------------------------------------
@@ -1158,11 +1159,38 @@ a:active {
 #wrapper.id_top .list__inner {
   display: flex;
   justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 3rem;
+}
+
+#wrapper.id_top .list__inner::-webkit-scrollbar {
+  height: 10px;
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  #wrapper.id_top .list__inner::-webkit-scrollbar {
+    height: 8px;
+  }
+}
+
+#wrapper.id_top .list__inner::-webkit-scrollbar-track {
+  background: #f2f2f2;
+  border-radius: 8px;
+  margin-right: 50px;
+}
+
+#wrapper.id_top .list__inner::-webkit-scrollbar-thumb {
+  background: #5f6469;
+  border-radius: 8px;
 }
 
 #wrapper.id_top .list__item {
   min-width: 300px;
   max-width: 300px;
+  position: relative;
 }
 
 #wrapper.id_top .list__item img {
@@ -1171,6 +1199,15 @@ a:active {
 
 #wrapper.id_top .list__item:nth-child(n + 2) {
   margin-left: 50px;
+}
+
+#wrapper.id_top .list__item:last-child::after {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50px;
+  height: 1px;
+  content: "";
 }
 
 #wrapper.id_top .wrap {
