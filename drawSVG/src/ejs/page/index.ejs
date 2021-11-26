@@ -1,0 +1,61 @@
+<% var rootPATH = '../', contentsPATH = './top/', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja" class="htmlTop">
+  <head>
+    <%- include(rootPATH + 'inc/_meta', {data:data, meta:data['common']}); %>
+    <link href="<%- PATH %>assets/css/style.css" rel="stylesheet" />
+    <%- include(rootPATH + 'inc/_log'); %>
+  </head>
+  <body id="<%- page %>" class="">
+    <div id="wrapper" class="id_<%- page %>">
+      <div id="inner">
+        <div class="btn js-btn">
+          <span class="btn__num">1</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="38"
+            height="38"
+            viewBox="0 0 38 38"
+            class="btn__svg"
+          >
+            <g
+              id="グループ_1"
+              data-name="グループ 1"
+              transform="translate(-943 -523)"
+            >
+              <!-- arrow -->
+              <!-- <path
+                id="パス_113"
+                data-name="パス 113"
+                d="M5.82,14.418a.706.706,0,0,0,.733-.733V3.864L6.5,2.23l2.174,2.4,1.739,1.715a.743.743,0,0,0,.523.2.7.7,0,0,0,.708-.716.729.729,0,0,0-.233-.531L6.368.25a.725.725,0,0,0-1.1,0L.233,5.3A.729.729,0,0,0,0,5.828a.7.7,0,0,0,.708.716.743.743,0,0,0,.523-.2L2.963,4.629,5.144,2.222,5.088,3.864v9.821a.7.7,0,0,0,.732.733Z"
+                transform="translate(969.419 536) rotate(90)"
+                fill="#1a1311"
+                class=""
+              /> -->
+              <!-- 円 -->
+              <g
+                id="楕円形_1"
+                data-name="楕円形 1"
+                transform="translate(943 523)"
+                fill="none"
+                stroke="#1a1311"
+                stroke-width="1"
+              >
+                <circle cx="19" cy="19" r="19" stroke="none" />
+                <circle
+                  cx="19"
+                  cy="19"
+                  r="18.5"
+                  fill="none"
+                  class="js-btn_circle"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+  </body>
+</html>
