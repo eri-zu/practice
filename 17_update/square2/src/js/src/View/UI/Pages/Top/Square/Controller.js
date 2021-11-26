@@ -30,7 +30,8 @@ export default class Controller extends Base {
 
   setParameter() {
     this.initPos = 0; // 初期pos
-    this.targetPos = 100; // 目標pos
+    this.currentPos = 0; // 現在地pos
+    this.targetPos = 0; // 目標pos
     this.t = 0;
     this.duration = 2;
   }
@@ -44,9 +45,12 @@ export default class Controller extends Base {
     const elapsedTimeRate = this.t / this.duration; // 経過時間割合
     let value = easing.inOutQuad(elapsedTimeRate); // easingかけた値 0 ~ 1
 
-    // if (elapsedTimeRate > 1) return;
-    const currentPos = lerp(this.initPos, this.targetPos, value);
-    this.square.style.transform = `translateX(${currentPos}px)`;
+    if (elapsedTimeRate > 1) return;
+    this.currentPos = lerp(this.currentPos, this.targetPos, value);
+    this.square.style.transform = `translateX(${this.currentPos}px)`;
+
+    // const currentPos = lerp(this.initPos, this.targetPos, value);
+    // this.square.style.transform = `translateX(${currentPos}px)`;
   }
 
   onResize() {}
@@ -61,9 +65,13 @@ export default class Controller extends Base {
 
     this.$right.on("click" + "." + this.name, () => {
       this.isClicked = true;
-      // this.onClick();
-      // this.t = 0;
+      this.onClick();
     });
+
+    // this.$left.on("click" + "." + this.name, () => {
+    //   this.isClicked = true;
+    //   this.onClick(-100);
+    // });
   }
 }
 
