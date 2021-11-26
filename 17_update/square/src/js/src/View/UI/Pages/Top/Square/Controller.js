@@ -5,8 +5,8 @@
 //--------------------------------------------------
 
 import Base from "@BALANCeLibs/Base.js";
-import * as m from "@BALANCeLibs/Util/Math.js";
-import * as e from "@BALANCeLibs/Util/Ease.js";
+import { lerp } from "@BALANCeLibs/Util/Math.js";
+import * as easing from "@BALANCeLibs/Util/Ease.js";
 import gsap from "gsap";
 
 // t: current time
@@ -23,7 +23,8 @@ export default class Controller extends Base {
     super();
 
     this.isUEv = true;
-    this.$square = $(".js-square");
+    // this.$square = $(".js-square");
+    this.square = document.querySelector(".js-square");
     this.$right = $(".js-square_right");
     this.$left = $(".js-square_left");
 
@@ -35,10 +36,11 @@ export default class Controller extends Base {
 
   setup() {
     this.posX = 0; // 現在地
+    this.initX = 0;
     this.targetX = 500; // 目標値
     this.t = 0; // 進捗 0 〜 100
     this.startTime = new Date(); // 開始時間
-    this.duration = 2000;
+    this.duration = 2;
   }
 
   timeline() {}
@@ -65,7 +67,7 @@ export default class Controller extends Base {
     // }
     // --------------------------
     // step4
-    // lerp（ease.outの一種）
+    // lerp（ease.outの一種..?）
     // --------------------------
     // if (this.posX <= window.innerWidth / 2 - this.$square.width() / 2) {
     //   // this.posX = m.lerp(this.posX, this.targetX, 0.01);
@@ -76,28 +78,25 @@ export default class Controller extends Base {
     // step5
     // easing
     // --------------------------
-    // console.log(easeOut(0.25)); //進捗率25%
-    // console.log(this.targetX * easeOut(0.25)); // targetXに対する進捗率25%の位置
-    // if (this.t <= 100) {
-    //   this.t++;
-    //   this.posX = this.targetX * e.inOutQuad(this.t / 100);
-    //   this.$square.css({ transform: `translateX(${this.posX}px)` });
-    // }
-    // this.tは1 - 100の値（100で割ると進捗率）
-    // if (this.t <= 100) {
-    //   this.t += 100 / 120;
-    //   this.posX = this.targetX * e.inOutQuad(this.t / 100);
+    // ↓私の答え↓
+    // let elapsedTime = new Date() - this.startTime; // 経過時間
+    // let elapsedTimeRate = elapsedTime / this.duration; // 経過時間割合(=gsapのprogress)
+    // let value = easing.inOutQuad(elapsedTimeRate); // （=gsapのvalue）
+
+    // if (elapsedTimeRate <= 1) {
+    //   this.posX = (this.targetX - this.posX) * value;
     //   this.$square.css({ transform: `translateX(${this.posX}px)` });
     // }
 
-    let elapsedTime = new Date() - this.startTime; // 経過時間
-    let elapsedTimeRate = elapsedTime / this.duration; // 経過時間割合
-    let easing = e.inOutQuad(elapsedTimeRate);
+    // ↓岡村さんの修正↓
+    this.t += 1 / 60; // 経過時間
+    const elapsedTimeRate = this.t / this.duration;
+    let value = easing.inOutQuad(elapsedTimeRate);
 
-    if (elapsedTimeRate <= 1) {
-      this.posX = (this.targetX - this.posX) * easing;
-      this.$square.css({ transform: `translateX(${this.posX}px)` });
-    }
+    if (elapsedTimeRate > 1) return;
+    const currentPosX = lerp(this.initX, this.targetX, value);
+    // const x = (1 - value) * this.posX + this.targetX * value;
+    this.square.style.transform = `translateX(${currentPosX}px)`;
 
     // Robert Penner fomula
     // let time = new Date() - this.startTime;
@@ -122,3 +121,14 @@ export default class Controller extends Base {
     // });
   }
 }
+
+// easing
+// duration targetPos initPos
+// だけど
+// マウスストーカーとかスムーススクロール
+// easing無理→durationわからんから
+// だから
+//  val01 + (val02 - val01) * val; で
+// valを固定ちでやっちゃう
+// 時間と目標値がわかってたらvalをeasingで出せるけどね
+// 無理だから

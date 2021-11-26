@@ -1,0 +1,18 @@
+<!-- ************************************************************
+//
+//  header
+//
+// ************************************************************ -->
+<% const menu = ["Work", "About", "Workflow", "Contact"] %>
+<header id="header">
+  <div class="header__inner">
+    <div class="header__list">
+      <% for (let i = 0; i < menu.length; i++) { %>
+      <div class="header__item">
+        <a class="js-menu_item" href=""><%- menu[i] %></a>
+      </div>
+      <% }%>
+    </div>
+    <div class="bar js-menu_bar"></div>
+  </div>
+</header>
