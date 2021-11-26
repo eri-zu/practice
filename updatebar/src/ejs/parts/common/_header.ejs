@@ -7,11 +7,15 @@
 <header id="header">
   <div class="header__inner">
     <div class="header__list">
-      <% for (let i = 0; i < menu.length; i++) { %>
-      <div class="header__item">
-        <a class="js-menu_item" href=""><%- menu[i] %></a>
+      <% for (let i = 0; i < menu.length; i++) { if(i == 0) {%>
+      <div class="header__item js-menu_item is-active">
+        <a href=""><%- menu[i] %></a>
       </div>
-      <% }%>
+      <%} else {%>
+      <div class="header__item js-menu_item">
+        <a href=""><%- menu[i] %></a>
+      </div>
+      <%} }%>
     </div>
     <div class="bar js-menu_bar"></div>
   </div>

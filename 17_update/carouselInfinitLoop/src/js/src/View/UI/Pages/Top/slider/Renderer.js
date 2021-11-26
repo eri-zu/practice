@@ -41,6 +41,8 @@ export default class Controller extends Base {
 
     this.activeIndex = this.activeIndex + diff;
 
+    console.log(this.activeIndex);
+
     // 端の処理
     if (this.activeIndex > this.len - 1) {
       this.activeIndex = 0;
