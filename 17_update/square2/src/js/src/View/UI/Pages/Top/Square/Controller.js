@@ -43,7 +43,7 @@ export default class Controller extends Base {
 
     this.t += 1 / 60; // 経過時間
     const elapsedTimeRate = this.t / this.duration; // 経過時間割合
-    let value = easing.inOutQuad(elapsedTimeRate); // easingかけた値 0 ~ 1
+    let value = easing.inOutQuad(elapsedTimeRate); // easingかけた値 0 ~ 1で返す
 
     if (elapsedTimeRate > 1) return;
     this.currentPos = lerp(this.currentPos, this.targetPos, value);
