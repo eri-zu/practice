@@ -1,0 +1,32 @@
+/* --------------------------------------------------------------------------------
+*
+*   header
+*
+-------------------------------------------------------------------------------- */
+.header {
+  &__list {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__item {
+    background-color: yellow;
+    &:nth-child(n + 2) {
+      margin-left: 50px;
+    }
+
+    a {
+      display: block;
+      padding: 5px;
+
+      font-size: 16px;
+    }
+  }
+}
+
+.bar {
+  width: 20px;
+  height: 1px;
+  background-color: #000;
+}
