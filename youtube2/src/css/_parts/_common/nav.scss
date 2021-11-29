@@ -1,0 +1,21 @@
+/* --------------------------------------------------------------------------------
+*
+*   nav
+*
+-------------------------------------------------------------------------------- */
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item {
+    &:nth-child(n + 2) {
+      margin-left: 20px;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+}

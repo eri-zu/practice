@@ -1,0 +1,18 @@
+<!-- ************************************************************
+//  section01
+// ************************************************************ -->
+<% videoid = ["GkQd0DwZ_aY", "OSDqxKaEI_4"]; %>
+
+<div class="wrap">
+  <div class="list">
+    <% for (let i = 0; i < 2; i++) { %>
+    <div class="item js-item" data-videoid="<%- videoid[i]%>">
+      <img src="./assets/resource/img/pic_0<%- i %>.jpg" alt="" />
+    </div>
+    <% } %>
+  </div>
+
+  <div class="video">
+    <div id="player"></div>
+  </div>
+</div>
