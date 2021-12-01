@@ -27,8 +27,12 @@ export default class Plane extends Base {
   }
 
   ready() {
-    var geometry = new THREE.BoxGeometry(5, 5, 5);
-    var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    // var geometry = new THREE.BoxGeometry(1, 1, 1, 2, 2, 2);
+    var geometry = new THREE.SphereGeometry(1, 32, 32);
+    var material = new THREE.MeshBasicMaterial({
+      color: 0x00ff00,
+      wireframe: true,
+    });
     this.mesh = new THREE.Mesh(geometry, material);
   }
 
