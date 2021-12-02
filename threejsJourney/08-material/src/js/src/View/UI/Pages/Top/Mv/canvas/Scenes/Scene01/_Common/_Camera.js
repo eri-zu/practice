@@ -68,8 +68,8 @@ export default class Camera extends Base {
       w / 4,
       h / 4,
       h / -4,
-      1,
-      1000
+      0.01,
+      500
     );
     this.camera.position.z = 1;
   }

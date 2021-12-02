@@ -34,14 +34,14 @@ export default class Light extends Base {
     this.directionalLight.position.y = 0;
 
     // ambient
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 
     // point
-    this.pointLight01 = new THREE.PointLight(0x00ff00, 30, 500, 10);
+    this.pointLight01 = new THREE.PointLight(0xffffff, 0.5);
     this.pointLight02 = new THREE.PointLight(0x0000ff, 30, 500, 10);
     this.pointLight03 = new THREE.PointLight(0xff0000, 30, 500, 10);
 
-    this.pointLight01.position.set(0, 200, 100);
+    this.pointLight01.position.set(2, 3, 4);
     this.pointLight02.position.set(100, 200, 100);
     this.pointLight03.position.set(-100, -200, -100);
 
@@ -70,16 +70,13 @@ export default class Light extends Base {
   }
 
   add() {
-    this.scene.add(this.directionalLight);
-
-    // this.scene.add(this.ambientLight);
-
-    // this.scene.add(this.pointLight01);
+    // this.scene.add(this.directionalLight);
+    this.scene.add(this.ambientLight);
+    this.scene.add(this.pointLight01);
     // this.scene.add(this.pointLight02);
     // this.scene.add(this.pointLight03);
     // this.scene.add(this.pointLight01, this.pointLight02, this.pointLight03);
-
-    this.scene.add(this.spotLight);
+    // this.scene.add(this.spotLight);
   }
 
   addHelper() {
