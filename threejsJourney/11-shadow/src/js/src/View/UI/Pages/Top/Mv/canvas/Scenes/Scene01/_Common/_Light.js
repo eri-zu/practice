@@ -32,37 +32,50 @@ export default class Light extends Base {
   }
 
   ready() {
-    // directional light 並行光源 (太陽の光とか)
-    // 光源からの距離に関係なく等しい力 光の方向は同じ
-    // DirectionalLight( color : Integer, intensity : Float )
-    this.directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3);
-    this.directionalLight.position.set(1, 0.25, 0);
-    this.gui.add(this.directionalLight, "intensity").min(0).max(1).step(0.01);
-
     // ambient 環境光源
     // 部屋の電気みたいな 空間全体に均等に光を当てる
     // AmbientLight( color : Integer, intensity : Float )
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    this.gui.add(this.ambientLight, "intensity").min(0).max(1).step(0.01);
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    this.gui.add(this.ambientLight, "intensity").min(0).max(1).step(0.001);
 
-    // hemisphere 半球光源
-    // 環境光源に似てるが、下から当てる光と上から当てる光の色を変えることができる
-    // HemisphereLight( skyColor : Integer, groundColor : Integer, intensity : Float )
-    this.hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 0.3);
+    // directional light 並行光源 (太陽の光とか)
+    // 光源からの距離に関係なく等しい力 光の方向は同じ
+    // DirectionalLight( color : Integer, intensity : Float )
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.3);
+    this.directionalLight.position.set(2, 2, -1);
 
-    // point 点光源
-    // 裸電球みたいな
-    // PointLight( color : Integer, intensity : Float, distance : Number, decay : Float )
-    // 距離によって光がどのように弱くなるか、distanceとdecayで調整することも可能
-    this.pointLight01 = new THREE.PointLight(0xff9000, 0.5);
-    this.pointLight01.position.set(1, -0.5, 1);
+    this.directionalLight.castShadow = true;
+    this.directionalLight.shadow.mapSize.width = 1024;
+    this.directionalLight.shadow.mapSize.height = 1024;
+    this.directionalLight.shadow.camera.near = 1; // 映し出す範囲巨大なので小さく
+    this.directionalLight.shadow.camera.far = 6;
+    this.directionalLight.shadow.camera.top = 2;
+    this.directionalLight.shadow.camera.right = 2; // 投影する四角の範囲
+    this.directionalLight.shadow.camera.bottom = -2;
+    this.directionalLight.shadow.camera.left = -2;
+    this.directionalLight.shadow.radius = 10;
 
-    // rectAreaLight 矩形光源
-    // photoshooting用のライトみたいなやつ
-    // new THREE.RectAreaLight(色, 光の強さ, 幅, 高さ)
-    this.rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 2, 1, 1);
-    this.rectAreaLight.position.set(-1.5, 0, 1.5);
-    this.rectAreaLight.lookAt(0, 0, 0);
+    this.directionalLighCameratHelper = new THREE.CameraHelper(
+      this.directionalLight.shadow.camera
+    );
+    this.directionalLighCameratHelper.visible = false;
+
+    this.gui.add(this.directionalLight, "intensity").min(0).max(1).step(0.001);
+    this.gui
+      .add(this.directionalLight.position, "x")
+      .min(-5)
+      .max(5)
+      .step(0.001);
+    this.gui
+      .add(this.directionalLight.position, "y")
+      .min(-5)
+      .max(5)
+      .step(0.001);
+    this.gui
+      .add(this.directionalLight.position, "z")
+      .min(-5)
+      .max(5)
+      .step(0.001);
 
     // spotLight
     // color: the color
@@ -71,65 +84,55 @@ export default class Light extends Base {
     // angle: how large is the beam
     // penumbra: ライトのエッジのボケ
     // decay: how fast the light dims
-    this.spotLight = new THREE.SpotLight(
-      0x78ff00,
-      0.5,
-      10,
-      Math.PI * 0.1,
-      0.25,
-      1
+    this.spotLight = new THREE.SpotLight(0xffffff, 0.3, 10, Math.PI * 0.3);
+    this.spotLight.position.set(0, 2, 2);
+    this.spotLight.castShadow = true;
+    this.spotLight.shadow.mapSize.width = 1024;
+    this.spotLight.shadow.mapSize.height = 1024;
+    this.spotLight.shadow.camera.fov = 30;
+    this.spotLight.shadow.camera.near = 1;
+    this.spotLight.shadow.camera.far = 6;
+
+    this.spotLightCameraHelper = new THREE.CameraHelper(
+      this.spotLight.shadow.camera
     );
-    this.spotLight.position.set(0, 2, 3);
+    // this.spotLightCameraHelper.visible = false;
 
-    console.log(this.spotLight.target); // spotlightはこのtargetをずっとをみてる
-    this.spotLight.target.position.x = -0.75; // targetをずらす
+    // point 点光源
+    // 裸電球みたいな
+    // PointLight( color : Integer, intensity : Float, distance : Number, decay : Float )
+    // 距離によって光がどのように弱くなるか、distanceとdecayで調整することも可能
+    // 全方向(6面)に照らすので、castShadowを使うとパフォーマンスissue起こる
+    // camerahelperは6つrenderしたものの、最後にrenderしたものになる（つまりした方向）
+    this.pointLight = new THREE.PointLight(0xffffff, 0.3);
+    this.pointLight.position.set(-1, 1, 0);
+    this.pointLight.castShadow = true;
+    this.pointLight.shadow.camera.width = 1024;
+    this.pointLight.shadow.camera.height = 1024;
+    this.pointLight.shadow.camera.near = 0.1;
+    this.pointLight.shadow.camera.far = 5;
 
-    // this.spotLight.intensity = 1.5;
-    // this.spotLight.distance = 0.0;
-    // this.spotLight.angle = 0.3;
-    // this.spotLight.penumbra = 0.5;
-    // this.spotLight.decay = 1.0;
-
-    // spot light target
-    // var target = new THREE.Object3D();
-    // this.scene.add(target);
-    // this.spotLight.target = target;
-
-    // shadow
-    // this.spotLight.castShadow = true;
-    // this.spotLight.shadow.mapSize.width = 1024;
-    // this.spotLight.shadow.mapSize.height = 1024;
-    // this.spotLight.shadow.camera.near = 500;
-    // this.spotLight.shadow.camera.far = 4000;
-    // this.spotLight.shadow.camera.fov = 30;
+    this.pointLightCameraHelper = new THREE.CameraHelper(
+      this.pointLight.shadow.camera
+    );
+    // this.pointLightCameraHelper = false;
   }
 
   add() {
-    this.scene.add(this.directionalLight);
     this.scene.add(this.ambientLight);
-    this.scene.add(this.hemisphereLight);
-    this.scene.add(this.pointLight01);
-    this.scene.add(this.rectAreaLight);
+
+    this.scene.add(this.directionalLight);
+    this.scene.add(this.directionalLighCameratHelper);
+
     this.scene.add(this.spotLight);
-    this.scene.add(this.spotLight.target);
+    this.scene.add(this.spotLight.target); // spotlightはこのtargetをずっとをみてる
+    this.scene.add(this.spotLightCameraHelper);
+
+    this.scene.add(this.pointLight);
+    this.scene.add(this.pointLightCameraHelper);
   }
 
-  addHelper() {
-    // directional
-    // var dll = new THREE.DirectionalLightHelper(this.directionalLight, 20, '#ff0000');
-    // this.scene.add(dll);
-    // point
-    // var sphereSize = 10;
-    // var pll01 = new THREE.PointLightHelper( this.pointLight01, sphereSize );
-    // this.scene.add(pll01);
-    // var pll02 = new THREE.PointLightHelper( this.pointLight02, sphereSize );
-    // this.scene.add(pll02);
-    // var pll03 = new THREE.PointLightHelper( this.pointLight03, sphereSize );
-    // this.scene.add(pll03);
-    // spot
-    // this.slh = new THREE.SpotLightHelper(this.spotLight, '#ffffff');
-    // this.scene.add(this.slh);
-  }
+  addHelper() {}
 
   updateRotate() {
     var rotateX = gb.in.u.radian(gb.in.up.frame / 1);

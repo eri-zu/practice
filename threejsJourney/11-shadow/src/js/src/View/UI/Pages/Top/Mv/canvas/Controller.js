@@ -35,6 +35,8 @@ export default class Content extends Base {
     if (this.isRetina) this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(gb.r.w, gb.r.h);
     this.renderer.setClearColor(0x000000, 1.0);
+    this.renderer.shadowMap.enabled = false;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // shadowmapのアルゴリズム変える
     // this.renderer.setClearColor(0xffffff, 1.0);
 
     // append
