@@ -118,6 +118,7 @@ export default class Camera extends Base {
     var z = 3;
     this.z = z;
     this.camera.position.set(4, 2, 5);
+    // this.camera.position.set(5, 5, 5);
     this.camera.lookAt(new THREE.Vector3());
 
     log("z", z);

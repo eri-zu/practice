@@ -12,9 +12,13 @@ export default class Light extends Base {
   constructor(scene) {
     super();
 
+    this.isUEv = true;
+
     this.scene = scene;
 
     this.gui = new dat.GUI();
+
+    this.clock = new THREE.Clock();
 
     this.setup();
     this.setEvents();
@@ -33,21 +37,55 @@ export default class Light extends Base {
 
   ready() {
     // ambient
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    this.ambientLight = new THREE.AmbientLight(0xb9d5ff, 0.12);
     this.gui.add(this.ambientLight, "intensity").min(0).max(1).step(0.001);
 
     // directional light
-    this.moonLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    this.moonLight = new THREE.DirectionalLight(0xb9d5ff, 0.12);
     this.moonLight.position.set(4, 5, -2);
+    this.moonLight.castShadow = true;
+    this.moonLight.shadow.mapSize.width = 256;
+    this.moonLight.shadow.mapSize.height = 256;
+    this.moonLight.shadow.camera.far = 15;
     this.gui.add(this.moonLight, "intensity").min(0).max(1).step(0.001);
     this.gui.add(this.moonLight.position, "x").min(-5).max(5).step(0.001);
     this.gui.add(this.moonLight.position, "y").min(-5).max(5).step(0.001);
     this.gui.add(this.moonLight.position, "z").min(-5).max(5).step(0.001);
+
+    // door light
+    this.doorLight = new THREE.PointLight("#ff7d46", 1, 7);
+    this.doorLight.position.set(0, 2.2, 2.7);
+    this.doorLight.castShadow = true;
+    this.doorLight.shadow.mapSize.width = 256;
+    this.doorLight.shadow.mapSize.height = 256;
+    this.doorLight.shadow.camera.far = 7;
+
+    // ghost
+    this.ghost1 = new THREE.PointLight("#ff00ff", 2, 3);
+    this.ghost1.castShadow = true;
+    this.ghost2 = new THREE.PointLight("#00ffff", 2, 3);
+    this.ghost2.castShadow = true;
+    this.ghost3 = new THREE.PointLight("#ffff00", 2, 3);
+    this.ghost3.castShadow = true;
+
+    this.ghost1.shadow.mapSize.width = 256;
+    this.ghost1.shadow.mapSize.height = 256;
+    this.ghost1.shadow.camera.far = 7;
+    this.ghost2.shadow.mapSize.width = 256;
+    this.ghost2.shadow.mapSize.height = 256;
+    this.ghost2.shadow.camera.far = 7;
+    this.ghost3.shadow.mapSize.width = 256;
+    this.ghost3.shadow.mapSize.height = 256;
+    this.ghost3.shadow.camera.far = 7;
   }
 
   add() {
     this.scene.add(this.ambientLight);
     this.scene.add(this.moonLight);
+    this.scene.add(this.doorLight);
+    this.scene.add(this.ghost1);
+    this.scene.add(this.ghost2);
+    this.scene.add(this.ghost3);
   }
 
   addHelper() {
@@ -78,7 +116,27 @@ export default class Light extends Base {
   }
 
   update() {
-    if (this.slh) this.slh.update();
+    // if (this.slh) this.slh.update();
+    this.elapsedTime = this.clock.getElapsedTime();
+
+    this.ghost1Angle = this.elapsedTime * 0.5;
+    this.ghost1.position.x = Math.cos(this.ghost1Angle) * 4;
+    this.ghost1.position.z = Math.sin(this.ghost1Angle) * 4;
+    this.ghost1.position.y = Math.sin(this.elapsedTime * 3);
+
+    this.ghost2Angle = -this.elapsedTime * 0.32;
+    this.ghost2.position.x = Math.cos(this.ghost2Angle) * 5;
+    this.ghost2.position.z = Math.sin(this.ghost2Angle) * 5;
+    this.ghost2.position.y =
+      Math.sin(this.ghost2Angle * 4) + Math.sin(this.elapsedTime * 2.5);
+
+    this.ghost3Angle = -this.elapsedTime * 0.18;
+    this.ghost3.position.x =
+      Math.cos(this.ghost3Angle) * (7 + Math.sin(this.elapsedTime * 0.32));
+    this.ghost3.position.z =
+      Math.sin(this.ghost3Angle) * (7 + Math.sin(this.elapsedTime * 0.5));
+    this.ghost3.position.y =
+      Math.sin(this.ghost3Angle * 5) + Math.sin(this.elapsedTime * 2);
   }
 
   param() {

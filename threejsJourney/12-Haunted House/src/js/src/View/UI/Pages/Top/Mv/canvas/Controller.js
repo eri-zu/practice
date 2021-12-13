@@ -35,7 +35,9 @@ export default class Content extends Base {
     if (this.isRetina) this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(gb.r.w, gb.r.h);
     this.renderer.setClearColor(0x000000, 1.0);
-    // this.renderer.setClearColor(0xffffff, 1.0);
+    this.renderer.setClearColor(0x262837, 1.0); // fogと同じ色にするとシームレスになる
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     // append
     this.$wrap.prepend(this.renderer.domElement);
