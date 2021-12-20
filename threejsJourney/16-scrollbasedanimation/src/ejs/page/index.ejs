@@ -1,0 +1,30 @@
+<% var rootPATH = '../', contentsPATH = './top/', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja" class="htmlTop">
+  <head>
+    <%- include(rootPATH + 'inc/_meta', {data:data, meta:data['common']}); %>
+    <link href="<%- PATH %>assets/css/style.css" rel="stylesheet" />
+    <%- include(rootPATH + 'inc/_log'); %>
+  </head>
+  <body id="<%- page %>" class="">
+    <div id="wrapper" class="id_<%- page %>">
+      <div id="inner">
+        <%- include(rootPATH + 'parts/common/_header', {PATH: PATH}); %>
+
+        <section class="section">
+          <h1>My Portfolio</h1>
+        </section>
+        <section class="section">
+          <h2>My projects</h2>
+        </section>
+        <section class="section">
+          <h2>Contact me</h2>
+        </section>
+
+        <%- include(rootPATH + 'parts/common/_footer', {PATH: PATH}); %>
+      </div>
+    </div>
+
+    <%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+  </body>
+</html>

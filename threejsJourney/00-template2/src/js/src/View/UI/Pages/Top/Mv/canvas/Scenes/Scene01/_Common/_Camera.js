@@ -17,8 +17,8 @@ export default class Camera extends Base {
 
     this.fov = 75;
     this.aspect = gb.r.w / gb.r.h;
-    this.near = 1;
-    this.far = 50000;
+    this.near = 0.1;
+    this.far = 100;
 
     this.setup();
     this.create();
