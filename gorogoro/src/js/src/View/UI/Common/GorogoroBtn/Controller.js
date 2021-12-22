@@ -16,7 +16,7 @@ export default class Controller extends Base {
     this.isUEv = true;
     this.isREv = true;
 
-    this.$btn = $(".js-gorogorobtn");
+    this.btn = document.querySelector(".js-gorogorobtn");
 
     this.setup();
     this.setEvents();
@@ -28,7 +28,7 @@ export default class Controller extends Base {
 
   setParameter() {
     this.maxSt = document.body.clientHeight - window.innerHeight; // 最大スクロール量
-    this.maxDist = window.innerWidth - this.$btn.width(); // 最大移動距離
+    this.maxDist = window.innerWidth - this.btn.clientWidth; // 最大移動距離
     this.maxRotation = 360 * 4; // 最大回転数
 
     this.posX = 0;
@@ -37,15 +37,7 @@ export default class Controller extends Base {
 
   timeline() {}
 
-  update() {
-    // console.log("aaaa");
-    // this.posX += 0.1 * 2;
-    // this.rotaton += 0.1 * 2;
-    // gsap.set(this.$btn, {
-    //   x: this.posX,
-    //   rotation: this.rotaton,
-    // });
-  }
+  update() {}
 
   onResize() {
     this.setParameter();
@@ -60,7 +52,7 @@ export default class Controller extends Base {
     this.posX = m.map(st, 0, this.maxDist, 0, this.maxSt);
     this.rotation = m.map(st, 0, this.maxRotation, 0, this.maxSt);
 
-    gsap.set(this.$btn, {
+    gsap.set(this.btn, {
       x: this.posX,
       rotation: this.rotation,
     });
