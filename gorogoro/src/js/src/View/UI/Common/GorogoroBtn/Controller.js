@@ -12,11 +12,12 @@ export default class Controller extends Base {
   constructor() {
     super();
 
-    this.isSEv = true;
     this.isUEv = true;
     this.isREv = true;
 
     this.btn = document.querySelector(".js-gorogorobtn");
+    this.currentPosX = 0;
+    this.currentRotation = 0;
 
     this.setup();
     this.setEvents();
@@ -31,36 +32,39 @@ export default class Controller extends Base {
     this.maxDist = window.innerWidth - this.btn.clientWidth; // 最大移動距離
     this.maxRotation = 360 * 4; // 最大回転数
 
-    this.targetposX = 0;
-    this.targetrotation = 0;
+    this.targetPosX = 0;
+    this.targetRotation = 0;
   }
 
-  timeline() {}
+  update() {
+    // 目標値算出
+    this.calcTarget();
 
-  update() {}
+    // easing
+    this.currentPosX += (this.targetPosX - this.currentPosX) * 0.12;
+    this.currentRotation += (this.targetRotation - this.currentRotation) * 0.12;
+
+    // 動かす
+    gsap.set(this.btn, {
+      x: this.currentPosX,
+      rotation: this.currentRotation,
+    });
+  }
 
   onResize() {
     this.setParameter();
-    this.onScroll();
+    this.calcTarget();
   }
 
-  move(st) {
+  calcTarget() {
+    this.st = window.scrollY;
+
     // スクロール量をxとrotationに変換
     // this.st : 0 〜 this.maxSt
     // x : 0 〜 maxDist
     // rotation : 0 〜 360 * 4回転
-    this.targetposX = m.map(st, 0, this.maxDist, 0, this.maxSt);
-    this.targetrotation = m.map(st, 0, this.maxRotation, 0, this.maxSt);
-
-    gsap.set(this.btn, {
-      x: this.targetposX,
-      rotation: this.targetrotation,
-    });
-  }
-
-  onScroll() {
-    this.st = window.scrollY;
-    this.move(this.st);
+    this.targetPosX = m.map(this.st, 0, this.maxDist, 0, this.maxSt);
+    this.targetRotation = m.map(this.st, 0, this.maxRotation, 0, this.maxSt);
   }
 
   setEvents() {
