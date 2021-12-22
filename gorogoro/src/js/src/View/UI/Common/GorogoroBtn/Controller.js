@@ -31,8 +31,8 @@ export default class Controller extends Base {
     this.maxDist = window.innerWidth - this.btn.clientWidth; // 最大移動距離
     this.maxRotation = 360 * 4; // 最大回転数
 
-    this.posX = 0;
-    this.rotaton = 0;
+    this.targetposX = 0;
+    this.targetrotation = 0;
   }
 
   timeline() {}
@@ -49,12 +49,12 @@ export default class Controller extends Base {
     // this.st : 0 〜 this.maxSt
     // x : 0 〜 maxDist
     // rotation : 0 〜 360 * 4回転
-    this.posX = m.map(st, 0, this.maxDist, 0, this.maxSt);
-    this.rotation = m.map(st, 0, this.maxRotation, 0, this.maxSt);
+    this.targetposX = m.map(st, 0, this.maxDist, 0, this.maxSt);
+    this.targetrotation = m.map(st, 0, this.maxRotation, 0, this.maxSt);
 
     gsap.set(this.btn, {
-      x: this.posX,
-      rotation: this.rotation,
+      x: this.targetposX,
+      rotation: this.targetrotation,
     });
   }
 
