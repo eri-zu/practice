@@ -33,9 +33,10 @@ export default class Content extends Base {
     // renderer
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     if (this.isRetina) this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.setSize(gb.r.w, gb.r.h);
     this.renderer.setClearColor(0x000000, 1.0);
-    // this.renderer.setClearColor(0xffffff, 1.0);
 
     // append
     this.$wrap.prepend(this.renderer.domElement);
