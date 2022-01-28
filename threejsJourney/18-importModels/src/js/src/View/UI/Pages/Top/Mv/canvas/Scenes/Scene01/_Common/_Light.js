@@ -29,12 +29,18 @@ export default class Light extends Base {
 
   ready() {
     // directional light
-    this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    this.directionalLight.position.z = (gb.camera.z / 5) * 3;
-    this.directionalLight.position.y = 0;
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    this.directionalLight.castShadow = true;
+    this.directionalLight.shadow.mapSize.set(1024, 1024);
+    this.directionalLight.shadow.camera.far = 15;
+    this.directionalLight.shadow.camera.left = -7;
+    this.directionalLight.shadow.camera.top = 7;
+    this.directionalLight.shadow.camera.right = 7;
+    this.directionalLight.shadow.camera.bottom = -7;
+    this.directionalLight.position.set(5, 5, 5);
 
     // ambient
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 
     // point
     this.pointLight01 = new THREE.PointLight(0x00ff00, 30, 500, 10);
@@ -72,14 +78,14 @@ export default class Light extends Base {
   add() {
     this.scene.add(this.directionalLight);
 
-    // this.scene.add(this.ambientLight);
+    this.scene.add(this.ambientLight);
 
     // this.scene.add(this.pointLight01);
     // this.scene.add(this.pointLight02);
     // this.scene.add(this.pointLight03);
     // this.scene.add(this.pointLight01, this.pointLight02, this.pointLight03);
 
-    this.scene.add(this.spotLight);
+    // this.scene.add(this.spotLight);
   }
 
   addHelper() {
