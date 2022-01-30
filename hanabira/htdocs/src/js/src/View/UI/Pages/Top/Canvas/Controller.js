@@ -66,6 +66,10 @@ export default class Controller extends Base {
   onResize() {
     this.canvas.width = window.innerWidth * gb.conf.devicePixelRatio;
     this.canvas.height = window.innerHeight * gb.conf.devicePixelRatio;
+
+    for (let i = 0; i < this.array.length; i++) {
+      this.array[i].onResize();
+    }
   }
 
   setEvents() {
