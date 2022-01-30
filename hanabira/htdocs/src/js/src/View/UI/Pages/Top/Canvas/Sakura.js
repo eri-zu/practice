@@ -56,7 +56,7 @@ export default class Sakura extends Base {
 
     this.position = {
       x: Math.random() * this.canvas.width,
-      y: Math.random() * this.canvas.height,
+      y: -Math.random() * this.canvas.height,
     };
   }
 
@@ -103,9 +103,11 @@ export default class Sakura extends Base {
     // this.ctx.restore();
 
     // reset
-    if (this.position.y > this.canvas.height + this.size.h) {
-      this.reset();
-    }
+    if (this.finished()) this.reset();
+  }
+
+  finished() {
+    return this.position.y > this.canvas.height + this.size.h;
   }
 
   reset() {
