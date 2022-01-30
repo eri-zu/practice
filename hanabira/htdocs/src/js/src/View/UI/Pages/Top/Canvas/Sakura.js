@@ -19,6 +19,8 @@ export default class Sakura extends Base {
     this.ctx = ctx;
     this.img = img;
 
+    this.ctx.globalCompositeOperation = "multiply";
+
     this.setup();
     this.setEvents();
   }
@@ -43,17 +45,14 @@ export default class Sakura extends Base {
     this.degreeH = Math.random() * 360;
     this.degreeHV = 1;
 
-    this.init();
-  }
-
-  init() {
+    // サイズ
     this.per = Math.min(1, window.innerWidth / 1280);
-
     this.size = {
       w: 15 * this.randomScale * gb.conf.devicePixelRatio * this.per,
       h: 18.5 * this.randomScale * gb.conf.devicePixelRatio * this.per,
     };
 
+    // position
     this.position = {
       x: Math.random() * this.canvas.width,
       y: -Math.random() * this.canvas.height,
@@ -111,12 +110,25 @@ export default class Sakura extends Base {
   }
 
   reset() {
-    this.position.y = 0 - this.size.h; // 画面外に出たら上に戻す
+    this.position = {
+      x: Math.random() * this.canvas.width,
+      y: 0 - this.size.h, // 画面外に出たら上に戻す
+    };
     this.vy = this.randomScale / 0.5; // 空気抵抗
   }
 
   onResize() {
-    this.init();
+    this.per = Math.min(1, window.innerWidth / 1280);
+
+    this.size = {
+      w: 15 * this.randomScale * gb.conf.devicePixelRatio * this.per,
+      h: 18.5 * this.randomScale * gb.conf.devicePixelRatio * this.per,
+    };
+
+    this.position = {
+      x: Math.random() * this.canvas.width,
+      y: Math.random() * this.canvas.height,
+    };
   }
 
   setEvents() {
