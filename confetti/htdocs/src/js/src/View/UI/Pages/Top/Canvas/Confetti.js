@@ -45,17 +45,16 @@ export default class Confetti extends Base {
     this.degreeH = Math.random() * 360;
     this.degreeHV = 3;
 
-    this.colors = [
+    // 色
+    const colors = [
       ["#df0049", "#660671"],
       ["#00e857", "#005291"],
       ["#2bebbc", "#05798a"],
       ["#ffd200", "#b06c00"],
     ];
-
-    this.frontColor =
-      this.colors[Math.round(Math.random() * (this.colors.length - 1))][0];
-    this.backColor =
-      this.colors[Math.round(Math.random() * (this.colors.length - 1))][1];
+    const i = Math.round(Math.random() * (colors.length - 1));
+    this.frontColor = colors[i][0];
+    this.backColor = colors[i][1];
 
     this.init();
   }
