@@ -48,6 +48,7 @@ export default class Controller extends Base {
   }
 
   update() {
+    // return;
     this.ctx.clearRect(
       0,
       0,
