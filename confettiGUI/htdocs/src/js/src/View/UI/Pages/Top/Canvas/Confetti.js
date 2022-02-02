@@ -25,25 +25,28 @@ export default class Confetti extends Base {
   setup() {
     // 大きさランダム係数
     this.randomScale = {
-      w: m.randomInt(8, 10),
-      h: m.randomInt(8, 15),
+      w: m.randomInt(gb.guiParameter.widthMin, gb.guiParameter.widthMax),
+      h: m.randomInt(gb.guiParameter.heightMin, gb.guiParameter.heightMax),
     };
 
     // 位置y
-    this.vy = m.randomInt(5, 10);
+    this.vy = m.randomInt(gb.guiParameter.vyMin, gb.guiParameter.vyMax);
 
     // 位置x
-    this.radiusX = m.randomInt(-5, 5);
+    this.radiusX = m.randomInt(
+      gb.guiParameter.radiusXMin,
+      gb.guiParameter.radiusXMax
+    );
     this.degreeX = Math.random() * 360;
     this.degreeXV = m.randomInt(0.1, 1);
 
     // 回転
     this.rotation = Math.random() * 360;
-    this.rotationV = 3;
+    this.rotationV = gb.guiParameter.rotationV;
 
     // 高さ
     this.degreeH = Math.random() * 360;
-    this.degreeHV = 3;
+    this.degreeHV = gb.guiParameter.degreeHV;
 
     // 色
     const colors = [
@@ -86,15 +89,15 @@ export default class Confetti extends Base {
     this.position.x += this.vx;
     this.degreeX += this.degreeXV;
 
-    // // 落下
+    // 落下
     this.vy *= 0.9999; // 空気抵抗
     this.position.y += this.vy;
 
-    // // 高さ（※高さ変えてx軸に沿って回転してる風に見せる）
+    // 高さ（※高さ変えてx軸に沿って回転してる風に見せる）
     this.changedH = Math.cos(m.radian(this.degreeH)) * this.size.h;
     this.degreeH += this.degreeHV;
 
-    // // 回転
+    // 回転
     this.rotation += this.rotationV;
 
     // 描画 method1
@@ -114,8 +117,33 @@ export default class Confetti extends Base {
   }
 
   reset() {
-    this.position.y = 0 - this.size.h; // 画面外に出たら上に戻す
-    this.vy = m.randomInt(5, 10);
+    // 大きさランダム係数
+    this.randomScale = {
+      w: m.randomInt(gb.guiParameter.widthMin, gb.guiParameter.widthMax),
+      h: m.randomInt(gb.guiParameter.heightMin, gb.guiParameter.heightMax),
+    };
+
+    // 位置y
+    this.vy = m.randomInt(gb.guiParameter.vyMin, gb.guiParameter.vyMax);
+
+    // 位置x
+    this.radiusX = m.randomInt(
+      gb.guiParameter.radiusXMin,
+      gb.guiParameter.radiusXMax
+    );
+    this.degreeX = Math.random() * 360;
+    this.degreeXV = m.randomInt(0.1, 1);
+
+    // 回転
+    this.rotation = Math.random() * 360;
+    this.rotationV = gb.guiParameter.rotationV;
+
+    // 高さ
+    this.degreeH = Math.random() * 360;
+    this.degreeHV = gb.guiParameter.degreeHV;
+
+    // 画面外に出たら上に戻す
+    this.position.y = 0 - this.size.h;
   }
 
   onResize() {

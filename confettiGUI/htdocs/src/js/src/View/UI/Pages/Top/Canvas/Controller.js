@@ -31,12 +31,22 @@ export default class Controller extends Base {
     this.canvas.width = window.innerWidth * gb.conf.devicePixelRatio;
     this.canvas.height = window.innerHeight * gb.conf.devicePixelRatio;
 
-    this.parameter = {
-      number: 600,
+    gb.guiParameter = {
+      number: 100,
+      widthMin: 8,
+      widthMax: 10,
+      heightMin: 8,
+      heightMax: 15,
+      vyMin: 5,
+      vyMax: 10,
+      degreeHV: 3,
+      rotationV: 3,
+      radiusXMin: -5,
+      radiusXMax: 5,
     };
 
     this.gui
-      .add(this.parameter, "number")
+      .add(gb.guiParameter, "number")
       .min(0)
       .max(500)
       .step(5)
@@ -44,10 +54,107 @@ export default class Controller extends Base {
         this.ready();
         this.display();
       });
+
+    this.gui
+      .add(gb.guiParameter, "widthMin")
+      .min(1)
+      .max(50)
+      .step(5)
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "widthMax")
+      .min(1)
+      .max(50)
+      .step(5)
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "heightMin")
+      .min(1)
+      .max(50)
+      .step(1)
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "heightMax")
+      .min(1)
+      .max(50)
+      .step(1)
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "vyMin")
+      .min(1)
+      .max(50)
+      .step(1)
+      .name("speedYMin")
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "vyMax")
+      .min(1)
+      .max(50)
+      .step(1)
+      .name("speedYMax")
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "degreeHV")
+      .min(0)
+      .max(30)
+      .step(0.1)
+      .name("rotation3D")
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "rotationV")
+      .min(0)
+      .max(30)
+      .step(0.1)
+      .name("rotation2D")
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "radiusXMin")
+      .min(-30)
+      .max(30)
+      .step(0.1)
+      .name("rangeXMin")
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
+    this.gui
+      .add(gb.guiParameter, "radiusXMax")
+      .min(-30)
+      .max(30)
+      .step(0.1)
+      .name("rangeXMax")
+      .onFinishChange(() => {
+        this.ready();
+        this.display();
+      });
   }
 
   ready() {
-    const len = this.parameter.number;
+    const len = gb.guiParameter.number;
     this.array = [];
 
     for (let i = 0; i < len; i++) {
