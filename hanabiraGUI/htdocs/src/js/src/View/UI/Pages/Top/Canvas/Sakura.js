@@ -122,39 +122,13 @@ export default class Sakura extends Base {
   }
 
   reset() {
-    // this.position = {
-    //   x: Math.random() * this.canvas.width,
-    //   y: 0 - this.size.h, // 画面外に出たら上に戻す
-    // };
-    // this.vy = this.randomScale / 0.5; // 空気抵抗
+    // 空気抵抗
+    this.vy = this.randomScale / 0.5;
 
-    // 大きさランダム係数
-    this.randomScale = m.randomInt(
-      gb.guiParameter.scaleMin,
-      gb.guiParameter.scaleMax
-    );
+    // xどっか行きすぎることあるのでこれもリセット
+    this.position.x = Math.random() * this.canvas.width;
 
-    // 位置y（大きいほど早く落ちる）
-    this.vy =
-      (this.randomScale / gb.guiParameter.scaleMin) * gb.guiParameter.vy;
-
-    // 位置x
-    this.radiusX = m.randomInt(
-      gb.guiParameter.radiusXMin,
-      gb.guiParameter.radiusXMax
-    );
-    this.degreeX = Math.random() * 360;
-    this.degreeXV = m.randomInt(0.1, 1);
-
-    // 回転
-    this.rotation = Math.random() * 360;
-    // this.rotationV = m.randomInt(1, 2);
-    this.rotationV = gb.guiParameter.rotationV;
-
-    // 高さ
-    this.degreeH = Math.random() * 360;
-    this.degreeHV = gb.guiParameter.degreeHV;
-
+    // 画面外に出たら上に戻す
     this.position.y = 0 - this.size.h;
   }
 

@@ -32,7 +32,7 @@ export default class Controller extends Base {
     this.img.src = "./assets/resource/img/sakura.png";
 
     gb.guiParameter = {
-      number: 100,
+      number: 1,
       scaleMin: 0.5,
       scaleMax: 2,
       vy: 1,
