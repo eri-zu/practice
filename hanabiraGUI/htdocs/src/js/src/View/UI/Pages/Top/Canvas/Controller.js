@@ -44,16 +44,16 @@ export default class Controller extends Base {
 
     this.gui
       .add(gb.guiParameter, "number")
-      .min(0)
+      .min(1)
       .max(500)
-      .step(5)
+      .step(1)
       .onFinishChange(() => {
         this.ready();
         this.display();
       });
     this.gui
       .add(gb.guiParameter, "scaleMin")
-      .min(0)
+      .min(0.1)
       .max(10)
       .step(0.1)
       .onFinishChange(() => {
@@ -62,7 +62,7 @@ export default class Controller extends Base {
       });
     this.gui
       .add(gb.guiParameter, "scaleMax")
-      .min(0)
+      .min(0.1)
       .max(10)
       .step(0.1)
       .onFinishChange(() => {
@@ -71,8 +71,8 @@ export default class Controller extends Base {
       });
     this.gui
       .add(gb.guiParameter, "vy")
-      .min(1)
-      .max(10)
+      .min(0.1)
+      .max(50)
       .step(0.1)
       .name("speedY")
       .onFinishChange(() => {
@@ -82,7 +82,7 @@ export default class Controller extends Base {
     this.gui
       .add(gb.guiParameter, "degreeHV")
       .min(0)
-      .max(10)
+      .max(30)
       .step(0.1)
       .name("rotation3D")
       .onFinishChange(() => {
@@ -91,7 +91,7 @@ export default class Controller extends Base {
       });
     this.gui
       .add(gb.guiParameter, "rotationV")
-      .min(0)
+      .min(0.1)
       .max(30)
       .step(0.1)
       .name("rotation2D")
