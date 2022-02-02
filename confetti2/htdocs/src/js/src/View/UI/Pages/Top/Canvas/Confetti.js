@@ -30,10 +30,11 @@ export default class Confetti extends Base {
     };
 
     // 位置y
-    this.vy = m.randomInt(5, 10);
+    this.vy = m.randomInt(40, 50);
+    this.g = 0.8;
 
     // 位置x
-    this.radiusX = m.randomInt(-5, 5);
+    this.radiusX = m.randomInt(-8, 8);
     this.degreeX = Math.random() * 360;
     this.degreeXV = m.randomInt(0.1, 1);
 
@@ -44,6 +45,9 @@ export default class Confetti extends Base {
     // 高さ
     this.degreeH = Math.random() * 360;
     this.degreeHV = 3;
+
+    // 打ち上げ速度
+    this.force = 2;
 
     // 色
     const colors = [
@@ -68,8 +72,8 @@ export default class Confetti extends Base {
     };
 
     this.position = {
-      x: Math.random() * this.canvas.width,
-      y: Math.random() * this.canvas.height,
+      x: m.randomInt(this.canvas.width / 2 - 100, this.canvas.width / 2 + 100),
+      y: m.randomInt(this.canvas.height - 100, this.canvas.height),
     };
   }
 
@@ -81,14 +85,23 @@ export default class Confetti extends Base {
   }
 
   draw() {
+    /**
+     * 打ち上げ
+     */
+
+    /**
+     * 落下
+     */
     // 蛇行
     this.vx = Math.sin(m.radian(this.degreeX)) * this.radiusX;
     this.position.x += this.vx;
     this.degreeX += this.degreeXV;
 
     // // 落下
-    this.vy *= 0.9999; // 空気抵抗
-    this.position.y += this.vy;
+    // this.vy *= 0.9999; // 空気抵抗
+    this.vy -= this.g;
+    this.position.y -= this.vy;
+    console.log(this.vy);
 
     // // 高さ（※高さ変えてx軸に沿って回転してる風に見せる）
     this.changedH = Math.cos(m.radian(this.degreeH)) * this.size.h;
@@ -109,7 +122,8 @@ export default class Confetti extends Base {
 
     // reset
     if (this.position.y > this.canvas.height + this.size.h) {
-      this.reset();
+      // this.reset();
+      return;
     }
   }
 
