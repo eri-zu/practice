@@ -23,6 +23,11 @@ export default class Confetti extends Base {
   }
 
   setup() {
+    this.setParameter();
+    this.init();
+  }
+
+  setParameter() {
     // 大きさランダム係数
     this.randomScale = {
       w: m.randomInt(gb.guiParameter.widthMin, gb.guiParameter.widthMax),
@@ -58,8 +63,6 @@ export default class Confetti extends Base {
     const i = Math.round(Math.random() * (colors.length - 1));
     this.frontColor = colors[i][0];
     this.backColor = colors[i][1];
-
-    this.init();
   }
 
   init() {
@@ -117,30 +120,12 @@ export default class Confetti extends Base {
   }
 
   reset() {
-    // 大きさランダム係数
-    this.randomScale = {
-      w: m.randomInt(gb.guiParameter.widthMin, gb.guiParameter.widthMax),
-      h: m.randomInt(gb.guiParameter.heightMin, gb.guiParameter.heightMax),
-    };
+    // 速度リセット
+    // this.vy = m.randomInt(gb.guiParameter.vyMin, gb.guiParameter.vyMax);
 
-    // 位置y
-    this.vy = m.randomInt(gb.guiParameter.vyMin, gb.guiParameter.vyMax);
-
-    // 位置x
-    this.radiusX = m.randomInt(
-      gb.guiParameter.radiusXMin,
-      gb.guiParameter.radiusXMax
-    );
-    this.degreeX = Math.random() * 360;
-    this.degreeXV = m.randomInt(0.1, 1);
-
-    // 回転
-    this.rotation = Math.random() * 360;
-    this.rotationV = gb.guiParameter.rotationV;
-
-    // 高さ
-    this.degreeH = Math.random() * 360;
-    this.degreeHV = gb.guiParameter.degreeHV;
+    // 全部リセット
+    this.setParameter();
+    this.init();
 
     // 画面外に出たら上に戻す
     this.position.y = 0 - this.size.h;

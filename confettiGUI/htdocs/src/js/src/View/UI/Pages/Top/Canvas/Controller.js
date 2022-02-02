@@ -26,11 +26,17 @@ export default class Controller extends Base {
   }
 
   setup() {
+    /**
+     * canvas
+     */
     this.canvas = document.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.canvas.width = window.innerWidth * gb.conf.devicePixelRatio;
     this.canvas.height = window.innerHeight * gb.conf.devicePixelRatio;
 
+    /**
+     * GUI
+     */
     gb.guiParameter = {
       number: 100,
       widthMin: 8,
@@ -47,19 +53,18 @@ export default class Controller extends Base {
 
     this.gui
       .add(gb.guiParameter, "number")
-      .min(0)
+      .min(1)
       .max(500)
       .step(5)
       .onFinishChange(() => {
         this.ready();
         this.display();
       });
-
     this.gui
       .add(gb.guiParameter, "widthMin")
       .min(1)
       .max(50)
-      .step(5)
+      .step(0.1)
       .onFinishChange(() => {
         this.ready();
         this.display();
@@ -68,7 +73,7 @@ export default class Controller extends Base {
       .add(gb.guiParameter, "widthMax")
       .min(1)
       .max(50)
-      .step(5)
+      .step(0.1)
       .onFinishChange(() => {
         this.ready();
         this.display();
@@ -77,7 +82,7 @@ export default class Controller extends Base {
       .add(gb.guiParameter, "heightMin")
       .min(1)
       .max(50)
-      .step(1)
+      .step(0.1)
       .onFinishChange(() => {
         this.ready();
         this.display();
@@ -86,16 +91,16 @@ export default class Controller extends Base {
       .add(gb.guiParameter, "heightMax")
       .min(1)
       .max(50)
-      .step(1)
+      .step(0.1)
       .onFinishChange(() => {
         this.ready();
         this.display();
       });
     this.gui
       .add(gb.guiParameter, "vyMin")
-      .min(1)
+      .min(0.1)
       .max(50)
-      .step(1)
+      .step(0.1)
       .name("speedYMin")
       .onFinishChange(() => {
         this.ready();
@@ -103,9 +108,9 @@ export default class Controller extends Base {
       });
     this.gui
       .add(gb.guiParameter, "vyMax")
-      .min(1)
+      .min(0.1)
       .max(50)
-      .step(1)
+      .step(0.1)
       .name("speedYMax")
       .onFinishChange(() => {
         this.ready();
@@ -113,7 +118,7 @@ export default class Controller extends Base {
       });
     this.gui
       .add(gb.guiParameter, "degreeHV")
-      .min(0)
+      .min(0.1)
       .max(30)
       .step(0.1)
       .name("rotation3D")
@@ -123,7 +128,7 @@ export default class Controller extends Base {
       });
     this.gui
       .add(gb.guiParameter, "rotationV")
-      .min(0)
+      .min(0.1)
       .max(30)
       .step(0.1)
       .name("rotation2D")
@@ -169,7 +174,6 @@ export default class Controller extends Base {
   }
 
   update() {
-    // return;
     this.ctx.clearRect(
       0,
       0,
