@@ -16,6 +16,7 @@ import * as THREE from "three";
 // import Plane from './Basics/Plane.js';
 // import Cube from './Basics/Cube/Cube_shaderMaterial.js';
 import Cube from "./Basics/Cube/Controller.js";
+import MyModel from "./MyModel/Controller.js";
 // import Polygon from './Basics/Polygon.js';
 // import Circle from './Basics/Circle.js';
 // import Img from './Basics/Img/Img_shaderMaterial.js';
@@ -52,7 +53,8 @@ export default class Objects extends Base {
     // this.CurvedLine = new CurvedLine(this.scene, this.camera);
     // this.Triangle = new Triangle(this.scene, this.camera);
     // this.Plane = new Plane(this.scene, this.camera);
-    this.Cube = new Cube(this.scene, this.camera, this.renderer);
+    // this.Cube = new Cube(this.scene, this.camera, this.renderer);
+    this.MyModel = new MyModel(this.scene, this.camera, this.renderer);
     // this.Polygon = new Polygon(this.scene, this.camera);
     // this.Circle = new Circle(this.scene, this.camera);
     // this.Img = new Img(this.scene, this.camera);
