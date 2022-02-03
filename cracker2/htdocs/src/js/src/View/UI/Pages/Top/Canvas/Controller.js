@@ -11,6 +11,7 @@ import gsap from "gsap";
 import { CustomEase } from "@BALANCeLibs/View/gsap/CustomEase/CustomEase.js";
 import { Conf } from "@/Conf";
 import Particle from "./Particle";
+import Firework from "./Firework";
 
 export default class Controller extends Base {
   constructor() {
@@ -20,6 +21,11 @@ export default class Controller extends Base {
     this.ctx = this.canvas.getContext("2d");
     this.canvas.width = window.innerWidth * gb.conf.devicePixelRatio;
     this.canvas.height = window.innerHeight * gb.conf.devicePixelRatio;
+
+    // backgroundcolor
+    this.ctx.beginPath();
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
     this.isREv = true;
     this.isUEv = true;
@@ -33,33 +39,39 @@ export default class Controller extends Base {
   }
 
   ready() {
-    this.firework = new Particle(
-      m.randomInt(0, this.canvas.width),
-      m.randomInt(0, this.canvas.height),
-      this.canvas,
-      this.ctx
-    );
+    this.fireworks = [];
   }
 
   update() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    // リセット
+    // 透明度0.25で余韻が残るように
+    this.ctx.beginPath();
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-    this.firework.update();
+    if (Math.random() < 0.03) {
+      // 10%の確率でpush
+      this.fireworks.push(new Firework(this.canvas, this.ctx));
+    }
 
-    // if (this.array) {
-    //   for (let i = 0; i < this.array.length; i++) {
-    //     this.array[i].draw();
-    //   }
-    // }
+    for (let i = this.fireworks.length - 1; i >= 0; i--) {
+      this.fireworks[i].update();
+      this.fireworks[i].show();
+
+      if (this.fireworks[i].done()) this.fireworks.splice(i, 1);
+
+      console.log(this.fireworks.length);
+    }
   }
 
   onResize() {
     this.canvas.width = window.innerWidth * gb.conf.devicePixelRatio;
     this.canvas.height = window.innerHeight * gb.conf.devicePixelRatio;
 
-    for (let i = 0; i < this.array.length; i++) {
-      this.array[i].onResize();
-    }
+    // for (let i = 0; i < this.array.length; i++) {
+    //   this.array[i].onResize();
+    // }
   }
 
   setEvents() {
