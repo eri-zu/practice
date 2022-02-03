@@ -41,10 +41,13 @@ export default class Plane extends Base {
 
     /**
      * material
+     * RawShaderMaterialになってもmaterial propertyのうちいくつかは引き継がれる
+     * map, alphamap, opacity, colorらへんは無理
      */
     this.material = new THREE.RawShaderMaterial({
       vertexShader: testVertexShader,
       fragmentShader: testFragmentShader,
+      side: THREE.DoubleSide, // 裏表描画
     });
 
     /**
