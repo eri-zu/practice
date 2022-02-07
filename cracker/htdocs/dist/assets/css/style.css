@@ -499,6 +499,13 @@ body {
 *   .wrapper .inner
 *
 -------------------------------------------------------------------------------- */
+#inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 /* --------------------------------------------------------------------------------
 *
 *   opacity
@@ -1137,6 +1144,23 @@ a:active {
 *   section01
 *
 -------------------------------------------------------------------------------- */
+}
+
+#wrapper.id_top .modal {
+  width: 520px;
+  height: 300px;
+  max-height: calc(100vh - 80px);
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrapper.id_top .modal__txt {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Arial;
 }
 
 canvas {

@@ -46,7 +46,6 @@ export default class Controller extends Base {
       // 最上部に到達したら爆発
       if (this.firework.vel.y >= 0) {
         this.exploded = true;
-
         this.explode();
       }
     }
