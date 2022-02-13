@@ -10,7 +10,7 @@ import gsap from "gsap";
 import { CustomEase } from "@BALANCeLibs/View/gsap/CustomEase/CustomEase.js";
 import { Conf } from "@/Conf";
 
-import Canvas from "./Canvas/Controller";
+import Canvas from "./Canvas/CrackerController";
 
 export default class Controller extends Base {
   constructor() {

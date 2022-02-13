@@ -60,7 +60,6 @@ export default class Plane extends Base {
 
     const positions = new Float32Array(this.parameters.count * 3);
     const colors = new Float32Array(this.parameters.count * 3);
-
     const colorInside = new THREE.Color(this.parameters.insideColor);
     const colorOutside = new THREE.Color(this.parameters.outsideColor);
 
@@ -70,9 +69,11 @@ export default class Plane extends Base {
       // --------------------------
       // position
       // --------------------------
-      const radius = Math.random() * this.parameters.radius;
+      // galaxy 半径
+      const radius = Math.random() * this.parameters.radius; // 0 - 5 半径
 
-      // i % this.parameters.branches : 0, 1, 2, 0, 1, 2, 0, 1, 2 ...
+      // 線の数
+      // i % this.parameters.branches : 0, 1, 2, 0, 1, 2, 0, 1, 2 ... （indexみたいな）
       // (i % this.parameters.branches) / this.parameters.branches) : 0, 0.33, 0.66, 0, 0.33, 0.66, 0, 0.33, 0.66 ...
       const branchAngle =
         ((i % this.parameters.branches) / this.parameters.branches) *
@@ -85,8 +86,10 @@ export default class Plane extends Base {
       // const randomX = (Math.random() - 0.5) * this.parameters.randomness;
       // const randomY = (Math.random() - 0.5) * this.parameters.randomness;
       // const randomZ = (Math.random() - 0.5) * this.parameters.randomness;
-
+      // ↓
       // 乗算（pow）を利用してブランチの中心ほど密集してるようにする
+      // Math.pow(Math.random(), this.parameters.randomnessPower) : 真ん中に密集させる
+      // * (Math.random() < 0.5 ? 1 : -1) : 値がpositiveだけだったので、negativeも織り交ぜる
       const randomX =
         Math.pow(Math.random(), this.parameters.randomnessPower) *
         (Math.random() < 0.5 ? 1 : -1);
@@ -105,7 +108,7 @@ export default class Plane extends Base {
       // color
       // --------------------------
       const mixedColor = colorInside.clone();
-      mixedColor.lerp(colorOutside, radius / this.parameters.radius);
+      mixedColor.lerp(colorOutside, radius / this.parameters.radius); // radius / this.parameters.radiusが0だと全てcolorInside, 1だと全てcolorOutsideになる
 
       colors[i3] = mixedColor.r;
       colors[i3 + 1] = mixedColor.g;

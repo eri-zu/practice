@@ -7,7 +7,7 @@
 import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 
-export default class Confetti extends Base {
+export default class Particle extends Base {
   constructor(x, y, canvas, ctx) {
     super();
 
@@ -15,7 +15,7 @@ export default class Confetti extends Base {
     this.y = y;
     this.canvas = canvas;
     this.ctx = ctx;
-    this.explode = false;
+    this.startFallDown = false; // 落下開始
     this.life = 1;
 
     this.setup();
@@ -69,19 +69,19 @@ export default class Confetti extends Base {
   }
 
   draw() {
-    // 蛇行（爆発後は蛇行なし）
-    if (!this.explode) {
+    // 蛇行（落下するときは蛇行なし）
+    if (!this.startFallDown) {
       this.vx = Math.sin(m.radian(this.degreeX)) * this.radiusX;
       this.pos.x += this.vx;
       this.degreeX += this.degreeXV;
     }
 
     // 落下
-    if (this.explode) this.vy *= 0.9; // スローダウンで落ちる
+    if (this.startFallDown) this.vy *= 0.9; // スローダウンで落ちる
     this.vy += this.gravity;
     this.pos.y += this.vy;
 
-    // 高さ（※高さ変えてx軸に沿って回転してる風に見せる）
+    // 高さ（※高さ変えて奥向きに回転してる風に見せる）
     this.changedH = Math.cos(m.radian(this.degreeH)) * this.size.h;
     this.degreeH += this.degreeHV;
 
@@ -89,12 +89,12 @@ export default class Confetti extends Base {
     this.rotation += this.rotationV;
 
     // life（爆発後から減っていく）
-    if (this.explode) this.life -= 0.01;
+    if (this.startFallDown) this.life -= 0.01;
 
     // 描画 method1
     this.ctx.translate(this.pos.x, this.pos.y);
     this.ctx.rotate(m.radian(this.rotation));
-    this.ctx.fillStyle = this.explode
+    this.ctx.fillStyle = this.startFallDown
       ? `rgba(${this.colors.r[this.colorindex]}, ${
           this.colors.g[this.colorindex]
         }, ${this.colors.b[this.colorindex]}, ${this.life})`
@@ -107,11 +107,8 @@ export default class Confetti extends Base {
 
     // exlode
     if (this.vy >= 0) {
-      this.explode = true;
+      this.startFallDown = true;
     }
-
-    // reset
-    if (this.pos.y > this.canvas.height + this.size.h) return;
   }
 
   done() {

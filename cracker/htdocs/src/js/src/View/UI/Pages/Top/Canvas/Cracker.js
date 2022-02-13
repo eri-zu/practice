@@ -8,7 +8,7 @@ import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 import Particle from "./Particle";
 
-export default class Controller extends Base {
+export default class Cracker extends Base {
   constructor(x, y, canvas, ctx) {
     super();
 
