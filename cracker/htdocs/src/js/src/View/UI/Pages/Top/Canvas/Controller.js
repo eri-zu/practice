@@ -11,8 +11,8 @@ export default class Controller extends Base {
   constructor() {
     super();
 
-    this.isREv = true;
-    this.isUEv = true;
+    this.isREv = true; // resize
+    this.isUEv = true; // update
 
     this.setup();
     this.setEvents();
@@ -25,21 +25,6 @@ export default class Controller extends Base {
     this.canvas.height = window.innerHeight * gb.conf.devicePixelRatio;
 
     this.crackers = [];
-    // this.display();
-  }
-
-  display() {
-    // this.crackers.push(
-    //   new Cracker(
-    //     this.canvas.width / 2 + m.randomInt(-350, 350),
-    //     this.canvas.height / 2,
-    //     this.canvas,
-    //     this.ctx
-    //   )
-    // );
-    // for (let i = 0; i < this.crackers.length; i++) {
-    //   this.crackers[i].display();
-    // }
   }
 
   update() {
@@ -50,8 +35,8 @@ export default class Controller extends Base {
       window.innerHeight * gb.conf.devicePixelRatio
     );
 
+    // frequency（2%の確率で打ち上げ）
     if (Math.random() < 0.02) {
-      // frequency（2%の確率で打ち上げ）
       this.crackers.push(
         new Cracker(
           this.canvas.width / 2 +

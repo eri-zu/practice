@@ -24,7 +24,6 @@ export default class Controller extends Base {
 
   setup() {
     this.ready();
-    // this.display();
   }
 
   ready() {
@@ -34,12 +33,6 @@ export default class Controller extends Base {
     for (let i = 0; i < len; i++) {
       this.particles.push(new Particle(this.x, this.y, this.canvas, this.ctx));
     }
-  }
-
-  display() {
-    // for (let i = 0; i < this.particles.length; i++) {
-    //   this.particles[i].display();
-    // }
   }
 
   update() {

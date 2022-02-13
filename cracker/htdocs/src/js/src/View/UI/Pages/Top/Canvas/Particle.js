@@ -11,10 +11,10 @@ export default class Confetti extends Base {
   constructor(x, y, canvas, ctx) {
     super();
 
-    this.canvas = canvas;
-    this.ctx = ctx;
     this.x = x;
     this.y = y;
+    this.canvas = canvas;
+    this.ctx = ctx;
     this.explode = false;
     this.life = 1;
 
@@ -63,18 +63,9 @@ export default class Confetti extends Base {
     };
 
     this.pos = {
-      // x: m.randomInt(this.canvas.width / 2 - 100, this.canvas.width / 2 + 100),
-      // y: m.randomInt(this.canvas.height - 100, this.canvas.height),
       x: this.x,
       y: this.y,
     };
-  }
-
-  display() {
-    // this.ctx.fillStyle = this.frontColor;
-    // this.ctx.beginPath();
-    // this.ctx.rect(this.pos.x, this.pos.y, this.size.w, this.size.h);
-    // this.ctx.fill();
   }
 
   draw() {
@@ -97,7 +88,7 @@ export default class Confetti extends Base {
     // 回転
     this.rotation += this.rotationV;
 
-    // life（爆発してたら減っていく）
+    // life（爆発後から減っていく）
     if (this.explode) this.life -= 0.01;
 
     // 描画 method1
