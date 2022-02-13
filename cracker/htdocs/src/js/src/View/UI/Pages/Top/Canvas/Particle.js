@@ -8,7 +8,7 @@ import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 
 export default class Particle extends Base {
-  constructor(x, y, canvas, ctx) {
+  constructor(x, y, canvas, ctx, direction, angle) {
     super();
 
     this.x = x;
@@ -17,6 +17,16 @@ export default class Particle extends Base {
     this.ctx = ctx;
     this.startFallDown = false; // 落下開始
     this.life = 1;
+
+    const forcePower = Math.random() * 30 + 10; // 打ち上げる力
+    direction -= angle / 2; // 円錐型の開始の角度
+    direction += Math.random() * angle; // 広がりの中で様々な角度
+
+    this.forceVec = {
+      x: Math.cos(m.radian(direction)) * forcePower,
+      y: Math.sin(m.radian(direction)) * forcePower,
+    };
+    console.log(direction, this.forceVec);
 
     this.setup();
     this.setEvents();
@@ -28,10 +38,10 @@ export default class Particle extends Base {
     // 位置x
     this.radiusX = m.randomInt(-8, 8);
     this.degreeX = Math.random() * 360;
-    this.degreeXV = m.randomInt(0.1, 1);
+    this.degreeXV = 0; //m.randomInt(0.1, 1);
 
     // 位置y
-    this.vy = m.randomInt(-20, -40);
+    this.vy = m.randomInt(-20, -40); // 全体的に上にあげる力
     this.gravity = 0.8;
 
     // 回転
@@ -71,15 +81,20 @@ export default class Particle extends Base {
   draw() {
     // 蛇行（落下するときは蛇行なし）
     if (!this.startFallDown) {
-      this.vx = Math.sin(m.radian(this.degreeX)) * this.radiusX;
-      this.pos.x += this.vx;
-      this.degreeX += this.degreeXV;
+      // this.vx = Math.sin(m.radian(this.degreeX)) * this.radiusX;
+      // this.pos.x += this.vx;
+      // this.degreeX += this.degreeXV;
     }
 
     // 落下
-    if (this.startFallDown) this.vy *= 0.9; // スローダウンで落ちる
+    // if (this.startFallDown) this.vy *= 0.9; // スローダウンで落ちる
+    this.vy *= 0.9; // スローダウンで落ちる
     this.vy += this.gravity;
-    this.pos.y += this.vy;
+    this.pos.y += this.vy + this.forceVec.y;
+    this.pos.x += this.forceVec.x;
+
+    this.forceVec.x *= 0.95;
+    this.forceVec.y *= 0.95;
 
     // 高さ（※高さ変えて奥向きに回転してる風に見せる）
     this.changedH = Math.cos(m.radian(this.degreeH)) * this.size.h;

@@ -30,8 +30,17 @@ export default class Cracker extends Base {
     const len = 50;
     this.particles = [];
 
+    // 飛ばす方向（軸） -90で真上  度
+    // const direction = -120 + Math.random() * 90; // -30 〜 -120
+    const direction = m.randomInt(-140, -40); // -30 〜 -120
+
+    // 広がり 度
+    const angle = 45;
+
     for (let i = 0; i < len; i++) {
-      this.particles.push(new Particle(this.x, this.y, this.canvas, this.ctx));
+      this.particles.push(
+        new Particle(this.x, this.y, this.canvas, this.ctx, direction, angle)
+      );
     }
   }
 
