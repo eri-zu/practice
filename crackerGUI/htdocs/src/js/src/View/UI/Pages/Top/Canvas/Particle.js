@@ -40,7 +40,7 @@ export default class Particle extends Base {
     this.degreeXV = 0; //m.randomInt(0.1, 1);
 
     // 位置y
-    this.vy = m.randomInt(-20, -40); // 全体的に上にあげる力
+    this.vy = m.randomInt(-20, -50); // 全体的に上にあげる力
     this.gravity = 0.8;
 
     // 回転

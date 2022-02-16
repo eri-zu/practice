@@ -16,23 +16,6 @@ export default class Cow {
     this.mesh.rotateY(Math.PI / 2);
   }
 
-  createAttribute() {
-    const geometry = this.mesh.geometry;
-    const position = geometry.getAttribute('position').array;
-    const positionLength = position.length;
-    const delay = [];
-
-    for (let i = 0; i < positionLength; i += 9) {
-      const delayValue = Math.random() * 0.5;
-      delay.push(delayValue, delayValue, delayValue);
-    }
-
-    geometry.setAttribute('delay', new THREE.Float32BufferAttribute(delay, 1));
-  }
-
-  setNoiseTexture(texture) {
-    this.noiseTexture = texture;
-  }
 
   createMaterial() {
     const material = new THREE.RawShaderMaterial({
@@ -50,6 +33,24 @@ export default class Cow {
     });
 
     return material;
+  }
+
+  createAttribute() {
+    const geometry = this.mesh.geometry;
+    const position = geometry.getAttribute('position').array;
+    const positionLength = position.length;
+    const delay = [];
+
+    for (let i = 0; i < positionLength; i += 9) {
+      const delayValue = Math.random() * 0.5;
+      delay.push(delayValue, delayValue, delayValue);
+    }
+
+    geometry.setAttribute('delay', new THREE.Float32BufferAttribute(delay, 1));
+  }
+
+  setNoiseTexture(texture) {
+    this.noiseTexture = texture;
   }
 
   update(deltaTime) {

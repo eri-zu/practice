@@ -78,6 +78,8 @@ export default class CrackerController extends Base {
       this.crackers[i].update();
       if (this.crackers[i].done()) this.crackers.splice(i, 1);
     }
+
+    console.log(this.crackers.length);
   }
 
   onResize() {
