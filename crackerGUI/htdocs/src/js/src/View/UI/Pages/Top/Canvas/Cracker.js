@@ -28,7 +28,7 @@ export default class Cracker extends Base {
   }
 
   ready() {
-    const len = 50;
+    const len = gb.parameters.amount;
     this.particles = [];
 
     // 飛ばす方向（軸） -90で真上  度

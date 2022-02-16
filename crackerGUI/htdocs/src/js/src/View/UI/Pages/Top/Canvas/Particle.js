@@ -18,7 +18,7 @@ export default class Particle extends Base {
     this.startFallDown = false; // 落下開始
     this.life = 1;
 
-    const forcePower = Math.random() * gb.parameters.power + 10; // 打ち上げる力
+    const forcePower = Math.random() * gb.parameters.power + 5; // 打ち上げる力
     direction -= angle / 2; // 円錐型の開始の角度
     direction += Math.random() * angle; // 広がりの中で様々な角度
 

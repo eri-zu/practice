@@ -18,15 +18,17 @@ export default class CrackerController extends Base {
 
     gb.gui = new dat.GUI();
     gb.parameters = {
+      amount: 100,
       frequency: 0.02,
       spreadAngle: 45,
       centerAngleMin: -40,
       centerAngleMax: -140,
-      power: 30, // 30
-      weak: 0.95, // 0.95
-      fallDownSpeed: 0.9,
+      power: 60, // 30
+      weak: 0.9, // 0.95
+      fallDownSpeed: 0.88, // 0.8
     };
 
+    gb.gui.add(gb.parameters, "amount").min(20).max(200).step(10);
     gb.gui.add(gb.parameters, "frequency").min(0).max(0.2).step(0.001);
     gb.gui.add(gb.parameters, "spreadAngle").min(0).max(120).step(10);
     gb.gui.add(gb.parameters, "centerAngleMin").min(-180).max(0).step(10);
