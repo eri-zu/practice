@@ -1,0 +1,52 @@
+<% var rootPATH = '../', contentsPATH = './top/', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja" class="page_top">
+<head>
+<%- include(rootPATH + 'inc/_meta', {data:data, meta:data['common']}); %>
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/common.css" rel="stylesheet">
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+<%- include(rootPATH + 'inc/_log'); %>
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper">
+<div id="inner">
+
+	<div class="block"></div>
+	<div class="taps"></div>
+
+	<%- include(rootPATH + 'parts/common/_header', {page:page, PATH: PATH}); %>
+	<%- include(rootPATH + 'parts/common/_header_lower2', {page:page, PATH: PATH}); %>
+	
+	<div class="sectionWrap id_top"><%- include(contentsPATH + '_top', {page:page, PATH: PATH}); %></div>
+	<div class="sectionWrap id_talk"><%- include(contentsPATH + '_talk', {page:page, PATH: PATH}); %></div>
+	<div class="sectionWrap id_warikan"><%- include(contentsPATH + '_warikan', {page:page, PATH: PATH}); %></div>
+	<div class="sectionWrap id_tap"><%- include(contentsPATH + '_tap', {page:page, PATH: PATH}); %></div>
+	<div class="sectionWrap id_tour"><%- include(contentsPATH + '_tour', {page:page, PATH: PATH}); %></div>
+	<div class="sectionWrap id_cm"><%- include(contentsPATH + '_cm', {page:page, PATH: PATH}); %></div>
+
+	<%- include(rootPATH + 'parts/common/_footer', {page:page, PATH: PATH}); %>
+
+</div>
+</div>
+
+<!-- common -->
+<div class="jimbeamCommon">
+	<%- include(rootPATH + 'parts/_age', {PATH: PATH}); %>
+	<%- include(rootPATH + 'parts/_menu', {PATH: PATH}); %>
+	<%- include(rootPATH + 'parts/_landscape', {PATH: PATH}); %>
+
+	<!-- cover -->
+	<div class="coverWrap"><div class="cover"></div></div>
+
+	<!-- taps -->
+	<div class="tapsX"></div>
+
+	<!-- base -->
+	<div class="base"><%- include('../../../dist/assets/resource/svg/top/tap.svg'); %></div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+</body>
+</html>

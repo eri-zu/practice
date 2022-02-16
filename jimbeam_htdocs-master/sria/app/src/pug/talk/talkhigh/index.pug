@@ -1,0 +1,56 @@
+extends ../../_base/_layout
+block vars
+  - var path = '.';
+block title
+  title= title
+block append meta
+block append link
+  link(rel="stylesheet", href=`${path}/assets/css/style.css`)
+block body
+  #wrapper.wrapper
+    header.header
+      h1.header__logo.jsDelayAnime
+        a.jsSeLogo(href="../../", data-color="toTop")
+          img(src=`${path}/assets/images/logo_jim_beadm_tap.png`, alt="JIM BEAM TAP")
+      h2.header__title.header__title--top.jsDelayAnime
+        img(src=`${path}/assets/images/title_talkhigh_top.png`, alt="トークHIGH！")
+      span.header__menu.jsDelayAnime.open_modal.jsSeBtn
+    main.main
+      .jsDelayAnime
+        p.lead
+          |使える会話ネタをお届け！
+          br
+          |日頃話しにくい話題も振ってみよう！
+      .content
+        ul.talkThemes.jsDelayAnime
+          li.talkTheme.talkTheme--work
+            a.jsSeNextLink.notTransition(href="./detail?theme=work")
+              include ./svg/button_start_work.svg
+          li.talkTheme.talkTheme--money
+            a.jsSeNextLink.notTransition(href="./detail?theme=money")
+              include ./svg/button_start_money.svg
+          li.talkTheme.talkTheme--love
+            a.jsSeNextLink.notTransition(href="./detail?theme=love")
+              include ./svg/button_start_love.svg
+          li.talkTheme.talkTheme--personality
+            a.jsSeNextLink.notTransition(href="./detail?theme=personality")
+              include ./svg/button_start_personality.svg
+          li.talkTheme.talkTheme--free
+            a.jsSeNextLink.notTransition(href="./detail?theme=free")
+              include ./svg/button_start_free.svg
+          li.talkTheme.talkTheme--life
+            a.jsSeNextLink.notTransition(href="./detail?theme=life")
+              include ./svg/button_start_life.svg
+          li.talkTheme.talkTheme--season
+            a.jsSeNextLink.notTransition(href="./detail?theme=season")
+              include ./svg/button_start_season.svg
+          li.talkTheme.talkTheme--random
+            a.jsSeNextLink.notTransition(href="./detail?theme=random")
+              include ./svg/button_start_random.svg
+    footer.footer
+      a#backBtn.backBtn.jsDelayAnime(href="../../?page=talk", data-color="toTop")
+        include ./svg/button_back_talk.svg
+      small.copy.jsDelayAnime
+        img(src=`${path}/assets/images/copy.png`, alt="COPYRIGHT SUNTORY HOLDINGS LIMITED. ALL RIGHTS REVERVED.")
+block append script
+  script(src=`${path}/assets/js/app.bundle.js?v=${Date.now()}`)

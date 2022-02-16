@@ -1,0 +1,784 @@
+@charset "UTF-8";
+// ========================================
+// Foundation
+// ========================================
+@import "foundation/functions/*.*";
+@import "foundation/variables/*.*";
+@import "foundation/mixins/*.*";
+@import "~normalize.css";
+@import "foundation/base/default";
+//========================================
+// Venders
+//========================================
+@import "venders/*.*";
+//========================================
+// Layout
+//========================================
+@import "layout/*.*";
+//========================================
+// Components
+//========================================
+@import "components/*.*";
+//========================================
+// Utility
+//========================================
+@import "utility/*.*";
+
+html {
+  background: url('../img/craftsman/common/bg.png') no-repeat center center/cover;
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+  font-feature-settings : "palt" 1;
+  letter-spacing: 0.04em;
+  overflow-x: hidden;
+}
+
+#craftsmanWrapper {
+  position: relative;
+  width: vw(750);
+  height: vw(1334);
+  overflow: hidden;
+}
+
+#container {
+  width: vw(750);
+  height: vw(1334);
+  background: url('../img/craftsman/common/bg.png') no-repeat center center/cover;
+}
+#craftsman_header {
+  .logo {
+    position: absolute;
+    left: vw(39);
+    top: vw(33);
+    width: vw(116);
+    height: vw(91);
+    z-index: 1;
+  }
+  .title {
+    position: absolute;
+    left: vw(230);
+    top: vw(36);
+    width: vw(296);
+    height: vw(70);
+    visibility: hidden;
+    z-index: 1;
+  }
+  .menu_trigger {
+    position: absolute;
+    left: vw(658);
+    top: vw(35);
+    width: vw(54);
+    height: vw(52);
+    z-index: 1;
+  }
+}
+
+img,svg {
+  vertical-align: top;
+}
+
+.scene {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  /* =============================================== */
+  /** scene共通 */
+  /* ----------------------------------------------- */
+  .copyright {
+    position: absolute;
+    left: vw(182);
+    // top: vw(1295);
+    bottom: vw(30);
+    width: vw(385);
+    height: vw(12);
+    &.black {
+      path {
+        fill: black;
+      }
+    }
+    path {
+      fill: white;
+    }
+  }
+  .btn_backto_tap {
+    position: absolute;
+    left: vw(118);
+    // top: vw(1168);
+    bottom: vw(80);
+    width: vw(514);
+    height: vw(88);
+    img {
+      width: 100%;
+    }
+  }
+
+  // dummy ///////////////////////////
+  &#top {
+    .btn_play {
+      position: absolute;
+      left: vw(355);
+      top: vw(804);
+      width: vw(361*2);
+      height: vw(377*2);
+    }
+    .craftman {
+      position: absolute;
+      left: vw(30);
+      top: vw(264);
+      width: vw(320);
+      // height: vw(778);
+    }
+    .shoulder_title {
+      position: absolute;
+      left: vw(243);
+      top: vw(84);
+      width: vw(254);
+      height: vw(29);
+    }
+    .title {
+      position: absolute;
+      left: vw(94);
+      top: vw(138);
+      width: vw(571);
+      height: vw(90);
+    }
+    .sub_title {
+      position: absolute;
+      left: vw(181);
+      top: vw(248);
+      width: vw(388);
+      height: vw(25);
+    }
+
+    .lead {
+      position: absolute;
+      left: vw(383);
+      top: vw(368);
+      width: vw(317);
+      height: vw(366);
+      svg {
+        width: vw(317);
+        height: vw(366);
+        overflow: visible;
+      }
+
+    }
+  }
+  &#game {
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: vw(600);
+      background: #42210b;
+    }
+    #choices {
+      &.disabled {
+        pointer-events: none;
+        // display: none;
+      }
+      position: absolute;
+      left: vw(44);
+      top: vw(760);
+      width: vw(662);
+      height: vw(368);
+      background: url('../img/craftsman/game/choices.svg') no-repeat center top/contain;
+      .part {
+        width: vw(138); //ほんとのサイズ
+        // width: vw(110);
+        height: vw(252);
+        // background-color: rgba(blue,0.4);
+        position: absolute;
+        top: vw(100);
+        // filter: drop-shadow(6px 6px 0px rgba(black,0.4));
+        // backface-visibility: hidden;
+        transform: scale(0.8);
+        &:before,
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-repeat: no-repeat;
+          background-position: top center;
+          background-size: 100% 100%;
+        }
+        @for $i from 1 through 10 {
+          &.part#{$i} {
+            $j: $i - 1;
+            &:before {
+              background-image: url('../img/craftsman/game/cask_part#{$i}_shadow.png');
+              left: vw(12);
+              top: vw(12);
+              opacity: 0.6;
+            }
+            &:after {
+              background-image: url('../img/craftsman/game/cask_part#{$i}.png');
+            }
+          }
+        }
+        $posUniit: 120;
+        $offset: 22;
+        &.pos1 {
+          left: vw($posUniit * 0 + $offset);
+        }
+        &.pos2 {
+          left: vw($posUniit * 1 + $offset);
+        }
+        &.pos3 {
+          left: vw($posUniit * 2 + $offset);
+        }
+        &.pos4 {
+          left: vw($posUniit * 3 + $offset);
+        }
+        &.pos5 {
+          left: vw($posUniit * 4 + $offset);
+        }
+      }
+    }
+    #stage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: vw(600);
+      width: 100%;
+      overflow: hidden;
+      #conveyor {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: vw(1482);
+        height: vw(154);
+        background: url('../img/craftsman/game/conveyor.png') repeat-x;
+        background-size: vw(1482) vw(154);
+      }
+    }
+    .cask {
+      position: absolute;
+      left: 100%;
+      bottom: vw(52);
+      z-index: 0;
+      &:before {
+        content: '';
+        display: block;
+        border-radius: 50%;
+        width: vw(226);
+        height: vw(74);
+        background: #000;
+        position: absolute;
+        right: vw(4);
+        bottom: vw(-4);
+        z-index: -1;
+      }
+      .item {
+        width: vw(262);
+        height: vw(351);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: contain;
+        background-image: url('../img/craftsman/game/cask_all.png');
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-repeat: no-repeat;
+          background-position: top center;
+          background-size: contain;
+        }
+      }
+      @for $i from 1 through 10 {
+        &.type#{$i} .item:after {
+          background-image: url('../img/craftsman/game/cask#{$i}.png');
+        }
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../img/craftsman/game/cask_disabled.png') no-repeat center top/contain;
+      }
+      &.clear {
+        &:after {
+          content: none;
+        }
+        .item:after {
+          content: none;
+        }
+      }
+      &.active {
+        .item {
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: vw(-64);
+            transform: translateX(-50%);
+            border-top: solid 22px #de3232;
+            border-left: solid 10px transparent;
+            border-right: solid 10px transparent;
+            // border-top: solid vw(22) #de3232;
+          }
+        }
+        &:after {
+          content: none;
+        }
+      }
+    }
+    #timer {
+      position: absolute;
+      left: 50%;
+      top: vw(172);
+      transform: translate(-50%,0);
+      .counter {
+        display: flex;
+        > div {
+          height: vw(64);
+          margin: vw(4);
+          &.n {
+            width: vw(56);
+            overflow: hidden;
+            position: relative;
+            background: url('../img/craftsman/game/timer_base.svg') no-repeat center center;
+            background-size: contain !important;
+            img {
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: vw(64);
+              width: vw(560);
+              display: block;
+            }
+          }
+          &.colon {
+            width: vw(24);
+            background: url('../img/craftsman/game/timer_colon.svg') no-repeat center center;
+            background-size: contain !important;
+          }
+        }
+      }
+      .extend {
+        position: absolute;
+        left: 105%;
+        top: 0;
+        font-weight: bold;
+        color: red;
+        line-height: vw(64);
+        visibility: hidden;
+        // background: #000;
+        opacity: 0;
+      }
+    }
+    #texts {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      img {
+        position: absolute;
+        left: 50%;
+        // transform: translate(-50%, 0);
+        &.go {
+          top: vw(310);
+          width: vw(430);
+          height: vw(196);
+          margin-left: vw(-430/2);
+        }
+        &.good {
+          top: vw(170);
+          width: vw(436);
+          height: vw(210);
+          margin-left: vw(-436/2);
+        }
+        &.miss {
+          top: vw(262);
+          width: vw(458);
+          height: vw(112);
+          margin-left: vw(-458/2);
+        }
+        &.speedup {
+          top: vw(280);
+          width: vw(642);
+          height: vw(98);
+          margin-left: vw(-642/2);
+        }
+      }
+    }
+    #timeup {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba( #000, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+  }
+  &#result {
+    // background: green;
+    #caskWrap {
+      position: absolute;
+      left: 50%;
+      top: vw(170);
+      transform: translate(-50%,0);
+      display: flex;
+      width: vw(630);
+      height: vw(340);
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      // background: rgba(red,0.3);
+    }
+    #resultCasks {
+      display: inline-flex;
+      flex-wrap: wrap;
+      // justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      // background: rgba(red,0.3);
+      max-width: vw(630);
+      height: vw(340);
+      img {
+        width: vw(56);
+        display: block;
+        margin: vw(10);
+        // transform-origin: 50% 100%;
+      }
+      &.small1 { //33個以上
+        img {
+          width: vw(40);
+          margin: vw(8);
+        }
+      }
+      &.small2 { //56個以上
+        img {
+          width: vw(30);
+          margin: vw(6);
+        }
+      }
+      &.small3 { //106個以上171個以下
+        img {
+          width: vw(25);
+          margin: vw(4);
+        }
+      }
+    }
+    #ranking {
+      position: absolute;
+      left: vw(37*2);
+      top: vw(67*2);
+      width: vw(300*2);
+      height: vw(280*2);
+      background: url('../img/craftsman/result/ranking_board.svg') no-repeat center center;
+      background-size: contain;
+      color: #fff;
+      font-weight: bold;
+      font-size: vw(36);
+      visibility: hidden;
+      ul {
+        padding: vw(80) vw(30) 0;
+        li {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: vw(5);
+          align-items: center;
+          .amount {
+            width: vw(130);
+          }
+          .name {
+            width: vw(240);
+          }
+          &:before {
+            content: '';
+            display: block;
+            width: vw(19*2);
+            height: vw(12*2);
+            background-position: center;
+            background-size: contain;
+            margin-right: vw(30);
+          }
+          &.rank1 {
+            &:before {
+              background-image: url('../img/craftsman/result/crown_gold.svg');
+            }
+            color: #fbec57;
+          }
+          &.rank2 {
+            &:before {
+              background-image: url('../img/craftsman/result/crown_silver.svg');
+            }
+          }
+          &.rank3 {
+            &:before {
+              background-image: url('../img/craftsman/result/crown_bronze.svg');
+            }
+          }
+        }
+      }
+    }
+    .title {
+      width: vw(630);
+      height: vw(340);
+      position: absolute;
+      left: vw(60);
+      top: vw(170);
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: vw(640);
+      }
+    }
+    .text {
+      display: flex;
+      justify-content: flex-end;
+      width: vw(630);
+      position: absolute;
+      left: vw(60);
+      top: vw(540);
+      // background: rgba(red,0.5);
+      img {
+        display: block;
+        &.ext {
+          align-self: flex-end;
+          width: vw(60);
+        }
+        &.score {
+          width: vw(160);
+          margin: 0 auto 0 0;
+        }
+      }
+      
+      .nums {
+        // background: rgba(red,0.3);
+        display: flex;
+        // flex-shrink: 1;
+        height: vw(142.8);
+        .num {
+          overflow: hidden;
+          height: vw(142.2);
+          width: vw(127.8);
+          img {
+            // flex-shrink: 1;
+            height: vw(142.2);
+            width: vw(1350);
+          }
+
+        }
+      }
+    }
+    .preload {
+      display: none;
+    }
+    .footer {
+      background: #42210b;
+      position: absolute;
+      height: vw(600);
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      padding: vw(40);
+      #name {
+        display: none;
+        font-size: vw(120);
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        margin: vw(10) 0 vw(30);
+
+      }
+      .worldrank {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .t {
+          width: vw(189*2);
+        }
+        .a {
+          width: vw(7.5*2);
+        }
+        .rank {
+          color: #fff;
+          font-size: vw(52);
+          font-weight: bold;
+        }
+      }
+      .form {
+        margin-top: vw(20);
+        .field {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          input {
+            -webkit-appearance: none;
+            -webkit-touch-callout:none;
+            border: none;
+            width: vw(420);
+            height: vw(88);
+            display: block;
+            font-size: vw(44);
+            line-height: vw(44);
+            font-weight: bold;
+            padding: 0 vw(20);
+            outline: 0;
+            border-radius: 0;
+            &::placeholder {
+              // background: red;
+              display: block;
+              color:#ccc;
+              padding: vw(12) 0;
+              line-height: vw(44);
+            }
+          }
+          .submit {
+            display: block;
+            width: vw(113*2);
+            height: vw(47*2);
+          }
+        }
+        .note {
+          color: #b3b3b3;
+          font-size: vw(22);
+          line-height: 1.5;
+          margin-top: vw(8);
+        }
+      }
+      .btn_retry {
+        width: vw(260*2);
+        position: absolute;
+        left: 50%;
+        margin: 0 0 0 vw(-256);
+        bottom: vw(200);
+      }
+    }
+  }
+}
+.modal {
+  $duration: 0.2s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(black,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  // transition: visibility $duration linear, opacity $duration linear ;
+  .modalInner {
+    // visibility: hidden;
+    transform: scale(0.7);
+    transition: transform $duration $easeInCubic;
+  }
+  &.active {
+    .modalInner {
+      transition: transform $duration $easeOutCubic;
+      transform: scale(1);
+    }
+  }
+  //modal
+  .howtoBase {
+    width: vw(600);
+    height: vw(996);
+    .num1,
+    .num2,
+    .num3 {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  &.quit {
+    background: rgba(black,0.9);
+    .quitBase {
+      width: vw(600);
+      height: vw(510);
+    }
+  }
+  .noTouch {
+    pointer-events: none;
+  }
+}
+#debug {
+  position: absolute;
+  // left: vw(10);
+  top: vw(10);
+  right: vw(10);
+  left: vw(10);
+  background: rgba(black,0.6);
+  border-radius: vw(20);
+  padding: vw(20) vw(30);
+  z-index: 10;
+  display: none;
+  form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+    span {
+      display: block;
+      width: vw(250);
+      color: white;
+      font-weight: bold;
+      font-size: vw(20);
+      margin-right: vw(10);
+    }
+    input {
+      border: 1px solid #999;
+      width: vw(60);
+      background: none;
+      text-align: center;
+      height: vw(60);
+      color: white;
+      padding: 0;
+    }
+  }
+  input[type=submit] {
+    // background: white;
+    background: rgba(black, 0.4);
+    border: 1px solid #999;
+    color: white;
+    width: 100%;
+    height: vw(60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-top: vw(30);
+  }
+
+}

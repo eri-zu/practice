@@ -1,0 +1,144 @@
+extends ../../_base/_layout
+block vars
+  - var path = '.';
+block title
+  title= title
+block append meta
+block append link
+  link(rel="stylesheet", href=`${path}/assets/css/style.css`)
+block body
+  #wrapper.wrapper
+    #tutorial.tutorial
+      img.jsDelayAnime(src=`${path}/assets/images/text_tutorial.png`, alt="遅れて来た人など、支払いを少なくしたい人数を入れよう！")
+    span.header__menu.header__menu--smart.jsDelayAnime.open_modal.jsSeBtn
+    h1.header__logo.jsDelayAnime
+      a.jsSeLogo(href="../../", data-color="toTop")
+        img(src=`${path}/assets/images/logo_jim_beadm_tap.png`, alt="JIM BEAM TAP")
+    #app
+      header.header(:class="{headerDetail: !inputShow}")
+        h2.header__title(:class="{headerTitleDetail: !inputShow}")
+          img.jsDelayAnime(src=`${path}/assets/images/title_smart_top.png`, alt="スマート割り勘")
+      main.main
+        .content
+          transition(name="fade")
+            .input(v-show="inputShow")
+              .jsDelayAnime
+                p.lead
+                  |さくっと入力して便利な割り勘！
+              ul.form
+                li.formItem.jsDelayAnime
+                  label.label.label--totalAmount(for="totalAmount")
+                    img(src=`${path}/assets/images/text_total_amount.png`, alt="合計金額")
+                  .inputWrapper
+                    input#totalAmount(type="number", v-model.number="totalAmount")
+                  .unit.unit--yen
+                    img(src=`${path}/assets/images/text_yen.png`, alt="円")
+                li.formItem.jsDelayAnime
+                  label.label.label--donation(for="donation")
+                    img(src=`${path}/assets/images/text_donation.png`, alt="カンパ")
+                  .inputWrapper
+                    input#donation(type="number", v-model.number="donation")
+                  .unit.unit--yen
+                    img(src=`${path}/assets/images/text_yen.png`, alt="円")
+                li.formItem.jsDelayAnime
+                  label.label.label--totalPeople(for="totalPeople")
+                    img(src=`${path}/assets/images/text_total_people.png`, alt="合計人数")
+                  .inputWrapper
+                    input#totalPeople(type="number", v-model.number="totalPeople")
+                  .unit.unit--person
+                    img.unit(src=`${path}/assets/images/text_person.png`, alt="人")
+                li.formItem.jsDelayAnime
+                  label.label.label--smallPeople(for="smallAmountPeople")
+                    img(src=`${path}/assets/images/text_small_people.png`, alt="少額の人")
+                  .inputWrapper
+                    input#smallAmountPeople(type="number", v-model.number="smallAmountPeople")
+                  .unit.unit--person
+                    img.unit(src=`${path}/assets/images/text_person.png`, alt="人")
+                li.formItem.formItem--check.jsDelayAnime
+                  .checkWrapper.jsSeBtn(:class="{ jsActive: round }")
+                    input#round(type="checkbox", v-model="round")
+                  label(for="round") 100円単位で計算
+              button#submitBtn.submitButton.jsDelayAnime
+                include ./svg/button_submit.svg
+          transition(name="fade", v-cloak)
+            .confirm(v-show="confirmShow")
+              .viewMoneyWrapper
+                .confirmTotalAmount
+                  span 支払い額
+                  span {{ amount | formatNumber }}円
+              ul.amountDetails
+                li.amountDetailItem
+                  span.amountDetailItem__label 合計金額
+                  span.amountDetailItem__value {{ totalAmount | formatNumber }}円
+                li.amountDetailItem
+                  span.amountDetailItem__label カンパ
+                  span.amountDetailItem__value {{ donation | formatNumber }}円
+                li.amountDetailItem
+                  span.amountDetailItem__label 合計人数
+                  span.amountDetailItem__value {{ totalPeople | formatNumber }}人
+              .adjustment
+                .adjustmentViews
+                  .adjustmentView.adjustmentView--normal
+                    .adjustmentView__label 通常支払いの人({{ normalAmountPeople | formatNumber }}人)
+                    .adjustmentView__value {{ normalAmount | formatNumber }}円
+                  .adjustmentView.adjustmentView--small
+                    .adjustmentView__label 少額の人({{ smallAmountPeople | formatNumber }}人)
+                    .adjustmentView__value {{ smallAmount | formatNumber }}円
+                .adjustmentSlider
+                  .sliderBar
+                    #sliderValue.sliderBar__value(:style="{ width: sliderValueWidth }")
+                    input#slider(type="range", min="0.1", max="0.9" step="0.1", v-model="rate", :disabled="sliderDisabled")
+                .adjustmentHead
+                  img(src=`${path}/assets/images/text_adjust_slider.png`, alt="このスライダーで値段を調整！")
+              .form.form--confirm
+                li.formItem.formItem--check
+                  .checkWrapper.jsSeBtn(:class="{ jsActive: round }")
+                    input#roundConfirm(type="checkbox", v-model="round")
+                  label(for="roundConfirm") 100円単位で計算
+              .confirmButtons
+                button#backInputBtn.prevButton
+                  include ./svg/button_prev.svg
+                button#toCollectBtn.collectButton
+                  include ./svg/button_collect.svg
+          transition(name="fade", v-cloak)
+            .collect(v-show="collectShow")
+              .viewMoneyWrapper.viewMoneyWrapper--collect
+                .collectTotal
+                  span 現在の集金額
+                  span {{ collectTotal | formatNumber }}円
+              ul.amountDetails
+                li.amountDetailItem
+                  span.amountDetailItem__label 合計金額
+                  span.amountDetailItem__value {{ totalAmount | formatNumber }}円
+                li.amountDetailItem
+                  span.amountDetailItem__label カンパ
+                  span.amountDetailItem__value {{ donation | formatNumber }}円
+                li.amountDetailItem
+                  span.amountDetailItem__label 合計人数
+                  span.amountDetailItem__value {{ totalPeople | formatNumber }}人
+              .collectButtonsWrapper
+                ul#collectButtons.collectButtons
+                  li#collectNormalBtn.collectItem.collectItem--normal
+                    span.collectItem__label 通常払い({{ normalAmountPeople | formatNumber }}人)
+                    span.collectItem__value のこり{{ normalCollectPeople | formatNumber }}人!
+                    .base
+                      include ./svg/bg_collect_normal.svg
+                  li#collectSmallBtn.collectItem.collectItem--small
+                    span.collectItem__label 少額の人({{ smallAmountPeople | formatNumber }}人)
+                    span.collectItem__value のこり{{ smallCollectPeople | formatNumber }}人!
+                    .base
+                      include ./svg/bg_collect_small.svg
+                .collectHead
+                  img(src=`${path}/assets/images/text_collect_button.png`, alt="タップしてカウントしておこう！")
+              .collectBackButton
+                button#backConfirmBtn.prevButton
+                  include ./svg/button_prev.svg
+    footer.footer
+      a#backBtn.backBtn.jsDelayAnime(href="../../?page=warikan", data-color="toTop")
+        include ./svg/button_back.svg
+      small.copy.jsDelayAnime
+        img(src=`${path}/assets/images/copy.png`, alt="COPYRIGHT SUNTORY HOLDINGS LIMITED. ALL RIGHTS REVERVED.")
+block append script
+  //- script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+  script(src="https://cdn.jsdelivr.net/npm/vue")
+  script(src=`${path}/assets/js/app.bundle.js?v=${Date.now()}`)

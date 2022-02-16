@@ -1,0 +1,128 @@
+@charset 'utf-8';
+
+.form {
+  margin-top: vw(30);
+}
+
+.formItem {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  .label {
+    text-align: right;
+    width: 30%;
+
+    &--totalAmount img {width: vw(85);}
+    &--donation img {width: vw(56);}
+    &--totalPeople img {width: vw(83);}
+    &--smallPeople img {width: vw(81);}
+  }
+
+  .inputWrapper {
+    overflow: hidden;
+    padding: vw(10) 0;
+    position: relative;
+    transform: translateY(-30%);
+    width: 50%;
+
+    input {
+      appearance: none;
+      background-color: #fff;
+      border: none;
+      color: #f77c2f;
+      font-size: vw(22);
+      font-weight: bold;
+      outline: 0;
+      padding: vw(5) vw(25);
+      text-align: right;
+      transform: skew(-5deg) rotate(-5deg) translateX(-10%);
+      width: 120%;
+    }
+  }
+
+  .unit {
+    height: auto;
+
+    img {
+      width: 100%;
+      transform: translateY(#{vw(-20)});
+    }
+
+    &--yen {
+      width: vw(17);
+    }
+
+    &--person {
+      width: vw(19);
+    }
+  }
+
+  &--check {
+    align-items: center;
+    justify-content: center;
+    margin-top: vw(10);
+
+    .checkWrapper {
+      background: url('../images/bg_checkbox.png') center no-repeat;
+      background-size: contain;
+      height: vw(36);
+      position: relative;
+      width: vw(39);
+
+      &.jsActive {
+        &::after {
+          background: url('../images/icon_check.png') center no-repeat;
+          background-size: contain;
+          content: '';
+          height: vw(20);
+          left: 50%;
+          pointer-events: none;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: vw(27);
+        }
+      }
+
+      input[type="checkbox"] {
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        height: 100%;
+        outline: 0;
+        width: 100%;
+      }
+    }
+
+    label {
+      font-size: vw(18);
+      margin-left: vw(10);
+      transform: skew(-5deg) rotate(-5deg) translateY(#{vw(-8)});
+    }
+  }
+}
+
+.submitButton {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  display: block;
+  height: vw(96);
+  margin: vw(10) auto 0;
+  padding: 0;
+  width: vw(243);
+
+  .cls-1 {
+    fill: #dd6b1d;
+  }
+
+  .cls-2 {
+    fill: #af3b1c;
+    stroke: none;
+  }
+
+  .cls-3 {
+    fill: #f97c1e;
+  }
+}

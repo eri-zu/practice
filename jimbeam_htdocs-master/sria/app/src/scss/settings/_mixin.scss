@@ -1,0 +1,13 @@
+@charset 'utf-8';
+
+@mixin slant {
+  transform: skew(-5deg) rotate(-5deg);
+}
+
+@mixin shadowLead {
+  @include slant;
+  font-size: vw(19);
+  padding: 0;
+  text-align: center;
+  text-shadow: 5px 2px 2px #fff;
+}

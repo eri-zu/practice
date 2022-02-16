@@ -1,0 +1,1827 @@
+@charset 'UTF-8';
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+:root
+{
+    --h: 100vh;
+}
+
+/* --------------------------------------------------------------------------------
+*   text / font
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*   media query
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   z-index
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   easing
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   texture
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   color
+*
+-------------------------------------------------------------------------------- */
+/* HSL */
+/* RGB */
+/* HSL */
+/* RGB */
+/* HSL */
+/* RGB */
+/* HSL */
+/* RGB */
+/* Coolors Exported Palette - coolors.co/040091-6901f5-b735fb-fe249b-ff5a78 */
+/* HSL */
+/* RGB */
+/* HSL */
+/* RGB */
+/* HSL */
+/* RGB */
+/* --------------------------------------------------------------------------------
+*
+*   mixin
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   animation
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   media query
+*
+-------------------------------------------------------------------------------- */
+/*
+*
+*   max order 
+*
+*/
+/*
+*
+*   min order 
+*
+*/
+/*
+*
+*   how to   
+*
+*/
+/* --------------------------------------------------------------------------------
+*
+*   portrait,landscape
+*
+-------------------------------------------------------------------------------- */
+/*
+  *
+  *   how to
+  *
+  */
+/* --------------------------------------------------------------------------------
+*
+*   common
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   float
+*
+-------------------------------------------------------------------------------- */
+.fl
+{
+    float: left;
+}
+
+.fr
+{
+    float: right;
+}
+
+.cl
+{
+    clear: both;
+}
+
+.fList > li,
+.fList > dt,
+.fList > dd,
+.fList > .item
+{
+    float: left;
+}
+
+.fList > .item:last-child
+{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+.flex > li:last-child,
+.flex > dt:last-child,
+.flex > dd:last-child,
+.flex > .item:last-child
+{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+.fBoth > li:first-child
+{
+    float: left;
+}
+
+.fBoth > li:last-child
+{
+    float: right;
+}
+
+.fBoth > dt,
+.fBoth > .item:nth-child(1)
+{
+    float: left;
+}
+
+.fBoth > dd,
+.fBoth > .item:nth-child(2)
+{
+    float: right;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   flex
+*
+-------------------------------------------------------------------------------- */
+.flex
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   Clearfix
+*
+-------------------------------------------------------------------------------- */
+.cf,
+.fList
+{
+    zoom: 1;
+}
+
+.cf:after,
+.fList:after,
+.fBoth:after
+{
+    line-height: 0;
+
+    display: block;
+    visibility: hidden;
+    clear: both;
+
+    height: 0;
+
+    content: '.';
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   TextAlign
+*
+-------------------------------------------------------------------------------- */
+.al
+{
+    text-align: left;
+}
+
+.ar
+{
+    text-align: right;
+}
+
+.ac
+{
+    text-align: center;
+}
+
+.vb
+{
+    vertical-align: baseline;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   Nav
+*
+-------------------------------------------------------------------------------- */
+.nav
+{
+    zoom: 1;
+}
+
+.nav:after
+{
+    line-height: 0;
+
+    display: block;
+    visibility: hidden;
+    clear: both;
+
+    height: 0;
+
+    content: '.';
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   font
+*
+-------------------------------------------------------------------------------- */
+.captalize
+{
+    text-transform: capitalize;
+}
+
+.uppercase
+{
+    text-transform: uppercase;
+}
+
+.lowercase
+{
+    text-transform: lowercase;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   responsive
+*
+-------------------------------------------------------------------------------- */
+img.fitted
+{
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   overflow hidden
+*
+-------------------------------------------------------------------------------- */
+.oh
+{
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   word breadk
+*
+-------------------------------------------------------------------------------- */
+.wb
+{
+    word-break: break-all;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   font-weight
+*
+-------------------------------------------------------------------------------- */
+.fwb
+{
+    font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   center
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   row
+*
+-------------------------------------------------------------------------------- */
+.row
+{
+    font-size: 0;
+
+    text-align: center;
+}
+
+.row .item
+{
+    display: inline-block;
+}
+
+.row.row_col2 > .item
+{
+    width: 50%;
+}
+
+.row.row_col3 > .item
+{
+    width: 33.3333%;
+}
+
+.row.row_col4 > .item
+{
+    width: 25%;
+}
+
+.row .item:last-child
+{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   opacity
+*
+-------------------------------------------------------------------------------- */
+.is-unvisible
+{
+    opacity: 0 !important;
+}
+
+.is-visible
+{
+    opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   display
+*
+-------------------------------------------------------------------------------- */
+.is-block
+{
+    display: block !important;
+}
+
+.is-none
+{
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   overflow
+*
+-------------------------------------------------------------------------------- */
+.is-scroll
+{
+    overflow: scroll !important;
+}
+
+.is-scroll-x
+{
+    overflow-x: scroll !important;
+}
+
+.is-scroll-y
+{
+    overflow-y: scroll !important;
+}
+
+.is-hidden
+{
+    overflow: hidden !important;
+}
+
+.is-hidden-x
+{
+    overflow-x: hidden !important;
+}
+
+.is-hidden-y
+{
+    overflow-y: hidden !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   position
+*
+-------------------------------------------------------------------------------- */
+.is-fixed
+{
+    position: fixed !important;
+}
+
+.is-absolute
+{
+    position: absolute !important;
+}
+
+.is-relative
+{
+    position: relative !important;
+}
+
+.is-static
+{
+    position: static !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   // 画像保存禁止    
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   design(見本)
+*
+-------------------------------------------------------------------------------- */
+.sample
+{
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    opacity: .3;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}
+
+/* image */
+img,
+div,
+p,
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+fieldset,
+textarea
+{
+    font-size: 100%;
+    font-style: normal;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    text-decoration: none;
+
+    border: 0;
+}
+
+a
+{
+    cursor: pointer;
+}
+
+table
+{
+    font-size: 100%;
+}
+
+hr.separator
+{
+    display: none;
+}
+
+input[type='text'],
+button,
+select,
+textarea
+{
+    resize: none;
+
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background-color: transparent;
+
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+select::-ms-expand
+{
+    display: none;
+}
+
+img
+{
+    vertical-align: bottom;
+}
+
+/* --------------------------------------------------------------------------------
+*   parts
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*
+*   footer
+*
+-------------------------------------------------------------------------------- */
+#footer
+{
+    position: absolute;
+    z-index: 5;
+    bottom: calc(.01499 * var(--h));
+    left: 50%;
+
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+#footer .copy svg
+{
+    width: calc(.28636 * var(--h));
+    height: calc(.0075 * var(--h));
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   header
+*
+-------------------------------------------------------------------------------- */
+header.notLower
+{
+    position: relative;
+    z-index: 10;
+
+    display: none;
+    /* --------------------------------------------------------------------------------
+	*
+	*   budge
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   menus
+	*
+	-------------------------------------------------------------------------------- */
+}
+
+header.notLower .budge
+{
+    position: absolute;
+    top: calc(.0045 * var(--h));
+    left: calc(-.02399 * var(--h));
+}
+
+header.notLower .budge img
+{
+    width: calc(.14243 * var(--h));
+    height: calc(.12144 * var(--h));
+}
+
+header.notLower .menus
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+header.notLower .menus div
+{
+    position: absolute;
+    top: calc(.02249 * var(--h));
+    right: calc(-.24888 * var(--h));
+}
+
+header.notLower .menus div svg
+{
+    width: calc(.33133 * var(--h));
+    height: calc(.3988 * var(--h));
+}
+
+header.notLower .menus .line
+{
+    z-index: 2;
+    top: calc(.10045 * var(--h));
+
+    display: none;
+}
+
+header.notLower .menus .tw
+{
+    z-index: 3;
+    top: calc(.17691 * var(--h));
+
+    display: none;
+}
+
+header.notLower .menus .fb
+{
+    z-index: 4;
+    top: calc(.25487 * var(--h));
+
+    display: none;
+}
+
+header.notLower.showSNS .menus .line
+{
+    display: block;
+}
+
+header.notLower.showSNS .menus .tw
+{
+    display: block;
+}
+
+header.notLower.showSNS .menus .fb
+{
+    display: block;
+}
+
+header.lower2
+{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+}
+
+header.lower2 .logo
+{
+    position: absolute;
+    top: calc(.02249 * var(--h));
+    left: calc(.02999 * var(--h));
+}
+
+header.lower2 .logo svg
+{
+    width: calc(.08546 * var(--h));
+    height: calc(.06597 * var(--h));
+}
+
+header.lower2 .menu
+{
+    position: absolute;
+    top: calc(.02699 * var(--h));
+    right: calc(.02999 * var(--h));
+}
+
+header.lower2 .menu svg
+{
+    width: calc(.03898 * var(--h));
+    height: calc(.03598 * var(--h));
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   html,body
+*
+-------------------------------------------------------------------------------- */
+html,
+body
+{
+    height: 100%;
+}
+
+html
+{
+    font-family: 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+
+    width: 100%;
+
+    letter-spacing: 0;
+
+    opacity: 1;
+    color: #000;
+    background-color: #fff;
+
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    /*
+  *
+  *   media query   
+  *
+  */
+}
+
+@media only screen and (max-width: 374px)
+{
+    html
+    {
+        font-size: 8px;
+    }
+}
+
+html.page_top
+{
+    background: url(../resource/img/bgTop.jpg);
+    background-size: 100%;
+}
+
+html.id_talk
+{
+    background-color: #fff9b2;
+}
+
+html.id_tap
+{
+    background-color: #ecf0b3;
+}
+
+html.id_warikan
+{
+    background-color: #fdd7bb;
+}
+
+html.id_tour
+{
+    background-color: #f7b8bf;
+}
+
+html.id_cm
+{
+    background-color: #e8e8e8;
+}
+
+body
+{
+    overflow-x: hidden;
+
+    opacity: 0;
+    /*
+  *
+  *   media query   
+  *
+  */
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   #wrapper #inner
+*
+-------------------------------------------------------------------------------- */
+#wrapper
+{
+    font-size: 1.2rem;
+
+    z-index: 2;
+
+    overflow: hidden;
+    /*
+  *
+  *   media query   
+  *
+  */
+}
+
+@media only screen and (max-width: 768px)
+{
+    .isDeviceSP #wrapper
+    {
+        overflow: scroll;
+        overflow-x: hidden;
+
+        height: 100%;
+
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+#inner
+{
+    position: relative;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   .wrapper .inner
+*
+-------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------
+*   page
+-------------------------------------------------------------------------------- */
+.sectionWrap
+{
+    display: none;
+}
+
+.sectionWrap.id_top
+{
+    /* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_top .nigiyaka
+{
+    position: absolute;
+
+    overflow: hidden;
+
+    width: calc(.3943 * var(--h));
+    height: calc(.11694 * var(--h));
+
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.sectionWrap.id_top .nigiyaka .nigiyakaIn
+{
+    display: block;
+
+    width: calc(.78861 * var(--h));
+    height: calc(.11694 * var(--h));
+
+    content: '';
+    -webkit-animation: sprite-image 1s steps(2) infinite;
+            animation: sprite-image 1s steps(2) infinite;
+
+    background-image: url(../resource/img/sprite1.png);
+    background-size: calc(.78861 * var(--h)) calc(.11694 * var(--h));
+}
+
+.sectionWrap.id_top .nigiyaka .stopAnim
+{
+    -webkit-animation-play-state: paused !important;
+            animation-play-state: paused !important;
+}
+
+@-webkit-keyframes sprite-image
+{
+    0%
+    {
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+    }
+    100%
+    {
+        -webkit-transform: translate(-100%, 0);
+                transform: translate(-100%, 0);
+    }
+}
+
+@keyframes sprite-image
+{
+    0%
+    {
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+    }
+    100%
+    {
+        -webkit-transform: translate(-100%, 0);
+                transform: translate(-100%, 0);
+    }
+}
+
+.sectionWrap.id_top .nigiyakaText
+{
+    position: absolute;
+    top: calc(.03298 * var(--h));
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    overflow: hidden;
+
+    width: calc(.3913 * var(--h));
+    height: calc(.11694 * var(--h));
+
+    -webkit-transform: rotate(-5deg) skew(-6deg);
+        -ms-transform: rotate(-5deg) skew(-6deg);
+            transform: rotate(-5deg) skew(-6deg);
+
+    color: #fff;
+    /* CSS3アニメーションでスクロール */
+}
+
+.sectionWrap.id_top .nigiyakaText div
+{
+    font-size: calc(.02999 * var(--h));
+    font-weight: bold;
+
+    position: absolute;
+
+    display: inline-block;
+
+    white-space: nowrap;
+
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+}
+
+.sectionWrap.id_top .nigiyakaText .anim
+{
+    -webkit-animation-name: marquee;
+            animation-name: marquee;
+    -webkit-animation-duration: 15s;
+            animation-duration: 15s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+}
+
+@-webkit-keyframes marquee
+{
+    from
+    {
+        -webkit-transform: translateX(0);
+    }
+    to
+    {
+        -webkit-transform: translate3d(calc(calc(-1434 - 100)/667 * var(--h)), 0, 0);
+    }
+}
+
+@keyframes marquee
+{
+    from
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    to
+    {
+        -webkit-transform: translate3d(calc(calc(-1434 - 100)/667 * var(--h)), 0, 0);
+                transform: translate3d(calc(calc(-1434 - 100)/667 * var(--h)), 0, 0);
+    }
+}
+
+.sectionWrap.id_top .nigiyakaText.android
+{
+    top: calc(.03748 * var(--h));
+}
+
+.sectionWrap.id_top .section01
+{
+    position: relative;
+    z-index: 3;
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    overflow: hidden;
+            flex-direction: column;
+
+    height: 100vh;
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+    /* --------------------------------------------------------------------------------
+	*
+	*   titWrap
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   btns
+	*
+	-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_top .section01 .titWrap
+{
+    width: calc(.3928 * var(--h));
+    margin-top: calc(.02249 * var(--h));
+    margin-left: calc(.02399 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .titWrap .subTit
+{
+    position: relative;
+    top: calc(-.0015 * var(--h));
+    left: calc(.0075 * var(--h));
+
+    -webkit-transform: rotate(-4deg);
+        -ms-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+}
+
+.sectionWrap.id_top .section01 .titWrap .subTit svg
+{
+    width: calc(.33433 * var(--h));
+    height: calc(.04348 * var(--h));
+
+    -webkit-transform: rotate(4deg);
+        -ms-transform: rotate(4deg);
+            transform: rotate(4deg);
+}
+
+.sectionWrap.id_top .section01 .titWrap .tit
+{
+    position: relative;
+    top: calc(-.02399 * var(--h));
+
+    -webkit-transform: rotate(-4deg);
+        -ms-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+}
+
+.sectionWrap.id_top .section01 .titWrap .tit svg
+{
+    width: calc(.34333 * var(--h));
+    height: calc(.27286 * var(--h));
+
+    -webkit-transform: rotate(4deg);
+        -ms-transform: rotate(4deg);
+            transform: rotate(4deg);
+}
+
+.sectionWrap.id_top .section01 .titWrap .nigiyakaWrap
+{
+    position: relative;
+    top: calc(-.04498 * var(--h));
+    left: calc(-.02699 * var(--h));
+
+    overflow: hidden;
+
+    width: calc(.4048 * var(--h));
+    height: calc(.11694 * var(--h));
+
+    -webkit-transform: rotate(-4deg);
+        -ms-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+}
+
+.sectionWrap.id_top .section01 .titWrap .nigiyakaWrap .in
+{
+    position: relative;
+    left: calc(.009 * var(--h));
+
+    -webkit-transform: rotate(4deg);
+        -ms-transform: rotate(4deg);
+            transform: rotate(4deg);
+}
+
+.sectionWrap.id_top .section01 .btns
+{
+    position: absolute;
+    top: calc(.3958 * var(--h));
+    left: calc(.02999 * var(--h));
+    left: 50%;
+
+    -webkit-transform: translateX(calc(-.25187 * var(--h)));
+        -ms-transform: translateX(calc(-.25187 * var(--h)));
+            transform: translateX(calc(-.25187 * var(--h)));
+}
+
+.sectionWrap.id_top .section01 .btns .btn
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sectionWrap.id_top .section01 .btns .btn .btnIn svg
+{
+    width: calc(.61769 * var(--h));
+    height: calc(.75562 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn .new
+{
+    position: absolute;
+    top: calc(-.03448 * var(--h));
+    left: calc(-.04498 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn .new svg
+{
+    width: calc(.07946 * var(--h));
+    height: calc(.07946 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn .new img
+{
+    width: calc(.08996 * var(--h));
+    height: calc(.08996 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn a
+{
+    display: block;
+
+    width: calc(.25187 * var(--h));
+    height: calc(.14993 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(1)
+{
+    top: calc(.003 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(1) .btnIn svg
+{
+    width: calc(.88306 * var(--h));
+    height: calc(.77811 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(1) a
+{
+    display: block;
+
+    width: calc(.52474 * var(--h));
+    height: calc(.14993 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(2)
+{
+    top: calc(.16192 * var(--h));
+    left: 0;
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(3)
+{
+    top: calc(.13943 * var(--h));
+    left: calc(.26687 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(4)
+{
+    top: calc(.29835 * var(--h));
+    left: 0;
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(5)
+{
+    top: calc(.27586 * var(--h));
+    left: calc(.26687 * var(--h));
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(6)
+{
+    top: calc(.43478 * var(--h));
+    left: 0;
+}
+
+.sectionWrap.id_top .section01 .btns .btn:nth-child(7)
+{
+    top: calc(.41229 * var(--h));
+    left: calc(.26687 * var(--h));
+}
+
+.sectionWrap.id_talk
+{
+    /* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_talk .section01
+{
+    position: relative;
+
+    overflow: hidden;
+
+    height: 100vh;
+    /* --------------------------------------------------------------------------------
+	*
+	*   titWrap
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   btns
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   toTop
+	*
+	-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_talk .section01 .titWrap
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+            flex-direction: column;
+
+    margin-bottom: calc(.02999 * var(--h));
+    margin-left: calc(-.01649 * var(--h));
+    padding-top: calc(.05697 * var(--h));
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+}
+
+.sectionWrap.id_talk .section01 .titWrap .tit svg
+{
+    width: calc(.36732 * var(--h));
+    height: calc(.11694 * var(--h));
+}
+
+.sectionWrap.id_talk .section01 .titWrap .text
+{
+    font-size: calc(.02849 * var(--h));
+
+    margin-top: calc(-.01499 * var(--h));
+
+    -webkit-transform: rotate(-5deg) skew(-8deg);
+        -ms-transform: rotate(-5deg) skew(-8deg);
+            transform: rotate(-5deg) skew(-8deg);
+    letter-spacing: 0;
+
+    text-shadow: calc(.006 * var(--h)) calc(.006 * var(--h)) calc(0 * var(--h)) #fff;
+}
+
+.sectionWrap.id_talk .section01 .btns
+{
+    position: relative;
+    left: 50%;
+
+    -webkit-transform: translateX(calc(-.25187 * var(--h)));
+        -ms-transform: translateX(calc(-.25187 * var(--h)));
+            transform: translateX(calc(-.25187 * var(--h)));
+}
+
+.sectionWrap.id_talk .section01 .btns .btn
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sectionWrap.id_talk .section01 .btns .btn svg
+{
+    width: calc(.88456 * var(--h));
+    height: calc(.78561 * var(--h));
+}
+
+.sectionWrap.id_talk .section01 .btns .btn:nth-child(2)
+{
+    top: calc(.16192 * var(--h));
+}
+
+.sectionWrap.id_talk .section01 .btns .btn:nth-child(3)
+{
+    top: calc(.32384 * var(--h));
+}
+
+.sectionWrap.id_talk .section01 .toTop
+{
+    position: relative;
+    left: 50%;
+
+    margin-left: calc(-.25187 * var(--h));
+}
+
+.sectionWrap.id_talk .section01 .toTop a
+{
+    position: absolute;
+    top: calc(.56222 * var(--h));
+    left: 0;
+
+    display: inline-block;
+
+    width: calc(.23988 * var(--h));
+    height: calc(.11094 * var(--h));
+}
+
+.sectionWrap.id_talk .section01 .toTop svg
+{
+    width: calc(.61769 * var(--h));
+    height: calc(.72564 * var(--h));
+
+    pointer-events: none;
+}
+
+.sectionWrap.id_warikan
+{
+    /* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_warikan .section01
+{
+    position: relative;
+
+    overflow: hidden;
+
+    height: 100vh;
+    /* --------------------------------------------------------------------------------
+	*
+	*   titWrap
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   btns
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   toTop
+	*
+	-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_warikan .section01 .titWrap
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+            flex-direction: column;
+
+    margin-bottom: calc(.02999 * var(--h));
+    margin-left: calc(-.01649 * var(--h));
+    padding-top: calc(.05697 * var(--h));
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+}
+
+.sectionWrap.id_warikan .section01 .titWrap .tit svg
+{
+    width: calc(.3958 * var(--h));
+    height: calc(.11094 * var(--h));
+}
+
+.sectionWrap.id_warikan .section01 .titWrap .text
+{
+    font-size: calc(.02849 * var(--h));
+
+    margin-top: calc(-.01499 * var(--h));
+
+    -webkit-transform: rotate(-4deg) skew(-8deg);
+        -ms-transform: rotate(-4deg) skew(-8deg);
+            transform: rotate(-4deg) skew(-8deg);
+    letter-spacing: 0;
+
+    text-shadow: calc(.006 * var(--h)) calc(.006 * var(--h)) calc(0 * var(--h)) #fff;
+}
+
+.sectionWrap.id_warikan .section01 .btns
+{
+    position: relative;
+    left: 50%;
+
+    -webkit-transform: translateX(calc(-.25187 * var(--h)));
+        -ms-transform: translateX(calc(-.25187 * var(--h)));
+            transform: translateX(calc(-.25187 * var(--h)));
+}
+
+.sectionWrap.id_warikan .section01 .btns .btn
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sectionWrap.id_warikan .section01 .btns .btn svg
+{
+    width: calc(.88456 * var(--h));
+    height: calc(.78561 * var(--h));
+}
+
+.sectionWrap.id_warikan .section01 .btns .btn:nth-child(2)
+{
+    top: calc(.16192 * var(--h));
+}
+
+.sectionWrap.id_warikan .section01 .btns .btn:nth-child(3)
+{
+    top: calc(.32384 * var(--h));
+}
+
+.sectionWrap.id_warikan .section01 .toTop
+{
+    position: relative;
+    left: 50%;
+
+    margin-left: calc(-.25187 * var(--h));
+}
+
+.sectionWrap.id_warikan .section01 .toTop a
+{
+    position: absolute;
+    top: calc(.56222 * var(--h));
+    left: 0;
+
+    display: inline-block;
+
+    width: calc(.23988 * var(--h));
+    height: calc(.11094 * var(--h));
+}
+
+.sectionWrap.id_warikan .section01 .toTop svg
+{
+    width: calc(.61769 * var(--h));
+    height: calc(.72564 * var(--h));
+
+    pointer-events: none;
+}
+
+.sectionWrap.id_tap
+{
+    /* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_tap .section01
+{
+    position: relative;
+
+    overflow: hidden;
+
+    height: 100vh;
+    /* --------------------------------------------------------------------------------
+	*
+	*   titWrap
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   btns
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   toTop
+	*
+	-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_tap .section01 .titWrap
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+            flex-direction: column;
+
+    margin-bottom: calc(.02999 * var(--h));
+    margin-left: calc(-.01649 * var(--h));
+    padding-top: calc(.05697 * var(--h));
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+}
+
+.sectionWrap.id_tap .section01 .titWrap .tit svg
+{
+    width: calc(.37181 * var(--h));
+    height: calc(.15742 * var(--h));
+}
+
+.sectionWrap.id_tap .section01 .titWrap .text
+{
+    font-size: calc(.02849 * var(--h));
+
+    margin-top: calc(-.01499 * var(--h));
+
+    -webkit-transform: rotate(-4deg) skew(-8deg);
+        -ms-transform: rotate(-4deg) skew(-8deg);
+            transform: rotate(-4deg) skew(-8deg);
+    letter-spacing: 0;
+
+    text-shadow: calc(.006 * var(--h)) calc(.006 * var(--h)) calc(0 * var(--h)) #fff;
+}
+
+.sectionWrap.id_tap .section01 .btns
+{
+    position: relative;
+    left: 50%;
+
+    -webkit-transform: translateX(calc(-.25187 * var(--h)));
+        -ms-transform: translateX(calc(-.25187 * var(--h)));
+            transform: translateX(calc(-.25187 * var(--h)));
+}
+
+.sectionWrap.id_tap .section01 .btns .btn
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sectionWrap.id_tap .section01 .btns .btn svg
+{
+    width: calc(.61769 * var(--h));
+    height: calc(.75562 * var(--h));
+}
+
+.sectionWrap.id_tap .section01 .btns .btn:nth-child(1)
+{
+    top: calc(calc(.16192 * var(--h)) - calc(.13943 * var(--h)));
+    left: 0;
+}
+
+.sectionWrap.id_tap .section01 .btns .btn:nth-child(2)
+{
+    top: calc(calc(.13943 * var(--h)) - calc(.13943 * var(--h)));
+    left: calc(.26687 * var(--h));
+}
+
+.sectionWrap.id_tap .section01 .btns .btn:nth-child(3)
+{
+    top: calc(calc(.29835 * var(--h)) - calc(.13943 * var(--h)));
+    left: 0;
+}
+
+.sectionWrap.id_tap .section01 .btns .btn:nth-child(4)
+{
+    top: calc(calc(.27586 * var(--h)) - calc(.13943 * var(--h)));
+    left: calc(.26687 * var(--h));
+}
+
+.sectionWrap.id_tap .section01 .btns .btn:nth-child(5)
+{
+    top: calc(calc(.43478 * var(--h)) - calc(.13943 * var(--h)));
+    left: 0;
+}
+
+.sectionWrap.id_tap .section01 .btns .btn:nth-child(6)
+{
+    top: calc(calc(.41229 * var(--h)) - calc(.13943 * var(--h)));
+    left: calc(.26687 * var(--h));
+}
+
+.sectionWrap.id_tap .section01 .toTop
+{
+    position: absolute;
+    top: calc(.23238 * var(--h));
+    left: 50%;
+
+    margin-left: calc(-.25187 * var(--h));
+}
+
+.sectionWrap.id_tap .section01 .toTop a
+{
+    position: absolute;
+    top: calc(.56222 * var(--h));
+    left: 0;
+
+    display: inline-block;
+
+    width: calc(.23988 * var(--h));
+    height: calc(.11094 * var(--h));
+}
+
+.sectionWrap.id_tap .section01 .toTop svg
+{
+    width: calc(.61769 * var(--h));
+    height: calc(.72564 * var(--h));
+
+    pointer-events: none;
+}
+
+.sectionWrap.id_tour
+{
+    /* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_tour .section01
+{
+    position: relative;
+
+    overflow: hidden;
+
+    height: 100vh;
+    /* --------------------------------------------------------------------------------
+	*
+	*   titWrap
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   toTop
+	*
+	-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_tour .section01 .titWrap
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+            flex-direction: column;
+
+    margin-bottom: calc(.01499 * var(--h));
+    margin-left: calc(-.01649 * var(--h));
+    padding-top: calc(.05697 * var(--h));
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+}
+
+.sectionWrap.id_tour .section01 .titWrap .tit svg
+{
+    width: calc(.41379 * var(--h));
+    height: calc(.16192 * var(--h));
+}
+
+.sectionWrap.id_tour .section01 .text
+{
+    font-size: calc(.02699 * var(--h));
+    line-height: 1.7;
+
+    margin-bottom: 10px;
+
+    -webkit-transform: rotate(-6deg) skew(-5deg);
+        -ms-transform: rotate(-6deg) skew(-5deg);
+            transform: rotate(-6deg) skew(-5deg);
+    text-align: center;
+    letter-spacing: .1em;
+}
+
+.sectionWrap.id_tour .section01 .img
+{
+    margin-bottom: calc(.02999 * var(--h));
+
+    text-align: center;
+}
+
+.sectionWrap.id_tour .section01 .img img
+{
+    width: calc(.47526 * var(--h));
+    height: calc(.29535 * var(--h));
+}
+
+.sectionWrap.id_tour .section01 .toTop
+{
+    text-align: center;
+}
+
+.sectionWrap.id_tour .section01 .toTop svg
+{
+    width: calc(.17991 * var(--h));
+    height: calc(.08396 * var(--h));
+}
+
+.sectionWrap.id_cm
+{
+    /* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_cm .section01
+{
+    position: relative;
+
+    overflow: hidden;
+
+    height: 100vh;
+    /* --------------------------------------------------------------------------------
+	*
+	*   titWrap
+	*
+	-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+	*
+	*   toTop
+	*
+	-------------------------------------------------------------------------------- */
+}
+
+.sectionWrap.id_cm .section01 .titWrap
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+            flex-direction: column;
+
+    margin-bottom: calc(.05997 * var(--h));
+    margin-left: calc(-.01649 * var(--h));
+    padding-top: calc(.05697 * var(--h));
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+}
+
+.sectionWrap.id_cm .section01 .titWrap .tit svg
+{
+    width: calc(.25637 * var(--h));
+    height: calc(.15442 * var(--h));
+}
+
+.sectionWrap.id_cm .section01 .list
+{
+    margin-bottom: calc(.07496 * var(--h));
+    padding: calc(.1949 * var(--h)) 0;
+}
+
+.sectionWrap.id_cm .section01 .list .item
+{
+    margin-bottom: calc(-.02999 * var(--h));
+
+    text-align: center;
+}
+
+.sectionWrap.id_cm .section01 .list .item svg
+{
+    width: calc(.43628 * var(--h));
+    height: calc(.08096 * var(--h));
+}
+
+.sectionWrap.id_cm .section01 .toTop
+{
+    text-align: center;
+}
+
+.sectionWrap.id_cm .section01 .toTop svg
+{
+    width: calc(.17991 * var(--h));
+    height: calc(.08396 * var(--h));
+}

@@ -1,0 +1,43 @@
+{
+  "name": "rex_jimbeam",
+  "version": "1.0.0",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "browserslist": [
+    "> 0.5% in JP"
+  ],
+  "author": "sria",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.53",
+    "@babel/preset-env": "^7.0.0-beta.53",
+    "autoprefixer": "^8.6.5",
+    "babel-loader": "^8.0.0-beta.4",
+    "browser-sync": "^2.26.3",
+    "csswring": "^6.0.3",
+    "es6-promise": "^4.2.5",
+    "gulp": "^4.0.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^4.0.1",
+    "hoek": "^5.0.3",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^6.0.0",
+    "mocha": "^5.2.0",
+    "postcss-flexbugs-fixes": "^3.3.1",
+    "webpack": "^4.16.0",
+    "webpack-stream": "^4.0.3"
+  },
+  "private": true,
+  "dependencies": {
+    "gsap": "^2.0.2",
+    "howler": "^2.0.15",
+    "imagesloaded": "^4.1.4",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
+    "vue": "^2.5.17"
+  }
+}

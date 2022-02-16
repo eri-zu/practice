@@ -1,0 +1,783 @@
+/* --------------------------------------------------------------------------------
+*
+*   link
+*
+-------------------------------------------------------------------------------- */
+  a {
+  color: $link-color;
+  text-decoration: none;
+}
+a:hover {
+  color: $link-colorHover;
+  text-decoration: none;
+}
+a:visited {
+  color: $link-colorVisited;
+  text-decoration: none;
+}
+a:active {
+  color: $link-colorActive;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   dat gui
+*
+-------------------------------------------------------------------------------- */
+.dg.a {
+   overflow: visible !important;
+}
+.dg li.color {
+  overflow: visible !important;
+}
+
+.dg.ac {
+  z-index: 999999 !important;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------------
+*
+*   bar
+*
+-------------------------------------------------------------------------------- */
+.left_bar {
+
+}
+.left_bar:after {
+  display: block;
+  width: rem(7 ,$fz);
+  height: rem(35 ,$fz);
+  content: '';
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  top: rem(-6 ,$fz);
+}
+
+.up_bar {
+
+}
+.up_bar:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: rem(10 ,$fz);
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  transition: height .18s $easeOutCubic, background-color .2s $easeOutQuad;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   select
+*
+-------------------------------------------------------------------------------- */
+body.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   grab
+*
+-------------------------------------------------------------------------------- */
+.grab {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+.grabbing {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: -ms-grabbing;
+  cursor: grabbing;
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   age
+*
+-------------------------------------------------------------------------------- */
+#age {
+
+  // display: none;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  
+  text-align: center; 
+  overflow: hidden;
+  
+  pointer-events: auto;
+  
+  .inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  
+  .tit {
+    padding-top: vw375(55);
+    margin-bottom: vw375(15);
+    
+    svg {
+      width: vw375(290);
+      height: vw375(174);
+      
+      overflow: visible;
+      
+      .age_text1_svg {
+        opacity: 0;
+      }
+      .age_text2_svg {
+        opacity: 0;
+      }
+    }
+  }
+
+  .text {
+    margin-bottom: vw375(50);
+    opacity: 0;
+    svg {
+      width: vw375(195);
+      height: vw375(47);
+    }
+
+    @at-root {
+      #age.android .tit {
+        margin-bottom: vw375(75);
+      }
+      #age.android .text {
+        display: none;
+      }
+    }
+  }
+
+  .btns {
+
+    position: relative;
+    left: 50%;
+    margin-left: vw375(-190);
+
+    .btnInner {
+
+      .btn {
+        position: absolute;
+        left: 0;
+        top: 0;
+        
+        opacity: 0;
+        
+        svg {
+          width: vw375(412);
+          height: vw375(584);
+        }
+      }
+
+      .androidBtn {
+        display: none;
+      }
+
+      @at-root {
+        #age.android .androidBtn {
+          display: block !important;
+        }
+        #age.android .iosBtn {
+          display: none !important;
+        }
+      }
+      
+    }
+
+    .btnInner:nth-child(1) {
+
+      .btn:nth-child(1) {
+        left: vw375(20);
+        top: vw375(-4);
+        
+        width: vw375(160);
+        height: vw375(160);
+      }
+      .btn:nth-child(2) {
+        left: vw375(198);
+        top: vw375(-20);
+        
+        a {
+          display: block;
+          width: vw375(160);
+          height: vw375(170);
+        }
+      }
+      
+    }
+    .btnInner:nth-child(2) {
+
+      @at-root {
+        #age.android .btns .btnInner:nth-child(2) {
+          display: none !important;
+        }
+      }
+
+      .btn {
+        top: vw375(167);
+        left: vw375(110);
+        
+        width: vw375(160);
+        height: vw375(92);
+        svg {
+          width: vw375(412);
+          height: vw375(504);
+        }
+      }
+      
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+#landscape {
+
+  display: none;
+  
+  pointer-events: auto;
+
+  
+  // // media query
+  // @include land {
+
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  
+  //   position: fixed;
+  //   left: 0;
+  //   top: 0;
+  //   z-index: 99999;
+    
+  //   background: url(../resource/img/bg.jpg);
+  //   width: 100%;
+  //   height: 100%;
+  
+  //   .logo {
+  //     position: absolute;
+  //     top: vwLand(15);
+  //     left: vwLand(20);
+      
+  //     svg {
+  //       width: vwLand(57);
+  //       height: vwLand(44);
+  //     }
+  //   }
+  
+
+  //   .box {
+  //     text-align: center;
+  //     .tit {
+  //       margin-bottom: vwLand(12);
+  //       svg {
+  //         width: vwLand(420);
+  //         height: vwLand(85);
+  //       }
+  //     }
+  //     .img {
+  //       svg {
+  //         width: vwLand(180);
+  //         height: vwLand(193);
+  //       }
+  //     }
+  //   }
+
+  // }  
+
+}
+
+@at-root body.landscape #landscape {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  
+  background: url(../resource/img/bg.jpg);
+  width: 100%;
+  height: 100%;
+
+  .logo {
+    position: absolute;
+    top: vwLand(15);
+    left: vwLand(20);
+    
+    svg {
+      width: vwLand(57);
+      height: vwLand(44);
+    }
+  }
+
+
+  .box {
+    text-align: center;
+    .tit {
+      margin-bottom: vwLand(12);
+      svg {
+        width: vwLand(420);
+        height: vwLand(85);
+      }
+    }
+    .img {
+      svg {
+        width: vwLand(180);
+        height: vwLand(193);
+      }
+    }
+  }
+  
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   menu
+*
+-------------------------------------------------------------------------------- */
+#menu {
+
+  display: none;
+
+  // position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  
+  overflow: scroll;
+  
+  pointer-events: auto;
+  
+  transform: translate3d(0,0,0);
+
+  
+  .inner {
+    
+  }
+  
+  // ------------------------------------------------------------
+  // head
+  // ------------------------------------------------------------
+  .head {
+    .logo {
+      position: absolute;
+      top: vw375(11);
+      left: vw375(20);
+    
+      svg {
+        width: vw375(82);
+        height: vw375(68);
+      }
+    }
+    .text {
+      position: absolute;
+      top: vw375(15);
+      left: vw375(118);
+      svg {
+        width: vw375(152);
+        height: vw375(50);
+      }
+    }
+    .close {
+      position: absolute;
+      right: vw375(20);
+      top: vw375(20);
+      svg {
+        width: vw375(19);
+        height: vw375(19);
+      }
+    }
+  }
+  
+  // ------------------------------------------------------------
+  // list
+  // ------------------------------------------------------------
+  .list {
+
+    overflow: hidden;
+
+    padding-top: vw375(78);
+    padding-bottom: vw375(30);
+    text-align: center;
+    
+    .item {
+      position: relative;
+      
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: vw375(58);
+      }
+
+      .textWrap {
+        transform: rotate(-5deg);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        
+        .textInner {
+          display: flex;
+          align-items: center;
+        }
+
+        .menuText {
+          opacity: 0;
+        }
+        
+        svg {
+          position: relative;
+          transform: rotate(5deg);
+        }
+      }
+      
+      .bgWrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 100%;
+        transform: translate(-50%, -50%) rotate(-5deg);
+      }
+
+      .bg {
+        width: 100%;
+        height: 100%;
+        background-color: #FFEB01;
+        transform: scaleY(0);
+      }
+    }
+    
+    .item:nth-child(1) {
+      svg {
+        width: vw375(211);
+        height: vw375(42);
+      }
+    }
+    .item:nth-child(2) {
+      .bg {
+        background-color: #F97C1E;
+      }
+      svg {
+        width: vw375(218);
+        height: vw375(41);
+      }
+    }
+    .item:nth-child(3) {
+      .bg {
+        background-color: #F7038E;
+      }
+      svg {
+        width: vw375(222);
+        height: vw375(40);
+      }
+    }
+    .item:nth-child(4) {
+      .bg {
+        background-color: #BFCE02;
+      }
+      svg {
+        width: vw375(270);
+        height: vw375(47);
+      }
+    }
+    .item:nth-child(5) { 
+      .bg {
+        background-color: #53C3F1;
+      }
+      svg {
+        width: vw375(177);
+        height: vw375(40);
+      }
+    }
+    .item:nth-child(6) {
+      .bg {
+        background-color: #E4142C;
+      }
+      svg {
+        width: vw375(291);
+        height: vw375(49);
+      }
+    }
+    .item:nth-child(7) {
+      .bg {
+        background-color: #B3B3B3;
+      }
+      svg {
+        width: vw375(100);
+        height: vw375(31);
+      }
+    }
+    .item:nth-child(8) {
+
+      .bg {
+        background-color: #F2F2F2;
+      }
+
+      .textWrap {
+
+        .textInner {
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          
+          .menuText {
+            justify-content: center;
+            align-items: center;
+            height: vw375(58);
+            display: flex;
+            
+            div {
+              display: flex;
+              align-items: center;
+            }
+          }
+
+        }
+      
+      }
+
+      .sound {
+        margin-right: vw375(20);
+        // margin-top: vw375(15);
+        svg {
+          width: vw375(75);
+          height: vw375(22);
+        }
+      }
+      .on {
+        margin-right: vw375(10);
+        // margin-top: vw375(1);
+        svg {
+          width: vw375(29);
+          height: vw375(18);
+        }
+      }
+      .sla {
+        margin-right: vw375(11);
+        // margin-top: vw375(-4);
+        svg {
+          width: vw375(11);
+          height: vw375(19);
+        }
+      }
+      .off {
+        // margin-top: vw375(-12);
+        svg {
+          width: vw375(43);
+          height: vw375(19);
+        }
+      }
+    }
+  }
+  
+  // ------------------------------------------------------------
+  // box
+  // ------------------------------------------------------------
+  .box {
+
+    justify-content: center;
+    margin-bottom: vw375(20);
+    
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    
+    .item {
+      // transform: translate3d(0,0,0);
+      // backface-visibility: hidden;
+      // transform-style: preserve-3d;
+      // will-change: transform;
+      
+      svg {
+        // will-change: transform;
+      }
+    }
+    
+    .item:nth-child(1) {
+      margin-right: vw375(25);
+      svg {
+        width: vw375(156);
+        height: vw375(16);
+      }
+    }
+    .item:nth-child(2) {
+      svg {
+        width: vw375(118);
+        height: vw375(18);
+      }
+    }
+  }
+
+  // ------------------------------------------------------------
+  // sns
+  // ------------------------------------------------------------
+  .sns {
+
+    align-items: center;
+    justify-content: center;
+    padding-bottom: vw375(16);
+    
+    transform: translate3d(0,0,0);
+
+    .item {
+      margin-right: vw375(25);
+    }
+
+    .item:nth-child(1) {
+      svg {
+        width: vw375(27);
+        height: vw375(27);
+      }
+    }
+    .item:nth-child(2) {
+      svg {
+        width: vw375(28);
+        height: vw375(22);
+      }
+    }
+    .item:nth-child(3) {
+      svg {
+        width: vw375(27);
+        height: vw375(27);
+      }
+    }
+  }
+  
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   coverWrap
+*
+-------------------------------------------------------------------------------- */
+.coverWrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  
+  display: none;  
+  .cover {
+    width: 100%;
+    height: 100%;
+    background: #CC0000;
+  }
+}
+
+
+/* --------------------------------------------------------------------------------
+*
+*   taps
+*
+-------------------------------------------------------------------------------- */
+.block {
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  
+  .box {
+    // background-color: red;
+    // border: 1px solid #000;
+  }
+}
+
+.taps {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    
+    $w: 228 / 1;
+    $h: 127 / 1;
+    width: vw375($w);
+    height: vw375($h);
+  }
+}
+.base {
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  
+  svg {
+    $w: 228 / 1;
+    $h: 127 / 1;
+    width: vw375($w);
+    height: vw375($h);
+  }
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   tapsX
+*
+-------------------------------------------------------------------------------- */
+.tapsX {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  
+  .tapsIn {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  svg {
+    $w: 228 / 1;
+    $h: 127 / 1;
+    width: vw375($w);
+    height: vw375($h);
+  }
+}

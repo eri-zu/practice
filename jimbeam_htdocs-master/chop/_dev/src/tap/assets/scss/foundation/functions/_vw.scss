@@ -1,0 +1,4 @@
+@charset "utf-8";
+@function vw($px, $width: $spDesignWidth) {
+  @return ($px * 100 / $width) * 1vw;
+}

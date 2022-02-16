@@ -1,0 +1,48 @@
+{
+    // for sns (javascript)
+    "common_js": {
+        "tit": "JIM BEAM TAP!｜世界No.1バーボン「ジムビーム」｜サントリー",
+        "des": "JIM BEAM TAP! とは、飲み会で、ついタップして何度も見たくなるジムビームハイボール専用サイトです。 飲みの場を盛り上げる様々なコンテンツを毎月更新予定！",
+        "img": "https://jimbeam.fun/assets/resource/img/ogp.png",
+        "url": "https://jimbeam.fun/",
+        "adress": ""
+    },
+    // for meta (ejs)
+    "common": {
+        "tit": "JIM BEAM TAP!｜世界No.1バーボン「ジムビーム」｜サントリー",
+        "des": "JIM BEAM TAP! とは、飲み会で、ついタップして何度も見たくなるジムビームハイボール専用サイトです。 飲みの場を盛り上げる様々なコンテンツを毎月更新予定！",
+        "img": "https://jimbeam.fun/assets/resource/img/ogp.png",
+        "keyword": "サントリー, ハイボール, ジムビーム, ジムビームハイボール, ジムビームタップ",
+        "fb": {
+            "tit": "【JIM BEAM TAP!｜世界No.1バーボン「ジムビーム」｜サントリー】",
+            "des": "飲み会で、ついタップして何度も見たくなるジムビームハイボール専用サイト。飲みの場を盛り上げる様々なコンテンツを毎月更新予定！",
+            "img": "https://jimbeam.fun/assets/resource/img/ogp.png",
+            "url": "https://jimbeam.fun/",
+            "siteName": "",
+            "type": "website"
+        },
+        "tw": {
+            "img": "https://jimbeam.fun/assets/resource/img/ogp.png",
+            "url": "https://jimbeam.fun/about/",
+            "siteName": "",
+            "creator": "",
+            "card": "summary_large_image",
+            "hash": "",
+            "text": "【JIM BEAM TAP!｜世界No.1バーボン「ジムビーム」｜サントリー】飲み会で、ついタップして何度も見たくなるジムビームハイボール専用サイト。飲みの場を盛り上げる様々なコンテンツを毎月更新予定！"
+        },
+        "line": {
+            "tit": "JIM BEAM TAP!｜世界No.1バーボン「ジムビーム」｜サントリー",
+            "des": "JIM BEAM TAP! とは、飲み会で、ついタップして何度も見たくなるジムビームハイボール専用サイトです。 飲みの場を盛り上げる様々なコンテンツを毎月更新予定！",
+            "img": "https://jimbeam.fun/assets/resource/img/ogp.png",
+            "url": "https://jimbeam.fun/about/",
+            "text": "【JIM BEAM TAP!｜世界No.1バーボン「ジムビーム」｜サントリー】飲み会で、ついタップして何度も見たくなるジムビームハイボール専用サイト。飲みの場を盛り上げる様々なコンテンツを毎月更新予定！"
+        },
+        "mail": {
+            "tit": "JIM BEAM TAP!｜世界No.1バーボン「ジムビーム」｜サントリー",
+            "des": "JIM BEAM TAP! とは、飲み会で、ついタップして何度も見たくなるジムビームハイボール専用サイトです。 飲みの場を盛り上げる様々なコンテンツを毎月更新予定！",
+            "adress": ""
+        }
+    }
+}
+
+

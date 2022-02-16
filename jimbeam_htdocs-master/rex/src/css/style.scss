@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+@import "./_init/import";
+@import "./_init/reset"; // リセットCSS、フォントサイズ sss
+
+/* --------------------------------------------------------------------------------
+*   parts
+-------------------------------------------------------------------------------- */
+@import "./_parts/_common/**/*.scss";
+// @import "./_parts/_compornents/**/*.scss";
+
+/* --------------------------------------------------------------------------------
+*   page
+-------------------------------------------------------------------------------- */
+.sectionWrap {
+	display: none;
+}
+
+.sectionWrap.id_top {
+  @import "./_page/top/**/*.scss";
+}
+
+// lower
+.sectionWrap.id_talk {
+  @import "./_page/talk/**/*.scss";
+}
+.sectionWrap.id_warikan {
+  @import "./_page/warikan/**/*.scss";
+}
+.sectionWrap.id_tap {
+  @import "./_page/tap/**/*.scss";
+}
+
+.sectionWrap.id_tour {
+  @import "./_page/tour/**/*.scss";
+}
+.sectionWrap.id_cm {
+  @import "./_page/cm/**/*.scss";
+}

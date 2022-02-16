@@ -1,0 +1,45 @@
+extends ../../../_base/_layout
+block vars
+  - var path = '..';
+block title
+  title= title
+block append meta
+block append link
+  link(rel="stylesheet", href=`${path}/assets/css/style.css`)
+block body
+  #wrapper.wrapper
+    header.header.header--detail
+      h1.header__logo
+        a.jsSeLogo(href="../../../", data-color="toTop")
+          img(src=`${path}/assets/images/logo_jim_beadm_tap.png`, alt="JIM BEAM TAP")
+      h2.header__title.header__title--detail
+        img(src=`${path}/assets/images/title_talkgaya_detail.png`, alt="トーク評価マシン！")
+      span.header__menu.open_modal.jsSeBtn
+    main#app.main.main--detail
+      .content
+        .gayaHead 感想をTAPしてガヤを入れよう！
+        #gayaButtons.gayaButtons
+          gaya-button(sound="wakaru", length="21", ref="button1")
+            include ../svg/button_wakaru.svg
+          gaya-button(sound="wakaran", length="18", ref="button2")
+            include ../svg/button_wakaran.svg
+          gaya-button(sound="iine", length="10", ref="button3")
+            include ../svg/button_iine.svg
+          gaya-button(sound="tsumaran", length="11", ref="button4")
+            include ../svg/button_tsumaran.svg
+          gaya-button(sound="omoroi", length="14", ref="button5")
+            include ../svg/button_omoroi.svg
+          gaya-button(sound="yabai", length="12", ref="button6")
+            include ../svg/button_yabai.svg
+        .gayaFoot トークが終わったら本人に見せよう！
+        button.gayaReset(@click="reset")
+          include ../svg/button_reset.svg
+    footer.footer
+      a#backBtn.backBtn(href="../../../?page=talk", data-color="toTop")
+        include ../svg/button_back_talk.svg
+      small.copy
+        img(src=`${path}/assets/images/copy.png`, alt="COPYRIGHT SUNTORY HOLDINGS LIMITED. ALL RIGHTS REVERVED.")
+block append script
+  //- script(src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js")
+  script(src="https://cdn.jsdelivr.net/npm/vue")
+  script(src=`${path}/assets/js/app.bundle.js?v=${Date.now()}`)

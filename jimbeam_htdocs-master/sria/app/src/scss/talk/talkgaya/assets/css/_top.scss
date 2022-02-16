@@ -1,0 +1,83 @@
+@charset 'utf-8';
+
+.main {
+  .lead {
+    padding: 0 vw(30);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .start {
+
+    .startBtn {
+      display: block;
+      text-decoration: none;
+
+      &--normal {
+        height: vw(96);
+        margin: vw(10) auto vw(10);
+        width: vw(243);
+
+        .cls-1 {
+          fill: #e5a505;
+        }
+
+        .cls-2 {
+          fill: #cc9305;
+          stroke: none;
+        }
+
+        .cls-3 {
+          fill: #ffbd03;
+        }
+      }
+
+      &--on {
+        height: vw(83);
+        margin: 0 auto vw(10);
+        width: vw(263);
+
+        .cls-1 {
+          fill: #e5a505;
+        }
+
+        .cls-2 {
+          fill: #cc9305;
+          stroke: none;
+        }
+
+        .cls-3 {
+          fill: #ffbd03;
+        }
+      }
+
+      &--off {
+        height: vw(83);
+        margin: vw(-22) auto vw(10);
+        width: vw(263);
+
+        .cls-1 {
+          fill: #e5b45c;
+        }
+
+        .cls-2 {
+          fill: #cca052;
+          stroke: none;
+        }
+
+        .cls-3 {
+          fill: #fc6;
+        }
+
+      }
+    }
+  }
+
+  .notes {
+    @include slant;
+    font-size: vw(11);
+    text-align: center;
+  }
+}

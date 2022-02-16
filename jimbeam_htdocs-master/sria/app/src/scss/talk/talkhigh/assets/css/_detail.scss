@@ -1,0 +1,220 @@
+@charset 'utf-8';
+
+.themeView {
+  height: vw(300);
+  margin-top: vw(20);
+  position: relative;
+
+  &__text {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    span {
+      font-size: vw(47);
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      text-shadow: vw(5) vw(2) vw(2) #fff;
+      transform: translateY(-50%) skew(-5deg) rotate(-5deg);
+      width: 100%;
+    }
+  }
+}
+
+.themeCount {
+  @include slant;
+  font-size: vw(16);
+  text-align: center;
+}
+
+.themeFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: vw(20);
+
+  .button {
+    border: 0;
+    display: block;
+    height: vw(90);
+    outline: 0;
+    overflow: hidden;
+    width: vw(167);
+
+    &--back {
+      .cls-1 {
+        fill: #d1d1d1;
+      }
+
+      .cls-2 {
+        fill: #b7b7b7;
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: #e6e6e6;
+      }
+    }
+
+    &--next {
+      transform: translateY(#{vw(-15)});
+
+      .cls-1 {
+        fill: #e5cf03;
+      }
+
+      .cls-2 {
+        fill: #ccb405;
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: #ffeb01;
+      }
+
+      &.work {
+        .cls-1 {
+          fill: #8ec2ce;
+        }
+
+        .cls-2 {
+          fill: #7daab5;
+        }
+
+        .cls-3 {
+          fill: #a0d8ea;
+        }
+      }
+
+      &.money {
+        .cls-1 {
+          fill: #e5cf03;
+        }
+
+        .cls-2 {
+          fill: #ccb405;
+        }
+
+        .cls-3 {
+          fill: #fcee21;
+        }
+      }
+
+      &.love {
+        .cls-1 {
+          fill: #d69db2;
+        }
+
+        .cls-2 {
+          fill: #bc8a9c;
+        }
+
+        .cls-3 {
+          fill: #f0afc3;
+        }
+      }
+
+      &.personality {
+        .cls-1 {
+          fill: #bbbf00;
+        }
+
+        .cls-2 {
+          fill: #a1a500;
+        }
+
+        .cls-3 {
+          fill: #c8d900;
+        }
+      }
+
+      &.free {
+        .cls-1 {
+          fill: #d68a1d;
+        }
+
+        .cls-2 {
+          fill: #bc7a19;
+        }
+
+        .cls-3 {
+          fill: #f1a11e;
+        }
+      }
+
+      &.life {
+        .cls-1 {
+          fill: #ccc3aa;
+        }
+
+        .cls-2 {
+          fill: #b2aa94;
+        }
+
+        .cls-3 {
+          fill: #e8debf;
+        }
+      }
+
+      &.season {
+        .cls-1 {
+          fill: #ce5642;
+        }
+
+        .cls-2 {
+          fill: #b54b3a;
+        }
+
+        .cls-3 {
+          fill: #e96649;
+        }
+      }
+    }
+  }
+}
+
+// トランジション
+// 初期表示
+.themeAnime-enter {
+  color: transparent;
+  opacity: 0;
+  transform: scale(.75);
+}
+
+// 表示完了
+.themeAnime-enter-to {
+  opacity: 1;
+}
+
+// 表示中
+.themeAnime-enter-active {
+  // transition: all 1s, color 0s;
+  transition: all .5s;
+}
+
+// 削除開始
+.themeAnime-leave {
+  opacity: 1;
+}
+
+// 削除完了
+.themeAnime-leave-to {
+  opacity: 0;
+  transform: translateX(#{vw(-50)});
+}
+
+// 削除中
+.themeAnime-leave-active {
+  transition: all .5s;
+}
+
+.buttonShow-leave-to {
+  opacity: 0;
+  // transform: scale(.7);
+}
+
+.buttonShow-leave-active {
+  transition: all .5s;
+}

@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+// libs
+@import '../../../libs/reset';
+// settings
+@import '../../../settings/vars';
+@import '../../../settings/placeholder';
+@import '../../../settings/function';
+@import '../../../settings/mq';
+@import '../../../settings/mixin';
+@import '../../../settings/base';
+// talkhigh
+@import './vars';
+
+html {
+  background-color: $bgColorDefault;
+}
+
+body {
+  background-color: $bgColorDefault;
+  line-height: 1.4;
+}
+
+@import '../../../modules/common';
+
+.header {
+  padding: vw(50) 5% vw(15);
+  position: relative;
+
+  &__title {
+    text-align: center;
+    img {
+      width: vw(271);
+    }
+  }
+}
+
+.main {
+  .lead {
+    @include shadowLead;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .note {
+    @include slant;
+    font-size: vw(10);
+    margin-top: vw(6);
+    text-align: center;
+  }
+}
+
+.content {
+  margin-top: vw(-20);
+}
+
+.calender {
+  .head {
+    @include slant;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: vw(8);
+
+    .month {
+      font-size: vw(26);
+      letter-spacing: vw(-1);
+    }
+
+    &__button {
+      appearance: none;
+      background: transparent center no-repeat;
+      background-size: contain;
+      border: 0;
+      cursor: pointer;
+      height: vw(11);
+      outline: 0;
+      overflow: hidden;
+      text-indent: -9999px;
+      width: vw(8);
+
+      &:disabled {
+        opacity: 0;
+      }
+
+      &--prev {
+        background-image: url('../images/icon_triangle_left.png');
+      }
+
+      &--next {
+        background-image: url('../images/icon_triangle_right.png');
+      }
+    }
+  }
+
+  .dates {
+    @include slant;
+
+    ol {
+      font-size: 0;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+      font-size: vw(16);
+      padding: vw(12);
+      position: relative;
+      text-align: center;
+      user-select: none;
+      width: calc(100% / 7);
+
+      &::after {
+        background: url('../images/bg_selected_date.png') center no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: vw(46);
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(.5);
+        transition: .1s all;
+        visibility: hidden;
+        width: vw(46);
+        z-index: -1;
+      }
+
+      // 土曜
+      &:nth-of-type(7n - 1) {
+        color: #29abe2;
+      }
+
+      // 日曜
+      &:nth-of-type(7n) {
+        color: #ff1f1f;
+      }
+
+      &.jsSelected {
+        color: #fff;
+        &::after {
+          transform: translate(-50%, -50%) scale(1);
+          visibility: visible;
+        }
+      }
+
+      &.jsDisabled {
+        color: #8E8E8E;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .time {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: vw(10);
+    padding: 0 vw(20);
+
+    &__head {
+      width: vw(108);
+      img {
+        transform: translateY(#{vw(18)});
+        width: 100%;
+      }
+    }
+
+    &__body {
+      @include slant;
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      margin-left: vw(20);
+
+      select {
+        appearance: none;
+        background-color: #fff;
+        color: #000;
+        font-size: vw(30);
+        border: 0;
+        padding: vw(5) vw(15);
+        text-align: center;
+        width: vw(70);
+      }
+
+      .colon {
+        width: vw(7);
+        img {
+          transform: translateY(#{vw(15)});
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .button {
+    margin-top: vw(20);
+    text-align: center;
+  }
+
+  .send {
+    display: inline-block;
+    height: vw(76);
+    width: vw(191);
+
+    .cls-1 {
+      fill: #7eaa39;
+    }
+
+    .cls-2 {
+      fill: #6b9130;
+      stroke: none;
+    }
+
+    .cls-3 {
+      fill: #8cc63f;
+    }
+  }
+}
+
+.backBtn {
+  display: block;
+  height: vw(56);
+  margin: vw(-15) auto 0;
+  width: vw(120);
+}

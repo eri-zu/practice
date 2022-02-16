@@ -1,0 +1,9 @@
+{
+  "is_success":true,
+  "data":{
+    "id":1,
+    "order":"desc",
+    "point":20,
+    "rank":122
+  }
+}

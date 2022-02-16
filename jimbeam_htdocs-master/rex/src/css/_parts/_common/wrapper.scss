@@ -1,0 +1,173 @@
+/* --------------------------------------------------------------------------------
+*
+*   html,body
+*
+-------------------------------------------------------------------------------- */
+
+html,body {
+  height: 100%;
+}
+
+html {
+  
+  // baseフォント
+  color: $font-color;
+  font-size: $fz + px;
+  font-family: $font;
+  font-weight: $fw;  
+  
+  letter-spacing: $ls;
+  
+  // 背景
+  background-color: $bg-color;
+  // background: url(../resource/svg/common/bg.svg) no-repeat;
+  // background-size: cover;
+  // background-position: center center;
+
+  // sp対策
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  
+  @if $visible == true { opacity: 1; }
+  @else { opacity: 0; } 
+  
+  @if $sp_select == true { -webkit-tap-highlight-color:rgba(0,0,0,0); }
+
+  @if $hidden == true { overflow: hidden; }
+
+  // other
+  // backface-visibility: hidden; //CSS 3D Transformsによる3次元の裏側を描画するかしないか　visible or hidden  
+  -webkit-font-smoothing: antialiased; //太く、細く
+  // text-rendering: auto; // web fontカーニング指定
+  // -webkit-font-smoothing: antialiased;
+  
+  width: 100%;
+
+  /*
+  *
+  *   media query   
+  *
+  */
+  // media query
+
+  @include media-max('sp-s') {
+    
+    $fz: 8;
+    font-size: $fz + px;
+        
+  }
+  // @media only screen and (max-height: 480px) {
+    
+  //   $fz: 7;
+  //   font-size: $fz + px;
+        
+  // }
+  // @include media-max('sp-s') {
+    
+  //   $fz: 4;
+  //   font-size: $fz + px;
+        
+  // }
+
+}
+html.page_top {
+  background: url(../resource/img/bgTop.jpg);
+  background-size: 100%;
+}
+// html.id_top.bg {
+//   background: url(../resource/img/bgTop.jpg);
+//   background-size: 100%;
+// }
+html.id_talk {
+  background-color: #FFF9B2;
+}
+html.id_tap {
+  background-color: #ECF0B3;
+}
+html.id_warikan {
+  background-color: #FDD7BB;
+}
+html.id_tour {
+  background-color: #F7B8BF;
+}
+html.id_cm {
+  background-color: #E8E8E8;
+}
+
+body {
+
+  overflow-x: hidden;
+  opacity: 0;
+
+
+  /*
+  *
+  *   media query   
+  *
+  */
+  @include media-max('sp') {
+        
+  }
+
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   #wrapper #inner
+*
+-------------------------------------------------------------------------------- */
+#wrapper,#inner {
+  
+  
+}
+
+#wrapper {
+
+  z-index: z(wrapper);
+  font-size: rem($deffz ,$fz);
+  overflow: hidden;
+  
+      
+  /*
+  *
+  *   media query   
+  *
+  */
+  @include media-max('sp') {
+
+    
+  }
+
+}
+.isDeviceSP #wrapper {
+
+  @include media-max('sp') {
+
+    // height: calc(100vh);
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    
+  }
+
+}
+#inner {
+
+  position: relative;
+
+}
+
+/* --------------------------------------------------------------------------------
+*
+*   .wrapper .inner
+*
+-------------------------------------------------------------------------------- */
+.wrapper {
+  
+  
+}
+
+.inner {
+  
+}

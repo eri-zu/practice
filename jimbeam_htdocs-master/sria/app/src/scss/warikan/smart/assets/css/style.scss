@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+// libs
+@import '../../../../libs/reset';
+// settings
+@import '../../../../settings/vars';
+@import '../../../../settings/placeholder';
+@import '../../../../settings/function';
+@import '../../../../settings/mixin';
+@import '../../../../settings/mq';
+@import '../../../../settings/base';
+// warikan smart
+@import './vars';
+
+html {
+  background-color: $bgColorDefault;
+}
+
+body {
+  background-color: $bgColorDefault;
+  line-height: 1.4;
+}
+
+@import '../../../../modules/common';
+
+.wrapper.jsTouched {
+  position: fixed;
+  width: 100%;
+}
+
+.header {
+  padding: vw(50) 5% vw(15);
+  position: relative;
+  transition: .3s padding;
+
+  &.headerDetail {
+    padding-top: vw(20);
+  }
+
+  &__title {
+    text-align: center;
+    img {
+      transition: .3s all;
+      width: vw(212);
+    }
+
+    &.headerTitleDetail {
+      img {
+        width: vw(149);
+      }
+    }
+  }
+
+  &__menu {
+    &.header__menu--smart {
+      z-index: 10;
+    }
+  }
+}
+
+.main {
+  .lead {
+    @include shadowLead;
+  }
+}
+
+@import './submit';
+@import './confirm';
+@import './collect';
+
+.backBtn {
+  border: 0;
+  display: block;
+  height: vw(62);
+  margin: -10px auto 0;
+  width: vw(202);
+
+  .cls-1 {
+    fill: gray;
+  }
+
+  .cls-2 {
+    fill: #e6e6e6;
+    stroke: none;
+  }
+}
+
+// トランジション
+// 初期表示
+.fade-enter {
+  color: transparent;
+  opacity: 0;
+  transform: scale(.75);
+}
+
+// 表示完了
+.fade-enter-to {
+  opacity: 1;
+}
+
+// 表示中
+.fade-enter-active {
+  // transition: all 1s, color 0s;
+  transition: all .5s;
+}
+
+// 削除開始
+.fade-leave {
+  opacity: 1;
+}
+
+// 削除完了
+.fade-leave-to {
+  opacity: 0;
+}
+
+// tutorial
+.tutorial {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: .3s all;
+  width: 100%;
+  z-index: 12;
+
+  &.jsHide {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -100;
+  }
+
+  img {
+    right: 4%;
+    position: absolute;
+    top: 32%;
+    width: vw(252.5);
+  }
+}

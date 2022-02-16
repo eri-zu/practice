@@ -1,0 +1,115 @@
+/* --------------------------------------------------------------------------------
+*
+*   header
+*
+-------------------------------------------------------------------------------- */
+header.notLower {
+
+	position: relative;
+	z-index: 10;
+	
+	display: none;
+
+	/* --------------------------------------------------------------------------------
+	*
+	*   budge
+	*
+	-------------------------------------------------------------------------------- */
+	.budge {
+		position: absolute;
+		left: vw375(-16);
+		top: vw375(3);
+		img {
+			width: vw375(191, true);
+			height: vw375(162, true);
+		}
+	}
+
+
+	/* --------------------------------------------------------------------------------
+	*
+	*   menus
+	*
+	-------------------------------------------------------------------------------- */
+	.menus {
+		position: absolute;
+		right: 0;
+		top: 0;
+		div {
+			position: absolute;
+			top: vw375(15);
+			right: vw375(-166);
+			svg {
+				width: vw375(221);
+				height: vw375(266);
+			}
+		}
+		.line {
+			top: vw375(67);
+			z-index: 2;
+			display: none;
+		}
+		.tw {
+			top: vw375(118);
+			z-index: 3;
+			display: none;
+		}
+		.fb {
+			top: vw375(170);
+			z-index: 4;
+			display: none;
+		}
+	}
+
+	&.showSNS {
+		.menus {
+			.line {
+				display: block;
+			}
+			.tw {
+				display: block;
+			}
+			.fb {
+				display: block;
+			}
+		}
+	  
+	}
+
+
+}
+
+header.lower2 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	
+	width: 100%;
+	
+	display: none;
+
+	.logo {
+	  position: absolute;
+	  top: vw375(15);
+	  left: vw375(20);
+	  
+	  svg {
+	    width: vw375(57);
+	    height: vw375(44);
+	  }
+	}
+	
+	.menu {
+		position: absolute;
+		top: vw375(18);
+		right: vw375(20);
+		
+		svg {
+		  width: vw375(26);
+		  height: vw375(24);
+		}
+		
+	}
+	
+}

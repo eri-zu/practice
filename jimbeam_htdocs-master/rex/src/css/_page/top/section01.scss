@@ -1,0 +1,157 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+.section01 {
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	position: relative;
+	z-index: 3;
+	overflow: hidden;
+	
+	// background: url(../resource/img/bgTop.jpg);
+	// background-size: 100%;
+	
+	/* --------------------------------------------------------------------------------
+	*
+	*   titWrap
+	*
+	-------------------------------------------------------------------------------- */
+	.titWrap {
+		margin-top: vw375(15);
+		margin-left: vw375(16);
+		width: vw375(262);
+		
+		.subTit {
+			position: relative;
+			top: vw375(-1);
+			left: vw375(5);
+			
+			transform: rotate(-4deg);
+			
+			svg {
+				transform: rotate(4deg);
+				width: vw375(223);
+				height: vw375(29);
+			}
+		}
+		.tit {
+			position: relative;
+			top: vw375(-16);
+			
+			transform: rotate(-4deg);
+			svg {
+				transform: rotate(4deg);
+				width: vw375(229);
+				height: vw375(182);
+			}
+
+		}
+		.nigiyakaWrap {
+			position: relative;
+			top: vw375(-30);
+			left: vw375(-18);
+			
+			width: vw375(270);
+			height: vw375(78);
+			
+			transform: rotate(-4deg);
+			overflow: hidden;
+			
+			.in {
+				transform: rotate(4deg);
+				position: relative;
+				left: vw375(6);
+			}
+		}
+	}
+	
+	/* --------------------------------------------------------------------------------
+	*
+	*   btns
+	*
+	-------------------------------------------------------------------------------- */
+	.btns {
+		position: absolute;
+		top: vw375(264);
+		left: vw375(20);
+		
+		left: 50%;
+		transform: translateX(vw375(-168));		
+		.btn {
+			position: absolute;
+			left: 0;
+			top: 0;
+			.btnIn svg {
+				width: vw375(412);
+				height: vw375(504);
+			}
+			.new {
+				position: absolute;
+				top: vw375(-23);
+				left: vw375(-30);
+				svg {
+					width: vw375(53);
+					height: vw375(53);
+				}
+				img {
+					width: vw375(60);
+					height: vw375(60);
+				}
+			}
+
+			a {
+				width: vw375(168);
+				height: vw375(100);
+				display: block;
+			}
+		}
+		.btn:nth-child(1) {
+			top: vw375(2);
+			.btnIn svg {
+				width: vw375(589);
+				height: vw375(519);
+			}
+
+			a {
+				width: vw375(350);
+				height: vw375(100);
+				display: block;
+			}
+		}
+		.btn:nth-child(2) {
+			top: vw375(108);
+			left: 0;
+		}
+		.btn:nth-child(3) {
+			top: vw375(93);
+			left: vw375(178);
+		}
+		.btn:nth-child(4) {
+			top: vw375(199);
+			left: 0;
+		}
+		.btn:nth-child(5) {
+			top: vw375(184);
+			left: vw375(178);
+		}
+		.btn:nth-child(6) {
+			top: vw375(290);
+			left: 0;
+		}
+		.btn:nth-child(7) {
+			top: vw375(275);
+			left: vw375(178);
+		}
+
+	}
+
+
+	
+}

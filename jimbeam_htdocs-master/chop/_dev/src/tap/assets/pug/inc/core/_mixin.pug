@@ -1,0 +1,10 @@
+mixin picture({pc: pcSource, sp: spSource, alt: alt=''})
+  picture&attributes(attributes)
+    source(media=sp, srcset=spSource)
+    //- source(media=pc, srcset=pcSource)
+    img(src=pcSource alt=alt)
+
+    //- if fallback
+      img(src=fallback alt=alt ? alt : '')
+
+

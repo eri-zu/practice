@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+body {
+  font-size: 1.3em;
+  font-family: $fontFamily;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: 100%;
+}
+
+p,
+dl,
+dd,
+blockquote,
+figure,
+pre,
+ol,
+ul,
+li{
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li{
+  list-style-type:none;
+}

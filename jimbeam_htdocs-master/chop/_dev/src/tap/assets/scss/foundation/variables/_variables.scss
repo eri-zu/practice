@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+// Breakpoint
+$screen: (
+  xs: 480px,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px
+) !default;
+$spDesignWidth: 750;
+
+@mixin sp {
+  @include mq(sm, max) {
+    // mq-max未満
+    @content;
+  }
+}
+@mixin tb { // @include pc 中で使う。
+  @include mq(md, max) {
+    // mq-min以上
+    @content;
+  }
+}
+
+@mixin pc {
+  @include mq(sm, min) {
+    // mq-min以上
+    @content;
+  }
+}
+
+
+// font-family
+$fontFamily : "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Verdana, Arial, Helvetica, sans-serif;
+$fontCode   : monospace, "ＭＳ Ｐ ゴシック","MS PGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+
+// z-index
+$z-map-reverse: false !default;
+$z-map: (
+  front: true,
+  header: true,
+  menu: true,
+  modal: (
+    button: true,
+    images: (
+      mask: true,
+      body: true
+    ),
+    close: true
+  )
+) !default;

@@ -1,0 +1,38 @@
+extends ../../_base/_layout
+block vars
+  - var path = '.';
+block title
+  title= title
+block append meta
+block append link
+  link(rel="stylesheet", href=`${path}/assets/css/style.css`)
+block body
+  #wrapper.wrapper
+    header.header
+      h1.header__logo.jsDelayAnime
+        a.jsSeLogo(href="../../", data-color="toTop")
+          img(src=`${path}/assets/images/logo_jim_beadm_tap.png`, alt="JIM BEAM TAP")
+      h2.header__title.jsDelayAnime
+        img(src=`${path}/assets/images/title_roulette_top.png`, alt="ルーレット割り勘")
+      span.header__menu.jsDelayAnime.open_modal.jsSeBtn
+    main.main#top
+      .jsDelayAnime
+        p.lead
+          img(src=`${path}/assets/images/text_roulette_lead.png`, alt="誰を決める？")
+      .content
+        .start
+          a#startBtnBig.startBtn.startBtn--big.jsDelayAnime.notTransition.jsSeLink(href="./detail/?category=big")
+            include ./svg/button_start_big.svg
+          a#startBtnSmall.startBtn.startBtn--small.jsDelayAnime.notTransition.jsSeLink(href="./detail/?category=small")
+            include ./svg/button_start_small.svg
+          a#startBtnFree.startBtn.startBtn--free.jsDelayAnime.notTransition.jsSeLink(href="./detail/?category=free")
+            include ./svg/button_start_free.svg
+    footer.footer
+      a#backBtn.backBtn.jsDelayAnime(href="../../?page=warikan", data-color="toTop")
+        include ./svg/button_back.svg
+      small.copy.jsDelayAnime
+        img(src=`${path}/assets/images/copy.png`, alt="COPYRIGHT SUNTORY HOLDINGS LIMITED. ALL RIGHTS REVERVED.")
+block append script
+  //- script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+  script(src="https://cdn.jsdelivr.net/npm/vue")
+  script(src=`${path}/assets/js/app.bundle.js?v=${Date.now()}`)

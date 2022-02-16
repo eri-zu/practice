@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+.start {
+  .startBtn {
+    display: block;
+    height: vw(110);
+    margin: vw(10) auto 0;
+    width: vw(293);
+
+    .cls-2 {
+      stroke: none;
+    }
+
+    &--big {
+      .cls-1 {
+        fill: #c94420;
+      }
+
+      .cls-2 {
+        fill: #af3b1c;
+      }
+
+      .cls-3 {
+        fill: #e55523;
+      }
+    }
+
+    &--small {
+      margin-top: vw(-12);
+      .cls-1 {
+        fill: #dd6b1d;
+      }
+
+      .cls-2 {
+        fill: #c45f1a;
+      }
+
+      .cls-3 {
+        fill: #f97c1e;
+      }
+    }
+
+    &--free {
+      margin-top: vw(-12);
+      .cls-1 {
+        fill: #e0905a;
+      }
+
+      .cls-2 {
+        fill: #c67f4f;
+      }
+
+      .cls-3 {
+        fill: #faa463;
+      }
+    }
+  }
+}

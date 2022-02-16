@@ -1,0 +1,2102 @@
+@charset 'UTF-8';
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+body
+{
+    opacity: 0;
+}
+
+.jimbeamCommon
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    /* --------------------------------------------------------------------------------
+*   text / font
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*   media query
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   z-index
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   easing
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   texture
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   color
+*
+-------------------------------------------------------------------------------- */
+    /* HSL */
+    /* RGB */
+    /* HSL */
+    /* RGB */
+    /* HSL */
+    /* RGB */
+    /* HSL */
+    /* RGB */
+    /* Coolors Exported Palette - coolors.co/040091-6901f5-b735fb-fe249b-ff5a78 */
+    /* HSL */
+    /* RGB */
+    /* HSL */
+    /* RGB */
+    /* HSL */
+    /* RGB */
+    /* --------------------------------------------------------------------------------
+*
+*   mixin
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   animation
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   media query
+*
+-------------------------------------------------------------------------------- */
+    /*
+*
+*   max order 
+*
+*/
+    /*
+*
+*   min order 
+*
+*/
+    /*
+*
+*   how to   
+*
+*/
+    /* --------------------------------------------------------------------------------
+*
+*   portrait,landscape
+*
+-------------------------------------------------------------------------------- */
+    /*
+  *
+  *   how to
+  *
+  */
+    /* --------------------------------------------------------------------------------
+*
+*   common
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   float
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   flex
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   Clearfix
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   TextAlign
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   Nav
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   font
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   responsive
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   overflow hidden
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   word breadk
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   font-weight
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   center
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   row
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   opacity
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   display
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   overflow
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   position
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   // 画像保存禁止    
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   design(見本)
+*
+-------------------------------------------------------------------------------- */
+    /* image */
+    /* --------------------------------------------------------------------------------
+*
+*   link
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   dat gui
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   section
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   bar
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   select
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   grab
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   age
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   landscape
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   menu
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   coverWrap
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   taps
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   tapsX
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   opacity
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   flash
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   scale
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   color
+*
+-------------------------------------------------------------------------------- */
+    /*
+*
+*   cursor
+*
+*/
+    /* --------------------------------------------------------------------------------
+*
+*   shadow
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   filte flash
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   pulse
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   runner
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   loading
+*
+-------------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------
+*
+*   media query module
+*
+-------------------------------------------------------------------------------- */
+}
+
+.jimbeamCommon :root
+{
+    --h: 100vh;
+}
+
+.jimbeamCommon .fl
+{
+    float: left;
+}
+
+.jimbeamCommon .fr
+{
+    float: right;
+}
+
+.jimbeamCommon .cl
+{
+    clear: both;
+}
+
+.jimbeamCommon .fList > li,
+.jimbeamCommon .fList > dt,
+.jimbeamCommon .fList > dd,
+.jimbeamCommon .fList > .item
+{
+    float: left;
+}
+
+.jimbeamCommon .fList > .item:last-child
+{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+.jimbeamCommon .flex > li:last-child,
+.jimbeamCommon .flex > dt:last-child,
+.jimbeamCommon .flex > dd:last-child,
+.jimbeamCommon .flex > .item:last-child
+{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+.jimbeamCommon .fBoth > li:first-child
+{
+    float: left;
+}
+
+.jimbeamCommon .fBoth > li:last-child
+{
+    float: right;
+}
+
+.jimbeamCommon .fBoth > dt,
+.jimbeamCommon .fBoth > .item:nth-child(1)
+{
+    float: left;
+}
+
+.jimbeamCommon .fBoth > dd,
+.jimbeamCommon .fBoth > .item:nth-child(2)
+{
+    float: right;
+}
+
+.jimbeamCommon .flex
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
+.jimbeamCommon .cf,
+.jimbeamCommon .fList
+{
+    zoom: 1;
+}
+
+.jimbeamCommon .cf:after,
+.jimbeamCommon .fList:after,
+.jimbeamCommon .fBoth:after
+{
+    line-height: 0;
+
+    display: block;
+    visibility: hidden;
+    clear: both;
+
+    height: 0;
+
+    content: '.';
+}
+
+.jimbeamCommon .al
+{
+    text-align: left;
+}
+
+.jimbeamCommon .ar
+{
+    text-align: right;
+}
+
+.jimbeamCommon .ac
+{
+    text-align: center;
+}
+
+.jimbeamCommon .vb
+{
+    vertical-align: baseline;
+}
+
+.jimbeamCommon .nav
+{
+    zoom: 1;
+}
+
+.jimbeamCommon .nav:after
+{
+    line-height: 0;
+
+    display: block;
+    visibility: hidden;
+    clear: both;
+
+    height: 0;
+
+    content: '.';
+}
+
+.jimbeamCommon .captalize
+{
+    text-transform: capitalize;
+}
+
+.jimbeamCommon .uppercase
+{
+    text-transform: uppercase;
+}
+
+.jimbeamCommon .lowercase
+{
+    text-transform: lowercase;
+}
+
+.jimbeamCommon img.fitted
+{
+    width: 100% !important;
+    height: auto !important;
+}
+
+.jimbeamCommon .oh
+{
+    overflow: hidden;
+}
+
+.jimbeamCommon .wb
+{
+    word-break: break-all;
+}
+
+.jimbeamCommon .fwb
+{
+    font-weight: bold;
+}
+
+.jimbeamCommon .row
+{
+    font-size: 0;
+
+    text-align: center;
+}
+
+.jimbeamCommon .row .item
+{
+    display: inline-block;
+}
+
+.jimbeamCommon .row.row_col2 > .item
+{
+    width: 50%;
+}
+
+.jimbeamCommon .row.row_col3 > .item
+{
+    width: 33.3333%;
+}
+
+.jimbeamCommon .row.row_col4 > .item
+{
+    width: 25%;
+}
+
+.jimbeamCommon .row .item:last-child
+{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+.jimbeamCommon .is-unvisible
+{
+    opacity: 0 !important;
+}
+
+.jimbeamCommon .is-visible
+{
+    opacity: 1 !important;
+}
+
+.jimbeamCommon .is-block
+{
+    display: block !important;
+}
+
+.jimbeamCommon .is-none
+{
+    display: none !important;
+}
+
+.jimbeamCommon .is-scroll
+{
+    overflow: scroll !important;
+}
+
+.jimbeamCommon .is-scroll-x
+{
+    overflow-x: scroll !important;
+}
+
+.jimbeamCommon .is-scroll-y
+{
+    overflow-y: scroll !important;
+}
+
+.jimbeamCommon .is-hidden
+{
+    overflow: hidden !important;
+}
+
+.jimbeamCommon .is-hidden-x
+{
+    overflow-x: hidden !important;
+}
+
+.jimbeamCommon .is-hidden-y
+{
+    overflow-y: hidden !important;
+}
+
+.jimbeamCommon .is-fixed
+{
+    position: fixed !important;
+}
+
+.jimbeamCommon .is-absolute
+{
+    position: absolute !important;
+}
+
+.jimbeamCommon .is-relative
+{
+    position: relative !important;
+}
+
+.jimbeamCommon .is-static
+{
+    position: static !important;
+}
+
+.jimbeamCommon .sample
+{
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    opacity: .3;
+}
+
+.jimbeamCommon body
+{
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}
+
+.jimbeamCommon img,
+.jimbeamCommon div,
+.jimbeamCommon p,
+.jimbeamCommon blockquote,
+.jimbeamCommon h1,
+.jimbeamCommon h2,
+.jimbeamCommon h3,
+.jimbeamCommon h4,
+.jimbeamCommon h5,
+.jimbeamCommon h6,
+.jimbeamCommon ul,
+.jimbeamCommon ol,
+.jimbeamCommon li,
+.jimbeamCommon dl,
+.jimbeamCommon dt,
+.jimbeamCommon dd,
+.jimbeamCommon form,
+.jimbeamCommon fieldset,
+.jimbeamCommon textarea
+{
+    font-size: 100%;
+    font-style: normal;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    text-decoration: none;
+
+    border: 0;
+}
+
+.jimbeamCommon a
+{
+    cursor: pointer;
+}
+
+.jimbeamCommon table
+{
+    font-size: 100%;
+}
+
+.jimbeamCommon hr.separator
+{
+    display: none;
+}
+
+.jimbeamCommon input[type='text'],
+.jimbeamCommon button,
+.jimbeamCommon select,
+.jimbeamCommon textarea
+{
+    resize: none;
+
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background-color: transparent;
+
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.jimbeamCommon select::-ms-expand
+{
+    display: none;
+}
+
+.jimbeamCommon img
+{
+    vertical-align: bottom;
+}
+
+.jimbeamCommon a
+{
+    text-decoration: none;
+
+    color: #000;
+}
+
+.jimbeamCommon a:hover
+{
+    text-decoration: none;
+
+    color: #000;
+}
+
+.jimbeamCommon a:visited
+{
+    text-decoration: none;
+
+    color: #000;
+}
+
+.jimbeamCommon a:active
+{
+    text-decoration: none;
+
+    color: #000;
+}
+
+.jimbeamCommon .dg.a
+{
+    overflow: visible !important;
+}
+
+.jimbeamCommon .dg li.color
+{
+    overflow: visible !important;
+}
+
+.jimbeamCommon .dg.ac
+{
+    z-index: 999999 !important;
+}
+
+.jimbeamCommon .left_bar:after
+{
+    position: absolute;
+    top: -.6rem;
+    left: 0;
+
+    display: block;
+
+    width: .7rem;
+    height: 3.5rem;
+
+    content: '';
+
+    background-color: #000;
+}
+
+.jimbeamCommon .up_bar:before
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 1rem;
+
+    content: '';
+    transition: height .18s cubic-bezier(.215, .61, .355, 1), background-color .2s cubic-bezier(.25, .46, .45, .94);
+
+    background-color: #000;
+}
+
+.jimbeamCommon body.no-select
+{
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+         -o-user-select: none;
+}
+
+.jimbeamCommon .grab
+{
+    cursor: -webkit-grab;
+    cursor:     -ms-grab;
+    cursor:         grab;
+}
+
+.jimbeamCommon .grabbing
+{
+    cursor: -webkit-grabbing;
+    cursor:     -ms-grabbing;
+    cursor:         grabbing;
+}
+
+.jimbeamCommon #age
+{
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    pointer-events: auto;
+
+    background: #fff;
+}
+
+.jimbeamCommon #age .inner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.jimbeamCommon #age .tit
+{
+    margin-bottom: calc(.02249 * var(--h));
+    padding-top: calc(.08246 * var(--h));
+}
+
+.jimbeamCommon #age .tit svg
+{
+    overflow: visible;
+
+    width: calc(.43478 * var(--h));
+    height: calc(.26087 * var(--h));
+}
+
+.jimbeamCommon #age .tit svg .age_text1_svg
+{
+    opacity: 0;
+}
+
+.jimbeamCommon #age .tit svg .age_text2_svg
+{
+    opacity: 0;
+}
+
+.jimbeamCommon #age .text
+{
+    margin-bottom: calc(.07496 * var(--h));
+
+    opacity: 0;
+}
+
+.jimbeamCommon #age .text svg
+{
+    width: calc(.29235 * var(--h));
+    height: calc(.07046 * var(--h));
+}
+
+#age.android .tit
+{
+    margin-bottom: calc(.11244 * var(--h));
+}
+
+#age.android .text
+{
+    display: none;
+}
+
+.jimbeamCommon #age .btns
+{
+    position: relative;
+    left: 50%;
+
+    margin-left: calc(-.28486 * var(--h));
+}
+
+.jimbeamCommon #age .btns .btnInner .btn
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+}
+
+.jimbeamCommon #age .btns .btnInner .btn svg
+{
+    width: calc(.61769 * var(--h));
+    height: calc(.87556 * var(--h));
+}
+
+.jimbeamCommon #age .btns .btnInner .androidBtn
+{
+    display: none;
+}
+
+#age.android .androidBtn
+{
+    display: block !important;
+}
+
+#age.android .iosBtn
+{
+    display: none !important;
+}
+
+.jimbeamCommon #age .btns .btnInner:nth-child(1) .btn:nth-child(1)
+{
+    top: calc(-.006 * var(--h));
+    left: calc(.02999 * var(--h));
+
+    width: calc(.23988 * var(--h));
+    height: calc(.23988 * var(--h));
+}
+
+.jimbeamCommon #age .btns .btnInner:nth-child(1) .btn:nth-child(2)
+{
+    top: calc(-.02999 * var(--h));
+    left: calc(.29685 * var(--h));
+}
+
+.jimbeamCommon #age .btns .btnInner:nth-child(1) .btn:nth-child(2) a
+{
+    display: block;
+
+    width: calc(.23988 * var(--h));
+    height: calc(.25487 * var(--h));
+}
+
+#age.android .btns .btnInner:nth-child(2)
+{
+    display: none !important;
+}
+
+.jimbeamCommon #age .btns .btnInner:nth-child(2) .btn
+{
+    top: calc(.25037 * var(--h));
+    left: calc(.16492 * var(--h));
+
+    width: calc(.23988 * var(--h));
+    height: calc(.13793 * var(--h));
+}
+
+.jimbeamCommon #age .btns .btnInner:nth-child(2) .btn svg
+{
+    width: calc(.61769 * var(--h));
+    height: calc(.75562 * var(--h));
+}
+
+.jimbeamCommon #landscape
+{
+    display: none;
+
+    pointer-events: auto;
+}
+
+@media all and (orientation: landscape)
+{
+    .jimbeamCommon #landscape
+    {
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        left: 0;
+
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+
+        width: 100%;
+        height: 100%;
+
+        background: url(../resource/img/bg.jpg);
+
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+                align-items: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .jimbeamCommon #landscape .logo
+    {
+        position: absolute;
+        top: 2.24888vw;
+        left: 2.9985vw;
+    }
+    .jimbeamCommon #landscape .logo svg
+    {
+        width: 8.54573vw;
+        height: 6.5967vw;
+    }
+    .jimbeamCommon #landscape .box
+    {
+        text-align: center;
+    }
+    .jimbeamCommon #landscape .box .tit
+    {
+        margin-bottom: 1.7991vw;
+    }
+    .jimbeamCommon #landscape .box .tit svg
+    {
+        width: 62.96852vw;
+        height: 12.74363vw;
+    }
+    .jimbeamCommon #landscape .box .img svg
+    {
+        width: 26.98651vw;
+        height: 28.93553vw;
+    }
+}
+
+.jimbeamCommon #menu
+{
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    display: none;
+    overflow: scroll;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: auto;
+
+    background-color: #fff;
+}
+
+.jimbeamCommon #menu .head .logo
+{
+    position: absolute;
+    top: calc(.01649 * var(--h));
+    left: calc(.02999 * var(--h));
+}
+
+.jimbeamCommon #menu .head .logo svg
+{
+    width: calc(.12294 * var(--h));
+    height: calc(.10195 * var(--h));
+}
+
+.jimbeamCommon #menu .head .text
+{
+    position: absolute;
+    top: calc(.02249 * var(--h));
+    left: calc(.17691 * var(--h));
+}
+
+.jimbeamCommon #menu .head .text svg
+{
+    width: calc(.22789 * var(--h));
+    height: calc(.07496 * var(--h));
+}
+
+.jimbeamCommon #menu .head .close
+{
+    position: absolute;
+    top: calc(.02999 * var(--h));
+    right: calc(.02999 * var(--h));
+}
+
+.jimbeamCommon #menu .head .close svg
+{
+    width: calc(.02849 * var(--h));
+    height: calc(.02849 * var(--h));
+}
+
+.jimbeamCommon #menu .list
+{
+    overflow: hidden;
+
+    padding-top: calc(.11694 * var(--h));
+    padding-bottom: calc(.04498 * var(--h));
+
+    text-align: center;
+}
+
+.jimbeamCommon #menu .list .item
+{
+    position: relative;
+}
+
+.jimbeamCommon #menu .list .item a
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    height: calc(.08696 * var(--h));
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.jimbeamCommon #menu .list .item .textWrap
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    height: 100%;
+
+    -webkit-transform: rotate(-5deg);
+        -ms-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+
+.jimbeamCommon #menu .list .item .textWrap .textInner
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+
+.jimbeamCommon #menu .list .item .textWrap .menuText
+{
+    opacity: 0;
+}
+
+.jimbeamCommon #menu .list .item .textWrap svg
+{
+    position: relative;
+
+    -webkit-transform: rotate(5deg);
+        -ms-transform: rotate(5deg);
+            transform: rotate(5deg);
+}
+
+.jimbeamCommon #menu .list .item .bgWrap
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 120%;
+    height: 100%;
+
+    -webkit-transform: translate(-50%, -50%) rotate(-5deg);
+        -ms-transform: translate(-50%, -50%) rotate(-5deg);
+            transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+.jimbeamCommon #menu .list .item .bg
+{
+    width: 100%;
+    height: 100%;
+
+    -webkit-transform: scaleY(0);
+        -ms-transform: scaleY(0);
+            transform: scaleY(0);
+
+    background-color: #ffeb01;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(1) svg
+{
+    width: calc(.31634 * var(--h));
+    height: calc(.06297 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(2) .bg
+{
+    background-color: #f97c1e;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(2) svg
+{
+    width: calc(.32684 * var(--h));
+    height: calc(.06147 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(3) .bg
+{
+    background-color: #f7038e;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(3) svg
+{
+    width: calc(.33283 * var(--h));
+    height: calc(.05997 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(4) .bg
+{
+    background-color: #bfce02;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(4) svg
+{
+    width: calc(.4048 * var(--h));
+    height: calc(.07046 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(5) .bg
+{
+    background-color: #53c3f1;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(5) svg
+{
+    width: calc(.26537 * var(--h));
+    height: calc(.05997 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(6) .bg
+{
+    background-color: #e4142c;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(6) svg
+{
+    width: calc(.43628 * var(--h));
+    height: calc(.07346 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(7) .bg
+{
+    background-color: #b3b3b3;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(7) svg
+{
+    width: calc(.14993 * var(--h));
+    height: calc(.04648 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .bg
+{
+    background-color: #f2f2f2;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .textWrap .textInner
+{
+    width: 100%;
+    height: 100%;
+
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .textWrap .textInner .menuText
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    height: calc(.08696 * var(--h));
+
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .textWrap .textInner .menuText div
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .sound
+{
+    margin-right: calc(.02999 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .sound svg
+{
+    width: calc(.11244 * var(--h));
+    height: calc(.03298 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .on
+{
+    margin-right: calc(.01499 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .on svg
+{
+    width: calc(.04348 * var(--h));
+    height: calc(.02699 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .sla
+{
+    margin-right: calc(.01649 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .sla svg
+{
+    width: calc(.01649 * var(--h));
+    height: calc(.02849 * var(--h));
+}
+
+.jimbeamCommon #menu .list .item:nth-child(8) .off svg
+{
+    width: calc(.06447 * var(--h));
+    height: calc(.02849 * var(--h));
+}
+
+.jimbeamCommon #menu .box
+{
+    margin-bottom: calc(.02999 * var(--h));
+
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.jimbeamCommon #menu .box .item:nth-child(1)
+{
+    margin-right: calc(.03748 * var(--h));
+}
+
+.jimbeamCommon #menu .box .item:nth-child(1) svg
+{
+    width: calc(.23238 * var(--h));
+    height: calc(.02399 * var(--h));
+}
+
+.jimbeamCommon #menu .box .item:nth-child(2) svg
+{
+    width: calc(.17541 * var(--h));
+    height: calc(.02549 * var(--h));
+}
+
+.jimbeamCommon #menu .sns
+{
+    padding-bottom: calc(.02399 * var(--h));
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.jimbeamCommon #menu .sns .item
+{
+    margin-right: calc(.03748 * var(--h));
+}
+
+.jimbeamCommon #menu .sns .item:nth-child(1) svg
+{
+    width: calc(.04048 * var(--h));
+    height: calc(.04048 * var(--h));
+}
+
+.jimbeamCommon #menu .sns .item:nth-child(2) svg
+{
+    width: calc(.04198 * var(--h));
+    height: calc(.03298 * var(--h));
+}
+
+.jimbeamCommon #menu .sns .item:nth-child(3) svg
+{
+    width: calc(.04048 * var(--h));
+    height: calc(.04048 * var(--h));
+}
+
+.jimbeamCommon .coverWrap
+{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+}
+
+.jimbeamCommon .coverWrap .cover
+{
+    width: 100%;
+    height: 100%;
+
+    background: #c00;
+}
+
+.jimbeamCommon .block
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    height: 100vh;
+
+    pointer-events: none;
+}
+
+.jimbeamCommon .taps
+{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.jimbeamCommon .taps svg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: calc(.34183 * var(--h));
+    height: calc(.1904 * var(--h));
+}
+
+.jimbeamCommon .base
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+}
+
+.jimbeamCommon .base svg
+{
+    width: calc(.34183 * var(--h));
+    height: calc(.1904 * var(--h));
+}
+
+.jimbeamCommon .tapsX
+{
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+}
+
+.jimbeamCommon .tapsX .tapsIn
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.jimbeamCommon .tapsX svg
+{
+    width: calc(.34183 * var(--h));
+    height: calc(.1904 * var(--h));
+}
+
+@media only screen and (min-width: 751px)
+{
+    .jimbeamCommon .hover_op
+    {
+        transition: opacity .1s cubic-bezier(.25, .46, .45, .94) 0s;
+    }
+    .jimbeamCommon .hover_op:hover
+    {
+        cursor: pointer;
+
+        opacity: .8 !important;
+    }
+}
+
+.jimbeamCommon .showOp
+{
+    transition: opacity .6s cubic-bezier(.25, .46, .45, .94) 0s;
+
+    opacity: 0;
+}
+
+.jimbeamCommon .showOp.is-show
+{
+    opacity: 1;
+}
+
+.jimbeamCommon .flashShow .inner
+{
+    opacity: 1 !important;
+}
+
+@-webkit-keyframes kf_flash
+{
+    50%
+    {
+        opacity: .5;
+
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=75)';
+            filter: alpha(opacity=75);
+    }
+}
+
+@keyframes kf_flash
+{
+    50%
+    {
+        opacity: .5;
+
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=75)';
+            filter: alpha(opacity=75);
+    }
+}
+
+.jimbeamCommon .scale
+{
+    transition: -webkit-transform .35s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .35s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .35s cubic-bezier(.25, .46, .45, .94) 0s, -webkit-transform .35s cubic-bezier(.25, .46, .45, .94) 0s;
+}
+
+.jimbeamCommon .scale:hover
+{
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+}
+
+.jimbeamCommon .scale_img
+{
+    transition: -webkit-transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
+    transition:         transform .3s cubic-bezier(.25, .46, .45, .94) 0s, -webkit-transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
+}
+
+.jimbeamCommon .scale_img:hover
+{
+    cursor: pointer;
+    -webkit-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+            transform: scale(1.15);
+}
+
+.jimbeamCommon .hColor
+{
+    transition: color .3s cubic-bezier(.25, .46, .45, .94) 0s;
+}
+
+.jimbeamCommon .hColor:hover
+{
+    cursor: pointer;
+
+    color: #f63e69 !important;
+}
+
+.jimbeamCommon .hBgColor
+{
+    transition: background-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
+}
+
+.jimbeamCommon .hBgColor:hover
+{
+    cursor: pointer;
+
+    background-color: #f63e69 !important;
+}
+
+.jimbeamCommon .cp
+{
+    cursor: pointer;
+}
+
+.jimbeamCommon .hover_boxShadow
+{
+    transition: all .2s cubic-bezier(.25, .46, .45, .94) 0s;
+}
+
+.jimbeamCommon .hover_boxShadow:hover
+{
+    cursor: pointer;
+
+    opacity: .7;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2) !important;
+}
+
+.jimbeamCommon .wFlash
+{
+    cursor: pointer;
+}
+
+.jimbeamCommon .wFlash:hover
+{
+    -webkit-animation: bF .8s cubic-bezier(.25, .46, .45, .94) 0s 1 normal;
+            animation: bF .8s cubic-bezier(.25, .46, .45, .94) 0s 1 normal;
+}
+
+@-webkit-keyframes bF
+{
+    0%
+    {
+        background: white;
+    }
+    100%
+    {
+        background: rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes bF
+{
+    0%
+    {
+        background: white;
+    }
+    100%
+    {
+        background: rgba(255, 255, 255, 0);
+    }
+}
+
+.jimbeamCommon .flash:hover
+{
+    -webkit-animation: kf_flash .05s infinite;
+            animation: kf_flash .05s infinite;
+}
+
+.jimbeamCommon .translate
+{
+    transition: -webkit-transform 1.2s cubic-bezier(.165, .84, .44, 1) 0s;
+    transition:         transform 1.2s cubic-bezier(.165, .84, .44, 1) 0s;
+    transition:         transform 1.2s cubic-bezier(.165, .84, .44, 1) 0s, -webkit-transform 1.2s cubic-bezier(.165, .84, .44, 1) 0s;
+}
+
+.jimbeamCommon .pulse
+{
+    border-radius: 50%;
+}
+
+.jimbeamCommon .pulse:hover
+{
+    -webkit-animation: pulse 1.2s infinite;
+            animation: pulse 1.2s infinite;
+    -webkit-animation-delay: .3;
+            animation-delay: .3;
+}
+
+@-webkit-keyframes pulse
+{
+    0%
+    {
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, .7);
+    }
+    70%
+    {
+        -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+    100%
+    {
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes pulse
+{
+    0%
+    {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, .7);
+    }
+    70%
+    {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+    100%
+    {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.jimbeamCommon .runner
+{
+    -webkit-animation: runner 1000ms linear 1 both;
+            animation: runner 1000ms linear 1 both;
+}
+
+@-webkit-keyframes runner
+{
+    0%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -500, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -500, 0, 0, 1);
+    }
+    3.2%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .621, 1, 0, 0, 0, 0, 1, 0, -282.728, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .621, 1, 0, 0, 0, 0, 1, 0, -282.728, 0, 0, 1);
+    }
+    6.41%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .829, 1, 0, 0, 0, 0, 1, 0, -149.309, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .829, 1, 0, 0, 0, 0, 1, 0, -149.309, 0, 0, 1);
+    }
+    9.61%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .695, 1, 0, 0, 0, 0, 1, 0, -72.484, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .695, 1, 0, 0, 0, 0, 1, 0, -72.484, 0, 0, 1);
+    }
+    12.71%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .477, 1, 0, 0, 0, 0, 1, 0, -31.997, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .477, 1, 0, 0, 0, 0, 1, 0, -31.997, 0, 0, 1);
+    }
+    12.81%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .47, 1, 0, 0, 0, 0, 1, 0, -31.079, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .47, 1, 0, 0, 0, 0, 1, 0, -31.079, 0, 0, 1);
+    }
+    18.92%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .146, 1, 0, 0, 0, 0, 1, 0, -1.766, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .146, 1, 0, 0, 0, 0, 1, 0, -1.766, 0, 0, 1);
+    }
+    19.22%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .135, 1, 0, 0, 0, 0, 1, 0, -1.214, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .135, 1, 0, 0, 0, 0, 1, 0, -1.214, 0, 0, 1);
+    }
+    25.23%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, -.003, 1, 0, 0, 0, 0, 1, 0, 2.88, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, -.003, 1, 0, 0, 0, 0, 1, 0, 2.88, 0, 0, 1);
+    }
+    25.63%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, -.007, 1, 0, 0, 0, 0, 1, 0, 2.886, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, -.007, 1, 0, 0, 0, 0, 1, 0, 2.886, 0, 0, 1);
+    }
+    31.43%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, -.033, 1, 0, 0, 0, 0, 1, 0, 1.99, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, -.033, 1, 0, 0, 0, 0, 1, 0, 1.99, 0, 0, 1);
+    }
+    56.46%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .002, 1, 0, 0, 0, 0, 1, 0, .01, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .002, 1, 0, 0, 0, 0, 1, 0, .01, 0, 0, 1);
+    }
+    65.67%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .001, 1, 0, 0, 0, 0, 1, 0, -.003, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .001, 1, 0, 0, 0, 0, 1, 0, -.003, 0, 0, 1);
+    }
+    81.48%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -.001, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -.001, 0, 0, 1);
+    }
+    100%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+}
+
+@keyframes runner
+{
+    0%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -500, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -500, 0, 0, 1);
+    }
+    3.2%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .621, 1, 0, 0, 0, 0, 1, 0, -282.728, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .621, 1, 0, 0, 0, 0, 1, 0, -282.728, 0, 0, 1);
+    }
+    6.41%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .829, 1, 0, 0, 0, 0, 1, 0, -149.309, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .829, 1, 0, 0, 0, 0, 1, 0, -149.309, 0, 0, 1);
+    }
+    9.61%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .695, 1, 0, 0, 0, 0, 1, 0, -72.484, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .695, 1, 0, 0, 0, 0, 1, 0, -72.484, 0, 0, 1);
+    }
+    12.71%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .477, 1, 0, 0, 0, 0, 1, 0, -31.997, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .477, 1, 0, 0, 0, 0, 1, 0, -31.997, 0, 0, 1);
+    }
+    12.81%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .47, 1, 0, 0, 0, 0, 1, 0, -31.079, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .47, 1, 0, 0, 0, 0, 1, 0, -31.079, 0, 0, 1);
+    }
+    18.92%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .146, 1, 0, 0, 0, 0, 1, 0, -1.766, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .146, 1, 0, 0, 0, 0, 1, 0, -1.766, 0, 0, 1);
+    }
+    19.22%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .135, 1, 0, 0, 0, 0, 1, 0, -1.214, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .135, 1, 0, 0, 0, 0, 1, 0, -1.214, 0, 0, 1);
+    }
+    25.23%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, -.003, 1, 0, 0, 0, 0, 1, 0, 2.88, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, -.003, 1, 0, 0, 0, 0, 1, 0, 2.88, 0, 0, 1);
+    }
+    25.63%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, -.007, 1, 0, 0, 0, 0, 1, 0, 2.886, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, -.007, 1, 0, 0, 0, 0, 1, 0, 2.886, 0, 0, 1);
+    }
+    31.43%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, -.033, 1, 0, 0, 0, 0, 1, 0, 1.99, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, -.033, 1, 0, 0, 0, 0, 1, 0, 1.99, 0, 0, 1);
+    }
+    56.46%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .002, 1, 0, 0, 0, 0, 1, 0, .01, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .002, 1, 0, 0, 0, 0, 1, 0, .01, 0, 0, 1);
+    }
+    65.67%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, .001, 1, 0, 0, 0, 0, 1, 0, -.003, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, .001, 1, 0, 0, 0, 0, 1, 0, -.003, 0, 0, 1);
+    }
+    81.48%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -.001, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -.001, 0, 0, 1);
+    }
+    100%
+    {
+        -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+}
+
+.jimbeamCommon #loading
+{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    width: 100%;
+    height: 100vh;
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.jimbeamCommon #loading .box
+{
+    position: relative;
+    z-index: 2;
+}
+
+.jimbeamCommon #loading .box .title
+{
+    margin-bottom: .9rem;
+}
+
+.jimbeamCommon #loading .box .title svg
+{
+    width: 13rem;
+    height: .9rem;
+}
+
+.jimbeamCommon #loading .box .name_en
+{
+    margin-bottom: .9rem;
+}
+
+.jimbeamCommon #loading .box .name_en svg
+{
+    width: 25.4rem;
+    height: 1.3rem;
+}
+
+.jimbeamCommon #loading .box .name_ja svg
+{
+    width: 6.2rem;
+    height: 1.4rem;
+}
+
+.jimbeamCommon #loading .box .svgWrap
+{
+    position: relative;
+
+    display: inline-block;
+}
+
+.jimbeamCommon #loading .box .svgWrap .mask
+{
+    position: absolute;
+    top: -2px;
+    left: -2px;
+
+    width: 0;
+    height: 120%;
+
+    background: #fff;
+}
+
+@media only screen and (max-width: 768px)
+{
+    .jimbeamCommon .isIOSSafari #loading .box
+    {
+        margin-top: -60px;
+    }
+}
+
+.jimbeamCommon .id_top #loading
+{
+    display: block;
+}
+
+@media only screen and (max-width: 768px)
+{
+    .jimbeamCommon
+    {
+        /*
+  *
+  *   display flex
+  *
+  */
+    }
+    .jimbeamCommon br.sp
+    {
+        display: inline-block;
+    }
+    .jimbeamCommon br.pc
+    {
+        display: none;
+    }
+    .jimbeamCommon .display.sp
+    {
+        display: inline-block;
+    }
+    .jimbeamCommon .display.pc
+    {
+        display: none;
+    }
+    .jimbeamCommon .sp-order-1
+    {
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+                order: 1;
+    }
+    .jimbeamCommon .sp-order-2
+    {
+        -webkit-order: 2;
+        -ms-flex-order: 2;
+                order: 2;
+    }
+    .jimbeamCommon .sp-order-3
+    {
+        -webkit-order: 3;
+        -ms-flex-order: 3;
+                order: 3;
+    }
+    .jimbeamCommon .sp-order-4
+    {
+        -webkit-order: 4;
+        -ms-flex-order: 4;
+                order: 4;
+    }
+    .jimbeamCommon .sp-order-5
+    {
+        -webkit-order: 5;
+        -ms-flex-order: 5;
+                order: 5;
+    }
+    .jimbeamCommon .sp-order-6
+    {
+        -webkit-order: 6;
+        -ms-flex-order: 6;
+                order: 6;
+    }
+    .jimbeamCommon .sp-order-7
+    {
+        -webkit-order: 7;
+        -ms-flex-order: 7;
+                order: 7;
+    }
+    .jimbeamCommon .sp-order-8
+    {
+        -webkit-order: 8;
+        -ms-flex-order: 8;
+                order: 8;
+    }
+    .jimbeamCommon .sp-order-9
+    {
+        -webkit-order: 9;
+        -ms-flex-order: 9;
+                order: 9;
+    }
+}
+
+@media only screen and (min-width: 769px)
+{
+    .jimbeamCommon
+    {
+        /*
+  *
+  *   display flex
+  *
+  */
+    }
+    .jimbeamCommon br.pc
+    {
+        display: inline-block;
+    }
+    .jimbeamCommon br.sp
+    {
+        display: none;
+    }
+    .jimbeamCommon .display.pc
+    {
+        display: inline-block;
+    }
+    .jimbeamCommon .display.sp
+    {
+        display: none;
+    }
+    .jimbeamCommon .pc-order-1
+    {
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+                order: 1;
+    }
+    .jimbeamCommon .pc-order-2
+    {
+        -webkit-order: 2;
+        -ms-flex-order: 2;
+                order: 2;
+    }
+    .jimbeamCommon .pc-order-3
+    {
+        -webkit-order: 3;
+        -ms-flex-order: 3;
+                order: 3;
+    }
+    .jimbeamCommon .pc-order-4
+    {
+        -webkit-order: 4;
+        -ms-flex-order: 4;
+                order: 4;
+    }
+    .jimbeamCommon .pc-order-5
+    {
+        -webkit-order: 5;
+        -ms-flex-order: 5;
+                order: 5;
+    }
+    .jimbeamCommon .pc-order-6
+    {
+        -webkit-order: 6;
+        -ms-flex-order: 6;
+                order: 6;
+    }
+    .jimbeamCommon .pc-order-7
+    {
+        -webkit-order: 7;
+        -ms-flex-order: 7;
+                order: 7;
+    }
+    .jimbeamCommon .pc-order-8
+    {
+        -webkit-order: 8;
+        -ms-flex-order: 8;
+                order: 8;
+    }
+    .jimbeamCommon .pc-order-9
+    {
+        -webkit-order: 9;
+        -ms-flex-order: 9;
+                order: 9;
+    }
+}
+
+.jimbeamCommon video
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+}

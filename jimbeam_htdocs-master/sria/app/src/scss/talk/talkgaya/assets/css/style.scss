@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+// libs
+@import '../../../../libs/reset';
+// settings
+@import '../../../../settings/vars';
+@import '../../../../settings/placeholder';
+@import '../../../../settings/function';
+@import '../../../../settings/mixin';
+@import '../../../../settings/mq';
+@import '../../../../settings/base';
+// talkhigh
+@import './vars';
+
+html {
+  background-color: $bgColorDefault;
+}
+
+body {
+  background-color: $bgColorDefault;
+  line-height: 1.4;
+}
+
+@import '../../../../modules/common';
+
+.header {
+  padding: vw(50) 5% vw(15);
+  position: relative;
+
+  &--detail {
+    padding-top: vw(20);
+  }
+
+  &__title {
+    text-align: center;
+    img {
+      width: vw(252);
+    }
+
+    &--detail {
+      img {
+        width: vw(177);
+      }
+    }
+  }
+}
+
+@import './top';
+@import './detail';
+
+// footer
+.backBtn {
+  display: block;
+  height: vw(67);
+  margin: 0 auto;
+  overflow: hidden;
+  width: vw(239);
+
+  .cls-1 {
+    fill: gray;
+  }
+
+  .cls-2 {
+    fill: #e6e6e6;
+    stroke: none;
+  }
+}

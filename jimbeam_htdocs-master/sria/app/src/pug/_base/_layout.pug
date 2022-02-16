@@ -1,0 +1,23 @@
+doctype html
+block vars
+html(lang="ja")
+  head
+    meta(charset='UTF-8')
+    block title
+    block meta
+      meta(name="viewport", content=viewport)
+      meta(name='description', content=description)
+      meta(name='keywords', content=keywords)
+      include ./_meta_fb
+      include ./_meta_tw
+    block link
+      link(rel="apple-touch-icon", href=`/assets/resource/img/apple-touch-icon-precomposed.png`)
+      link(rel="shortcut icon", href=`/assets/resource/img/favicon.ico`)
+      link(rel="stylesheet", href=`/assets/css/common.css`)
+    include ./_ga.html
+  body
+    block body
+    include _common
+    block script
+      script(src=`/assets/js/libs.js`)
+      script(src=`/assets/js/common.js`)

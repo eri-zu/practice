@@ -1,0 +1,119 @@
+// ===================================================================
+// 各Sassファイルのインポート
+// ===================================================================
+
+// 設定用
+@import "config";
+
+// ミックスイン、@extend、CSS3など
+@import "mixin";
+@import "extend";
+@import "util";
+
+// function
+// rem
+@function rem($px, $base) {
+  @return $px / $base + rem;
+}
+@function remHalf($value, $base) {
+  @return floor($value / 2) / $base + rem;
+}
+@function rem2($px, $base) {
+  @return $px / 2 / $base + rem;
+}
+@function rem9($px, $base) {
+  @return $px * 0.85 / $base + rem;
+}
+
+// vw
+@function vw($value, $base) {
+  @return $value / $base * 100vw;
+}
+@function vwHalf($px, $base) {
+  @return floor($value / 2) / $base * 100vw;
+}
+
+$half:false;
+@function vw375($value, $bool:$half) {
+
+  // ------------------ 
+  // vw  
+  // ------------------
+  // // half
+  // @if $bool {
+
+  //   @return floor($value / 2) / 375 * 100vw;
+    
+  // // halfじゃない
+  // } @else {
+
+  //   @return $value / 375 * 100vw;
+    
+  // }
+  
+  // ------------------ 
+  // vh
+  // ------------------
+  // half
+  // @if $bool {
+
+  //   @return floor($value / 2) / 667 * 100vh;
+    
+  // // halfじゃない
+  // } @else {
+
+  //   @return $value / 667 * 100vh;
+    
+  // }
+
+  // ------------------ 
+  // --h
+  // ------------------
+  @if $bool {
+    
+    @return calc(#{(floor($value / 2) / 667)} * var(--h));
+    
+  // halfじゃない
+  } @else {
+
+    @return calc(#{($value / 667)} * var(--h));
+    
+  }
+  
+  // @if $bool {
+
+  //   @return floor($value / 2) / 667;
+    
+  // // halfじゃない
+  // } @else {
+
+  //   @return $value / 667;
+    
+  // }
+  
+}
+
+@function vwLand($value, $bool:$half) {
+  
+  // half
+  @if $bool {
+
+    @return floor($value / 2) / 667 * 100vw;
+    
+  // halfじゃない
+  } @else {
+
+    @return $value / 667 * 100vw;
+    
+  }
+  
+}
+
+
+// other
+@function res($px) {
+  @return $px / 2;
+}
+@function half($value) {
+  @return floor($value / 2);
+}

@@ -1,0 +1,67 @@
+extends ../_base/_layout
+block vars
+  - var path = '.';
+block title
+  title= title
+block append meta
+block append link
+  link(rel="stylesheet", href=`${path}/assets/css/style.css`)
+block body
+  #wrapper.wrapper
+    header.header
+      h1.header__logo.jsDelayAnime
+        a.jsSeLogo(href="../", data-color="toTop")
+          img(src=`${path}/assets/images/logo_jim_beadm_tap.png`, alt="JIM BEAM TAP")
+      h2.header__title.jsDelayAnime
+        img(src=`${path}/assets/images/title_next.png`, alt="NEXT!ジムビーム")
+      span.header__menu.jsDelayAnime.open_modal.jsSeBtn
+    main#app.main
+      .content
+        .jsDelayAnime
+          .lead
+            |次の飲み会の日程と時間を決めて、
+            br
+            |LINEで送っておこう！
+          .note ※本日から3日後より選択できます
+        .calender(v-cloak)
+          .jsDelayAnime
+            .head
+              button.head__button.head__button--prev.jsSeBtn(@click="getPrev", :disabled="`${currentYear}-${currentMonth}` === `${year}-${month}`") 先月
+              .month {{ year }}年{{ month }}月
+              button.head__button.head__button--next.jsSeBtn(@click="getNext") 翌月
+          .jsDelayAnime
+            .body
+              ol.dates
+                li.date(v-for="(date, i) in dates", @click="selectDate", :key="i", :class="{jsDisabled: isPastDate(date), jsSelected: selectedFullDate === `${year}-${month}-${date}`}") {{ date }}
+              .time
+                .time__head
+                  img(src=`${path}/assets/images/text_start_time.png`, alt="開始時間")
+                .time__body
+                  .hour
+                    select(v-model="hour")
+                      - for(let i = 1; i <= 24; i++)
+                        if (i === 19)
+                          option(value=`${i}`, selected) #{i}
+                        else
+                          option(value=`${i}`) #{i}
+                  .colon
+                    img(src=`${path}/assets/images/icon_time_colon.png`, alt="：")
+                  .minutes
+                    select(v-model="minutes")
+                      - for(let i = 0; i <= 45; i += 15)
+                        if (i === 0)
+                          option(value=`0${i}`, selected) 0#{i}
+                        else
+                          option(value=`${i}`) #{i}
+            .button.jsDelayAnime
+              a#lineBtn.send.jsSeLink.notTransition(:href="line", target="_blank")
+                include ./svg/button_line.svg
+    footer.footer
+      a#backBtn.backBtn.jsSeLink.jsDelayAnime(href="../", data-color="toTop")
+        include ./svg/button_top.svg
+      small.copy.jsDelayAnime
+        img(src=`${path}/assets/images/copy.png`, alt="COPYRIGHT SUNTORY HOLDINGS LIMITED. ALL RIGHTS REVERVED.")
+block append script
+  //- script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+  script(src="https://cdn.jsdelivr.net/npm/vue")
+  script(src=`${path}/assets/js/app.bundle.js?v=${Date.now()}`)

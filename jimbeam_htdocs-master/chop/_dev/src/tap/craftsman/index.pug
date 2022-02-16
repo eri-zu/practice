@@ -1,0 +1,200 @@
+extends /inc/core/_base_rex
+include /inc/core/_config
+//- block vars
+//-   - var bodyClass = 'craftsman'
+//- block title
+//-   - var title = page.top.title
+//-   title= title
+//- block prepend meta
+//-   - var sitename = name
+//-   - var keywords = page.top.keywords
+//-   - var description = page.top.description
+//-   - var siteurl = page.top.url
+//-   - var ogimage = page.top.ogimage
+//- block append meta
+block body
+  //- #debug
+    form(action="./")
+      label
+        span 制限時間（20）秒
+        input(type="text", name="", placeholder="20") 
+      label
+        span 樽の表示時間（5）秒
+        input(type="text", name="", placeholder="5") 
+      label
+        span ボーナスタイム（1.5）秒
+        input(type="text", name="", placeholder="1.5") 
+      label
+        span ペナルティ-（0.5）秒
+        input(type="text", name="", placeholder="0.5") 
+      label
+        span スピードアップ比率（90）%
+        input(type="text", name="", placeholder="90") 
+      label
+        span 最低スピード（2）秒
+        input(type="text", name="", placeholder="2") 
+  #craftsmanWrapper
+    include /inc/layout/_header
+    #container
+      #top.scene
+        .inner
+          img.craftman(src="../assets/img/craftsman/top/craftman.gif")
+          img.shoulder_title(src="../assets/img/craftsman/top/shoulder_title.png")
+          img.title(src="../assets/img/craftsman/top/title.png")
+          img.sub_title(src="../assets/img/craftsman/top/sub_title.png")
+          //- img.lead(src="../assets/img/craftsman/top/lead.png")
+          .lead
+            include /../img/craftsman/top/lead.svg
+
+          .btn_play.se
+            include /../img/craftsman/top/btn_play.svg
+          .btn_backto_tap
+            img(src="../assets/img/craftsman/common/btn_backto_tap.svg")
+          .copyright.black
+            include /../img/craftsman/common/copyright.svg
+      #game.scene
+        #timer
+          .counter
+            .n
+              img(src="../assets/img/craftsman/game/timer_num.png", alt="")
+            .n
+              img(src="../assets/img/craftsman/game/timer_num.png", alt="")
+            .colon
+            .n
+              img(src="../assets/img/craftsman/game/timer_num.png", alt="")
+            .n
+              img(src="../assets/img/craftsman/game/timer_num.png", alt="")
+          //- .extend +0.5
+        #texts
+          img.go(src="../assets/img/craftsman/game/text_go.svg", alt="")
+          img.good(src="../assets/img/craftsman/game/text_good.svg", alt="")
+          img.miss(src="../assets/img/craftsman/game/text_miss.svg", alt="")
+          img.speedup(src="../assets/img/craftsman/game/text_speedup.svg", alt="")
+        #timeup
+          img(src="../assets/img/craftsman/game/text_timeup.svg", alt="")
+
+        #stage
+          #conveyor
+          #casks
+          //- #cask
+            .cask
+              .item
+        #choices
+          //- .part.pos1.part9
+          //- .part.pos2.part8
+          //- .part.pos3.part7
+          //- .part.pos4.part6
+          //- .part.pos5.part5
+        
+        .btn_backto_tap
+          img(src="../assets/img/craftsman/common/btn_backto_tap.svg")
+        .copyright
+          include /../img/craftsman/common/copyright.svg
+
+      #result.scene
+        .result
+          #caskWrap
+            #resultCasks
+          .title
+            img.title6(src="../assets/img/craftsman/result/title_6.svg", alt="")
+            img.title5(src="../assets/img/craftsman/result/title_5.svg", alt="")
+            img.title4(src="../assets/img/craftsman/result/title_4.svg", alt="")
+            img.title3(src="../assets/img/craftsman/result/title_3.svg", alt="")
+            img.title2(src="../assets/img/craftsman/result/title_2.svg", alt="")
+            img.title1(src="../assets/img/craftsman/result/title_1.svg", alt="")
+            
+          .text
+            img.score(src="../assets/img/craftsman/result/text_score.svg", alt="")
+            .nums
+              .num
+                img(src="../assets/img/craftsman/result/count_num.png", alt="")
+              .num
+                img(src="../assets/img/craftsman/result/count_num.png", alt="")
+              .num
+                img(src="../assets/img/craftsman/result/count_num.png", alt="")
+            img.ext(src="../assets/img/craftsman/result/text_ko.svg", alt="")
+        #ranking
+          ul
+            li.rank1
+              .amount
+                |85個
+              .name
+                |KING1
+            li.rank2
+              .amount
+                |75個
+              .name
+                |soda2
+            li.rank3
+              .amount
+                |60個
+              .name
+                |aaa2
+            li
+              .amount
+                |59個
+              .name
+                |bbb3
+            li
+              .amount
+                |51個
+              .name
+                |love0
+            li
+              .amount
+                |42個
+              .name
+                |t5
+            li
+              .amount
+                |41個
+              .name
+                |ky0u
+            li
+              .amount
+                |28個
+              .name
+                |333AA
+            li
+              .amount
+                |21個
+              .name
+                |ha2
+            li
+              .amount
+                |19個
+              .name
+                |yuki2
+        .footer
+          #name
+            |JIM01
+          .worldrank
+            img.t(src="../assets/img/craftsman/result/text_worldrank.svg", alt="")
+            img.a(src="../assets/img/craftsman/result/arrow.svg", alt="")
+            #thisRank.rank 999999
+          .form
+            .field
+              input#input(type='email', placeholder="JIM01", maxlength="5", oncontextmenu='return false;', oncopy='return false;')
+              img.submit.se(src="../assets/img/craftsman/result/btn_submit.svg", alt="")
+            .note
+              span#alert
+                |※半角英数5文字以内で入力してください。
+              br
+              |※個人が特定できる名前は入力しないでください。
+          img.btn_retry.se(src="../assets/img/craftsman/result/btn_retry.svg", alt="")
+          .btn_backto_tap
+            img(src="../assets/img/craftsman/common/btn_backto_tap.svg")
+          .copyright
+            include /../img/craftsman/common/copyright.svg
+      .modal.howto
+        .modalInner
+          .howtoBase
+            include /../img/craftsman/game/modal_howto.svg
+      .modal.quit
+        .modalInner
+          .quitBase
+            include /../img/craftsman/common/modal_quit.svg
+
+  include /inc/layout/_footer
+block append scriptFooter
+  script(src="../assets/js/app.bundle.js")

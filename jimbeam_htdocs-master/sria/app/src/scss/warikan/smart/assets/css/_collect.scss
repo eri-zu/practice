@@ -1,0 +1,102 @@
+@charset 'utf-8';
+
+.viewMoneyWrapper {
+  &.viewMoneyWrapper--collect {
+    width: 90%;
+  }
+}
+
+.collectTotal {
+  @extend .confirmTotalAmount;
+}
+
+.collectButtonsWrapper {
+  display: flex;
+  margin-top: vw(12);
+  padding-left: 5%;
+  // justify-content: space-between;
+}
+
+.collectItem {
+  background: center no-repeat;
+  background-size: contain;
+  height: vw(127);
+  padding: vw(20) vw(10);
+  position: relative;
+  text-align: center;
+  width: vw(244);
+  z-index: 1;
+
+  .base {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &--normal {
+    .cls-1 {
+      fill: #dd6b1d;
+    }
+
+    .cls-2 {
+      fill: #af3b1c;
+      stroke: none;
+    }
+
+    .cls-3 {
+      fill: #f97c1e;
+    }
+  }
+
+  &--small {
+    transform: translateY(#{vw(-12)});
+    .cls-1 {
+      fill: #aeb204;
+    }
+
+    .cls-2 {
+      fill: #959904;
+      stroke: none;
+    }
+
+    .cls-3 {
+      fill: #bfce02;
+    }
+  }
+
+  &__label {
+    @include slant;
+    display: block;
+    font-size: vw(22);
+  }
+
+  &__value {
+    @include slant;
+    display: block;
+    font-size: vw(36);
+  }
+
+  &.jsOnDown {
+    .collectItem__label,
+    .collectItem__value {
+      transform: translate(.8vh, 1.3vh) skew(-5deg) rotate(-5deg);
+    }
+  }
+}
+
+.collectHead {
+  margin-left: vw(26);
+  text-align: center;
+
+  img {
+    transform: translateY(-8%);
+    width: vw(37.5);
+  }
+}
+
+.collectBackButton {
+  margin-top: vw(-12);
+}

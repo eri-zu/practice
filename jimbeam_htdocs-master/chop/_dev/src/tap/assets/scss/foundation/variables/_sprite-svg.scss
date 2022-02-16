@@ -1,0 +1,43 @@
+$sprites-svg: (
+  sprite: (
+    width: 120px,
+    height: 414px,
+    imgPath: '../img/sprite.svg'
+  ),
+  arrow_right: (
+    width: 52px,
+    height: 58px,
+    backgroundX: 0px,
+    backgroundY: 0px,
+  ),
+  arrow_right_red2: (
+    width: 52px,
+    height: 58px,
+    backgroundX: 0px,
+    backgroundY: -58px,
+  ),
+  arrow_right_red3: (
+    width: 52px,
+    height: 58px,
+    backgroundX: 0px,
+    backgroundY: -116px,
+  ),
+  arrow_scroll_down: (
+    width: 120px,
+    height: 80px,
+    backgroundX: 0px,
+    backgroundY: -174px,
+  ),
+  arrow_scroll_down3: (
+    width: 120px,
+    height: 80px,
+    backgroundX: 0px,
+    backgroundY: -254px,
+  ),
+  arrow_scroll_down3aa: (
+    width: 120px,
+    height: 80px,
+    backgroundX: 0px,
+    backgroundY: -334px,
+  ),
+);

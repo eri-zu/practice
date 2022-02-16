@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+
+body {
+	opacity: 0;
+}
+
+.jimbeamCommon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	
+	pointer-events: none;
+	
+	@import "./_init/import";
+	@import "./_init/reset"; // リセットCSS、フォントサイズ sss	
+	@import "./_parts/_compornents/**/*.scss";
+	
+	video {
+		opacity: 0;
+		pointer-events: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}

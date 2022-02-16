@@ -1,0 +1,47 @@
+extends ../../../_base/_layout
+block vars
+  - var path = '..';
+block title
+  title= title
+block append meta
+block append link
+  link(rel="stylesheet", href=`${path}/assets/css/style.css`)
+block body
+  #wrapper.wrapper.wrapper--roulette
+    #circle.circle
+    #beer.beer
+    header.header.header--detail
+      h1.header__logo
+        a.jsSeLogo(href="../../../", data-color="toTop")
+          img(src=`${path}/assets/images/logo_jim_beadm_tap.png`, alt="JIM BEAM TAP")
+      h2.header__title.header__title--detail
+        img(src=`${path}/assets/images/title_roulette_detail.png`, alt="ルーレット割り勘")
+      span.header__menu.open_modal.jsSeBtn
+    main#app.main
+      .content
+        .roulette
+          .roulette__title(v-cloak)
+            img.big(src=`${path}/assets/images/text_roulette_head_big.png`, alt="多く支払う人は…", v-if="category === 'big'")
+            img.small(src=`${path}/assets/images/text_roulette_head_small.png`, alt="少なく支払う人は…", v-if="category === 'small'")
+            img.free(src=`${path}/assets/images/text_roulette_head_free.png`, alt="無料!の人は…", v-if="category === 'free'")
+          .roulette__target(v-cloak, :class="{ jsSelected: !showStop }")
+            span(:class="{ jsSelected: !showStop }", v-html="target")
+        button#stopBtn.rouletteStop(:disabled="disabledStop", v-show="showStop")
+          include ../svg/button_stop.svg
+        button#replayBtn.rouletteReplay(v-show="!showStop", v-cloak)
+          include ../svg/button_replay.svg
+    footer.footer
+      .backButtons
+        a#backBtn.backBtn(href="../../../?page=warikan", data-color="toTop")
+          include ../svg/button_back.svg
+        a#backListBtn.backListBtn.notTransition.jsSeLink(href="../")
+          include ../svg/button_back_top.svg
+      small.copy
+        img(src=`${path}/assets/images/copy.png`, alt="COPYRIGHT SUNTORY HOLDINGS LIMITED. ALL RIGHTS REVERVED.")
+    .hide
+      img(src=`${path}/assets/images/bg_stop_circle.png`, alt="")
+      img(src=`${path}/assets/images/bg_roulette_beer_rotate.png`, alt="")/
+block append script
+  //- script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+  script(src="https://cdn.jsdelivr.net/npm/vue")
+  script(src=`${path}/assets/js/app.bundle.js?v=${Date.now()}`)

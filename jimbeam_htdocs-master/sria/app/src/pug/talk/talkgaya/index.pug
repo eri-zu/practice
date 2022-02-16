@@ -1,0 +1,49 @@
+extends ../../_base/_layout
+block vars
+  - var path = '.';
+block title
+  title= title
+block append meta
+block append link
+  link(rel="stylesheet", href=`${path}/assets/css/style.css`)
+block body
+  #wrapper.wrapper
+    header.header
+      h1.header__logo.jsDelayAnime
+        a.jsSeLogo(href="../../", data-color="toTop")
+          img(src=`${path}/assets/images/logo_jim_beadm_tap.png`, alt="JIM BEAM TAP")
+      h2.header__title.header__title--top.jsDelayAnime
+        img(src=`${path}/assets/images/title_talkgaya_top.png`, alt="トーク評価マシン！")
+      span.header__menu.jsDelayAnime.open_modal.jsSeBtn
+    main.main#top
+      .jsDelayAnime
+        p.lead
+          img(src=`${path}/assets/images/text_talkgaya_lead.png`, alt="いつもの会話にガヤを入れよう！トークの評価も一目瞭然！")
+      .content(v-cloak)
+        .jsDelayAnime
+          .start(v-show="seFlg")
+            a#startBtn.startBtn.startBtn--normal.notTransition.jsSeLink(href="./detail/")
+              include ./svg/button_start.svg
+          .start(v-show="!seFlg")
+            a#startBtnOn.startBtn.startBtn--on.notTransition.jsSeLink(href="./detail/")
+              include ./svg/button_start_on.svg
+            a#startBtnOff.startBtn.startBtn--off.notTransition.jsSeLink(href="./detail/")
+              include ./svg/button_start_off.svg
+        .jsDelayAnime
+          p.notes
+            |【推奨環境】
+            br
+            |iOS 11以上、Android 7以上
+            br
+            |アプリ内ブラウザだと音がでない場合がありますので、
+            br
+            |Chrome・Safariでの観覧を推奨いたします。
+    footer.footer
+      a#backBtn.backBtn.jsDelayAnime(href="../../?page=talk", data-color="toTop")
+        include ./svg/button_back_talk.svg
+      small.copy.jsDelayAnime
+        img(src=`${path}/assets/images/copy.png`, alt="COPYRIGHT SUNTORY HOLDINGS LIMITED. ALL RIGHTS REVERVED.")
+block append script
+  //- script(src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js")
+  script(src="https://cdn.jsdelivr.net/npm/vue")
+  script(src=`${path}/assets/js/app.bundle.js?v=${Date.now()}`)

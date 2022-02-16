@@ -1,0 +1,13 @@
+{
+  "name": "site name",
+  "url": "",
+  "page":{
+    "top":{
+      "title": "",
+      "description": "",
+      "keywords": "",
+      "ogimage":"",
+      "url": ""
+    }
+  }
+}
