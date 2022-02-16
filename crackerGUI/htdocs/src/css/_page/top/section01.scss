@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+
+.modal {
+  width: 520px;
+  height: 300px;
+  max-height: calc(100vh - 80px);
+  background-color: #fff;
+  border-radius: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__txt {
+  font-size: 40px;
+  font-weight: 700;
+
+  font-family: Arial;
+}
