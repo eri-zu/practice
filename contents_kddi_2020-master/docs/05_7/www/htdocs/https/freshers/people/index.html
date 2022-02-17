@@ -1,0 +1,499 @@
+<?php $libdir =  dirname(dirname($_SERVER['DOCUMENT_ROOT'])) .'/lib/https';?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>PEOPLE | KDDI株式会社 新卒採用サイト</title>
+  <meta name="keywords" content="KDDI,ワクワク,新卒,採用,リクルート,就職,仕事,通信,ライフデザイン">
+  <meta name="description" content="「ワクワクしよう」KDDIの新卒採用サイトです。幅広い事業を支える各FIELDと先輩社員についての情報をご覧いただけます。">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- WebFont -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <!-- OGP -->
+  <!-- <meta property="fb:app_id" content="123456789">
+  <meta name="twitter:card" content="summary_large_image"> -->
+  <meta property="og:title" content="PEOPLE | KDDI株式会社 新卒採用サイト">
+  <meta property="og:description" content="「ワクワクしよう」KDDIの新卒採用サイトです。幅広い事業を支える各FIELDと先輩社員についての情報をご覧いただけます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://career.kddi.com/">
+  <meta property="og:image" content="https://career.kddi.com/freshers/img/ogp.png">
+  <meta property="og:site_name" content="KDDI株式会社 新卒採用サイト">
+
+  <!--  -->
+  <link href="/css/freshers/people.css?test=201910081200" rel="stylesheet">
+  <!--  -->
+
+</head>
+<body>
+  <div class="wrapper">
+  <!-- header -->
+  <?php include $libdir . '/header_freshers.php';?>
+  <!-- /header -->
+
+
+    <section class="blk_people_top">
+      <div class="inner">
+        <h1 class="ttl_page_common">PEOPLE</h1>
+		<p>お客さま第一に考え、驚きを超え、感動をお客さまに届けるために、<br>
+社員一人ひとりがどのように仕事に取り組んでいるのかご紹介します。</p>
+      </div>
+    </section>
+
+    <section class="blk_people_guide">
+      <div class="inner">
+		<a class="btn_link" href="/freshers/people/jobguide/" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','JOB GUIDE','JOB GUIDE',event);">JOB GUIDE</a>
+		<p>KDDIの幅広い事業を支える<br>
+各FIELDの内容と役割についてご覧いただけます。</p>
+      </div>
+    </section>
+
+
+
+
+    <section class="blk_people_btm">
+      <div class="inner">
+        <h2>条件で絞り込む</h2>
+
+
+<form name="searchpeople">
+	<div class="search-box">
+		<div class="col">
+			<h3>JOB CATEGORY</h3>
+			<div class="box bx1">
+				<label><input id="catall" type="radio" name="category" value="" checked="checked" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','JOB CATEGORY_すべて','すべて',event);">すべて</label>
+				<label><input id="cattec" type="radio" name="category" value="技術系" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','JOB CATEGORY_技術系','技術系',event);">技術系</label>
+				<label><input id="catbiz" type="radio" name="category" value="業務系" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','JOB CATEGORY_業務系','業務系',event);">業務系</label>
+			</div>
+			<div class="btn_open forPc" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','条件で絞り込む（さらに絞り込む、閉じる）','さらに絞り込む、閉じる',event);">さらに絞り込む<p class="accordion_icon"><span></span><span></span></p></div>
+		</div>
+	</div>
+	<div class="search-box">
+		<div class="blk_open">
+		
+		<div class="tab_contents" id="all_content">
+		
+		<div class="col">
+			<h3>FIELD</h3>
+			<div class="box_wrap">
+				<div class="tab_content" id="tec_content">
+				<p class="t2">技術系</p>
+				<div class="box bb_sp">
+					<label><input type="checkbox" name="tag" value="ネットワークエンジニア" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_ネットワークエンジニア','ネットワークエンジニア',event);">ネットワークエンジニア</label>
+					<label><input type="checkbox" name="tag" value="クラウド・アプリケーションエンジニア" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_クラウド・アプリケーションエンジニア','クラウド・アプリケーションエンジニア',event);">クラウド・<br>アプリケーションエンジニア</label>
+					<label><input type="checkbox" name="tag" value="セキュリティエンジニア" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_セキュリティエンジニア','セキュリティエンジニア',event);">セキュリティエンジニア</label>
+					<label><input type="checkbox" name="tag" value="データサイエンティスト" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_データサイエンティスト','データサイエンティスト',event);">データサイエンティスト</label>
+					<label><input type="checkbox" name="tag" value="ファシリティエンジニア" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_ファシリティエンジニア','ファシリティエンジニア',event);">ファシリティエンジニア</label>
+				</div>
+				</div>
+				<div class="tab_content" id="biz_content">
+				<p class="t1">業務系</p>
+				<div class="box">
+					<label><input type="checkbox" name="tag" value="代理店営業" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_代理店営業','代理店営業',event);">代理店営業</label>
+					<label><input type="checkbox" name="tag" value="法人営業" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_法人営業','法人営業',event);">法人営業</label>
+					<label><input type="checkbox" name="tag" value="企画・マーケティング" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_企画・マーケティング','企画・マーケティング',event);">企画・マーケティング</label>
+					<label><input type="checkbox" name="tag" value="管理" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_管理','管理',event);">管理</label>
+					<label><input type="checkbox" name="tag" value="ビジネスインキュベーション" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_ビジネスインキュベーション','ビジネスインキュベーション',event);">ビジネスインキュベーション</label>
+					<label class="mb"><input type="checkbox" name="tag" value="アカウンティング＆ファイナンス" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_アカウンティング＆ファイナンス','アカウンティング＆ファイナンス',event);">アカウンティング＆<br>ファイナンス</label>
+					<label><input type="checkbox" name="tag" value="リーガル＆ライセンス" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','FIELD_リーガル＆ライセンス','リーガル＆ライセンス',event);">リーガル＆ライセンス</label>
+				</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<button>
+			<label><input type="checkbox" name="tag" value="" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','条件で絞り込む_チェックを外す','チェックを外す',event);">
+			チェックを外す</label>
+		</button>
+		</div>
+		<p class="btn_open forSp" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','条件で絞り込む（さらに絞り込む、閉じる）','さらに絞り込む、閉じる',event);">さらに絞り込む</p>
+	</div>
+</form>
+
+
+<div class="list">
+	<div class="list_item" data-category="技術系" data-tag="ネットワークエンジニア"><a href="/freshers/people/interview/t_ohashi.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','大橋 朋紘','大橋 朋紘',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_t_ohashi.jpg" alt="大橋 朋紘">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>ネットワークエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>幅広い仕事をできるのが入社の決め手になりました。</p>
+			<span class="name">大橋 朋紘</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="法人営業"><a href="/freshers/people/interview/a_kamitani.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','神谷 昭世','神谷 昭世',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_a_kamitani.jpg" alt="神谷 昭世">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>法人営業</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>お客さまのために、社内外の方と一緒にお仕事できることが魅力です。</p>
+			<span class="name">神谷 昭世</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="クラウド・アプリケーションエンジニア"><a href="/freshers/people/interview/s_katsute.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','勝手 壮馬','勝手 壮馬',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_s_katsute.jpg" alt="勝手 壮馬">
+			<div class="job2 j2">
+				<span>技術系</span>
+				<div>
+					<span>クラウド・<br>アプリケーションエンジニア</span>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<p>お客さま目線と機能安全の２つの視点を大切にしています。</p>
+			<span class="name">勝手 壮馬</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="代理店営業"><a href="/freshers/people/interview/y_yokoi.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','横井 祐介','横井 祐介',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_y_yokoi.jpg" alt="横井 祐介">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>代理店営業</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>代理店さまの課題に対してコンサルティング提案を行い、売上・収益の最大化に貢献。</p>
+			<span class="name">横井 祐介</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="データサイエンティスト"><a href="/freshers/people/interview/y_ito.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','伊藤 義浩','伊藤 義浩',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_y_ito.jpg" alt="伊藤 義浩">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>データサイエンティスト</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>WILL、CAN、MUSTの３つが重なる仕事に取り組んでいます。</p>
+			<span class="name">伊藤 義浩</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag='["ビジネスインキュベーション", "企画・マーケティング"]'><a href="/freshers/people/interview/s_eto.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','江藤 翔太郎','江藤 翔太郎',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_s_eto.jpg" alt="江藤 翔太郎">
+			<div class="job2 j1">
+				<span>業務系</span>
+				<div>
+					<span>企画・マーケティング</span>
+					<span>ビジネスインキュベーション</span>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<p>人に感動を与えられる醍醐味のある仕事と風通しの良さが魅力です。</p>
+			<span class="name">江藤 翔太郎</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="セキュリティエンジニア"><a href="/freshers/people/interview/j_urakawa.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','浦川 順平','浦川 順平',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_j_urakawa.jpg" alt="浦川 順平">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>セキュリティエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>念願だったAIによる監視業務の自動化をめざしています。</p>
+			<span class="name">浦川 順平</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag='["リーガル＆ライセンス", "管理"]'><a href="/freshers/people/interview/t_nishino.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','西野 貴紀','西野 貴紀',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_t_nishino.jpg" alt="西野 貴紀">
+			<div class="job2 j1">
+				<span>業務系</span>
+				<div>
+					<span>管理</span>
+					<span>リーガル＆ライセンス</span>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<p>未知の領域に携わりながら、現場と近い距離で仕事ができます。</p>
+			<span class="name">西野 貴紀</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="ファシリティエンジニア"><a href="/freshers/people/interview/s_suzuki.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','鈴木 伸','鈴木 伸',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_s_suzuki.jpg" alt="鈴木 伸">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>ファシリティエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>将来のキャリアを見据えた指導と、大きな仕事に携われる環境があります。</p>
+			<span class="name">鈴木 伸</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag='["アカウンティング＆ファイナンス", "管理"]'><a href="/freshers/people/interview/n_uehara.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','上原 直子','上原 直子',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_n_uehara.jpg" alt="上原 直子">
+			<div class="job2 j1">
+				<span>業務系</span>
+				<div>
+					<span>管理</span>
+					<span>アカウンティング＆ファイナンス</span>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<p>グループ連結、IFRS、M&Aなど最新の会計業務を身につけ、経理のスペシャリストをめざしています。</p>
+			<span class="name">上原 直子</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="ネットワークエンジニア"><a href="/freshers/people/interview/y_kawaguchi.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','川口 侑希子','川口 侑希子',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_y_kawaguchi.jpg" alt="川口 侑希子">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>ネットワークエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>ミス０となるよう、お客さまと密にコミュニケーションを図っています。</p>
+			<span class="name">川口 侑希子</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="法人営業"><a href="/freshers/people/interview/y_yoshitomi.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','吉冨 雄一','吉冨 雄一',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_y_yoshitomi.jpg" alt="吉冨 雄一">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>法人営業</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>「無限の可能性」があるのがKDDIの魅力です。</p>
+			<span class="name">吉冨 雄一</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="クラウド・アプリケーションエンジニア"><a href="/freshers/people/interview/a_kiga.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','氣駕 綾乃','氣駕 綾乃',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_a_kiga.jpg" alt="氣駕 綾乃">
+			<div class="job2 j2">
+				<span>技術系</span>
+				<div>
+					<span>クラウド・<br>アプリケーションエンジニア</span>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<p>開発部門と原因を追求し復旧した時は喜びを分かち合います。</p>
+			<span class="name">氣駕 綾乃</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="企画・マーケティング"><a href="/freshers/people/interview/s_matsuda.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','松田 慧','松田 慧',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_s_matsuda.jpg" alt="松田 慧">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>企画・マーケティング</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>若手と新サービスを創っていきたいという企業の考えが入社の決め手になりました。</p>
+			<span class="name">松田 慧</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="ネットワークエンジニア"><a href="/freshers/people/interview/s_kako.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','加固 秀太','加固 秀太',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_s_kako.jpg" alt="加固 秀太">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>ネットワークエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>KDDIのサービスが、社会的に大きな影響力をもつことを実感しました。</p>
+			<span class="name">加固 秀太</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="セキュリティエンジニア"><a href="/freshers/people/interview/h_sasaki.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','佐々木 弘和','佐々木 弘和',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_h_sasaki.jpg" alt="佐々木 弘和">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>セキュリティエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>安全なサービスを提供して、幸せを届けるというのは、KDDIだからできる仕事です。</p>
+			<span class="name">佐々木 弘和</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="代理店営業"><a href="/freshers/people/interview/r_horie.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','堀江 龍','堀江 龍',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_r_horie.jpg" alt="堀江 龍">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>代理店営業</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>様々な部署で活躍している、同期がいることが大きな励みです。</p>
+			<span class="name">堀江 龍</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="クラウド・アプリケーションエンジニア"><a href="/freshers/people/interview/t_konno.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','今野 智明','今野 智明',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_t_konno.jpg" alt="今野 智明">
+			<div class="job2 j2">
+				<span>技術系</span>
+				<div>
+					<span>クラウド・<br>アプリケーションエンジニア</span>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<p>若手にも挑戦させてくれる会社としての「器の大きさ」を感じます。</p>
+			<span class="name">今野 智明</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="ネットワークエンジニア"><a href="/freshers/people/interview/s_sumitani.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','炭谷 翔','炭谷 翔',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_s_sumitani.jpg" alt="炭谷 翔">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>ネットワークエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>０から基地局づくりに携わり発展途上国のインフラを支えたい。</p>
+			<span class="name">炭谷 翔</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="企画・マーケティング"><a href="/freshers/people/interview/h_akahira.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','赤平 浩規','赤平 浩規',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_h_akahira.jpg" alt="赤平 浩規">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>企画・マーケティング</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>お客さまの反応がリアルタイムでわかるのは、大きな醍醐味です。</p>
+			<span class="name">赤平 浩規</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="クラウド・アプリケーションエンジニア"><a href="/freshers/people/interview/r_yamato.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','大和 礼','大和 礼',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_r_yamato.jpg" alt="大和 礼">
+			<div class="job2 j2">
+				<span>技術系</span>
+				<div>
+					<span>クラウド・<br>アプリケーションエンジニア</span>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<p>スキルアップを支援してもらえるので仕事への意欲がわきます。</p>
+			<span class="name">大和 礼</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="企画・マーケティング"><a href="/freshers/people/interview/h_koya.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','甲谷 比呂','甲谷 比呂',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_h_koya.jpg" alt="甲谷 比呂">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>企画・マーケティング</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>M&Aでは、何を提供できるかを考え、一緒にビジョンをつくっています。</p>
+			<span class="name">甲谷 比呂</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="ネットワークエンジニア"><a href="/freshers/people/interview/y_inaba.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','稲葉 友紀','稲葉 友紀',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_y_inaba.jpg" alt="稲葉 友紀">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>ネットワークエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>サービスが問題なく運用され続けることが自らの達成感になっています。</p>
+			<span class="name">稲葉 友紀</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="業務系" data-tag="企画・マーケティング"><a href="/freshers/people/interview/a_uchino.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','内野 綾香','内野 綾香',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_a_uchino.jpg" alt="内野 綾香">
+			<div class="job j1">
+				<span>業務系</span>
+				<span>企画・マーケティング</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>多様性のある「KDDIの社員」だからこそ「独自のサービス」が創れます。</p>
+			<span class="name">内野 綾香</span>
+		</div>
+	</a></div>
+	<div class="list_item" data-category="技術系" data-tag="ネットワークエンジニア"><a href="/freshers/people/interview/s_sasaki.html" onClick="trEventBe(this,'【click】新卒採用 PEOPLE','佐々木 史織','佐々木 史織',event);">
+		<div class="tmb">
+			<img src="/freshers/img/people/tmb_s_sasaki.jpg" alt="佐々木 史織">
+			<div class="job j2">
+				<span>技術系</span>
+				<span>ネットワークエンジニア</span>
+			</div>
+		</div>
+		<div class="data">
+			<p>人との関わりや危機対応力を学び大きく成長できました。</p>
+			<span class="name">佐々木 史織</span>
+		</div>
+	</a></div>
+</div>
+
+
+
+      </div>
+    </section>
+
+
+  <!-- footer -->
+  <?php include $libdir . '/footer_freshers.php';?>
+  <!-- /footer -->
+
+
+
+
+
+
+
+
+  </div>
+
+<script src="/js/lib/jquery-3.3.1.min.js"></script>
+<script src="/js/lib/sort.js"></script>
+<script src="/js/lib/slick/slick.min.js"></script>
+<script src="/js/freshers_common.js?0128_1"></script>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KW8VHKT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW8VHKT');</script>
+<!-- End Google Tag Manager -->
+
+</body>
+</html>

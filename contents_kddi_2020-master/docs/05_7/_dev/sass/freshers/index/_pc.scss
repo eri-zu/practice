@@ -1,0 +1,39 @@
+
+.top {
+  height: calc(100vh - 88px);
+}
+
+.slick-prev, .slick-next {
+  top: -15px;
+  width: 17px;
+  height: 9px;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.slick-prev {
+  left: auto;
+  right: 35px;
+}
+
+.slick-next {
+  right: 0;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: "NotoSansCJKjp", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", "ＭＳ Ｐゴシック", Arial, verdana, sans-serif;
+  opacity: 1;
+  content: '';
+  width: 17px;
+  height: 9px;
+  display: block;
+}
+
+.slick-prev:before {
+  background: url(/freshers/img/ico_people_prev.png) center center /cover no-repeat;
+}
+
+.slick-next:before {
+  background: url(/freshers/img/ico_people_next.png) center center /cover no-repeat;
+}

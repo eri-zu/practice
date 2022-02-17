@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+@import "base/mixin";
+@import "base/common";
+//デバイス定義
+$type: sp tb pc;
+@import "base/base";
+@import "environment/bs";
+/* PC
+-------------------------------------------------- */
+@media only screen and (min-width:$pcSize) {
+	$type: pc;
+	@import "base/base_pc";
+	@import "environment/pc";
+}
+/* タブレット
+-------------------------------------------------- */
+@media only screen and (max-width:$tabSize) {
+	$type: tb;
+	@import "base/base_pc";
+	@import "base/base_tb";
+	@import "environment/tb";
+}
+/* スマホ
+-------------------------------------------------- */
+@media only screen and (max-width:$spSize) {
+	$type: sp;
+	@import "base/base_sp";
+	@import "environment/sp";
+}

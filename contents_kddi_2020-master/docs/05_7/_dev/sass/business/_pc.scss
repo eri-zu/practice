@@ -1,0 +1,61 @@
+/*-----------------------
+business
+------------------------*/
+.report {
+  &__btn {
+    transform: translate(0,-50%) rotate(0);
+    transition: all .2s ease;
+    &:before {
+      transform: translate(-50%,-50%) rotate(0);
+      opacity: 1;
+      transition: all .2s ease;
+    }
+    &:after {
+      transform: translate(-50%,-50%) rotate(0);
+      transition: all .2s ease;
+    }
+    &:hover {
+      transform: translateY(-50%) rotate(45deg);
+      transition: all .2s ease;
+      &:before {
+        transform: translate(-50%,-50%) rotate(-45deg);
+        transition: all .2s ease;
+      }
+      &:after {
+        transform: translate(-50%,-50%) rotate(-45deg);
+        transition: all .2s ease;
+      }
+    }
+    &.cl {
+      transition: all .2s ease;
+      &:after {
+        opacity: 1;
+        transition: all .2s ease;
+      }
+      &:hover {
+        transform: translate(-50%,0) rotate(0);
+        opacity: 0.8;
+        transition: all .2s ease;
+        &:after {
+  	      transform: translateY(-50%) rotate(0);
+          transition: all .2s ease;
+        }
+      }
+    }
+    // &:hover {
+    //   background-color: #444;
+    //   transition: all .2s ease;
+    //   &:before {
+    //     top: 50%;right: 26px;
+    //     transform: translateY(-50%) rotate(270deg);
+    //     transition: all .2s ease;
+    //   }
+    //   &:after {
+    //     top: 50%;right: 0;
+    //     // transform: translateY(-50%) rotate(-270deg);
+    //     opacity: 0;
+    //     transition: all .2s ease;
+    //   }
+    // }
+  }
+}

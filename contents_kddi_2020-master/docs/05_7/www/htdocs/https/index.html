@@ -1,0 +1,188 @@
+<?php $libdir =  dirname(dirname($_SERVER['DOCUMENT_ROOT'])) .'/lib/https';?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>KDDI株式会社 採用情報</title>
+  <meta name="keywords" content="KDDI,採用,新卒,インターンシップ,キャリア,就職,転職,再雇用,リクルート,キャリア,グループ企業,事業,環境,育成,福利厚生">
+  <meta name="description" content="KDDIの採用情報サイトです。新卒やインターンシップ、キャリアなどの採用情報をはじめ、KDDIの概要や事業、働く環境など採用に関する幅広い情報をご紹介しています。">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- WebFont -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <!-- OGP -->
+  <meta property="og:title" content="KDDI株式会社 採用情報">
+  <meta property="og:description" content="KDDIの採用情報サイトです。新卒やインターンシップ、キャリアなどの採用情報をはじめ、KDDIの概要や事業、働く環境など採用に関する幅広い情報をご紹介しています。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://career.kddi.com/">
+  <meta property="og:image" content="https://career.kddi.com/img/ogp.png">
+  <meta property="og:site_name" content="KDDI株式会社 採用情報">
+  <!--  -->
+  <link href="/css/index.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper top">
+  <!-- header -->
+  <?php include $libdir . '/header.php';?>
+  <!-- /header -->
+
+  <!-- topBlock -->
+  <section class="topBlock">
+    <div class="mainVis">
+      <p class="mainVis__title">採用情報</p>
+      <div class="mainVis__img forPC"><img src="/img/top/main_vis.png" alt="採用情報"></div>
+      <div class="mainVis__img forSP"><img src="/img/top/sp_main_vis.png" alt="採用情報"></div>
+    </div>
+
+    <div class="news">
+      <div class="news__inner">
+        <p class="news__logo"><img src="/img/top/news_logo.png" alt="NEWS"></p>
+        <div class="news__acl">
+          <dl>
+            <dt class="date">2019.11.12</dt>
+            <dd class="text"><a href="/innovation/" target="_blank" onClick="trEventBe(this, '【click】採用ポータル トップ ', 'NEWS_イノベーション人材採用サイトを公開しました。', 'イノベーション人材採用サイトを公開しました。', event);">イノベーション人材採用サイトを公開しました。</a></dd>
+          </dl>
+          <dl>
+            <dt class="date">2019.10.31</dt>
+            <dd class="text">2020年度新卒採用のプレエントリー及び本エントリーの受付を終了いたしました。 <br>たくさんのご応募、ありがとうございました。</dd>
+          </dl>
+          <dl>
+            <dt class="date">2019.10.09</dt>
+            <dd class="text"><a href="/internship/" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','NEWS_【インターンシップ】秋期開催分の募集を開始しました。','【インターンシップ】秋期開催分の募集を開始しました。',event);">【インターンシップ】秋期開催分の募集を開始しました。</a></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="info col3">
+      <ul class="info__listBox">
+        <li class="link-wrap">
+          <figcaption>新卒採用情報</figcaption>
+          <figure>
+            <img src="/img/top/info_link01.jpg" alt="">
+          </figure>
+          <a href="/freshers/" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','新卒採用','新卒採用',event);"></a>
+          <p class="link blank">新卒採用</p>
+        </li>
+        <li class="link-wrap">
+          <figcaption>インターンシップ情報</figcaption>
+          <figure>
+            <img src="/img/top/info_link02.jpg" alt="">
+          </figure>
+          <a href="/internship/" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','インターンシップ','インターンシップ',event);"></a>
+          <p class="link blank">インターンシップ</p>
+        </li>
+        <li class="link-wrap">
+          <figcaption>キャリア採用情報</figcaption>
+          <figure>
+            <img src="/img/top/info_link03.png" alt="">
+          </figure>
+          <a href="https://recruiting-site.jp/s/career-kddi-864/" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','キャリア採用','キャリア採用',event);"></a>
+          <p class="link blank">キャリア採用</p>
+        </li>
+        <li class="link-wrap">
+          <figcaption>イノベーション人材採用情報</figcaption>
+          <figure>
+            <img src="/img/top/info_link04.jpg" alt="">
+          </figure>
+          <a href="/innovation/" target="_blank" onClick="trEventBe(this, '【click】採用ポータル トップ ', 'イノベーション人材採用 ', 'イノベーション人材採用', event);"></a>
+          <p class="link blank">イノベーション人材採用</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="info col4">
+      <ul class="info__listBox">
+        <li class="link-wrap">
+          <figcaption>第二新卒採用情報</figcaption>
+          <figure>
+            <img src="/img/top/info_s_link01.jpg" alt="">
+          </figure>
+          <p class="link blank">第二新卒採用</p>
+          <a href="/3up/" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','第二新卒採用','第二新卒採用',event);"></a>
+        </li>
+        <li class="link-wrap">
+          <figcaption>カムバック採用情報</figcaption>
+          <figure>
+            <img src="/img/top/info_s_link02.jpg" alt="">
+          </figure>
+          <p class="link blank">カムバック採用</p>
+          <a href="http://www.kddi.com/corporate/recruit/rehirement/" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','カムバック採用','カムバック採用',event);"></a>
+        </li>
+        <li>
+          <figcaption>契約社員採用情報</figcaption>
+          <figure>
+            <img src="/img/top/info_s_link03.jpg" alt="">
+          </figure>
+          <a href="https://sa-kddi.com/jobfind-pc/" class="link blank" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','セールスアドバイザー採用','セールスアドバイザー採用',event);">セールスアドバイザー採用</a>
+          <a href="https://www.cservice.jp/c/K-Evolva/job_detail.php?id=173a4ad3deb7&mode=items&c_id=&c_sub_id=" class="link blank" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','事務契約社員採用','事務契約社員採用',event);">事務契約社員採用</a>
+          <a href="https://www.cservice.jp/c/K-Evolva/job_detail.php?id=174a59c5daab&mode=items&c_id=&c_sub_id=" class="link blank" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','料金アドバイザー採用','料金アドバイザー採用',event);">料金アドバイザー採用</a>
+        </li>
+        <li>
+          <figcaption>障がい者採用情報</figcaption>
+          <figure>
+            <img src="/img/top/info_s_link04.jpg" alt="">
+          </figure>
+          <a href="http://www.kddi.com/corporate/recruit/disability/" class="link blank" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','障がい者採用','障がい者採用',event);">障がい者採用</a>
+          <a href="http://www.challenged.kddi.com/saiyo/" class="link blank" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','KDDIチャレンジド','KDDIチャレンジド',event);">KDDIチャレンジド</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <div class="group__inner">
+        <p class="group__title">グループ企業採用情報</p>
+        <p class="group__text">グループ企業各社の採用情報は<br class="forSP">下記にてご覧いただけます。</p>
+        <p class="group__link"><a href="http://www.kddi.com/corporate/recruit/group/" target="_blank" onClick="trEventBe(this,'【click】採用ポータル トップ','グループ企業採用','グループ企業での採用',event);">グループ企業での採用</a></p>
+      </div>
+    </div>
+
+    <div class="under">
+      <ul class="under__listBox">
+        <li><a href="/about/" class="link" onClick="trEventBe(this,'【click】採用ポータル トップ','KDDIについて','KDDIについて',event);">KDDIについて</a></li>
+        <li><a href="/business/" class="link" onClick="trEventBe(this,'【click】採用ポータル トップ','KDDIの事業','KDDIの事業',event);">KDDIの事業</a></li>
+      </ul>
+    </div>
+
+    <div class="under_environment">
+      <div class="under_inner">
+        <div class="under_info">
+          <a href="/environment/" onClick="trEventBe(this,'【click】採用ポータル トップ','働く環境','働く環境',event);">働く環境</a>
+          <p>KDDIは、多様な社員が安心していきいきと働ける環境を作るため、各種制度の整備をはじめ、様々な取り組みを行っています。</p>
+        </div>
+        <ul>
+          <li><a href="/environment/diversity.html" onClick="trEventBe(this,'【click】採用ポータル トップ','多様な人財の働く環境','多様な人財の働く環境',event);">多様な人財の働く環境</a></li>
+          <li><a href="/environment/education.html" onClick="trEventBe(this,'【click】採用ポータル トップ','人財育成・開発','人財育成・開発',event);">人財育成・開発</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+  <!-- /topBlock -->
+
+  <!-- footer -->
+  <?php include $libdir . '/footer.php';?>
+  <!-- /footer -->
+
+</div>
+
+<script src="/js/lib/jquery-3.3.1.min.js"></script>
+<script src="/js/lib/TweenMax.min.js"></script>
+<script src="/js/lib/trtween.min.js"></script>
+<script src="/js/index.js"></script>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KW8VHKT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW8VHKT');</script>
+<!-- End Google Tag Manager -->
+
+</body>
+</html>

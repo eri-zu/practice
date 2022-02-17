@@ -1,0 +1,5 @@
+AddType application/x-httpd-php .html
+AuthType Basic
+AuthName "Input ID and Password."
+AuthUserFile /extra/export/contents/camp419/htdocs/https/.htpasswd
+require valid-user

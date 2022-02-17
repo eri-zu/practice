@@ -1,0 +1,140 @@
+
+.ttl_page_common {
+  font-size: 1.9rem;
+  margin-bottom: 25px;
+  & + p {
+    font-size: 1.2rem;
+    text-align: left;
+	margin-bottom: 25px;
+  }
+}
+
+
+
+
+.blk_page_event {
+  padding: 40px 0 33px 0;
+  & .inner {
+    padding: 0 15px;
+  }
+  & .ttl_page_common {
+    margin-bottom: 25px;
+  }
+  & p.txt_lead {
+    font-size: 1.2rem;
+	letter-spacing: 0.05em;
+	line-height: 2.0em;
+	text-align: left;
+	margin: 0 0 25px 0;
+  }
+  & .box {
+	padding: 28px 15px;
+	& h2 {
+	  margin-bottom: 16px;
+	  text-align: center;
+	  & strong {
+		font-size: 1.9rem;
+	  }
+	  & span {
+		font-size: 1.2rem;
+		margin-top: 12px;
+	  }
+	}
+	& p {
+	  font-size: 1.2rem;
+	  text-align: left;
+	  & + p {
+	    margin-top: 22px;
+	  }
+	}
+  }
+  & h2.ttl_sub {
+	font-size: 1.2rem;
+	padding: 4px 14px;
+	border-radius: 25px;
+	margin: 30px 0 20px 0;
+  }
+  & table {
+	font-size: 1.2rem;
+	& + table {
+	  margin-top: 30px;
+	}
+	& tr:nth-of-type(1) {
+	  font-size: 1.4rem;
+	}
+	& th {
+	  padding: 8px 4px 9px 4px;
+	}
+	& td {
+	  padding: 11px 4px 12px 4px;
+	}
+  }
+  & .blk_place {
+	& .col {
+	  padding: 13px 0 22px 0;
+	  display: block;
+	  & strong {
+		font-size: 1.3rem;
+		width: auto;
+	  }
+	  & p {
+		font-size: 1.2rem;
+		margin: 8px 0;
+	  }
+	  & a {
+		font-size: 1.2rem;
+		padding-bottom: 2px;
+		&:after {
+		  right: -15px;
+		  width: 11px;
+		  height: 8px;
+		}
+	  }
+	}
+  }
+}
+
+
+.blk_page_event_entry {
+  padding: 30px 0 24px 0;
+  & .inner {
+    padding: 0 15px;
+  }
+  & h2.ttl_sub {
+    font-size: 1.2rem;
+	padding: 4px 14px;
+	border-radius: 25px;
+	margin: 0 0 10px 0;
+  }
+  & p.txt_leadB {
+    font-size: 1.2rem;
+	margin: 0 0 24px 0;
+  }
+  & ul {
+    margin-bottom: 14px;
+    display: block;
+	& li {
+	  width: 100%;
+	  & + li {
+	    margin-top: 20px;
+	  }
+	  & a {
+		padding: 14px 0 16px 0;
+		& strong {
+		  font-size: 1.4rem;
+	    }
+	    & span {
+	  	  font-size: 1.1rem;
+	  	  margin-top: 5px;
+	    }
+	  }
+	}
+  }
+  & p.sup {
+    font-size: 1.0rem;
+  }
+}
+
+.close__txt {
+	margin-top: 30px;
+}

@@ -1,0 +1,444 @@
+<?php $libdir =  dirname(dirname($_SERVER['DOCUMENT_ROOT'])) .'/lib/https';?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>RECRUIT | KDDI株式会社 新卒採用サイト</title>
+  <meta name="keywords" content="KDDI,ワクワク,新卒,採用,リクルート,就職,仕事,通信,ライフデザイン">
+  <meta name="description" content="「ワクワクしよう」KDDIの新卒採用サイトです。採用情報についてご紹介しています。">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- WebFont -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <!-- OGP -->
+  <!-- <meta property="fb:app_id" content="123456789">
+  <meta name="twitter:card" content="summary_large_image"> -->
+  <meta property="og:title" content="RECRUIT | KDDI株式会社 新卒採用サイト">
+  <meta property="og:description" content="「ワクワクしよう」KDDIの新卒採用サイトです。採用情報についてご紹介しています。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://career.kddi.com/">
+  <meta property="og:image" content="https://career.kddi.com/freshers/img/ogp.png">
+  <meta property="og:site_name" content="RECRUIT | KDDI株式会社 新卒採用サイト">
+
+  <!--  -->
+  <link href="/css/freshers/recruit.css?test=201910081500" rel="stylesheet">
+  <!--  -->
+
+</head>
+<body>
+  <div class="wrapper">
+  <!-- header -->
+  <?php include $libdir . '/header_freshers.php';?>
+  <!-- /header -->
+
+	<section class="blk_page_recruit">
+		<div class="inner">
+			<h1 class="ttl_page_common">RECRUIT</h1>
+			<div class="blk_typeA">
+				<h2 class="ttl_sub">募集要件</h2>
+				<h3>KDDI新卒採用の特徴 </h3>
+				<p>1.  既卒者の方も応募可能です<br>
+2.  就業経験は問いません<br>
+3.  大学・専攻・国籍・性別等、一切問いません</p>
+			</div>
+			<div class="blk_typeA">
+				<h2 class="ttl_sub">募集要項</h2>
+				<p>KDDIでは、KDDIの幅広い事業領域・技術領域で経験を積みたい方向けのOPENコース（技術系、業務系）とこれまでの経験やスキルを活かしたフィールドで経験を積みたい方向けのWILLコースの採用を行っています。
+</p>
+				<div class="req">
+					<strong>OPENコース</strong>
+					<p>ご自身の専門分野に関わらず、KDDIの幅広い事業領域・技術領域で経験を積み成長したい方</p>
+				</div>
+				<div class="req">
+					<strong>WILLコース</strong>
+					<p>ご自身の専門分野を活かし、当該専門分野で経験を積み成長したい方</p>
+				</div>
+				<div class="blk_course">
+					<dl>
+						<dt onClick="trEventBe(this,'【click】新卒採用 RECRUIT','OPENコース（開く、閉じる_上部）','開く、閉じる',event);">
+							<div class="title">OPENコース</div>
+							<div class="icon"><p class="accordion_icon"><span></span><span></span></p></div>
+						</dt>
+						<dd class="course1">
+							<h3>技術系総合職</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、KDDIの技術系部門（ネットワークインフラ、クラウド・アプリケーション等の開発・保守・運用等）で経験を積みたい方</p>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<p>スキルや経験、志向、適性を踏まえ、配属部門を決定します。</p>
+								</div>
+							</div>
+							<h3>業務系総合職</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、KDDIの業務系部門（代理店営業、法人営業、企画、管理、経営サポート等）で経験を積みたい方</p>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<p>スキルや経験、志向、適性を踏まえ、配属部門を決定します。</p>
+								</div>
+							</div>
+							<div class="btn_cs_close close1" onClick="trEventBe(this,'【click】新卒採用 RECRUIT','OPENコース（閉じる_下部）','閉じる',event);">閉じる</div>
+						</dd>
+						<dt onClick="trEventBe(this,'【click】新卒採用 RECRUIT','WILLコース（開く、閉じる_上部）','開く、閉じる',event);">
+							<div class="title">WILLコース</div>
+							<div class="icon"><p class="accordion_icon"><span></span><span></span></p></div>
+						</dt>
+						<dd class="course2">
+							<h3>ネットワーク</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下いずれかに該当するスキル・経験を有し、エンジニアとしてネットワークの研究、開発、保守、運用業務に就きたい方</p>
+									<ul>
+										<li>学士（または高専専攻科）から通信系に関する研究に従事し修了する予定の修士または博士</li>
+										<li>ネットワーク機器を扱う企業・団体でネットワークエンジニアとしての業務経験を有する者</li>
+										<li>ネットワーク関連の高度資格を有する者</li>
+									</ul>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>R&D</li>
+										<li>インフラエンジニア
+											<span>技術企画・技術開発</span>
+											<span>エンジニアリング（設備建設）</span>
+											<span>O&M（NWシステム保守・運用）</span>
+										</li>
+										<li>法人向けサービス企画・開発</li>
+										<li>法人向けシステムエンジニア（SE)</li>
+										<li>商品プロダクト企画・開発</li>
+									</ul>
+								</div>
+							</div>
+							<h3>クラウド・アプリケーション</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下いずれかに該当するスキル・経験を有し、エンジニアとしてクラウド・アプリケーション、サービスの研究、企画、開発、保守、運用業務に就きたい方</p>
+									<ul>
+										<li>学士（または高専専攻科）から情報系（※）に関する研究に従事し修了する予定の修士または博士</li>
+										<li>IT企業または起業でのソフトウェアエンジニアとしての業務経験を有する者</li>
+										<li>ロボットコンテスト・ソフトウェアコンテスト等への出場と、受賞実績のある者</li>
+										<li>情報処理関連の高度資格を有する者</li>
+									</ul>
+									<p class="sup">情報理論、サーバ・ソフトウェア、仮想化、OS/システム基盤、WEB、人間中心設計、<br>UI/UX、システムズエンジニアリング等</p>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>R&D</li>
+										<li>サービス／システム企画</li>
+										<li>開発エンジニア（アジャイル）</li>
+										<li>開発エンジニア（ウォーターフォール）</li>
+										<li>基盤構築（クラウド・オンプレミス）</li>
+										<li>O&M (サーバ＆アプリケーション保守・運用)</li>
+									</ul>
+								</div>
+							</div>
+							<h3>セキュリティ</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下いずれかに該当するスキル・経験を有し、エンジニアとしてセキュリティの研究、開発、保守、運用業務に就きたい方</p>
+									<ul>
+										<li>学士（または高専専攻科）からセキュリティ系に関する研究に従事し修了する予定の修士または博士</li>
+										<li>起業・団体でセキュリティ関連の業務経験を有する者</li>
+										<li>セキュリティコンテスト等への出場と、受賞実績のある者</li>
+										<li>セキュリティ関連の高度資格を有する者</li>
+									</ul>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>R&D</li>
+										<li>セキュリティエンジニア</li>
+									</ul>
+								</div>
+							</div>
+							<h3>データサイエンス</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下に該当するスキル・経験を有し、エンジニアとして研究やデータ分析業務に就きたい方、及びデータ分析を用いた事業企画・マーケティング業務等に就きたい方</p>
+									<ul>
+										<li>専攻問わずデータ分析に関する専門性を有する者</li>
+									</ul>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>R&D</li>
+										<li>データサイエンティスト</li>
+									</ul>
+								</div>
+							</div>
+							<h3>ファシリティ</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下いずれかに該当するスキル・経験を有し、エンジニアとしてファシリティの建設計画、設備建設・保全業務に就きたい方</p>
+									<ul>
+										<li>電気工学を専攻しており、強電分野への専門性を有する者</li>
+										<li>土木・建築を専攻しており、構造力学・流体力学分野への専門性を有する者</li>
+									</ul>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>電力系ファシリティエンジニア</li>
+										<li>建築系ファシリティエンジニア</li>
+									</ul>
+								</div>
+							</div>
+							<h3>ビジネスインキュベーション</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下いずれかに該当するスキル・経験を有し新規事業企画、推進業務に就きたい方</p>
+									<ul>
+										<li>学士または修士で、情報系を専攻・研究し、XRまたはAIの専門性を有する者</li>
+										<li>自ら能動的にビジネス開発やサービス企画を実施し学内外のアイデアソン等で入賞経験を有する者</li>
+										<li>ITベンチャー企業でのインターンシップ経験を同一企業で3か月以上有する者</li>
+									</ul>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>新規事業企画・推進、サービス企画・推進</li>
+									</ul>
+								</div>
+							</div>
+							<h3>アカウンティング＆ファイナンス</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下いずれかに該当するスキル・経験を有し、財務会計分野の業務に就きたい方</p>
+									<ul>
+										<li>国内外の会計系の学科を専攻した学士又は修士</li>
+										<li>専攻を問わず、日商簿記1級、日商簿記2級、公認会計士2次試験、税理士資格科目合格、米国公認会計士等の会計系の資格を有する者（資格はいずれか1つ以上）</li>
+									</ul>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>財務</li>
+										<li>経理</li>
+									</ul>
+								</div>
+							</div>
+							<h3>リーガル＆ライセンス</h3>
+							<div class="data">
+								<strong>応募要件</strong>
+								<div class="info">
+									<p>KDDI新卒採用の応募資格に該当し、以下いずれかに該当するスキル・経験を有し、法務、知的財産、渉外業務に就きたい方</p>
+									<ul>
+										<li>司法修習生</li>
+										<li>法学学士</li>
+									</ul>
+								</div>
+							</div>
+							<div class="data">
+								<strong>初期配属時の業務</strong>
+								<div class="info">
+									<ul>
+										<li>法務</li>
+										<li>知的財産</li>
+										<li>渉外</li>
+									</ul>
+								</div>
+							</div>
+							<div class="btn_cs_close close2" onClick="trEventBe(this,'【click】新卒採用 RECRUIT','WILLコース（閉じる_下部）','閉じる',event);">閉じる</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="blk_typeA">
+				<h2 class="ttl_sub">募集人数</h2>
+				<p>270名　（2020年度新卒採用予定数）</p>
+			</div>
+			<div class="blk_typeA">
+				<h2 class="ttl_sub">応募資格</h2>
+				<p>既卒者も応募できます。就業経験は問いません。<br>
+2016年4月～2020年3月に大学、高専専攻科※を卒業（見込み）、大学院修士・博士課程を修了（見込み）の方。</p>
+				<p class="sup mt">高専専攻科卒業（見込み）の方は、入社までに独立行政法人 大学評価・学位授与機構より学士の学位を得ることが必須です。</p>
+				<p class="sup">障がい者手帳をお持ちの方は<span class="linkAnker"><a href="http://www.kddi.com/corporate/recruit/disability/information/" target="_blank" onClick="trEventBe(this,'【click】新卒採用 RECRUIT','テキストリンク_障がい者採用ページ（応募資格）','障がい者採用ページ',event);">障がい者採用ページ</a></span>をご覧ください。</p>
+			</div>
+			<div class="blk_typeA">
+				<h2 class="ttl_sub">採用実績</h2>
+				<p>2016年4月入社実績　302名（74校）<br>
+2017年4月入社実績　307名（75校）<br>
+2018年4月入社実績　287名（72校）</p>
+			</div>
+			<div class="blk_typeB">
+				<h2 class="ttl_sub">初任給</h2>
+				<p>大　卒：月給222,000円（2018年4月実績）<br>
+修士了：月給242,000円（2018年4月実績）<br>
+博士了：月給289,600円（2018年4月実績）</p>
+				<p class="sup mt">高専（専攻科）卒業生は大卒に準ずる</p>
+				<div class="tbl">
+					<dl>
+						<dt>諸手当</dt>
+						<dd>時間外勤務手当、住宅手当、通勤手当など</dd>
+					</dl>
+					<dl>
+						<dt>昇給</dt>
+						<dd>年1回（4月）</dd>
+					</dl>
+					<dl>
+						<dt>賞与</dt>
+						<dd>年2回（6月、12月）</dd>
+					</dl>
+					<dl>
+						<dt>勤務地</dt>
+						<dd>全国各事業所（海外勤務あり）</dd>
+					</dl>
+					<dl>
+						<dt>勤務時間</dt>
+						<dd>9：00～17：30（うち60分休憩）
+						<span class="sup">部門により、交代勤務、フレックスタイム制勤務、裁量労働制勤務、変形労働時間制勤務、テレワークあり</span></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="blk_typeB">
+				<h2 class="ttl_sub">福利厚生</h2>
+				<ul>
+					<li>完全週休2日制（土日祝）</li>
+					<li>年間休日121日（土日祝・年末年始：2017年度実績）</li>
+					<li>年次有給休暇（初年度15日、次年度以降20日※出勤率に応じて変動）</li>
+					<li>フリーバケーション制度（連続5日間有給休暇取得促進）</li>
+					<li>特別休暇（弔事、結婚、出産、子の看護など）</li>
+					<li>リフレッシュ休暇</li>
+					<li>産前産後休暇</li>
+					<li>育児・介護休職など</li>
+				</ul>
+				<div class="tbl">
+					<dl>
+						<dt>保険</dt>
+						<dd>健康保険、厚生年金保険、雇用保険、労災保険など</dd>
+					</dl>
+					<dl>
+						<dt>財産形成</dt>
+						<dd>各種財形貯蓄制度、社員持株会</dd>
+					</dl>
+					<dl>
+						<dt>共済会</dt>
+						<dd>KDDIグループ共済会 （相互扶助給付、生活支援制度、団体保険、団体扱い生命保険、ゴルフ場、百貨店優待、テーマパーク・リゾート施設利用割引など）</dd>
+					</dl>
+					<dl>
+						<dt>住宅融資</dt>
+						<dd>提携住宅ローン</dd>
+					</dl>
+					<dl>
+						<dt>保養施設</dt>
+						<dd>全国約75カ所の契約保養所</dd>
+					</dl>
+					<dl>
+						<dt>その他</dt>
+						<dd>えらべる俱楽部など</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="blk_typeC">
+				<h2 class="ttl_sub">選考フロー</h2>
+				<div class="flow">
+					<div class="step st1">
+						<div class="txt">
+							<p class="p1">Step<span>1</span></p>
+							<p class="p2">プレエントリー</p>
+						</div>
+					</div>
+					<span class="next"></span>
+					<div class="step st2">
+						<div class="txt">
+							<p class="p1">Step<span>2</span></p>
+							<p class="p2">本エントリー</p>
+						</div>
+					</div>
+					<span class="next"></span>
+					<div class="step st3">
+						<div class="txt">
+							<p class="p1">Step<span>3</span></p>
+							<p class="p2">書類選考・面接</p>
+						</div>
+					</div>
+					<span class="next"></span>
+					<div class="step st4">
+						<div class="txt">
+							<p class="p1">Step<span>4</span></p>
+							<p class="p2">内々定</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="close__txt">2020年度新卒採用の<br class="forSp">プレエントリー及び本エントリーの<br class="forSp">受付を終了いたしました。<br>
+			たくさんのご応募、<br class="forSp">ありがとうございました。</p>
+		</div>
+	</section>
+
+	<!-- <section class="blk_page_recruit_entry">
+		<div class="inner">
+			<p>応募には「プレエントリー」<br class="forSp">「本エントリー」が必要となります。<br>
+まずは「ENTRY」ボタンより<br class="forSp">プレエントリーをお願いいたします。</p>
+			<a href="https://job.axol.jp/gs/s/kddi_2020/entry/" target="_blank" onClick="trEventBe(this,'【click】新卒採用 RECRUIT','ENTRY','ENTRY',event);">ENTRY</a>
+		</div>
+	</section> -->
+
+	<section class="paging_recruit">
+		<div class="inner">
+			<strong>RECRUIT</strong>
+			<ul>
+				<li><span>採用情報</span></li>
+				<li><a href="/freshers/recruit/faq.html" onClick="trEventBe(this,'【click】新卒採用 RECRUIT','関連リンク_よくある質問','よくある質問',event);">よくある質問</a></li>
+			</ul>
+		</div>
+	</section>
+
+  <!-- footer -->
+  <?php include $libdir . '/footer_freshers.php';?>
+  <!-- /footer -->
+
+  </div>
+
+<script src="/js/lib/jquery-3.3.1.min.js"></script>
+<script src="/js/freshers_recruit.js"></script>
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KW8VHKT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW8VHKT');</script>
+<!-- End Google Tag Manager -->
+
+</body>
+</html>

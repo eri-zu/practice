@@ -1,0 +1,17 @@
+.wrapper {
+  padding-top: 88px;
+}
+
+.blk_modalmenu {
+  display: none;
+}
+
+.forSp {
+  display: none;
+}
+
+.pagetop {
+  &:hover {
+    background-color: #0e0d69;
+  }
+}

@@ -1,0 +1,51 @@
+
+.ttl_page_common {
+  font-size: 1.9rem;
+  margin-bottom: 25px;
+  & + p {
+    font-size: 1.2rem;
+    text-align: left;
+	margin-bottom: 25px;
+  }
+}
+
+
+
+
+.blk_top_news {
+  padding: 40px 0 60px 0;
+  & .inner {
+    width: auto;
+    padding: 0 15px;
+  }
+  & .ttl_page_common {
+    margin-bottom: 38px;
+  }
+  & .blk_news_list {
+	& dl {
+	  padding: 12px 0;
+	  font-size: 1.2rem;
+	  display: block;
+	  & dt {
+		padding-right: 0;
+		letter-spacing: 0.05em;
+	  }
+	  & dd {
+	    & a {
+		  padding-bottom: 2px; 
+		}
+		& .linkAnker {
+		  &:after {
+		    width: 11px;
+		    height: 8px;
+		  }
+		}
+	  }
+	}
+  }
+}
+
+
+
+
+

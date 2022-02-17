@@ -1,0 +1,1 @@
+$(function(){return $("#btn_modalopen").on("click",function(n){n.preventDefault(),$(".blk_modalmenu").fadeToggle()}),$("#btn_modalclose").on("click",function(n){n.preventDefault(),$(".blk_modalmenu").fadeOut()}),!1}),$(function(){var n=$("#js-pagetop");n.click(function(){return $("body, html").animate({scrollTop:0},500),!1})});

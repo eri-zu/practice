@@ -32,7 +32,6 @@
     "fix": "run-s fix:eslint fix:prettier",
     "fix:eslint": "eslint --fix",
     "fix:prettier": "prettier --write"
-
   },
   "dependencies": {
     "dat.gui": "^0.7.7",

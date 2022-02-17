@@ -1,0 +1,53 @@
+.internship {
+  padding-top: 50px;
+  .inner {
+    padding: 0 4%;
+  }
+  .blk_header {
+    height: 50px;
+    .btn_user {
+      li a {
+        line-height: 50px;
+        height: 50px;
+        padding-top: 0;
+      }
+    }
+    .logo {
+      width: 135px;
+    }
+  }
+
+  .prologue {
+    &__msg {
+      font-size: 1.7rem;
+    }
+    .close__txt {
+      @include fontSize(24);
+    }
+  }
+
+  .course {
+    &--ttl-s {
+      span {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: auto;
+      }
+    }
+  }
+  .course__desc__selectArea li a {
+    font-size: 1.4rem;
+  }
+  .course__desc__selectArea li.row2 a {
+    font-size: 1.2rem;
+    padding: 14px 0;
+  }
+
+  .entry {
+    &__box {
+      a {
+        margin: 18px 20px 0;
+      }
+    }
+  }
+}

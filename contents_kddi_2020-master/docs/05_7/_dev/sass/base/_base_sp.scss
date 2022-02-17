@@ -1,0 +1,308 @@
+/*-----------------------
+variable
+------------------------*/
+$innerWidth:100%;
+/*-----------------------
+wrapper
+------------------------*/
+.wrapper{
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding-top: 14.69%;
+	overflow: hidden;
+}
+
+/*-----------------------
+header
+------------------------*/
+.hdBlock {
+	position: fixed;
+	width: 100%;
+	@include fontSize(16);
+	font-weight: 500;
+	&__inner {
+		max-width: 100%;
+		padding: 3.125% 15px;
+	}
+	&__logo {
+		width: percentage(236/640);
+	}
+	&__btn {
+		display: inline-block;
+		position: absolute;
+		top: 50%;right: 0;
+		transform: translateY(-50%);
+		padding: 30px 30.5px;
+		& span {
+			display: inline-block;
+			background-color: #0e0d69;
+			position: absolute;
+			width: 24px;height: 2px;
+			&:nth-of-type(1) {
+				top: 20px;left: 50%;
+				transform: translateX(-50%) rotate(0);
+				transition: all .3s $easeInOutQuint;
+			}
+			&:nth-of-type(2) {
+				top: 26px;left: 50%;
+				transform: translateX(-50%);
+				opacity: 1;
+				transition: all .3s $easeInOutQuint;
+			}
+			&:nth-of-type(3) {
+				top: 32px;left: 50%;
+				transform: translateX(-50%) rotate(0);
+				transition: all .3s $easeInOutQuint;
+			}
+		}
+		&.is-show {
+			& span {
+				&:nth-of-type(1) {
+					top: 26px;left: 50%;
+					transform: translateX(-50%) rotate(45deg);
+					transition: all .3s $easeInOutQuint;
+				}
+				&:nth-of-type(2) {
+					top: 26px;left: 100%;
+					opacity: 0;
+					transition: all .3s $easeInOutQuint;
+				}
+				&:nth-of-type(3) {
+					top: 26px;left: 50%;
+					transform: translateX(-50%) rotate(-45deg);
+					transition: all .3s $easeInOutQuint;
+				}
+			}
+		}
+	}
+	& .navPC {
+		display: none;
+	}
+}
+
+
+.navSP {
+	display: block;
+	position: fixed;
+	top: 0;right: 0;
+	width: 100%;
+	height: 0;
+	z-index: 10;
+	&__bg {
+		background-color: rgba(0, 0, 0, .6);
+		position: absolute;
+		top: 0;right: -100%;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: opacity .3s $easeInOutQuart,
+								right .3s $easeInOutQuart .3s;
+	}
+	& .hdBlock {
+		&__hi1Box {
+			position: relative;
+			right: -100%;
+			width: 100%;
+			transition: right .3s $easeInOutQuart;
+			&--list {
+				& .hi1Link {
+					display: block;
+					background-color: #0e0d69;
+					border-bottom: 1px solid #22218a;
+					position: relative;
+					padding: 18px 15px;
+					@include fontSize(14);
+					color: #fff;
+					&:after {
+						content: '';
+						display: inline-block;
+						background: url(../img/common/sp_menu_arrow_r.png) no-repeat center center;
+						background-size: 100%;
+						position: absolute;
+						top: 50%;right: 15px;
+						transform: translateY(-50%);
+						width: 6px;height: 10px;
+					}
+				}
+				&.is-under {
+					& .hi1Link{
+						&:after {
+							background: url(../img/common/sp_menu_arrow_b.png) no-repeat center center;
+							background-size: 100%;
+							width: 10px;height: 6px;
+							transform: translateY(-50%) rotate(0);
+							transition: all .3s ease;
+						}
+					}
+				}
+			}
+		}
+		&__hi2Box {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			transition: height .6s ease;
+			&--list {
+				& .hi2Link {
+					display: block;
+					background-color: #fff;
+					border-bottom: 1px solid #0e0d69;
+					position: relative;
+					padding: 18px 30px;
+					@include fontSize(12);
+					color: #0e0d69;
+					&:after {
+						content: '';
+						display: inline-block;
+						background: url(../img/common/sp_menu_blank.png) no-repeat center center;
+						background-size: 100%;
+						position: absolute;
+						top: 50%;right: 15px;
+						transform: translateY(-50%);
+						width: 18px;height: 14px;
+					}
+				}
+			}
+		}
+	}
+	// クリック後
+	&.is-show {
+		height: 100%;
+		& .navSP__bg {
+			right: 0;
+			height: 100%;
+			opacity: 1;
+			transition: opacity .3s ease;
+		}
+		& .hdBlock {
+			&__hi1Box {
+				right: 0;
+				transition: right .3s ease .1s;
+				&--list {
+					&.is-under {
+						& .hi1Link{
+							&.is-show {
+								&:after {
+									width: 10px;height: 6px;
+									transform: translateY(-50%) rotate(180deg);
+									transition: all .3s ease;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*-----------------------
+footer
+------------------------*/
+.ftBlock {
+	width: 100%;
+	padding: 30px 0;
+	&__inner {
+		width: $innerWidth;
+		margin: 0 auto;
+		@include clearfix();
+	}
+	&__logo {
+		position: relative;
+		width: percentage(130/640);
+		margin: 0 auto 30px;
+	}
+	&__listBox {
+		@include clearfix();
+		border-top: 1px solid #efefef;
+		padding-bottom: 30px;
+		&--list {
+			float: left;
+			width: 50%;
+			padding: 18px 0;
+			text-align: center;
+			border-bottom: 1px solid #efefef;
+			&:nth-of-type(2n) {
+				border-left: 1px solid #efefef;
+			}
+			& .link {
+				display: inline-block;
+				position: relative;
+				width: 100%;
+				@include fontSize(14);
+				&.soon {
+					pointer-events: none;
+					color: #7f7f7f;
+				}
+			}
+			&.bIcon {
+				padding: 20px 0;
+				& a {
+					@include fontSize(10);
+					&:after {
+						content: '';
+						display: inline-block;
+						background: url(../img/common/blank_icon_bl.png) no-repeat center center;
+						background-size: 100%;
+						width: 12px;height: 9px;
+						margin-left: 4px;
+					}
+				}
+			}
+		}
+	}
+	&__copy {
+		font-family: 'Roboto Condensed', sans-serif;
+		@include fontSize(10);
+		text-align: center;
+	}
+}
+
+.pagetop {
+	right: 20px;
+	bottom: 78%;
+	width: 40px;
+	height: 40px;
+	&:before {
+		top: 18px;left: 12px;
+		width: 10px;height: 1px;
+	}
+	&:after {
+		top: 18px;right: 12px;
+		width: 10px;height: 1px;
+	}
+}
+
+/*-----------------------
+under base
+------------------------*/
+.intro {
+	background: #0f105e url(/img/common/sp_under_top.png) no-repeat center right;
+	background-size: 100%;
+	height: 90px;
+	padding: 35px 15px;
+	&.typeB {
+	  padding: 30px 15px;
+	}
+	&__inner {
+		width: $innerWidth;
+	}
+	&__title {
+		@include fontSize(15);
+		& span {
+          font-size: 1.0rem;
+          margin-bottom: 5px;
+		}
+	}
+}
+
+/*-----------------------
+デバイス毎
+------------------------*/
+.forPC {
+	display: none !important;
+}
+.forSP {
+	display: inherit !important;
+}

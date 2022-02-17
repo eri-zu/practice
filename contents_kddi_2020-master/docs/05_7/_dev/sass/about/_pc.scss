@@ -1,0 +1,51 @@
+/*-----------------------
+about
+------------------------*/
+// common
+
+
+// philosophy
+.philosophy {
+	&__btn {
+    & li {
+      & .link {
+				transition: all .3s ease;
+        &:hover {
+          background-color: #3e3d87;
+          transition: all .3s ease;
+        }
+      }
+    }
+  }
+}
+
+// movie
+.movie {
+  &__block {
+    &--text {
+      background-color: #fff;
+      color: #0e0d69;
+			transition: all .3s ease;
+    }
+    &:hover {
+			transition: all .3s ease;
+      & .movie__block--text {
+				background-color: #0e0d69;
+        color: #fff;
+        transition: all .3s ease;
+      }
+    }
+  }
+}
+
+	// modal__bg
+.modal {
+  &__clBtn {
+		opacity: 1;
+		transition: all .3s ease;
+		&:hover {
+			opacity: 0.6;
+			transition: all .3s ease;
+		}
+  }
+}

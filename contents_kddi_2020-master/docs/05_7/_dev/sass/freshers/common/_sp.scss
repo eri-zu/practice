@@ -1,0 +1,137 @@
+.wrapper {
+  height: auto;
+  padding-top: 60px;
+}
+
+.forPc {
+  display: none;
+}
+.forSp {
+  display: block;
+}
+
+.blk_header {
+  height: 60px;
+  padding: 0 0 0 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  & .logo {
+    width: 64px;
+  }
+  & nav {
+    display: none;
+  }
+  & #btn_modalopen {
+    width: 60px;
+	height: 60px;
+  }
+}
+
+.blk_modalmenu {
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #0e0d6a;
+  box-sizing: border-box;
+  padding: 58px 15px;
+  position: fixed;
+  top: 60px;
+  right: 0;
+  z-index: 300;
+  & ul.menu {
+    & li {
+	  color: rgba(255,255,255,0.3);
+	  font-size: 1.6rem;
+	  letter-spacing: 0.05em;
+	  font-weight: 700;
+	  margin-bottom: 40px;
+	  & a {
+	    color: #fff;
+		text-decoration: underline;
+	  }
+	}
+  }
+  & #btn_modalclose {
+    position: fixed;
+	top: 0;
+	right: 0;
+	width: 60px;
+	height: 60px;
+	z-index: 400;
+  }
+}
+
+.blk_footer {
+  background: #efefef;
+  margin-top: 3px solid #fff;
+  & .ft_logo {
+    width: 65px;
+	display: block;
+	margin: 0 auto;
+	padding: 25px 0;
+  }
+  & ul {
+    background: #fff;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	& li {
+	  width: 50%;
+	  font-size: 1.4rem;
+	  letter-spacing: 0.05em;
+	  color: rgba(0,0,0,0.3);
+	  text-align: center;
+	  line-height: 50px;
+	  box-sizing: border-box;
+	  border-bottom: 1px solid #efefef;
+	  &:nth-of-type(2n) {
+	    border-left: 1px solid #efefef;
+	  }
+	  &.bIcon {
+	    font-size: 1.0rem;
+		letter-spacing: 0;
+		& a {
+		  position: relative;
+		  color: #5b5b5b;
+		  &:after {
+		    content: '';
+		    display: inline-block;
+		    background: url(/freshers/img/blank_icon_bl.png) no-repeat center center;
+		    background-size: 100%;
+		    width: 11px;
+		    height: 8px;
+		    margin-left: 4px;
+		  }
+		}
+	  }
+	}
+  }
+  & .copy {
+    text-align: center;
+	background: #fff;
+	font-size: 1.0rem;
+	padding: 20px 0;
+  }
+}
+.pagetop {
+	bottom: 280px;
+}
+
+.blk_bnr_intern {
+	padding: 15px;
+}
+
+.close__txt {
+	font-size: 15px !important;
+	font-size: 1.5rem !important;
+	.spOnly {
+		display: block;
+	}
+}

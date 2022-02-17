@@ -1,0 +1,153 @@
+
+.blk_people_top {
+  & .inner {
+    padding: 0 20px;
+  }
+}
+
+.blk_people_guide {
+  & .inner {
+    padding: 0 20px;
+  }
+}
+
+.blk_people_btm {
+  & .inner {
+    padding: 0 20px;
+  }
+  & .search-box {
+	& .col {
+	  & h3 {
+		width: 180px;
+	  }
+	  & .box {
+		& label {
+		  width: calc(100% / 3);
+		}
+	  }
+	  & .box_wrap {
+		& label {
+		  width: calc(100% / 2);
+		}
+	  }
+	}
+  }
+  & .list {
+    margin: 0 -1%;
+    & .list_item {
+	  width: calc(100% / 3 - 2%);
+	  margin: 0 1% 2%;
+	}
+  }
+}
+
+
+
+.blk_interview_top {
+  display: block;
+  & .tmb {
+    width: 100%;
+	display: block;
+  }
+  & .col {
+    width: 100%;
+    display: block;
+	padding: 15px;
+	& h1 {
+	  font-size: 3.2rem;
+	  margin-bottom: 15px;
+	}
+	& .job {
+	  font-size: 1.3rem;
+	  margin-bottom: 15px;
+      & span {
+        padding: 7px 8px;
+      }
+	}
+    & p.name {
+	  font-size: 2.4rem;
+	  margin-bottom: 10px;
+	  & span {
+	    font-size: 1.4rem;
+		margin-left: 15px;
+	  }
+	}
+    & p.date {
+	  font-size: 1.6rem;
+	}	
+  }
+}
+
+
+.blk_interview_loadmap {
+  & .inner {
+    padding: 0 20px;
+  }
+}
+
+
+.blk_interview_comment {
+  & .inner {
+    padding: 0 20px;
+  }
+}
+
+
+.blk_interview_data {
+  & .inner {
+    padding: 0 20px;
+  }
+  & .schedule {
+    width: 48%;
+  }
+  & .faq {
+    width: 48%;
+  }
+}
+
+
+.blk_interview_msg {
+  margin: 65px 20px;
+}
+
+
+.blk_interview_people {
+  & .inner {
+    padding: 0 20px;
+  }
+  & .list {
+    & .list_item {
+	  width: calc(100% / 2 - 2%);
+	}
+  }
+}
+
+
+.blk_btm_project {
+  & .inner {
+    padding: 0 20px;
+  }
+}
+
+
+
+.blk_guide_top {
+  & .inner {
+    padding: 0 20px;
+  }
+  & .box_index {
+    display: block;
+	& .col {
+	  width: 100%;
+	  margin: 0;
+	}
+  }
+  & .blk_data {
+	& .blk_people {
+	  display: block;
+	  & .list_item {
+	    width: 100%;
+	  }
+	}
+  }
+}

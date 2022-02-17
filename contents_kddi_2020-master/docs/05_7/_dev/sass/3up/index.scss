@@ -1,0 +1,425 @@
+@charset "UTF-8";
+
+@import "3up/base/mixin";
+@import "3up/base/common";
+@import "3up/base/base";
+
+.bg-lines{
+  position: absolute;
+  top:0;left:0;
+  z-index: -4;
+}
+.header {
+  &__inner {
+    background: transparent;
+  }
+}
+.mv {
+  overflow: hidden;
+  padding-top: 120px;
+  position: relative;
+  @include mq-down(){
+    height: 0;
+    padding-top: calc(560 / 375 * 100%);
+  }
+  &__inner {
+    @include innerWidth();
+    padding-top: 32px;
+    @include mq-down(){
+      padding: 0 4%;
+      margin-right: 2.1%;
+      position: absolute;
+      top: calc(122 / 560 * 100%);
+    }
+  }
+  &__3up {
+    width: 140px;
+    margin-bottom: 24px;
+    @include mq-down(){
+      margin-left: 3%;
+      width: 96px;
+    }
+  }
+  &__h1 {
+    width: 420px;
+    padding-bottom: 106px;
+    @include mq-down(){
+      width: 95%;
+      padding-bottom: 0;
+      margin: auto;
+    }
+  }
+  .bg-ttl {
+    width: 668px;
+    height: 0;
+    padding-bottom: calc(430 / 668 * 100%);
+    background: url(/img/3up/top/bg_ttl.png) no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 124px;
+    left: calc(50% - 170px);
+    z-index: -9;
+    @include mq-down(){
+      width: 96.8%;
+      background-position: right bottom;
+      top: auto;
+      left: auto;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    width: 100%;
+    // height: 100%; //in case of pause
+    // background: linear-gradient(#CEFFD8, #B4D4FF);  //in case of pause
+    height: 500%;
+    background: linear-gradient(#CEFFD8, #B4D4FF, #f2b4ff, #f7eb86, #CEFFD8, #B4D4FF);
+    animation: bgColorChange 10s infinite;
+  }
+}
+
+@keyframes bgColorChange {
+  0%  { top: 0%;}
+  25% { top: -100%;}
+  50% { top: -200%; }
+  75% { top: -300%; }
+  100% { top: -400%; }
+}
+
+
+.intro {
+  padding: 70px 0;
+  @include mq-down(sm){
+    padding: 30px 0;
+  }
+  &__inner {
+    @include innerWidth();
+    text-align: center;
+  }
+  &__txt {
+    margin-bottom: 40px;
+    @include lineHeight(16, 40);
+    @include mq-down(){
+      margin-bottom: 30px;
+    }
+  }
+  &__msg {
+    color: $blueColor;
+    font-weight: 500;
+    @include fontSize(22);
+    @include lineHeight(22, 40);
+    margin-bottom: 31px;
+    @include mq-down(){
+      margin-bottom: 33px;
+    }
+  }
+  &__h3 {
+    @include fontSize(30);
+    @include lineHeight(30, 40);
+    font-weight: 500;
+  }
+}
+
+.interview {
+  padding: 85px 0 40px;
+  @include heightForLink();
+  @include mq-down(){
+    padding: 39px 0 25px;
+  }
+  &__inner {
+    @include innerWidth();
+  }
+  &__txt {
+    text-align: center;
+    @include mq-down(sm){
+      text-align: left;
+      line-height: 1.9;
+      margin-top: 37px;
+    }
+  }
+  .flex-left {
+    margin-top: 52px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include mq-down(){
+      margin-top: 42px;
+    }
+  }
+  &__box {
+    flex: 0 0 48%;
+    margin-bottom: 39px;
+    position: relative;
+    @include mq-down(){
+      flex: 0 0 100%;
+      margin-bottom: 37px;
+    }
+  }
+  &__img {
+    margin-bottom: 29px;
+    position: relative;
+    @include mq-down(sm){
+      margin-bottom: 20px;
+    }
+    &::after {
+      content:"";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: $blueColor;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all .4s;
+    }
+  }
+  &__msg {
+    @include fontSize(21.5);
+    @include lineHeight(22, 40);
+    font-weight: 500;
+    margin-top: 19px;
+    transition: all .4s;
+    @include mq-down(sm){
+      @include fontSize(18);
+      margin-top: 10px;
+    }
+  }
+  &__box:hover {
+    @include mq-up(){
+      .interview {
+        &__img::after {
+          opacity: 0.2;
+          transition: all .4s;
+        }
+        &__msg {
+          color: $blueColor;
+          transition: all .4s;
+        }
+      }
+    }
+  }
+}
+
+.roles {
+  padding: 90px 0 40px;
+  @include heightForLink();
+  position: relative;
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: $bgBlueColor;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -30;
+    @include mq-down(lg){
+      top: 56px;
+      height: calc(100% - 56px);
+    }
+  }
+  @include mq-down(){
+    padding: 55px 0 12px;
+  }
+  &__inner {
+    @include innerWidth();
+  }
+  &__txt--center {
+    text-align: center;
+    letter-spacing: 0.05em;
+    @include mq-down(sm){
+      text-align: left;
+      margin-top: 28px
+    }
+  }
+  &__txt--center &__txt {
+    @include mq-down(sm){
+      @include fontSize(15);
+      line-height: 2;
+    }
+  }
+  &__txt--large {
+    @include mq-down(sm){
+      @include fontSize(20);
+      @include lineHeight(20, 38);
+      margin-bottom: 20px;
+    }
+  }
+  .flex-left {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 52px;
+    @include mq-down(){
+      margin-top: 37px;
+    }
+  }
+  &__box {
+    flex: 0 0 48%;
+    position: relative;
+    border: 2px solid $blueColor;
+    background: #fff;
+    margin-bottom: 65px;
+    @include mq-down(){
+      flex: 0 0 100%;
+      margin-bottom: 63px;
+    }
+  }
+  &__h4 {
+    color: $blueColor;
+    @include fontSize(20);
+    line-height: 66px;
+    padding-left: 20px;
+    background-color: #F5F5F5;
+    span {
+      color: #fff;
+      @include fontSize(13);
+      line-height: 21px;
+      vertical-align: 3px;
+      padding: 2px 1em 3px;
+      margin-right: 10px;
+      background: $blueColor;
+      border-radius: 12px;
+    }
+  }
+  &__box &__txt {
+    @include lineHeight(16, 30);
+    padding: 28px 24px 20px;
+    @include mq-down(){
+      padding: 20px 20px 9px;
+      line-height: 1.9;
+    }
+  }
+  &__area {
+    @include fontSize(16);
+    padding: 0 24px 50px;
+    @include mq-down(){
+      padding: 0 20px 48px;
+    }
+    span {
+      color: $blueColor;
+      @include fontSize(14);
+      display: inline-block;
+      width: 62px;
+      text-align: center;
+      line-height: 23px;
+      border: 1px solid $blueColor;
+      margin-right: 10px;
+    }
+  }
+  &__link {
+    color: #fff;
+    font-weight: 500;
+    @include fontSize(18);
+    text-align: center;
+    display: inline-block;
+    width: 212px;
+    line-height: 52px;
+    background: $blueColor;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -26px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: background 0.4s;
+    @include mq-down(){
+      @include fontSize(16);
+      padding-right: 12px;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 0.9em;
+      height: 1em;
+      background: url(/img/common/icon_blank_w.png) no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: calc(50% - 5px);
+      right: 10px;
+      @include mq-down(){
+        right: 17px;
+      }
+    }
+    &:hover {
+      color: #fff;
+      @include mq-up(){
+        background: $hoverColor;
+        transition: background 0.4s;
+      }
+    }
+  }
+  .close__txt {
+    color: $redColor;
+    @include fontSize(26);
+    font-weight: 500;
+    text-align: center;
+    line-height: 2.15;
+    letter-spacing: .12em;
+    margin: 40px 0;
+    @include mq-down(lg){
+      @include fontSize(24);
+    }
+    @include mq-down(){
+      @include fontSize(17);
+      line-height: 2;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.faq {
+  padding: 92px 0 30px;
+  @include heightForLink();
+  @include mq-down(){
+    padding: 50px 0 0px;
+  }
+  &__inner {
+    @include innerWidth();
+  }
+  &__ttl-s {
+    margin-bottom: 61px;
+    @include mq-down(){
+      &::after {
+        margin-bottom: 42px;
+      }
+    }
+  }
+  &__box {
+    margin-bottom: 38px;
+    @include mq-down(){
+      margin-bottom: 46px;
+    }
+    dt {
+      @include fontSize(20);
+      padding-bottom: 16px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #e6e6e6;
+      &:before {
+        content: "Q";
+        color: $blueColor;
+        @include fontSize(24);
+        font-family: $oswaldFont;
+        font-weight: 600;
+        vertical-align: -2px;
+        padding-right: 12px;;
+      }
+    }
+    dd {
+      @include fontSize(16);
+      @include lineHeight(16, 38);
+    }
+  }
+}
+
+.bg-dot {
+  background-position: 0 20%;
+  @include mq-down() {
+    background-position: 0 4.5%;
+  }
+}

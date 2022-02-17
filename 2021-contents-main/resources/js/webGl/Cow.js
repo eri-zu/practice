@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import cowVertex from '../../shader/cow/vertex.vert';
-import cowFragment from '../../shader/cow/fragment.frag';
+import * as THREE from "three";
+import cowVertex from "../../shader/cow/vertex.vert";
+import cowFragment from "../../shader/cow/fragment.frag";
 
 export default class Cow {
   constructor(geometry, textures) {
@@ -15,7 +15,6 @@ export default class Cow {
     this.mesh.geometry.elementsNeedUpdate = true;
     this.mesh.rotateY(Math.PI / 2);
   }
-
 
   createMaterial() {
     const material = new THREE.RawShaderMaterial({
@@ -37,7 +36,7 @@ export default class Cow {
 
   createAttribute() {
     const geometry = this.mesh.geometry;
-    const position = geometry.getAttribute('position').array;
+    const position = geometry.getAttribute("position").array;
     const positionLength = position.length;
     const delay = [];
 
@@ -46,7 +45,7 @@ export default class Cow {
       delay.push(delayValue, delayValue, delayValue);
     }
 
-    geometry.setAttribute('delay', new THREE.Float32BufferAttribute(delay, 1));
+    geometry.setAttribute("delay", new THREE.Float32BufferAttribute(delay, 1));
   }
 
   setNoiseTexture(texture) {

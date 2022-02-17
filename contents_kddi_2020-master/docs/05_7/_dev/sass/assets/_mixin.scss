@@ -1,0 +1,20 @@
+@import "compass";
+//winSize
+$maxWidth:1300px;
+$minWidth:1176px;
+$innerWidth:1176px;
+$minHeight:650px;
+
+//color
+$baseColor: #333333;
+//responsive
+$pcSize:1025px;
+$tabSize:1024px;
+$spSize:767px;
+
+@import "font";
+@import "style";
+@import "column";
+@import "transform"; 
+
+//------------------------------------

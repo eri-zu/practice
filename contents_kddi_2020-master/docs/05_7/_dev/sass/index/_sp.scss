@@ -1,0 +1,253 @@
+/*-----------------------
+variable
+------------------------*/
+$innerWidth:100%;
+/*-----------------------
+topBlock
+------------------------*/
+.mainVis {
+  &__title {
+    top: calc(50% + 1.7vw);left: percentage(66/640);
+    @include fontSize(15);
+  }
+}
+
+
+.news {
+  padding: 40px 0 20px;
+  &__inner {
+    width: $innerWidth;
+  }
+  &__logo {
+    top: -20px;
+    width: 42px;
+    margin-right: 0;
+  }
+  &__acl {
+    width: 100%;
+    padding-left: 0;
+    @include fontSize(11);
+    & dl {
+      margin-bottom: 10px;
+      line-height: 1.6;
+      & dt {
+        position: relative;
+        top: 0;left: 0;
+        width: auto;
+        @include fontSize(10);
+      }
+      & dd {
+        width: 100%;
+        margin-left: 0;
+      }
+      & a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.info {
+  &__listBox {
+    width: $innerWidth;
+    padding: 40px 0 30px;
+    & li {
+      float: none;
+      width: 100%;
+      margin-bottom: 40px;
+      padding-top: 17px;
+      margin-right: percentage(18/1000);
+      &:last-child {
+        margin-right: 0;
+      }
+      & figcaption {
+        left: 15px;
+        padding: 6px 20px 8px;
+        @include fontSize(14);
+      }
+      & figure {
+        padding: 0 15px;
+        margin-bottom: 20px;
+      }
+      & .link {
+        display: block;
+        position: relative;
+        padding: 20px 40px 20px 15px;
+        @include fontSize(13);
+        &.blank {
+          &:after {
+            top: 50%;right: 15px;
+          }
+        }
+      }
+    }
+    .link-wrap {
+      p {
+        border-top: 1px solid #dadada;
+        border-bottom: 1px solid #dadada;
+      }
+    }
+  }
+  &.col3 & {
+    &__listBox {
+      & li {
+        width: 100%;
+      }
+    }
+  }
+  &.col4 & {
+    &__listBox {
+      padding: 40px 0 10px;
+      & li {
+        width: 100%;
+        & a {
+          border-top: 1px solid #dadada;
+          border-bottom: 1px solid #dadada;
+          &:nth-of-type(2) {
+            border-top: none;
+          }
+          &:nth-of-type(3) {
+            border-top: none;
+          }
+        }
+      }
+      .link-wrap a {
+        border: none;
+      }
+    }
+  }
+}
+
+
+.group {
+  padding: 40px 0;
+  &__inner {
+    width: $innerWidth;
+    padding: 0 35px;
+  }
+  &__title {
+    @include fontSize(15);
+    margin-bottom: 23px;
+  }
+  &__text {
+    @include fontSize(11);
+    margin-bottom: 23px;
+    line-height: 1.6;
+  }
+  &__link {
+    @include fontSize(12);
+    & a {
+      width: 100%;
+      border: 2.5px solid #fff;
+      padding: 17px 0;
+      &:after {
+        width: 13px;height: 10px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.under {
+  padding: 30px 0;
+  &__listBox {
+    width: $innerWidth;
+    padding: 0 35px;
+    & li {
+      float: none;
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      & a {
+        width: 100%;
+        padding: 19px 0;
+        @include fontSize(13);
+        &:after {
+          width: 10px;height: 7px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+.environment {
+  padding: 40px 0;
+  &__title {
+    @include fontSize(14);
+    margin-bottom: 30px;
+  }
+  &__listBox {
+    width: $innerWidth;
+    padding: 0 35px;
+    & li {
+      float: none;
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      & a {
+        width: 100%;
+        padding: 15px 0;
+        @include fontSize(13);
+        &:after {
+          width: 10px;height: 7px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+.under_environment {
+  padding: 25px 15px;
+  & .under_inner {
+    width: $innerWidth;
+	padding: 0;
+	& .under_info {
+	  margin-bottom: 15px;
+	  display: block;
+	  & a {
+	    width: 82%;
+	    margin: 0 auto 15px auto;
+		display: block;
+		padding: 19px 0;
+		font-size: 1.3rem;
+		&:after {
+		  width: 10px;
+		  height: 7px;
+		}
+	  }
+	  & p {
+	    font-size: 1.2rem;
+	    letter-spacing: 0.05em;
+	  }
+	}
+	& ul {
+	  padding: 20px;
+	  display: block;
+	  & li {
+	    width: $innerWidth;
+		& + li {
+		  margin-top: 10px;
+		}
+		& a {
+		  padding: 16px 0;
+		  font-size: 1.3rem;
+		  &:after {
+		    width: 10px;
+		    height: 7px;
+		  }
+		}
+	  }
+	}
+  }
+}

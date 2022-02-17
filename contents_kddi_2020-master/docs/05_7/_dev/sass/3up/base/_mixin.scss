@@ -1,0 +1,143 @@
+@import 'compass';
+
+$robotFont: 'Roboto', sans-serif;  // ratin only
+$notoSanFont: 'Noto Sans JP', sans-serif;
+$oswaldFont: 'Oswald', sans-serif;
+
+$baseFont:'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro W3', 'ＭＳ Ｐゴシック', Arial, verdana, sans-serif;
+$yugosicFont:'游ゴシック体', 'Yu Gothic', YuGothic, 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro W3', 'ＭＳ Ｐゴシック', Arial, verdana, sans-serif;
+$yuminchoFont:'游明朝', YuMincho, 'Yu Mincho','ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN','HGS明朝E', 'ＭＳ Ｐ明朝','メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro W3', 'ＭＳ Ｐゴシック', Arial, verdana, sans-serif;
+$hiraginoFont:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro W3','メイリオ',Meiryo, 'ＭＳ Ｐゴシック', Arial, verdana, sans-serif;
+$romanFont:'Times New Roman', Arial, verdana, sans-serif, '游ゴシック体', 'Yu Gothic', YuGothic, 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro W3', 'ＭＳ Ｐゴシック', Arial, verdana;
+
+//color
+$baseColor: #ffffff;
+$bgBlueColor: #f5f6fd;
+$bgGrayColor: #F5F6FC;
+$txtColor: #000000;
+$hoverTxtColor: #121177;
+$redColor: #DA3618;
+$blueColor: #0E0D6A;
+$hoverColor: #4342B7;
+
+// windowWidth / innerWidth
+$pcWidth: 1120px;
+$tabWidth: 768px;
+$spWidth: 480px;
+$spMinWidth: 320px;
+
+@mixin innerWidth() {
+	max-width: 1020px;
+  padding: 0 10px;
+	margin: auto;
+	@include mq-down(lg){
+		max-width: 100%;
+    padding: 0 5%;
+	}
+}
+
+@mixin heightForLink(){
+  @include mq-down(lg){
+    margin-top: -56px;
+    &::before {
+      content:"";
+      display: block;
+      width: 100%;
+      height: 56px;
+    }
+  }
+}
+
+//break point
+// 変数の定義
+// min-width
+$breakpoint-up: (
+  'xs': 'screen and (min-width: 374px)',
+  'sm': 'screen and (min-width: 481px)',
+  'md': 'screen and (min-width: 769px)',
+  'lg': 'screen and (min-width: 1025px)',
+  'xl': 'screen and (min-width: 1367px)',
+) !default;
+
+// max-width
+$breakpoint-down: (
+  'xs': 'screen and (max-width: 374px)',
+  'sm': 'screen and (max-width: 480px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1024px)',
+  'xl': 'screen and (max-width: 1366px)',
+) !default;
+
+@mixin mq-up($breakpoint: md) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+@mixin mq-down($breakpoint: md) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+//easing
+$easeInOutQuart:cubic-bezier(0.77, 0, 0.175, 1);
+
+//font
+@mixin fontSize($size: 14, $base: 10) {
+  font-size: $size + px;
+  font-size: ($size / $base) * 1rem;
+}
+
+@mixin lineHeight($baseFontSize:10, $lineHeight: 15){
+    line-height: $lineHeight / $baseFontSize;
+}
+
+@mixin linkColor($color,$colorHover:$color,$dec:none,$decHover:none) {
+  color: $color;
+  text-decoration: $dec;
+  &:hover{
+    color: $colorHover;
+    text-decoration: $decHover;
+  }
+}
+
+//------------------------------------
+
+@mixin fontSmoothing() {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+@mixin clearfix {
+  zoom: 1;
+  &::before, &::after {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    content: '\0020';
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin hoverOpacity($op: .7, $sec: .7s){
+  opacity: 1;
+  transition: opacity $sec ease;
+  &:hover{
+    opacity: $op;
+    transition: opacity $sec ease;
+  }
+}
+
+@mixin noneOpacity($op: 1, $sec: .3s){
+  opacity: 1;
+  transition: none;
+  &:hover{
+    opacity: 1;
+    transition: none;
+  }
+}

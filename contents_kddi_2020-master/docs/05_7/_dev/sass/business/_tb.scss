@@ -1,0 +1,13 @@
+/*-----------------------
+business
+------------------------*/
+.lede {
+	padding: 100px 20px;
+}
+
+.contents {
+	&__inner {
+		width: $innerWidth;
+		padding: 0 20px;
+	}
+}

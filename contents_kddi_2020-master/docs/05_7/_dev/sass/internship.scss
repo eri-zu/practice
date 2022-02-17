@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@import "base/mixin";
+@import "base/common";
+//デバイス定義
+$type: sp tb pc;
+@import "base/base";
+@import "freshers/common/bs";
+@import "internship/bs";
+/* PC
+-------------------------------------------------- */
+@media only screen and (min-width:$pcSize) {
+	$type: pc;
+	@import "base/base_pc";
+	@import "freshers/common/pc";
+	@import "internship/pc";
+}
+/* タブレット
+-------------------------------------------------- */
+@media only screen and (max-width: 1024px) {
+	$type: tb;
+	@import "base/base_tb";
+	@import "freshers/common/tb";
+	@import "internship/tb";
+}
+/* スマホ
+-------------------------------------------------- */
+@media only screen and (max-width:$spSize) {
+	$type: sp;
+	@import "base/base_sp";
+	@import "freshers/common/sp";
+	@import "internship/sp";
+}

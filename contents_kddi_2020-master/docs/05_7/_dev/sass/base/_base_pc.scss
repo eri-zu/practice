@@ -1,0 +1,117 @@
+/*-----------------------
+header
+------------------------*/
+.navPC {
+	& .hdBlock {
+		&__listBox {
+			width: 100%;
+			@include clearfix();
+			& li {
+				float: left;
+				margin-right: 60px;
+				& .link {
+					position: relative;
+					&:after {
+						transition: all .3s ease;
+					}
+					&:hover {
+					    color: #0e0d69;
+						&:after {
+							left: 0;
+							transition: all .3s ease;
+						}
+					}
+					&.is-active {
+						color: #0e0d69;
+						&:after {
+							left: 0;
+							transition: all .6s ease;
+						}
+						&:before {
+							content: '';
+							display: inline-block;
+							background-color: #0e0d69;
+							position: absolute;
+							left: -800%;
+							bottom: 0;
+							width: 200%;
+							height: 3px;
+							transition: all .6s ease;
+							z-index: 2;
+						}
+						&:hover {
+							&:before {
+								left: 0;
+								transition: all .6s ease;
+							}
+							&:after {
+								left: 800%;
+								transition: all .6s ease;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*-----------------------
+footer
+------------------------*/
+.ftBlock {
+	&__left {
+		&--listBox {
+			& li {
+				& .link {
+					position: relative;
+					@include fontSize(12);
+					&:after {
+	          content: '';
+	          display: inline-block;
+	          background: url(../img/common/blank_icon_bl.png) no-repeat center center;
+	          background-size: 100%;
+	          width: 12px;height: 9px;
+	          margin-left: 4px;
+	        }
+					&:hover {
+						color: #0e0d69;
+						text-decoration: underline;
+
+					}
+				}
+			}
+		}
+	}
+	&__right {
+		&--listBox {
+			& li {
+				& .link {
+					&:after {
+						color: #0e0d69;
+						opacity: 1;
+						transition: all .3s ease;
+					}
+					&:hover {
+						color: #0e0d69;
+						&:after {
+							color: #0e0d69;
+							opacity: 0;
+							transition: all .3s ease;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.pagetop {
+	&:hover {
+		background-color: #0e0d69;
+	}
+}
+
+/*-----------------------
+under base
+------------------------*/

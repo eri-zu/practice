@@ -1,0 +1,41 @@
+
+.blk_top_project {
+  & .inner {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+
+.blk_project_read {
+  text-align: left;
+  margin: 0 auto;
+}
+
+.blk_project_profile {
+  padding: 40px 20px;
+  & .col {
+	padding: 0 30px;
+  }
+}
+
+.blk_project_txt {
+  & .inner {
+    padding: 0 20px;
+  }
+}
+
+.blk_project_btm_read {
+  & .inner {
+	padding: 65px 20px 0 20px;
+  }
+  & .txt_btm {
+    padding: 0 20px;
+  }
+}
+
+.blk_btm_project {
+  & .inner {
+    padding: 0 20px;
+  }
+}

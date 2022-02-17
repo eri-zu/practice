@@ -1,0 +1,515 @@
+// ----- header -----
+
+.header {
+  height: 0;
+  position: relative;
+  z-index: 1000;
+  @include mq-down(lg) {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  &__inner {
+    @include innerWidth();
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    padding-top: 7px;
+    background: #fff;
+    @include mq-down(lg) {
+      height: 80px;
+    }
+  }
+  .logo {
+    img {
+      max-width: 100px;
+      @include mq-down(lg) {
+      max-width: 88px;
+      }
+    }
+    span {
+      line-height: 45px;
+      margin-left: 20px;
+    }
+  }
+  .burger {
+    display: none;
+    @include mq-down(lg) {
+      display: block;
+      width: 42px;
+      height: 42px;
+      position: absolute;
+      right: 5%;
+      top: 30px;
+      z-index: 1;
+      cursor: pointer;
+      span {
+        display: block;
+        width: 42px;
+        height: 3px;
+        position: absolute;
+        top: 0;
+        background-color: #000000;
+        border-radius: 2px;
+        &:nth-child(2){ top: 11px;}
+        &:nth-child(3){ top: 22px;}
+        transition: all .4s;
+      }
+    }
+  }
+  .gnav {
+    @include mq-down(lg){
+      display: none;
+      position: absolute;
+      z-index: -1;
+      flex: 0 0 100%;
+      background: #DDDDFF;
+      opacity: 0;
+    }
+    ul {
+      display: flex;
+    }
+    li {
+      margin-left: 80px;
+      @include mq-down(lg) {
+        opacity: 0;
+        margin-left: 0;
+        transform: translateY(20px);
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    a {
+      @include fontSize(14);
+      font-weight: 500;
+      text-align: center;
+      position: relative;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0%;
+        height: 3px;
+        background-color: $blueColor;
+        position: absolute;
+        bottom: -12px;
+        left: -1%;
+        opacity: 0;
+        transition: all .3s ease;
+      }
+      &.current {
+        &::after {
+          opacity: 1;
+          width: 105%;
+          transition: all .3s ease;
+        }
+      }
+      &:hover {
+        @include mq-up(lg){
+        &::after {
+          opacity: 1;
+          width: 105%;
+          transition: all .3s ease;
+        }
+        }
+      }
+    }
+  }
+}
+
+//SP burgerMenu
+@include mq-down(lg) {
+.header.active {
+  .header__inner {
+    background: transparent;
+  }
+  .burger span {
+    &:first-child { transform: rotate(45deg); top: 11px; }
+    &:nth-child(2) { transform: translateX(20px); opacity: 0; }
+    &:nth-child(3) { transform: rotate(-45deg); top: 11px; }
+    transition: all .4s;
+  }
+  .gnav {
+    display: block;
+    margin-top: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 400px;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity .4s;
+  }
+  .gnav.active {
+    opacity: 1;
+    transition: opacity .4s;
+    ul {
+      display: block;
+      width: 100%;
+      padding-bottom: 50px;
+    }
+    li {
+      width: 100%;
+      margin: 0;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .4s .2s, transform .4s .2s;
+      &:last-child a::after {
+        content: "";
+      }
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      line-height: 96px;
+      &::after {
+        width: 20px;
+        height: 1px;
+        background: #000;
+        bottom: 1px;
+        left: 50%;
+        margin-left: -10px;
+        opacity: 1;
+        transition: none;
+      }
+    }
+  }
+}
+}
+
+//SP MENU fixed
+.header.fixed {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  top: -70px;
+  z-index: 1000;
+  @include mq-down(lg){
+    height: 56px;
+    top: -56px;
+  }
+  .header__inner {
+    height: 70px;
+    padding-top: 0;
+    @include mq-down(lg){
+      height: 56px;
+    }
+  }
+  &.active .header__inner {
+    background: transparent;
+  }
+  .logo {
+    img {
+      max-width: 70px;
+      vertical-align: -8px;
+    }
+    span {
+      margin-left: 10px;
+    }
+  }
+  .burger {
+    top: 14px;
+  }
+}
+.header.fixed-on {
+  top: 0 !important;
+  transition: top 0.5s;
+}
+
+
+// ----- main area -----
+main {
+}
+
+
+// ----- footer -----
+footer {
+  .innerLinks {
+    padding: 50px 0;
+    background: #E1E5EF;
+    @include mq-down(sm){
+      padding: 40px 0;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      padding: 0 10px;
+      @include mq-down(sm){
+        flex-wrap: wrap;
+        padding: 0 5%;
+      }
+    }
+    li {
+      flex: 0 1 280px;
+      margin-right: 40px;
+      @include mq-down(sm){
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+    a {
+      color: $blueColor;
+      @include fontSize(16);
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      line-height: 64px;
+      background: #fff;
+      border: 2px solid $blueColor;
+      border-radius: 34px;
+      position: relative;
+      transition: all .4s;
+      &::before, &::after {
+        content: "";
+        display: inline-block;
+        width: 2px;
+        height: 8px;
+        background: $blueColor;
+        position: absolute;
+        right: 30px;
+      }
+      &::before {
+        top: calc(50% - 5px);
+        transform: rotate(-45deg);
+      }
+      &::after {
+        top: 50%;
+        transform: rotate(45deg);
+      }
+      &:hover {
+        @include mq-up(){
+          color: #fff;
+          background: $blueColor;
+          transition: all .4s;
+          &::before, &::after {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .links {
+    padding: 30px 10px 38px;
+    background: $blueColor;
+    position: relative;
+    @include mq-down() {
+      padding-bottom: 30px;
+    }
+    ul {
+      max-width: 720px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    li {
+      flex: 0 1 220px;
+      @include mq-down() {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+        text-align: center;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+    a {
+      @include fontSize(18);
+      text-align: center;
+      line-height: 60px;
+      display: inline-block;
+      width: 100%;
+      max-width: 260px;
+      background: #ffffff;
+      border-radius: 5px;
+      position: relative;
+      @include mq-down() {
+        line-height: 53px;
+      }
+      &::after {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        margin-right: 0;
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        background: #ffffff;
+        opacity: 0;
+        transition: opacity .4s
+      }
+    }
+    .pagetop {
+      position: absolute;
+      display: inline-block;
+      border-radius: 50%;
+      right: 30px;
+      bottom: -28px;
+      background-color: #404040;
+      width: 57px;
+      height: 57px;
+      transition: all .2s;
+      cursor: pointer;
+      &::before, &::after {
+        content: '';
+        display: inline-block;
+        background-color: #fff;
+        position: absolute;
+        top: 27px;
+        width: 15px;
+        height: 2px;
+      }
+      &::before {
+        left: 16px;
+        transform: rotate(-45deg);
+      }
+      &::after {
+        right: 16px;
+        transform: rotate(45deg);
+      }
+      &:hover {
+        @include mq-up(){
+          background-color: $blueColor;
+          box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.3);
+          transition: all .42s;
+        }
+      }
+      @include mq-down(sm){
+        width: 40px;
+        height: 40px;
+        right: 15px;
+        bottom: -20px;
+        &::before, &::after {
+          width: 10px;
+          height: 1px;
+          top: 18px;
+        }
+        &::before {
+          left: 11.5px;
+        }
+        &::after {
+          right: 11.5px;
+        }
+      }
+    }
+  }
+
+  .recruit {
+    padding: 30px 0;
+    background: $bgGrayColor;
+    ul {
+      @include innerWidth();
+      display: flex;
+      padding-left: 20px;
+      @include mq-down() {
+        // padding-left: 0;
+        justify-content: center;
+      }
+    }
+    li {
+      margin-right: 16px;
+      @include mq-down() {
+        margin-right: 40px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+      a {
+        @include fontSize(13);
+      }
+    }
+  }
+
+  .company {
+    background: #ffffff;
+    &__inner {
+      @include innerWidth();
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-left: 18px;
+      @include mq-down() {
+        // padding-left: 0;
+        height: auto;
+      }
+    }
+    ul {
+      display: flex;
+      flex: 0 0 500px;
+      @include mq-down() {
+        flex-wrap: wrap;
+        flex: 0 0 100%;
+        padding-top: 30px;
+      }
+      li {
+        margin-right: 30px;
+        @include mq-down() {
+          flex: 0 0 100%;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        a::after {
+          margin-left: 3px;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .copyright {
+      color: #020202;
+      @include fontSize(12);
+      font-family: $oswaldFont;
+      font-weight: 300;
+      text-align: right;
+      letter-spacing: 0.05em;
+      flex: 1 1 0%;
+      @include mq-down() {
+        flex: 0 0 100%;
+        text-align: center;
+        padding: 5px 0 10px;
+      }
+    }
+  }
+}
+
+
+.bg-dot {
+  background: url(/img/3up/common/bg_dot.png) repeat-y;
+  background-size: 100% auto;
+  background-position: 0 3.1%;
+  width: 90%;
+  max-width: 1047px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left:0;
+  right: 0;
+  margin: auto;
+  z-index: -20;
+  @include mq-down() {
+    background-image: url(/img/3up/common/bg_dot_sp.png);
+    background-position: 0 4.5%;
+  }
+}

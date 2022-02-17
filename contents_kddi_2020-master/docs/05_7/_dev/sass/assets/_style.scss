@@ -1,0 +1,58 @@
+//style
+
+//verticalAlign(インライン要素以外でも中央表示)
+@mixin verticalAlign() {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+//listStyle(擬似リストスタイル)
+@mixin listStyle($txt:'・',$pdLeft:1em,$ftSize:1em) {
+	position: relative;
+	padding-left: $pdLeft;
+	&:before{
+		content: $txt;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: $ftSize;
+	}
+}
+
+//
+@mixin text() {
+	text-indent: -9999;
+  font-smoothing: antialiased;
+}
+
+//fontSmoothing(mac chromeの文字が太くなるのを戻す)
+@mixin fontSmoothing() {
+  font-smoothing: antialiased;
+}
+
+//gradient(グラデーション(単色→単色))
+//@param {string} $orientation グラデーションの方向
+//@param {color} $startColor カラー指定　0％
+//@param {color} $endColor カラー指定 100%
+//@param {number} $startAlpha alpha指定 def=1.0
+//@param {number} $endAlpha スクロール時間のミリ秒です。
+
+@mixin gradient($orientation,$startColor,$endColor,$startAlpha:1.0,$endAlpha:1.0) {
+	 background: rgba($startColor,$startAlpha);
+	 @if $orientation == vertical {
+		 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba($startColor,$startAlpha)), color-stop(100%,rgba($endColor,$endAlpha)));
+		 background: -webkit-linear-gradient(top,  rgba($startColor,$startAlpha) 0%,rgba($endColor,$endAlpha) 100%);
+		 background: linear-gradient(to bottom,  rgba($startColor,$startAlpha) 0%,rgba($endColor,$endAlpha) 100%);
+	 }
+	 @else if $orientation == horizontal {
+		 background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba($startColor,$startAlpha)), color-stop(100%,rgba($endColor,$endAlpha)));
+		 background: -webkit-linear-gradient(left,  rgba($startColor,$startAlpha) 0%,rgba($endColor,$endAlpha) 100%);
+		 background: linear-gradient(to right,  rgba($startColor,$startAlpha) 0%,rgba($endColor,$endAlpha) 100%);
+	 }
+	 @else if $orientation == radial {
+		 background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba($startColor,$startAlpha)), color-stop(100%,rgba($endColor,$endAlpha)));
+		 background: -webkit-radial-gradient(center, ellipse cover,  rgba($startColor,$startAlpha) 0%,rgba($endColor,$endAlpha) 100%);
+		 background: radial-gradient(ellipse at center,  rgba($startColor,$startAlpha) 0%,rgba($endColor,$endAlpha) 100%);
+	 }
+ }

@@ -1,0 +1,244 @@
+html.body {
+	font-family: $notosansJPFont;
+}
+/*-----------------------
+wrapper
+------------------------*/
+.wrapper{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-top: 86px;
+	font-family: $notosansJPFont;
+	letter-spacing: 0.05em;
+	& img {
+		width: 100%;
+	}
+	& a {
+		color: #000;
+	}
+}
+
+/*-----------------------
+header
+------------------------*/
+.hdBlock {
+	background-color: #fff;
+	position: fixed;
+	top: 0;left: 0;
+	width: 100%;
+	@include fontSize(16);
+	font-weight: 500;
+	z-index: 10000;
+	&__inner {
+		position: relative;
+		max-width: 1210px;
+		padding: 20px 0 20px 20px;
+		margin: 0 auto;
+	}
+	&__logo {
+		width: 193px;
+	}
+}
+
+.navPC {
+	display: block;
+	position: absolute;
+	top: calc( 50% + 5px );right: 0;
+	width: 384px;
+	transform: translateY(-50%);
+	& .hdBlock {
+		&__listBox {
+			width: 100%;
+			@include clearfix();
+			& li {
+				float: left;
+				margin-right: 60px;
+				overflow: hidden;
+				&:last-child {
+					margin-right: 0;
+				}
+				& .link {
+					display: inline-block;
+					padding-bottom: 10px;
+					color: #000;
+					letter-spacing: 0.03em;
+					&:after {
+						content: '';
+						display: inline-block;
+						background-color: #0e0d69;
+						position: absolute;
+						left: -200%;bottom: 0;
+						width: 200%;height: 3px;
+					}
+					&.soon {
+						pointer-events: none;
+						color: #7f7f7f;
+					}
+					&.is-active {
+						color: #0e0d69;
+						&:after {
+							left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.navSP {
+	display: none;
+}
+
+/*-----------------------
+footer
+------------------------*/
+.ftBlock {
+	position: relative;
+	border-top: 1px solid #d9d9d9;
+	width: 100%;
+	padding: 80px 0;
+	&__inner {
+		width: $innerWidth;
+		margin: 0 auto;
+		@include clearfix();
+	}
+	&__left {
+		float: left;
+		width: 50%;
+		&--logo {
+			width: percentage(194/500);
+			margin-bottom: 40px;
+		}
+		&--listBox {
+			@include clearfix();
+			& li {
+				float: left;
+				margin-right: percentage(20/500);
+				& .link {
+					position: relative;
+					@include fontSize(12);
+					&:after {
+						content: '';
+						display: inline-block;
+						background: url(../img/common/blank_icon_bl.png) no-repeat center center;
+						background-size: 100%;
+						width: 12px;height: 10px;
+						margin-left: 4px;
+					}
+				}
+			}
+		}
+	}
+	&__right {
+		float: right;
+		width: 50%;
+		text-align: right;
+		&--listBox {
+			margin-bottom: 60px;
+			& li {
+				display: inline-block;
+				margin-right: percentage(30/500);
+				overflow: hidden;
+				&:last-child {
+					margin-right: 0;
+				}
+				& .link {
+					position: relative;
+					display: inline-block;
+					padding-bottom: 10px;
+					@include fontSize(16);
+					&:after {
+						content: '';
+						display: inline-block;
+						background-color: #000;
+						position: absolute;
+						left: 0;bottom: 0;
+						width: 100%;height: 1px;
+					}
+					&.soon {
+						pointer-events: none;
+						color: #7f7f7f;
+						&:after {
+							content: none;
+						}
+					}
+				}
+			}
+		}
+		&--copy {
+			display: inline-block;
+			text-align: right;
+			@include fontSize(12);
+		}
+	}
+}
+
+.pagetop {
+	position: absolute;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 50%;
+	right: 30px;
+	bottom: 311px;
+	background-color: #404040;
+	width: 57px;height: 57px;
+	&:before {
+		content: '';
+		display: inline-block;
+		background-color: #fff;
+		position: absolute;
+		top: 27px;left: 16px;
+		width: 15px;height: 2px;
+		transform: rotate(-45deg);
+	}
+	&:after {
+		content: '';
+		display: inline-block;
+		background-color: #fff;
+		position: absolute;
+		top: 27px;right: 16px;
+		width: 15px;height: 2px;
+		transform: rotate(45deg);
+	}
+}
+
+/*-----------------------
+under base
+------------------------*/
+.intro {
+	width: 100%;
+	background: #0e0d69 url(/img/common/under_top.png) no-repeat center right;
+	background-size: 1280px;
+	height: 150px;
+	padding: 60px 0;
+	&.typeB {
+	  padding: 48px 0;
+	}
+	&__inner {
+		width: $innerWidth;
+		margin: 0 auto;
+	}
+	&__title {
+		@include fontSize(30);
+		color: #fff;
+		font-weight: 700;
+		letter-spacing: 0.07em;
+		& span {
+		  display: block;
+          font-size: 1.6rem;
+          letter-spacing: 0.05em;
+          margin-bottom: 10px;
+		}
+	}
+}
+
+/*-----------------------
+デバイス毎
+------------------------*/
+.forPC {
+	display: inherit !important;
+}
+.forSP {
+	display: none !important;
+}

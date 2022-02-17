@@ -1,0 +1,66 @@
+/*-----------------------
+variable
+------------------------*/
+$innerWidth:100%;
+/*-----------------------
+topBlock
+------------------------*/
+.news {
+  &__inner {
+    width: $innerWidth;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &__logo {
+    position: absolute;
+    left: 20px;
+  }
+}
+
+
+.info {
+  &__listBox {
+    width: $innerWidth;
+    padding-left: 20px;
+    padding-right: 20px;
+    li figcaption {
+      @include fontSize(14);
+    }
+  }
+}
+
+
+.group {
+  &__inner {
+    width: $innerWidth;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+.under {
+  &__listBox {
+    width: $innerWidth;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+.environment {
+  &__listBox {
+    width: $innerWidth;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+.under_environment {
+  & .under_inner {
+    width: $innerWidth;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

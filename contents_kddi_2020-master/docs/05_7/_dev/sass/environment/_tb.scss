@@ -1,0 +1,72 @@
+/*-----------------------
+environment
+------------------------*/
+
+.diversity {
+  & .inner {
+    padding: 0 15px;
+  }
+}
+
+.education {
+  & .inner {
+    padding: 0 15px;
+  }
+}
+
+.welfare {
+  & .inner {
+    padding: 0 15px;
+  }
+}
+
+.blk_environment_list {
+  display: block;
+  & .col {
+    width: 100%;
+	& ul {
+	  display: block;
+	  & li {
+		&.list_w1 {
+		  width: auto;
+		}
+		&.list_w2 {
+		  width: auto;
+		}
+	  }
+	}
+  }
+}
+
+
+.lede_typeA {
+  text-align: left;
+  & .inner {
+    padding: 0 15px;
+  }
+}
+
+.lede_typeB {
+  & .inner {
+    padding: 0 15px;
+  }
+}
+
+.cts_environment {
+  & .inner {
+    padding: 0 15px;
+  }
+}
+
+.paging_environment {
+  & .inner {
+    padding: 0 15px;
+  }
+}
+
+
+.fancybox-is-open {
+  & .fancybox-close-small {
+	right: 0;
+  }
+}

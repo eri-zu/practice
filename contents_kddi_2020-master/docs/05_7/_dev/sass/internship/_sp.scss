@@ -1,0 +1,318 @@
+.pcOnly {display:none;}
+.spOnly {display:block;}
+
+.internship {
+  padding-top: 50px;
+  .inner {
+    padding: 0 4%;
+  }
+  .paragraph {
+		&::after {
+			content: "、";
+		}
+	}
+  .line-space {
+    display: block;
+    padding-left: 0.5em;
+    margin-bottom: 0.2em;
+  }
+  .blk_header {
+    height: 50px;
+    .logo {
+      width: 135px;
+    }
+  }
+  .prologue {
+    &__mv {
+      background-position: 10% center;
+      &--ttl {
+        padding: 6.25% 0;
+      }
+    }
+    &__msg {
+      @include fontSize(12);
+      line-height: 2.5;
+      text-align: left;
+      letter-spacing: 0;
+      padding: 25px 0;
+      .inner {
+        padding: 0 4%;
+      }
+    }
+    .pick__txt {
+      @include fontSize(17);
+      line-height: 2.0;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+  } //prologue
+
+  .message {
+    padding: 40px 0;
+    &--ttl {
+      font-size: 2.4rem;
+    }
+    &__txt {
+      flex: 0 0 100%;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    &__img {
+      flex: 0 0 100%;
+      figure {
+        max-width: 100px;
+        margin: 0 auto 10px;
+      }
+      figcaption {
+        font-size: 1.0rem;
+        text-align: center;
+      }
+    }
+  } //message
+
+  .course {
+    padding: 40px 0;
+    font-size: 1.2rem;
+    &--ttl {
+      font-size: 2.4rem;
+      &.unique {
+        br {
+          display: none;
+
+        }
+      }
+		}
+    &--ttl-s {
+      @include fontSize(17);
+      margin-top: 36px;
+      &::before, &::after {
+        width: 42px;
+        vertical-align: 5px;
+      }
+      &::before {	margin-right: 15px;}
+      &::after { margin-left: 15px;}
+      span {
+        @include fontSize(12);
+        vertical-align: top;
+        padding: 4px 11px 6px;
+        margin-left: 10px;
+        border-radius: 3px;
+      }
+      & + .course__wrap {
+        padding-top: 20px;
+      }
+    }
+    &--ann {
+			margin-top: -2px;
+    }
+    &__wrap {
+      padding-top: 15px;
+      &--ttl {
+        @include fontSize(14);
+        span {
+          font-size: 0.83em;
+        }
+      }
+      .btn--acc {
+        width: 30px;
+        height: 30px;
+        right: 5px;
+        top: calc(50% - 15px);
+      }
+      .btn--acc--close {
+          max-width: 160px;
+          padding: 10px 0 12px;
+          border-radius: 2.5px;
+      }
+      &--ttl:hover .btn--acc span {
+        transform: none;
+      }
+      &.close {
+        .course__wrap--ttl {
+        font-size: 1.2rem;
+        text-align: left;
+        padding: 1.28em;
+        .unique {
+          @media screen and (max-width:340px) {
+            font-size: 1.1rem;
+          }
+        }
+      }
+      }
+    }
+    &__box {
+      padding-bottom: 25px;
+    }
+    &__desc {
+      margin-bottom: 0;
+      &--txt {
+        line-height: 2.0;
+        padding: 10px 4%;
+      }
+      &__selectArea {
+        padding: 15px 4%;
+        li {
+          flex: 0 0 100%;
+          margin-bottom: 2em;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          a {
+            font-size: 1.3rem;
+            line-height: 42px;
+            padding-right: 0;
+            border: 1.5px solid $mainColor;
+          }
+          p {
+            font-size: 1.2rem;
+          }
+          &.row2 a {
+            font-size: 1.3rem;
+            padding: 6px 0;
+          }
+        }
+      }
+    }
+    &__theme {
+      padding: 30px 0 0;
+      .ttl--h4 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        &::after {
+          content: none;
+        }
+      }
+    }
+    &__list {
+      .ttl--h4 {
+        font-size: 1.4rem;
+        margin-top: 0.5em;
+      }
+      .ttl--h5 {
+        font-size: 1.4rem;
+        font-weight: bold;
+        flex: 0 0 100%;
+        margin: 0.5em 0 1em;
+      }
+      &--ttl {
+        flex: 0 1 100%;
+        font-size: 1.3rem;
+        margin-bottom: 0.8em;
+      }
+      &--note {
+        flex: 0 0 100%;
+        line-height: 2.0;
+        .item--head {
+          padding: 0 1em 2px;
+          border: 1px solid $mainColor;
+          border-radius: 2.5px;
+          &::after {
+            content: "\A";
+            white-space: pre;
+          }
+        }
+      }
+      &--ann {
+        margin-top: 1em;
+      }
+    }
+    &__flow {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      dt {
+        flex: 0 0 30%;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+      }
+      dd {
+        flex: 0 0 70%;
+        align-self: center;
+        color: #282789;
+        margin-top: -1em;
+        padding-left: 1em;
+      }
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 3.5px;
+        height: 90%;
+        background: #d3d3d3;
+        position: absolute;
+        left: 14.5%;
+        top: 5%;
+      }
+    }
+  } //course
+
+  .entry {
+    padding: 22px 0 30px;
+    &__box {
+      padding: 15px 6% 18px;
+      p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        text-align: left;
+        margin-bottom: 0;
+      }
+      a {
+        flex: 0 0 100%;
+        font-size: 1.1rem;
+        margin: 18px auto 0;
+        padding: 10px 0 16px;
+        span {
+          font-size: 1.4rem;
+          line-height: 1.5;
+        }
+      }
+    }
+    .close__txt {
+      @include fontSize(15);
+      padding: 0 4%;
+      margin-bottom: 24px;
+    }
+  } // entry
+  .ft_info {
+    .inner {
+      display: block;
+      padding: 0;
+      ul {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid #cfcfcf;
+        li {
+          margin: 0 auto;
+          text-align: center;
+          padding: 20px 0;
+          position: relative;
+          &::after {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 1px;
+            background-color: #cfcfcf;
+            position: absolute;
+            left: calc(50% - 7.5px);
+            bottom: 0;
+          }
+          &:last-of-type::after {
+            content: none;
+          }
+          a {
+            font-size: 1.0rem;
+          }
+        }
+      }
+		}
+    .copy {
+      text-align: center;
+      background: #fff;
+      font-size: 1.0rem;
+      padding: 15px 0;
+    }
+  }
+  .spOnly--sm {
+    display: block;
+  }
+}

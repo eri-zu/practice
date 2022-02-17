@@ -1,0 +1,102 @@
+/*-----------------------
+variable
+------------------------*/
+$innerWidth:100%;
+/*-----------------------
+wrapper
+------------------------*/
+/*-----------------------
+header
+------------------------*/
+.hdBlock {
+	&__inner {
+		width: $innerWidth;
+	}
+}
+
+.navPC {
+	& .hdBlock {
+		&__listBox {
+			width: 100%;
+			@include clearfix();
+			& li {
+				float: left;
+				margin-right: 60px;
+				& .link {
+					position: relative;
+					&:after {
+						transition: all .3s ease;
+					}
+					&:hover {
+					    color: #0e0d69;
+						&:after {
+							left: 0;
+							transition: all .3s ease;
+						}
+					}
+					&.is-active {
+						color: #0e0d69;
+						&:after {
+							left: 0;
+							transition: all .6s ease;
+						}
+						&:before {
+							content: '';
+							display: inline-block;
+							background-color: #0e0d69;
+							position: absolute;
+							left: -800%;
+							bottom: 0;
+							width: 200%;
+							height: 3px;
+							transition: all .6s ease;
+							z-index: 2;
+						}
+						&:hover {
+							&:before {
+								left: 0;
+								transition: all .6s ease;
+							}
+							&:after {
+								left: 800%;
+								transition: all .6s ease;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/*-----------------------
+footer
+------------------------*/
+.ftBlock {
+	padding-left: 20px;
+  padding-right: 20px;
+	&__inner {
+		width: $innerWidth;
+	}
+}
+/*-----------------------
+under base
+------------------------*/
+.intro {
+	width: 100%;
+	background: #0f105e url(/img/common/under_top.png) no-repeat center right;
+	background-size: 758px;
+	height: 150px;
+	padding: 60px 0;
+	&__inner {
+		width: $innerWidth;
+		margin: 0 auto;
+	}
+	&__title {
+		@include fontSize(30);
+		color: #fff;
+		font-weight: 700;
+		letter-spacing: 0.07em;
+	}
+}
