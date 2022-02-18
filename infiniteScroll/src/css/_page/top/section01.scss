@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+$width: 400;
+$marginRight: 30;
+
+.slider__list {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+.slider__item {
+  margin-right: 30px;
+  position: relative;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  &:nth-child(1) {
+    left: 0;
+  }
+  &:nth-child(2) {
+    left: #{($width + $marginRight) * 1}px;
+  }
+  &:nth-child(3) {
+    left: #{($width + $marginRight) * 2}px;
+  }
+  &:nth-child(4) {
+    left: #{($width + $marginRight) * 3}px;
+  }
+  &:nth-child(5) {
+    left: #{($width + $marginRight) * 4}px;
+  }
+  &:nth-child(6) {
+    left: #{($width + $marginRight) * 5}px;
+  }
+  &:nth-child(7) {
+    left: #{($width + $marginRight) * 6}px;
+  }
+  &:nth-child(8) {
+    left: #{($width + $marginRight) * 7}px;
+  }
+  &:nth-child(9) {
+    left: #{($width + $marginRight) * 8}px;
+  }
+  &:nth-child(10) {
+    left: #{($width + $marginRight) * 9}px;
+  }
+}
+
+.slider__txt {
+  text-align: center;
+  font-size: 20px;
+}
