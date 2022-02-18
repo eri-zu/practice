@@ -15,7 +15,6 @@ export default class Renderer extends Base {
     super();
 
     this.$item = $item;
-    this.$txt = $(".js-slider_current");
 
     this.setup();
     this.setEvents();
@@ -47,9 +46,7 @@ export default class Renderer extends Base {
     return tl;
   }
 
-  changeTxt(index) {
-    this.$txt.get(0).innerText = `0${index + 1}`;
-  }
+  changeTxt() {}
 
   update() {}
 
