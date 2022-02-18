@@ -1140,8 +1140,6 @@ a:active {
 }
 
 #wrapper.id_top .slider__list {
-  display: flex;
-  align-items: center;
   position: relative;
 }
 
