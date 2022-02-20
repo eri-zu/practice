@@ -10,6 +10,7 @@ import gsap from "gsap";
 import { CustomEase } from "@BALANCeLibs/View/gsap/CustomEase/CustomEase.js";
 import { Conf } from "@/Conf";
 import VirtualScroll from "virtual-scroll";
+import Item from "./Item";
 
 const lerp = (x, y, p) => {
   return x + (y - x) * p;
@@ -20,7 +21,10 @@ export default class InfiniteSliderController extends Base {
     super();
 
     this.items = document.querySelectorAll(".js-slider_item");
+    this.itemArray = [];
     this.len = this.items.length;
+    this.deltaY = 0;
+    this.isScroll = false;
 
     this.isUEv = true; // update（request animation frame）
 
@@ -31,41 +35,27 @@ export default class InfiniteSliderController extends Base {
   }
 
   setup() {
-    this.setParameter();
+    for (let i = 0; i < this.items.length; i++) {
+      const item = new Item(this.items[i], i, this.len);
+      this.itemArray.push(item);
+    }
   }
 
-  setParameter() {
-    this.currentPos = 0; // 現在座標x
-    this.targetPos = 0; // 目標座標x
-    this.itemWidth = this.items[0].clientWidth; // 画像幅
-    this.margin = parseInt(window.getComputedStyle(this.items[0]).marginRight); // 画像margin
-    // this.totalWidth = (this.itemWidth + this.margin) * this.len; // 全画像の一番右端座標
-  }
+  setParameter() {}
 
   update() {
-    this.currentPos += (this.targetPos - this.currentPos) * 0.12;
+    let deltaY = this.isScroll ? this.deltaY : 0;
 
-    // 最後のitemの左上座標を監視
-    this.lastItemX = this.items[this.len - 1].getBoundingClientRect().left;
-
-    this.items.forEach((el, i) => {
-      // 各item左上座標
-      const left = el.getBoundingClientRect().left;
-      // el.style.transform = `translateX(${this.currentPos}px)`;
-
-      if (left < 0 - this.itemWidth) {
-        // 画面左外に出たら最後のitemを基準に右横にセット
-        console.log("画面外");
-        el.style.left = `${
-          this.lastItemX +
-          (this.margin + this.itemWidth) * (i + 1) -
-          this.scrollY
-        }px`;
-      } else {
-        console.log("画面内");
-        el.style.transform = `translateX(${this.currentPos}px)`;
-      }
+    this.itemArray.forEach((el, i) => {
+      el.update(deltaY, this.lastItemX);
     });
+
+    // 最後尾の右端を監視
+    this.lastItemX =
+      this.items[this.len - 1].getBoundingClientRect().left + 400;
+
+    // スクロール量0にリセット
+    this.isScroll = false;
   }
 
   onResize() {}
@@ -74,7 +64,11 @@ export default class InfiniteSliderController extends Base {
     super.setEvents();
 
     this.scroller.on((event) => {
-      this.scrollY = this.targetPos = event.y; // スクロール量取得
+      // スクロール量とる
+      if (event.deltaY > 0) return;
+
+      this.isScroll = true;
+      this.deltaY = event.deltaY;
     });
   }
 }
