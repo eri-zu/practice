@@ -14,6 +14,7 @@ export default class InfiniteLoopSlider extends Base {
     super();
 
     this.$item = $(".js-slider_item");
+    this.inner = document.querySelector(".js-slider__inner");
 
     this.isUEv = true;
 
@@ -35,5 +36,12 @@ export default class InfiniteLoopSlider extends Base {
 
   setEvents() {
     super.setEvents();
+
+    this.inner.addEventListener("mouseenter", (e) => {
+      this.renderer.stop();
+    });
+    this.inner.addEventListener("mouseleave", (e) => {
+      this.renderer.play();
+    });
   }
 }

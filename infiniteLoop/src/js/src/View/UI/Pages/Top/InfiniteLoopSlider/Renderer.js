@@ -13,13 +13,14 @@ export default class Renderer extends Base {
     super();
 
     this.isRev = true;
+    this.isUpdate = true;
 
     this.$item = $item;
     this.len = this.$item.length;
     this.inner = document.querySelector(".js-slider__inner");
 
     this.currentPosX = 0;
-    this.speed = 5;
+    this.speed = 0.5;
 
     this.setup();
     this.setEvents();
@@ -41,12 +42,21 @@ export default class Renderer extends Base {
   }
 
   update() {
+    if (!this.isUpdate) return;
     this.currentPosX += this.speed;
     this.inner.style.transform = `translateX(${-this.currentPosX}px)`;
 
     if (this.currentPosX > this.resetPoint) {
       this.currentPosX = 0;
     }
+  }
+
+  stop() {
+    this.isUpdate = false;
+  }
+
+  play() {
+    this.isUpdate = true;
   }
 
   onResize() {}
