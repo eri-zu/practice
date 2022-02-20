@@ -42,34 +42,16 @@ export default class TextSplitController extends Base {
     // () : グループ化
     // /g : 該当するもの全て
     // $1 : ()の戻り値が前から順番に$1, $2,,,
-
     const txt = splitTextArray.map((el, i) => {
       return el.replace(/(\S)/g, "<span>$1</span>");
     });
 
-    console.log(txt);
+    // <br>で連結
+    // join : 配列の全要素を連結した文字列を新たに作成して返す
+    const txtAll = txt.join("<br>");
 
-    // const spanTxt = itemHTML.replace(/(\S)/g, "<span>$1</span>");
-
-    // // brタグがあっても問題がないように
-    // // brで区切る
-    // const text = this.$item.html();
-
-    // var split = /<br>/g;
-    // var span = text.split(split);
-
-    // // span化
-    // for (var i = 0; i < span.length; i++) {
-    //   span[i] = span[i].replace(
-    //     /(\S)/g,
-    //     '<div class="text"><span class="text__wrap">$1</span></div>'
-    //   );
-    // }
-
-    // // 配列をbr追加して連結
-    // var append = span.join('<br area-hidden="true">');
-
-    // this.$item.html(append);
+    // 要素内を書き換える
+    this.item.innerHTML = txtAll;
   }
 
   update() {}

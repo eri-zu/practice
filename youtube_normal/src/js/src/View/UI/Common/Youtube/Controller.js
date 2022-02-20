@@ -34,6 +34,7 @@ export default class Controller extends Base {
       playerVars: {
         loop: 1, // ループ
         rel: 0, // 関連動画非表示
+        controls: 0, // コントロールバー非表示
       },
       events: {
         onReady: (event) => {
