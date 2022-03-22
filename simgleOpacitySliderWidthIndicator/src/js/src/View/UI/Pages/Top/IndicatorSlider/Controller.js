@@ -19,7 +19,7 @@ export default class IndicatorSlider extends Base {
     this.isUEv = true;
 
     this.$item = $(".js-slider_item");
-    this.bar = document.querySelector(".js-slider_bar");
+    this.$indicator = $(".js-slider_indicator_item");
     this.len = this.$item.length;
 
     this.frame = 0;
@@ -30,15 +30,12 @@ export default class IndicatorSlider extends Base {
 
   setup() {
     this.order = new Order(this.len);
-    this.renderer = new Renderer(this.$item);
+    this.renderer = new Renderer(this.$item, this.$indicator);
   }
 
   change() {
     if (tl) tl.kill();
     this.order.right();
-
-    console.log(this.order.prev);
-    console.log(this.order.current);
 
     const tl = gsap.timeline();
 
@@ -47,10 +44,8 @@ export default class IndicatorSlider extends Base {
       .add(this.renderer.hide(this.order.prev))
       // img show
       .add(this.renderer.show(this.order.current), 0)
-      // txt
-      .add(() => {
-        this.renderer.changeTxt(this.order.current);
-      }, 0);
+      // indicator
+      .add(this.renderer.changeIndicator(this.order.current), 0);
 
     return tl;
   }
@@ -70,11 +65,6 @@ export default class IndicatorSlider extends Base {
       console.log(this.frame, "切り替え");
       this.autoswitch();
     }
-
-    // progress bar伸び縮み
-    // 0 - 540 を 0 - 100 に置き換え
-    this.width = m.map(this.frame, 0, 100, 0, 540);
-    this.bar.style.width = `${this.width}%`;
   }
 
   updateBar() {}
