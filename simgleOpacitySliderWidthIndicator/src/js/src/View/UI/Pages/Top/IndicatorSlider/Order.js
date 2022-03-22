@@ -50,7 +50,7 @@ export default class Order extends Base {
     this.prev = this.current - 1;
   }
 
-  move(index) {
+  jump(index) {
     this.current = index;
     if (this.current > this.len - 1) this.current = this.len - 1;
     if (this.current < 0) this.current = 0;

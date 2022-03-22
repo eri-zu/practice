@@ -34,12 +34,12 @@ export default class IndicatorSlider extends Base {
   }
 
   change() {
-    if (tl) tl.kill();
+    if (this.tl) this.tl.kill();
     this.order.right();
 
-    const tl = gsap.timeline();
+    this.tl = gsap.timeline();
 
-    tl
+    this.tl
       // img hide
       .add(this.renderer.hide(this.order.prev))
       // img show
@@ -47,7 +47,28 @@ export default class IndicatorSlider extends Base {
       // indicator
       .add(this.renderer.changeIndicator(this.order.current), 0);
 
-    return tl;
+    return this.tl;
+  }
+
+  onClick(target) {
+    // autoswitchリセット
+    if (this.tl) this.tl.kill();
+    this.frame = 0;
+
+    const index = this.$indicator.index($(target));
+    this.order.jump(index);
+
+    this.tl = gsap.timeline();
+
+    this.tl
+      // img hide
+      .add(this.renderer.hide(this.order.prev))
+      // img show
+      .add(this.renderer.show(this.order.current), 0)
+      // indicator
+      .add(this.renderer.changeIndicator(this.order.current), 0);
+
+    return this.tl;
   }
 
   autoswitch() {
@@ -73,5 +94,9 @@ export default class IndicatorSlider extends Base {
 
   setEvents() {
     super.setEvents();
+
+    this.$indicator.on("click" + "." + this.name, (e) => {
+      this.onClick(e.currentTarget);
+    });
   }
 }

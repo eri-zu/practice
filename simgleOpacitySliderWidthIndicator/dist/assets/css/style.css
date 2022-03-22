@@ -1193,6 +1193,7 @@ a:active {
   height: 8px;
   border-radius: 50%;
   background-color: #eee;
+  cursor: pointer;
 }
 
 #wrapper.id_top .slider__indicator-item:nth-child(n + 2) {
