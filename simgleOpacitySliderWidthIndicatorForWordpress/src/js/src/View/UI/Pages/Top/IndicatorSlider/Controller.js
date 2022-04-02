@@ -45,9 +45,11 @@ export default class IndicatorSlider extends Base {
       let $indicator = null;
 
       for (let i = 0; i < this.len; i++) {
-        $indicator = $(
-          '<li class="slider__indicator-item js-slider_indicator_item"></li>'
-        );
+        const DOM =
+          i == 0
+            ? '<li class="slider__indicator-item js-slider_indicator_item is-active"></li>'
+            : '<li class="slider__indicator-item js-slider_indicator_item"></li>';
+        $indicator = $(DOM);
         this.$indicatorwrap.append($indicator);
       }
 
