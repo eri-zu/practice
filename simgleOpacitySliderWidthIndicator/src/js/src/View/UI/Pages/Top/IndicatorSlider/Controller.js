@@ -23,6 +23,7 @@ export default class IndicatorSlider extends Base {
     this.len = this.$item.length;
 
     this.frame = 0;
+    this.isUpdate = true;
 
     this.setup();
     this.setEvents();
@@ -33,7 +34,7 @@ export default class IndicatorSlider extends Base {
     this.renderer = new Renderer(this.$item, this.$indicator);
   }
 
-  change() {
+  right() {
     if (this.tl) this.tl.kill();
     this.order.right();
 
@@ -41,7 +42,7 @@ export default class IndicatorSlider extends Base {
 
     this.tl
       // img hide
-      .add(this.renderer.hide(this.order.prev))
+      .add(this.renderer.hide())
       // img show
       .add(this.renderer.show(this.order.current), 0)
       // indicator
@@ -51,8 +52,9 @@ export default class IndicatorSlider extends Base {
   }
 
   onClick(target) {
-    // autoswitchリセット
+    // 全部止める
     if (this.tl) this.tl.kill();
+    // this.isUpdate = false;
     this.frame = 0;
 
     const index = this.$indicator.index($(target));
@@ -62,33 +64,31 @@ export default class IndicatorSlider extends Base {
 
     this.tl
       // img hide
-      .add(this.renderer.hide(this.order.prev))
+      .add(this.renderer.hide())
       // img show
       .add(this.renderer.show(this.order.current), 0)
       // indicator
       .add(this.renderer.changeIndicator(this.order.current), 0);
+    // autoswitch再開
+    // .add(this.autoswitch());
 
     return this.tl;
   }
 
   autoswitch() {
-    this.change();
+    this.right();
   }
 
   update() {
+    if (!this.isUpdate) return;
     this.frame++;
 
     // 540frameで一周
     this.frame = this.frame > 540 ? 0 : this.frame;
 
     // 3s毎に切り替え
-    if (this.frame % 180 == 0 && this.frame > 0) {
-      console.log(this.frame, "切り替え");
-      this.autoswitch();
-    }
+    if (this.frame % 180 == 0 && this.frame > 0) this.autoswitch();
   }
-
-  updateBar() {}
 
   onResize() {}
 
