@@ -50,10 +50,13 @@ export default class Renderer extends Base {
   changeIndicator(index) {
     const tl = gsap.timeline();
 
+    this.$indicator.removeClass("is-active");
+    this.$indicator.eq(index).addClass("is-active");
+
     tl
       // all
       .to(this.$indicator, 1, {
-        scale: 1,
+        scale: 0.5,
         backgroundColor: "#eee",
         ease: "expo.out",
       })
@@ -62,7 +65,7 @@ export default class Renderer extends Base {
         this.$indicator.eq(index),
         1,
         {
-          scale: 1.5,
+          scale: 1,
           backgroundColor: "#000",
           ease: "expo.out",
         },
@@ -70,6 +73,44 @@ export default class Renderer extends Base {
       );
 
     return tl;
+  }
+
+  onEnterIndicator(target) {
+    const tl = gsap.timeline();
+
+    tl.to(target, 0.5, {
+      scale: 1,
+      ease: "elastic.out(1, 0.5)",
+    });
+  }
+
+  onLeaveIndicator(target) {
+    const tl = gsap.timeline();
+
+    tl.to(target, 0.5, {
+      scale: 0.5,
+      ease: "expo.out",
+    });
+  }
+
+  onEnterArrow(target, direction) {
+    const x = direction == "right" ? 10 : -10;
+
+    const tl = gsap.timeline();
+
+    tl.to(target, 1, {
+      x: x,
+      ease: "expo.out",
+    });
+  }
+
+  onLeaveArrow(target) {
+    const tl = gsap.timeline();
+
+    tl.to(target, 1, {
+      x: 0,
+      ease: "expo.out",
+    });
   }
 
   update() {}
