@@ -105,6 +105,7 @@ export default class Renderer extends Base {
   }
 
   onLeaveArrow(target) {
+    
     const tl = gsap.timeline();
 
     tl.to(target, 1, {

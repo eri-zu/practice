@@ -25,8 +25,8 @@ export default class IndicatorSlider extends Base {
     this.$indicator = $(".js-slider_indicator_item");
     this.$arrow_right = $(".js-slider_arrow_right");
     this.$arrow_left = $(".js-slider_arrow_left");
-    this.len = this.$item.length;
 
+    this.len = this.$item.length;
     this.frame = 0;
     this.isUpdate = true;
     this.timer = 3; // autoswtichの間隔
