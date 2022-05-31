@@ -5,8 +5,7 @@
 //--------------------------------------------------
 
 import Base from "@BALANCeLibs/Base.js";
-import * as m from "@BALANCeLibs/Util/Math.js";
-import gsap from "gsap";
+import * as m from "@BALANCeLibs/Util/Math/index.js";
 
 export default class Controller extends Base {
   constructor() {
@@ -14,6 +13,8 @@ export default class Controller extends Base {
 
     this.setup();
     this.setEvents();
+
+    // this.timeline();
   }
 
   setup() {}
@@ -22,17 +23,12 @@ export default class Controller extends Base {
 
   update() {}
 
-  showVideo() {}
-
-  hideVideo() {}
-
-  onEnter() {}
-
-  onLeave() {}
-
   onResize() {}
 
   setEvents() {
     super.setEvents();
+
+    // $(window).on('loadingEnd', this.timeline.bind(this));
+    $(window).on("loadingEnd", this.setup.bind(this));
   }
 }
