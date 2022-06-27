@@ -133,7 +133,7 @@ const closeMenu = () => {
         duration: 0.8,
         ease: "power4.in",
         // attr: { d: "M 0 0 V 50 Q 50 100 100 50 V 0 z" },
-        attr: { d: "M 0 0 V 70 Q 50 0 100 70 V 0 z" },
+        attr: { d: "M 0 0 V 50 Q 50 0 100 50 V 0 z" },
       },
       0
     )
