@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+@import "./_init/import";
+@import "./_init/reset"; // リセットCSS、フォントサイズ sss
+
+/* --------------------------------------------------------------------------------
+*   parts
+-------------------------------------------------------------------------------- */
+@import "./_parts/_common/**/*.scss";
+@import "./_parts/_compornents/**/*.scss";
+
+/* --------------------------------------------------------------------------------
+*   page
+-------------------------------------------------------------------------------- */
+
+html {
+  background-color: #fff;
+}
+
+#wrapper.id_top {
+
+  #inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+    .box {
+      display: flex;
+      align-items: center;
+      position: relative;
+      
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      
+      .clock {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+      }
+      
+      .hour {
+        width: 30px;
+        height: 1px;
+        background: #000;
+      }
+      .minute {
+        width: 30px;
+        height: 1px;
+        background: #000;
+      }
+      .second {
+        width: 30px;
+        height: 1px;
+        background: #000;
+      }
+    }
+  }
+ 
+}

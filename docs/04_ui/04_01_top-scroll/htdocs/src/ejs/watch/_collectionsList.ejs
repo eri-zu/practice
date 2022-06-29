@@ -1,0 +1,28 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+<div class="watch-collections--item">
+  <%if(isModal){%>
+    <a class="item_query" data-query="<%=item.query%>" data-category="collection" >
+  <%}else{%>
+    <a href="<%=relativePath%><%=item.link%>">
+  <%}%>
+    <div class="watch-collections--item--thumbnail">
+      <img data-src="<%=relativePath%><%=item.img%>" class="lazyload">
+    </div>
+    <div class="watch-collections--item--description">
+      <% if (item.isNew == true) {%>
+      <div class="watch-collections--item--new">NEW</div>
+      <%}%>
+      <div class="watch-collections--item--title"><%=item.title%></div>
+      <% if (item.isFavo == true) {%>
+        <div class="watch-collections--item--favo active">
+        <%- include('../assets/_star') -%>Favorite</div>
+      <%}else{%>
+        <div class="watch-collections--item--favo">
+        <%- include('../assets/_star') -%>Favorite</div>
+      <%}%>
+    </div>
+  </a>
+</div>

@@ -1,0 +1,110 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+  include('_menu_Modal_collection_info'); var cdata = collection_info();
+%>
+
+<div class="watch-menu--modals--wrapper">
+  <div class="watch-menu--modal  watch-item--inner watch-menu--modal-collection">
+    <div class="watch-menu--modal-item">
+      <div class="watch-menu--modal-collection--item watch-menu--modal-collection--form active" data-slideindex='0'>
+        <p class="watch-menu--modal-collection--item--title">Form</p>
+
+        <div class="watch-menu--modal-collection--item--list">
+          <% for (var i = 0;i<8;i++) {
+            var item = cdata[i];
+            %>
+          <%- include('_collectionsList',{item:item,isModal:true}); -%>
+          <%}%>
+        </div>
+      </div>
+      <div class="watch-menu--modal-collection--item watch-menu--modal-collection--concept"  data-slideindex='1'>
+        <p class="watch-menu--modal-collection--item--title">Concept</p>
+        <div class="watch-menu--modal-collection--item--list">
+          <% for (var i = 0;i<8;i++) {
+            var item = cdata[i];
+            %>
+          <%- include('_collectionsList',{item:item,isModal:true}); -%>
+          <%}%>
+        </div>
+      </div>
+      <div class="watch-menu--modal-collection--item watch-menu--modal-collection--system"  data-slideindex='2'>
+        <p class="watch-menu--modal-collection--item--title">System</p>
+        <div class="watch-menu--modal-collection--item--list">
+          <% for (var i = 0;i<8;i++) {
+            var item = cdata[i];
+            %>
+          <%- include('_collectionsList',{item:item,isModal:true}); -%>
+          <%}%>
+        </div>
+      </div>
+      <div class="watch-menu--modal-collection--item--sp_btn">
+        <span class="watch-menu--modal-collection--item--sp_btn--left">
+          <%- include('../assets/_arrowLeft') -%>
+        </span>
+        <span class="watch-menu--modal-collection--item--sp_btn--right">
+          <%- include('../assets/_arrowLeft') -%>
+        </span>
+      </div>
+      <div class="watch-menu--modal-collection--item--sp_indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="watch-menu--modal--footer">
+      <div class="watch-menu--modal--footer--item watch-menu--modal--footer--allitems">
+        <a href="#" class="reset_query" data-category="collection">全てのコレクション</a>
+      </div>
+      <div class="watch-menu--modal--footer--item watch-menu--modal--footer--about">
+        <a href="<%=relativePath%>collections">About Collections
+        <%- include('../assets/_arrowLeft') -%></a>
+      </div>
+    </div>
+  </div>
+  <div class="watch-menu--modal  watch-item--inner watch-menu--modal-price">
+    <div class="watch-menu--modal-price--inner">
+      <button class="watch-menu--modal-price--item watch-menu--modal-price--item--01 item_query" data-category="price" data-query="first">
+        〜100万円
+      </button>
+      <button class="watch-menu--modal-price--item watch-menu--modal-price--item--02 item_query" data-category="price" data-query="second">
+        101〜300万円
+      </button>
+      <button class="watch-menu--modal-price--item watch-menu--modal-price--item--03 item_query" data-category="price" data-query="third">
+        301〜500万円
+      </button>
+      <button class="watch-menu--modal-price--item watch-menu--modal-price--item--04 item_query" data-category="price" data-query="fourth">
+        501〜1000万円
+      </button>
+      <button class="watch-menu--modal-price--item watch-menu--modal-price--item--05 item_query" data-category="price" data-query="fifth">
+        1001万円〜
+      </button>
+    </div>
+    <div class="watch-menu--modal-price--footer">
+      <a href="" class="reset_query" data-category="price">全ての価格帯</a>
+    </div>
+  </div>
+  <div class="watch-menu--modal  watch-item--inner watch-menu--modal-search">
+    <div class="watch-menu--modal-search--input">
+      <form id="watch-menu-search">
+        <div class="watch-menu--modal-search--input--inner">
+          <input type="text" name="freeword" placeholder="フリーワードを入力">
+        </div>
+      </form>
+    </div>
+    <div class="watch-menu--modal-search--btns">
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_basic item_query" data-category="tag" data-query="basic">ベーシック</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_complication item_query" data-category="tag" data-query="complication">コンプリケーション</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_supercomplication item_query" data-category="tag" data-query="supercomplication">スーパーコンプリケーション</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_philosophy item_query" data-category="tag" data-query="philosophy">フィロソフィーコレクション</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_elegant item_query" data-category="tag" data-query="elegant">エレガント</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_active item_query" data-category="tag" data-query="active">アクティブ</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_regular item_query" data-category="tag" data-query="regular">レギュラーサイズ</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_large item_query" data-category="tag" data-query="large">ラージサイズ</button>
+      <button class="watch-menu--modal-search--btn watch-menu--modal-search--btn_skeleton item_query" data-category="tag" data-query="skeleton">スケルトン</button>
+    </div>
+    <div class="watch-menu--modal-search--footer">
+      <a href="#all" class="watch-menu--modal-search--all reset_query" data-category="tag">全てのキーワード</a>
+    </div>
+  </div>
+</div>

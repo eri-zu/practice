@@ -1,0 +1,168 @@
+$easeINCubic : cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic : cubic-bezier(0.215, 0.61, 0.355, 1);
+
+@mixin easingTransition($easing:$easeINCubic,$property:all,$time:1s,$delay:0s) {
+  transition:$property $time $easing $delay;
+}
+
+
+
+
+//LazyLoad
+.lazyload,.lazyloading{
+  opacity: 0;
+  @include easingTransition($easeINCubic,opacity,1s,0s);
+}
+
+.lazyloaded{
+  opacity: 1;
+  @include easingTransition($easeINCubic,opacity,1s,0s);
+}
+
+@keyframes menuBtnAnimationOpenBefore4 {
+  0%{
+    transform: rotate(0deg);
+  }
+  80%{
+    transform-origin: right 1px;
+    transform: rotate(135deg + 180deg);
+    width: 50%;
+  }
+  100%{
+    transform: rotate(135deg + 180deg);
+    transform-origin: center;
+    width: 21px;
+  }
+}
+@keyframes menuBtnAnimationOpenAfter4 {
+  0%{
+    transform: rotate(0deg);
+
+  }
+  80%{
+    transform: rotate(45deg);
+    width: 50%;
+    transform-origin: 0px 1px;
+  }
+
+  100%{
+    transform: rotate(45deg);
+    transform-origin: center;
+    width: 21px;
+
+  }
+}
+
+.imgHover_Animation{
+  &--wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &::before,&::after{
+      content: '';
+      position: absolute;
+      transition: transform .5s $easeINCubic .8s;
+
+    }
+    &::before{
+      transform: scaleX(0);
+      width: 100%;
+      height: 1px;
+      top: calc(50% - .5px);
+      border-top: 1px dashed $BASE_COLOR_BLACK;
+      left: 0;
+    }
+    &::after{
+      transform: scaleY(0);
+      height: 100%;
+      width: 1px;
+      left: calc(50% - .5px);
+      border-left: 1px dashed $BASE_COLOR_BLACK;
+      top: 0;
+    }
+  }
+  &--item{
+    top: -10px;
+    left: -10px;
+    width:calc(100% + 20px);
+    height: calc(100% + 20px);
+    display: block;
+    position: absolute;
+    &--horizontal{
+      &::before,&::after{
+        content: '';
+        width: 100%;
+        position: absolute;
+        left: 0;
+        height: 1px;
+        background-color: $BASE_COLOR_BLACK;
+
+      }
+      &::before{
+        transition: transform .5s $easeINCubic .2s;
+        transform: scaleX(0);
+        transform-origin: left;
+        top: 10px;
+      }
+      &::after{
+        transition: transform .5s $easeINCubic .2s;
+        transform: scaleX(0);
+        transform-origin: right;
+        bottom: 10px;
+      }
+    }
+    &--vertical{
+      &::before,&::after{
+        content: '';
+        width: 1px;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background-color: $BASE_COLOR_BLACK;
+        transform: scaleY(0);
+      }
+      &::before{
+        transition: transform .5s $easeINCubic .3s;
+        left: 10px;
+        transform-origin: bottom;
+      }
+      &::after{
+        transition: transform .5s $easeINCubic .3s;
+        right: 10px;
+        transform-origin: top;
+      }
+    }
+  }
+}
+
+
+.hover-item-img:hover{
+  .imgHover_Animation{
+    &--wrapper{
+      &::before{
+        transform: scaleX(1);
+      }
+      &::after{
+        transform: scaleY(1);
+      }
+    }
+    &--item{
+      &--horizontal{
+        &::before{
+          transform: scaleX(1);
+        }
+        &::after{
+          transform: scaleX(1);
+        }
+      }
+      &--vertical{
+        &::before{
+          transform: scaleY(1);
+        }
+        &::after{
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+}

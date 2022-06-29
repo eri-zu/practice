@@ -1,0 +1,102 @@
+.watch-collections{
+  margin-top: 20px;
+  &__inner{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &--item{
+    width: (1000px - 40px)/5;
+    @include mq-max(430px){
+      width: (375px - 40px - 20px)/2;
+    };
+    a{
+      color: inherit;
+      text-decoration: none;
+    }
+
+  }
+}
+
+.watch-collection--watchlist{
+  .watch-collections--item{
+    position: relative;
+    margin-bottom: 40px;
+    min-width: (1000px - 40px)/5;
+    @include mq-max(430px){
+      min-width: (375px - 40px - 20px)/2;
+    };
+    &--thumbnail{
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 215px;
+
+      img{
+        max-height: 215px;
+      }
+    }
+
+    &--description{
+      width: 100%;
+      min-height: 80px;
+      padding-left: 10px;
+      padding-right: 10px;
+      box-sizing: border-box;
+    }
+
+    &--new{
+      position: absolute;
+      top: 215px;
+      border: 1px solid $BASE_COLOR_DARKBROWN;
+      color: $BASE_COLOR_DARKBROWN;
+      display: inline-block;
+      @extend .en;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: .1em;
+      line-height: 1;
+      text-align: center;
+      padding: 2px 2px 1px 2.5px;
+    }
+
+
+    &--title{
+      @extend .jp;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .02em;
+      line-height: 1.4;
+      padding-bottom: 10px + 14px;
+      padding-top: 10px + 14px;
+
+    }
+
+    &--favo{
+      position: absolute;
+      bottom: 0;
+      color: $BASE_COLOR_DARKBROWN;
+      background: inherit;
+      padding: 0;
+      @extend .en;
+      font-size: 14px;
+      letter-spacing: .1em;
+      svg{
+        width: 12px;
+        height: 12px;
+        path{
+          fill:none;
+          stroke:currentColor;
+        }
+      }
+      &.active{
+        svg path{
+          fill:currentColor;
+        }
+      }
+    }
+  }
+}

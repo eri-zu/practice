@@ -1,0 +1,114 @@
+.collections{
+  &--contents{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.collections--contents{
+  font-size: 40px;
+  $collections_wid : 575 + 405;
+  &--div{
+    position: relative;
+  }
+  &--first{
+    //575 x 300
+    width:calc(100% * (575 / #{$collections_wid}) - 10px);
+    padding-top: 100% * (300/$collections_wid);
+    margin-right: 20px;
+    .collections--contents--item{
+      height: calc(50% - 10px);
+
+      &:first-child{
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &--second{
+    //405 × 620
+    width:calc(100% * (405 / #{$collections_wid}) - 10px);
+    padding-top: 100% * (620/$collections_wid);
+    .collections--contents--item{
+      height: 100%;
+
+    }
+  }
+
+
+
+  &--item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &--mens{
+      background-image: url(../img/top/collections/01.png);
+    }
+    &--ladies{
+      top: calc(50% + 10px);
+      background-image: url(../img/top/collections/02.png);
+    }
+    &--jewellery{
+      background-image: url(../img/top/collections/03.png);
+    }
+    p{
+      position: absolute;
+      color: $BASE_COLOR_WHITE;
+      top:40px;
+      left: 40px;
+      @extend .en;
+      font-size: 40px;
+      @include mq-max(1080px){
+        top:  (100vw/27);
+        left:  (100vw/27);
+        font-size: (100vw/27);
+      };
+    }
+  }
+}
+
+@include mq-max($BREAK_POINT_SP){
+  .collections{
+    &--contents{
+      flex-flow: column;
+    }
+  }
+  .collections--contents{
+    &--div{
+      width: 100%;
+      //335 × 504
+    }
+    &--first{
+      padding-top: calc((100% * (504/335))*2 + 20px);
+      margin-bottom: 20px;
+    }
+    &--second{
+      padding-top: 100% * (504/335);
+    }
+    &--item{
+      p{
+        top: 20px;
+        left: 20px;
+        font-size: (100vw / 12.5);
+      }
+      &--mens{
+        background-image: url(../img/top/collections/01_sp.png);
+      }
+      &--ladies{
+        top: calc(50% + 10px);
+        background-image: url(../img/top/collections/02_sp.png);
+      }
+      &--jewellery{
+        background-image: url(../img/top/collections/03_sp.png);
+      }
+    }
+  }
+};

@@ -1,0 +1,37 @@
+<% var rootPATH = './', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+
+  
+  <div class="box">
+
+  	<div class="barWrap barWrap_h top"><div class="bar"></div></div>
+  	<div class="barWrap barWrap_v left"><div class="bar"></div></div>
+
+    <div class="dotWrap_h"></div>
+    <div class="dotWrap_v"></div>
+
+    <div class="barWrap barWrap_h bottom"><div class="bar"></div></div>
+    <div class="barWrap barWrap_v right"><div class="bar"></div></div>
+
+    <img src="./assets/resource/img/tit.png" height="93" width="192" alt="">
+
+  </div>
+
+  
+
+</div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+</body>
+</html>

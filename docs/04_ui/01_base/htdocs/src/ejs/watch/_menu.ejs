@@ -1,0 +1,34 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+  include('_menu_Modal_collection_info'); var cdata = collection_info();
+%>
+
+<div class="watch-munubar watch-item">
+  <div class="watch-munubar--inner watch-item--inner">
+    <div class="watch-munubar--item watch-munubar--item--collection collection-modal" data-item="collection">
+      <img src="<%=relativePath%>assets/img/watch/menubar/watch.svg">
+      <p>コレクション</p>
+    </div>
+    <div class="watch-munubar--item watch-munubar--item--price collection-modal" data-item="price">
+      <img src="<%=relativePath%>assets/img/watch/menubar/price.svg">
+      <p>価格帯</p>
+    </div>
+    <div class="watch-munubar--item watch-munubar--item--search collection-modal" data-item="search">
+      <img src="<%=relativePath%>assets/img/watch/menubar/search.svg">
+      <p>キーワード</p>
+    </div>
+    <div class="watch-munubar--item watch-munubar--item--itemnum">
+      <p><span class="en">0</span>Items</p>
+    </div>
+    <div class="watch-munubar--item watch-munubar--item--order collection-modal">
+      <p><a href="#order">並び替え</a></p>
+    </div>
+  </div>
+  <%#
+  メニューを押した際
+  %>
+
+  <%- include('_menu_modal') -%>
+
+</div>

@@ -1,0 +1,45 @@
+.watch-item{
+  width: 100%;
+  padding: 0 80px;
+  box-sizing: border-box;
+  position: relative;
+  &--inner{
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+.watch .c-header--title{
+  svg{
+    transition: all 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: rotate(0);
+  }
+  &.active{
+    svg{
+      transition: all 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: rotate(180deg);
+    }
+  }
+
+}
+
+@include mq-max(1160px){
+  .watch-item,.watch .c-header{
+    padding-left: 6.9vw;
+    padding-right: 6.9vw;
+  }
+};
+@include mq-max($BREAK_POINT_SP){
+  .watch-item,.watch .c-header{
+    padding-left: 5.3333vw;
+    padding-right: 5.3333vw;
+  }
+};
+
+@import "watch/collectionsList";
+
+@import "watch/header_modal";
+@import "watch/menu";
+@import "watch/menu_modal";
+@import "watch/collections";
+@import "watch/order_modal";

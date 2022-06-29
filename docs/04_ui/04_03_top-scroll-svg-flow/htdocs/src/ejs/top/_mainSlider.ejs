@@ -1,0 +1,25 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+
+<section class="slider" id="top_sider">
+  <div class="slider_inner">
+    <div class="slider_item">
+      <div class="slider_img"></div>
+      <div class="slider_text">
+        <p class="slider_text_name">Cintrée Curvex</p>
+        <p class="slider_text_name_js">トノウ カーベックス
+        <%- include(relativePath+'../assets/_arrowLeft') -%>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="indicator">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
+  <a class="info_button" href="#open"></a>
+  <a href="#down" class="c-page_down"><%- include(relativePath+'../assets/_arrowUnder') -%></a>
+</section>

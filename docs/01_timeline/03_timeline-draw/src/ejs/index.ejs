@@ -1,0 +1,41 @@
+<% var rootPATH = './', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+
+  <div class="header">
+    <div class="item menu boxBar"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/menu.png" height="23" width="26" alt="" class="boxBarTarget"></div>
+    <div class="item logo boxBar"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/logo_white.png" height="35" width="120" alt="" class="boxBarTarget"></div>
+    <div class="item logo_s boxBar"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/fm_btn_white.png" alt="" class="boxBarTarget"></div>
+  </div>
+
+  <div class="bgWrap">
+    <div class="bg"></div>
+    <div class="imgBox boxBar"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/watch.svg" alt="" class="boxBarTarget"></div>
+    <div class="border"></div>
+  </div>
+  
+  <div class="textWrap">
+    <div class="tit boxBar"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/tit.png" height="78" width="172" alt="" class="boxBarTarget"></div>
+    <div class="text boxBar"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/text.png" height="12" width="135" alt="" class="boxBarTarget"></div>
+  </div>
+  
+  <div class="scroll boxBar"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/scroll.png" height="86" width="13" alt="" class="boxBarTarget"></div>
+
+  <div class="indicator boxBar"><div class="img"><%- include(rootPATH + 'BoxBar'); %><img src="./assets/resource/img/progress.png" height="2" width="80" alt="" class="boxBarTarget"></div></div>
+
+
+</div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+</body>
+</html>

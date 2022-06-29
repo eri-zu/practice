@@ -1,0 +1,37 @@
+<%include('ejs/_data'); var meta = getData();%>
+<%
+var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <title><%=meta.title %> </title>
+  <meta name="description" content="<%=meta.desc%>"/>
+  <meta name="keywords" content="<%=meta.key%>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://use.typekit.net/cyg6ufq.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script src="<%=relativePath%>assets/js/lib.js" defer></script>
+  <script src='<%=relativePath%>assets/js/app.js' defer></script>
+  <link rel="stylesheet" href="<%=relativePath%>assets/css/style.css">
+</head>
+<body class="top">
+<%- include(relativePath+'ejs/_header',{istop:true}) -%>
+<%- include(relativePath+'ejs/top/_mainSlider') -%>
+<div class="c-sections">
+  <%- include(relativePath+'ejs/top/_special') -%>
+  <%- include(relativePath+'ejs/top/_collections') -%>
+  <%- include(relativePath+'ejs/top/_newsEvent') -%>
+  <%- include(relativePath+'ejs/top/_story') -%>
+  <%- include(relativePath+'ejs/top/_shop') -%>
+  <%- include(relativePath+'ejs/_footerLinks') -%>
+</div>
+
+<%- include(relativePath+'ejs/_footer') -%>
+<%- include(relativePath+'ejs/top/_infomation') -%>
+
+<script defer src='./assets/js/bundle.js'></script>
+</body>
+</html>

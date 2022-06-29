@@ -1,0 +1,180 @@
+.slider{
+  height: calc(100vh - #{$HEADER_H});
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+  &_inner{
+    width: 100%;
+    height: 100%;
+
+  }
+  &_item{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+  }
+  &_img{
+    width: 50%;
+    height: 100%;
+    content: '';
+    background-image: url(../img/demo_firstView_pc.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  &_text{
+    width: calc(50% - 50px);
+    margin-left: 50px;
+    &_name{
+      @extend .en;
+      font-size: 60em / $BASE_FONT_SIZE;
+      letter-spacing: .14em;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    &_name_js{
+      @extend .jp;
+      color: $BASE_COLOR_BROWN;
+      letter-spacing: .02em;
+      font-size: 13em / $BASE_FONT_SIZE;
+      line-height: 1;
+      margin-bottom: 50px;
+      svg{
+        @extend .svg;
+      }
+    }
+  }
+}
+
+
+.indicator{
+  font-size: 0;
+  position: absolute;
+  left: calc(50% + 50px);
+  top: calc(50% + 6.5px + 50px + 10px);
+  span{
+    display: inline-block;
+    width: 26px;
+    height: 2px;
+    content: '';
+    background: $BASE_COLOR_BROWN;
+    position: relative;
+    margin-right: 2px;
+    &.active{
+      &::before{
+        display: block;
+        content: '';
+        width: 10px;
+        height: 100%;
+        background: $BASE_COLOR_BLACK;
+        top: 0;
+        left: 0;
+      }
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}
+
+.info_button{
+  display: none;
+}
+
+.c-page_down{
+  color: $BASE_COLOR_BROWN;
+  width: 10px;
+  height: 6px;
+  display: block;
+  position: relative;
+  margin: (20px - 3px) auto;
+  svg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+//sp or tablet
+@include mq-max($BREAK_POINT_SP){
+  .slider{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin-top: -77px;
+    &_inner{
+      position: relative;
+      padding: 5px;
+      box-sizing: border-box;
+      background-color: $BASE_COLOR_LIGHTGRAY;
+    }
+    &_item{
+      display: block;
+      position: relative;
+      align-items: inherit;
+      justify-content: inherit;
+    }
+    &_img{
+      display: block;
+      content: '';
+      width: 100%;
+      background: none;
+      position: relative;
+      top: 0;
+      left: 0;
+      background-image: url(../img/demo_firstView.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+    &_text{
+      position: absolute;
+      top: 0;
+      margin-left: 0;
+      left: 13px;
+      top: 123px;
+      width: 50%;
+      &_name{
+        color: $BASE_COLOR_WHITE;
+        &_js{
+          color: $BASE_COLOR_YELLOW;
+        }
+      }
+
+    }
+  }
+  .indicator{
+    top: inherit;
+    left: inherit;
+    bottom: 20px;
+    right: 20px;
+    span{
+      background: $BASE_COLOR_WHITE;
+      &.active::before{
+        background: $BASE_COLOR_YELLOW;
+      }
+    }
+
+  }
+  .c-page_down{
+    display: none;
+  }
+  .info_button{
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 28px;
+    height: 28px;
+    content: '';
+    background-image: url('../img/top/infoButton.svg');
+  }
+
+};

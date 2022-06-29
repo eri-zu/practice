@@ -1,0 +1,17 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+
+<section class="shop c-section">
+  <div class="c-section--inner">
+    <h1 class="c-section--h1"><span>05</span>Shop</h1>
+    <a href="" class="hover-item hover-item-img">
+      <div class="imgHover_Animation--wrapper">
+        <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+        <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+      </div>
+      <img src="assets/img/top/shop/01.png" class="obj-cover">
+    </a>
+  </div>
+</section>

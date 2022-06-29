@@ -1,0 +1,28 @@
+<%
+var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+
+<div class="watch-header-modal-wrapper watch-item">
+  <div class="watch-item--inner">
+    <div class="watch-header-modal">
+      <div class="watch-header-modal--items">
+        <button class="watch-header-modal--item item_query" data-category="category" data-query="mens">
+          Men's Watch
+        </button>
+        <button class="watch-header-modal--item item_query" data-category="category" data-query="ladies">
+          Ladies’ Watch
+        </button>
+        <button class="watch-header-modal--item item_query" data-category="category" data-query="share">
+          Share Watch
+        </button>
+        <button class="watch-header-modal--item item_query" data-category="category" data-query="favo">
+          Favorite
+        </button>
+      </div>
+      <div class="watch-header-modal--footer">
+        <a href="#all" class="reset_query" data-category="category">全てのカテゴリー</a>
+      </div>
+    </div>
+  </div>
+</div>

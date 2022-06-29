@@ -1,0 +1,86 @@
+<% var rootPATH = './', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+  
+  <!-- header -->
+  <div class="header">
+    <div class="item logo"><%- include('../../dist/assets/resource/svg/logo.svg'); %></div>
+    <div class="item menu"><%- include('../../dist/assets/resource/svg/menu.svg'); %></div>
+  </div>
+  
+  <!-- slider -->
+  <div class="slider">
+  
+    <!-- imgs -->
+    <div class="imgWrap">
+      <!-- imgs -->
+      <div class="imgs">
+        <div class="img active"></div>
+        <div class="img"></div>
+        <div class="img"></div>      
+      </div>
+      <!-- border -->
+      <div class="border"></div>
+    </div>
+    
+    <!-- text -->
+    <div class="textWrap">
+      <!-- texts -->
+      <div class="texts">
+        <div class="dummyText"></div>
+        <div class="textItem active">
+          <div class="tit">Cintrée<br class="sp"> Curvex</div>
+          <div class="text flex">
+            <div class="textInner">トノウ カーベックス</div>
+            <div class="arrow"><%- include('../../dist/assets/resource/svg/allow_left.svg') -%></div>
+          </div>
+        </div>
+        <div class="textItem">
+          <div class="tit">Cintrée<br class="sp"> Curvex</div>
+          <div class="text flex">
+            <div class="textInner">トノウ カーベックス</div>
+            <div class="arrow"><%- include('../../dist/assets/resource/svg/allow_left.svg') -%></div>
+          </div>
+        </div>
+        <div class="textItem">
+          <div class="tit">Cintrée<br class="sp"> Curvex</div>
+          <div class="text flex">
+            <div class="textInner">トノウ カーベックス</div>
+            <div class="arrow"><%- include('../../dist/assets/resource/svg/allow_left.svg') -%></div>
+          </div>
+        </div>
+      </div>
+      <!-- indicator -->
+      <div class="indicator flex">
+        <div class="item"><div class="bar"></div></div>
+        <div class="item"><div class="bar"></div></div>
+        <div class="item"><div class="bar"></div></div>
+      </div>
+    </div>
+      
+
+  </div>
+  
+  <!-- info -->
+  <div class="info"><%- include('../../dist/assets/resource/svg/infoButton.svg'); %></div>
+
+  <!-- arrow btm -->
+  <div class="arrowBtm"><%- include('../../dist/assets/resource/svg/under_arrow.svg'); %></div>
+
+</div>
+</div>
+
+<script src="https://use.typekit.net/cyg6ufq.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+</body>
+</html>

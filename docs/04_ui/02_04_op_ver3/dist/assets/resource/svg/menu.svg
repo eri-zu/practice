@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 23" class="menu_svg">
+  <defs>
+    <style>
+      .menu_svg1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="グループ化_725" data-name="グループ化 725" transform="translate(-329 -20)">
+    <path id="パス_744" data-name="パス 744" class="menu_svg1" d="M-1332,21h26" transform="translate(1661)"/>
+    <path id="パス_745" data-name="パス 745" class="menu_svg1" d="M-1332,21h26" transform="translate(1661 11)"/>
+    <path id="パス_746" data-name="パス 746" class="menu_svg1" d="M-1332,21h16" transform="translate(1671 21)"/>
+  </g>
+</svg>
