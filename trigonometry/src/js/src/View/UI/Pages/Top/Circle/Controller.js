@@ -36,9 +36,9 @@ export default class Controller extends Base {
   update() {
     const st = window.scrollY;
 
-    this.degree = m.map(st, -90, 0, 0, this.maxScroll);
+    // this.degree = m.map(st, -90, 0, 0, this.maxScroll);
     // this.degree = m.map(st, 0, 90, 0, this.maxScroll);
-    // this.degree = m.map(st, -90, -180, 0, this.maxScroll);
+    this.degree = m.map(st, -90, -180, 0, this.maxScroll);
     // this.degree = m.map(st, 180, 90, 0, this.maxScroll);
 
     // this.degree = m.map(st, -90, 0, 0, this.maxScroll);
