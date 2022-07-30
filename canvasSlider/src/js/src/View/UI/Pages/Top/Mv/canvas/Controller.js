@@ -29,7 +29,10 @@ export default class Content extends Base {
     this.h = this.wrap.clientHeight;
 
     // renderer
-    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    gb.renderer = this.renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+    });
     if (this.isRetina) this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(this.w, this.h);
     this.renderer.setClearColor(0x000000, 1.0);

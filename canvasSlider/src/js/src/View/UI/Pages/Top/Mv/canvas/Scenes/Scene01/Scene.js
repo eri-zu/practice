@@ -29,7 +29,8 @@ export default class Scene extends Base {
   setup() {
     this.isEffect = false;
     this.isGUI = false;
-    this.isControl = true;
+    // this.isControl = true;
+    this.isControl = false; // zoom????
 
     // objÉú³É
     this.add();
@@ -40,6 +41,10 @@ export default class Scene extends Base {
     this.scene = new _Scene();
     this.scene = this.scene.scene;
     // this.scene.fog = new THREE.FogExp2( 0x000000, 0.0004 );
+
+    // helper
+    const axesHelper = new THREE.AxesHelper(5);
+    this.scene.add(axesHelper);
 
     // camera
     this.cameraC = gb.camera = new _Camera(this.scene);

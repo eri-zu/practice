@@ -15,7 +15,7 @@ export default class Camera extends Base {
 
     this.scene = scene;
 
-    this.fov = 75;
+    this.fov = 45;
     this.aspect = gb.r.w / gb.r.h;
     this.near = 0.1;
     this.far = 100;
@@ -52,6 +52,8 @@ export default class Camera extends Base {
     this.h = this.frustum.planes[2].constant + this.frustum.planes[3].constant;
     this.depth =
       this.frustum.planes[4].constant + this.frustum.planes[5].constant;
+
+    console.log(this.camera.position, "camerapos");
   }
 
   createForShader() {
@@ -64,12 +66,12 @@ export default class Camera extends Base {
     var h = gb.renderer.domElement.height;
 
     this.camera = new THREE.OrthographicCamera(
-      w / -4,
-      w / 4,
-      h / 4,
-      h / -4,
+      -1,
       1,
-      1000
+      1,
+      -1,
+      this.near,
+      this.far
     );
     this.camera.position.z = 1;
   }
