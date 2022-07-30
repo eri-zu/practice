@@ -20,8 +20,7 @@ export default class Controller extends Base {
   }
 
   setup() {
-    // canvas
-    this.c = new Canvas();
+    new Canvas();
   }
 
   update() {}

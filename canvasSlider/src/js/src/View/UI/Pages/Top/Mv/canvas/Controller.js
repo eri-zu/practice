@@ -10,14 +10,14 @@ import Scene01 from "./Scenes/Scene01/Scene.js";
 import * as THREE from "three";
 
 export default class Content extends Base {
-  constructor($wrap = $("body"), id = "cv") {
+  constructor() {
     super();
+
+    this.wrap = document.querySelector(".canvaswrap");
 
     this.isUEv = true; // update
     this.isREv = true; // update
-
-    this.$wrap = $wrap;
-    this.id = id;
+    this.isRetina = true;
 
     this.setup();
     this.setEvents();
@@ -25,25 +25,17 @@ export default class Content extends Base {
 
   setup() {
     // canvas size
-    this.w = gb.r.w;
-    this.h = gb.r.h;
-
-    this.isRetina = true;
+    this.w = this.wrap.clientWidth;
+    this.h = this.wrap.clientHeight;
 
     // renderer
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     if (this.isRetina) this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.renderer.setSize(gb.r.w, gb.r.h);
+    this.renderer.setSize(this.w, this.h);
     this.renderer.setClearColor(0x000000, 1.0);
-    // this.renderer.setClearColor(0xffffff, 1.0);
 
     // append
-    this.$wrap.prepend(this.renderer.domElement);
-
-    // set style
-    $(this.renderer.domElement)
-      .css({ position: "absolute", top: 0, left: 0, "z-index": 1, opacity: 1 })
-      .attr("id", this.id);
+    this.wrap.append(this.renderer.domElement);
 
     // obj
     this.add();
@@ -69,12 +61,13 @@ export default class Content extends Base {
   timeline() {}
 
   onResize() {
-    var w = gb.r.w;
-    var h = gb.r.h;
+    const w = this.wrap.clientWidth;
+    const h = this.wrap.clientHeight;
 
     this.scene01.onResize();
 
     this.renderer.setSize(w, h);
+
     if (this.scene01.isEffectComposer) {
       this.scene01.composer.setSize(
         w * window.devicePixelRatio,

@@ -1149,4 +1149,17 @@ a:active {
   right: 0;
   bottom: 0;
 }
+
+.canvaswrap {
+  width: 100vw;
+  height: 100vh;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 1;
+}
 /*# sourceMappingURL=maps/style.css.map */
