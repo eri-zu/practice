@@ -1,0 +1,13 @@
+<svg id="アートワーク_1" data-name="アートワーク 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <path id="パス_544" data-name="パス 544" d="M11.088,13.09v1.68H10.032V13.09H7.07v-.815h2.962V11.087H7.07V10.3h2.4L6.7,6.23H7.933l2.6,3.778,2.6-3.778H14.3L11.555,10.3H14.05v.792H11.088V12.28H14.05v.815Z"/>
+  <circle id="楕円形_4" data-name="楕円形 4" class="cls-1" cx="10" cy="10" r="10" transform="translate(0.5 0.5)"/>
+</svg>

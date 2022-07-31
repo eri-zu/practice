@@ -1,0 +1,55 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+
+<section class="story c-section">
+  <div class="c-section--inner">
+    <h1 class="c-section--h1"><span>04</span>Story</h1>
+    <div class="story--contents">
+      <a href="" class="story--contents--items story--contents--items--01 hover-item hover-item-img img">
+        <div class="imgHover_Animation--wrapper">
+          <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+          <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+        </div>
+        <div class="story--contents--linktitle text">Franck Muller</div>
+      </a>
+      <a href="" class="story--contents--items story--contents--items--02 hover-item hover-item-img img">
+        <div class="imgHover_Animation--wrapper">
+          <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+          <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+        </div>
+        <div class="story--contents--linktitle text">History</div>
+      </a>
+      <a href="" class="story--contents--items story--contents--items--03 hover-item hover-item-img img">
+        <div class="imgHover_Animation--wrapper">
+          <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+          <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+        </div>
+        <div class="story--contents--linktitle text">Watchland</div>
+      </a>
+      <a href="" class="story--contents--items story--contents--items--04 hover-item hover-item-img img">
+        <div class="imgHover_Animation--wrapper">
+          <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+          <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+        </div>
+        <div class="story--contents--linktitle">
+          <span data-href="" class="atag-inLinks text">Craftsmanship</span>
+          <div class="story--contents--links">
+            <div data-href="" class="atag-inLinks"><div class="text">Dial</div>
+            <%- include(relativePath+'../assets/_arrowLeft') -%></div>
+            <div data-href="" class="atag-inLinks"><div class="text">Movement</div>
+            <%- include(relativePath+'../assets/_arrowLeft') -%></div>
+            <div data-href="" class="atag-inLinks"><div class="text">Crafts of Watchmaking</div>
+            <%- include(relativePath+'../assets/_arrowLeft') -%></div>
+            <div data-href="" class="atag-inLinks"><div class="text">Case design</div>
+            <%- include(relativePath+'../assets/_arrowLeft') -%></div>
+            <div data-href="" class="atag-inLinks"><div class="text">Engraving</div>
+            <%- include(relativePath+'../assets/_arrowLeft') -%></div>
+          </div>
+        </div>
+      </a>
+
+      </div>
+    </div>
+</section>

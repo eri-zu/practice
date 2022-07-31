@@ -1,0 +1,67 @@
+<% var rootPATH = './', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+
+  <div class="header">
+    <div class="menu"><img src="./assets/resource/img/menu.png" height="23" width="26" alt=""></div>
+    <div class="logo"><img src="./assets/resource/img/logo_white.png" height="35" width="120" alt=""></div>
+    <div class="logo_s"><img src="./assets/resource/img/fm_btn_white.png" alt=""></div>
+  </div>
+
+  <div class="bgWrap">
+    <div class="bg"></div>
+    <div class="imgBox"></div>
+    <div class="border"></div>
+  </div>
+  
+  <div class="textWrap">
+    <div class="tit"><img src="./assets/resource/img/tit.png" height="93" width="192" alt=""></div>
+    <div class="text"><img src="./assets/resource/img/text.png" height="12" width="135" alt=""></div>
+  </div>
+  
+  <div class="scroll">
+    <img src="./assets/resource/img/scroll.png" height="86" width="13" alt="">
+  </div>
+
+  <div class="bar">
+    <div class="img"><img src="./assets/resource/img/progress.png" height="2" width="80" alt=""></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+
+
+
+  <!-- line -->
+<!--   <div class="textWrap">
+    <div class="barWrap barWrap01"><div class="bar bar01"></div></div>
+    <div class="barWrap barWrap02"><div class="bar bar02"></div></div>
+    <div class="barWrap barWrap03"><div class="bar bar03"></div></div>
+    <div class="barWrap barWrap04"><div class="bar bar04"></div></div>
+    <div class="text"><img src="./assets/resource/svg/logo_product.svg" alt="" width="300px" height="auto"></div>
+  </div>
+  
+  <div class="textWrap02">
+    <div class="barWrap barWrap01"><div class="bar bar01"></div></div>
+    <div class="barWrap barWrap02"><div class="bar bar02"></div></div>
+    <div class="barWrap barWrap03"><div class="bar bar03"></div></div>
+    <div class="barWrap barWrap04"><div class="bar bar04"></div></div>
+    <div class="text"><img src="./assets/resource/svg/text01.svg" alt="" width="300px" height="51px"></div>
+  </div> -->
+  
+
+</div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+</body>
+</html>

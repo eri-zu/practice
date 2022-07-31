@@ -1,0 +1,24 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+  %>
+<%
+  include('_mainContents_data'); var mdata = get_main_contents();
+%>
+<section class="c-section aboutCollections--contents">
+  <div class="c-section--inner aboutCollections--contents--inner">
+    <% for (var item of mdata) {%>
+      <a href="<%=item.link%>">
+        <div class="aboutCollections--contents--thumbnail">
+          <img src="<%=relativePath+item.img%>">
+        </div>
+        <div class="aboutCollections--contents--info">
+          <div class="aboutCollections--contents--info--title"><%=item.title%></div>
+          <div class="aboutCollections--contents--info--jp_title"><%=item.jp_title%></div>
+          <div class="aboutCollections--contents--info--description"><%=item.description%></div>
+        </div>
+      </a>
+    <%}%>
+
+  </div>
+</section>

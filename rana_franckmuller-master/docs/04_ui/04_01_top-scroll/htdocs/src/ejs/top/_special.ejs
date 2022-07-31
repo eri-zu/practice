@@ -1,0 +1,42 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+
+<section class="special c-section">
+  <div class="special--innner c-section--inner">
+    <div class="special--contentswrapper">
+    <h1 class="c-section--h1"><span>01</span>Special</h1>
+    <div class="special--contents">
+      <div class="special--contents--first">
+        <a class="special--contents--item hover-item hover-item-img" href="#">
+          <div class="imgHover_Animation--wrapper">
+            <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+            <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+            <img src="assets/img/top/special/01.png" class="obj-cover img">
+          </div>
+          <p class="text-underLineAnimation text">WPHH 2018 in GENEVE Report 公開WPHH 2018 in GENEVE Report</p>
+        </a>
+      </div>
+      <div class="special--contents--second">
+        <a class="special--contents--item hover-item hover-item-img" href="#">
+          <div class="imgHover_Animation--wrapper">
+            <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+            <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+            <img src="assets/img/top/special/02.png" class="obj-cover img">
+          </div>
+          <p class="text-underLineAnimation text">WPHH 2018 in GENEVE Report 公開</p>
+        </a>
+        <a class="special--contents--item hover-item hover-item-img" href="#">
+          <div class="imgHover_Animation--wrapper">
+            <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+            <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+            <img src="assets/img/top/special/03.png" class="obj-cover img">
+          </div>
+          <p class="text-underLineAnimation text">WPHH 2018 in GENEVE Report 公開</p>
+        </a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>

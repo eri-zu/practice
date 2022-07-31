@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8px" height="14px" viewBox="0 0 8 14">
+  <style type="text/css">
+    .arrow_svg0{fill:none;stroke:#000000;stroke-miterlimit:10;stroke-width: 3px;}
+  </style>
+  <!-- maskされるshape -->
+  <defs>
+    <clipPath id="arrow_svg_clipPath">
+      <polygon points="0,13 6,7.2 0,1.5 1.4,0 8.9,7.2 1.4,14.4 "/>
+    </clipPath>
+  </defs>
+
+  <!-- maskするshape -->
+  <g id="js-clip" clip-path="url(#arrow_svg_clipPath)">
+    <path class="arrow_svg0" d="M0.4,0.4L7,6.9l-6.6,6.5"/>
+  </g>
+
+</svg>

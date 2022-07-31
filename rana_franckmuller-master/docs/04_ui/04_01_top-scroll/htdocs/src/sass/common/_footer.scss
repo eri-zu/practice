@@ -1,0 +1,298 @@
+footer{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer_links{
+  @include mq-max($BREAK_POINT_SP){
+    flex-flow: column nowrap;
+  };
+  &--inner{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  &__item{
+    max-width: 490px;
+    width: calc(50% - 5px);
+    margin-right: 10px;
+    display: flex;
+    margin-bottom: 40px;
+    @include mq-max(900px){
+      flex-flow: column;
+      margin-right: 20px;
+      width: calc(50% - 10px);
+    };
+    @include mq-max($BREAK_POINT_SP){
+      width: 100%;
+      max-width: inherit;
+      flex-flow: row;
+    };
+    &:nth-child(2n){
+      margin-right: 0;
+    }
+    &:nth-child(n+3){
+      margin-bottom: 0;
+      @include mq-max($BREAK_POINT_SP){
+        margin-bottom: 40px;
+      };
+    }
+  }
+}
+
+$footer_img_width :  (320 / 490) * 100%;
+$footer_info_width : calc(100% - #{$footer_img_width} - 20px);
+.footer_links__item{
+  &_img{
+    width: $footer_img_width;
+    img{
+      width: 100%;
+    }
+    @include mq-max(900px){
+      width: 100%;
+    }
+    @include mq-max($BREAK_POINT_SP){
+      width: calc(50% - 5px);
+      margin-right: 10px;
+    };
+  }
+  &_info{
+    width: $footer_info_width;
+    margin-left: 20px;
+    @include mq-max(900px){
+      width: 100%;
+      margin-left: 0;
+      margin-top: 15.3px;
+    }
+    @include mq-max($BREAK_POINT_SP){
+      width: calc(50% - 5px);
+      margin-left: 0;
+      margin-top: 0;
+    };
+    &__title{
+      color: $BASE_COLOR_DARKBROWN;
+      @include fontSetting(en);
+      margin-bottom: 20px - ((($BASE_LINEHIGHT_EN - 1)*($BASE_FONT_SIZE * 1px))/2) - ((($BASE_LINEHIGHT_JP - 1)*(13px))/2);
+      @include mq-max($BREAK_POINT_SP){
+        margin-bottom: 10px - ((($BASE_LINEHIGHT_EN - 1)*($BASE_FONT_SIZE * 1px))/2) - ((($BASE_LINEHIGHT_JP - 1)*(13px))/2);
+        color: $BASE_COLOR_BLACK;
+      };
+
+    }
+    &__description{
+      @include fontSetting(jp);
+      margin-bottom: 20px - ((($BASE_LINEHIGHT_EN - 1)*($BASE_FONT_SIZE * 1px))/2) - ((($BASE_LINEHIGHT_JP - 1)*(13px))/2);
+      @include mq-max($BREAK_POINT_SP){
+        margin-bottom: 0;
+        color: $BASE_COLOR_DARKBROWN;
+      };
+    }
+    &__more{
+      color: $BASE_COLOR_DARKBROWN;
+      @include mq-max($BREAK_POINT_SP){
+        display: none;
+      };
+      a{
+        color: inherit;
+        text-decoration: none;
+        @include fontSetting(en);
+        transition: opacity 500ms;
+        &:hover{
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+}
+
+.footer_links__item_info__more{
+  a svg{
+    @extend .svg;
+  }
+}
+
+.footer_contents{
+  background-color: $BASE_COLOR_BLACK;
+  width: 100%;
+  padding: 80px 0 90px;
+  &__elements{
+    margin-top: 20px;
+  }
+  @include mq-max($BREAK_POINT_TABLET){
+    padding-top: 30px;
+    padding-bottom: 20px - 3px;
+    &__elements{
+      margin-top: 30px;
+    }
+  }
+}
+.footer_contents__bgimg{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  @include mq-max($BREAK_POINT_TABLET){
+    height: auto;
+  }
+  //margin-top: 80px;
+}
+.footer_contents__elements{
+
+
+
+
+  &__linkboxes{
+    display: flex;
+    width: 335px;
+    margin: 0 auto 40px;
+  }
+  &__linkbox{
+    width: (335px/2) - 10px;
+    margin-right: 20px;
+    color: $BASE_COLOR_YELLOW;
+    @include fontSetting(en);
+    border: 1px solid $BASE_COLOR_YELLOW;
+    transition: all  .5s $easeINCubic;
+    box-sizing: border-box;
+    padding: (40px - (14px * 1.3))/2 0;
+    text-align: center;
+    vertical-align: middle;
+    &:hover{
+      background-color: $BASE_COLOR_YELLOW;
+      color: $BASE_COLOR_BLACK;
+    }
+    svg{
+      @extend .svg;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+
+
+  &__otherBtns{
+    display: flex;
+    width: 335px;
+    margin: 0 auto 40px;
+    position: relative;
+    &_sns{
+      width: (335px/2) - 10px;
+      margin-right: 20px;
+      position: relative;
+      font-size: 0;
+      a{
+        opacity: 1;
+        transition: opacity .5s $easeINCubic;
+        color: $BASE_COLOR_YELLOW;
+        @extend .snsbtn;
+        margin-right: 20px;
+        &:last-child{
+          margin-right: 0;
+        }
+        svg{
+          width: 100%;
+          height: 100%;
+        }
+        &:hover{
+          opacity: .3;
+        }
+      }
+      &::after{
+        display: block;
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        left: (335px / 2);
+        top: 0;
+        background-color: $BASE_COLOR_YELLOW;
+      }
+    }
+
+    &_lang{
+      width: (335px/2) - 10px;
+      margin-left: 20px;
+      text-align: right;
+      font-size: 0;
+      a{
+        transition: all .5s $easeINCubic;
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        margin-right: 20px;
+        color: $BASE_COLOR_YELLOW;
+        text-decoration: none;
+        border: 2px solid $BASE_COLOR_YELLOW;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        box-sizing: border-box;
+        line-height: 30px;
+        font-weight: 500;
+        &:hover{
+          background: $BASE_COLOR_YELLOW;
+          color: $BASE_COLOR_BLACK;
+        }
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+
+
+
+  &__companyinfo{
+    //width: 335px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 0 auto 40px;
+    a{
+      font-size: 12 / $BASE_FONT_SIZE * 1em;
+      color: $BASE_COLOR_YELLOW;
+      line-height: 1;
+      margin-right: 20px;
+      letter-spacing: 0.02em;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    @include mq-max($BREAK_POINT_TABLET){
+      flex-flow: column nowrap;
+      a{
+        font-size: 13em / $BASE_FONT_SIZE;
+        font-weight: 300;
+        margin-right: 0;
+        margin-bottom: 20px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+
+
+    }
+  }
+
+
+  &__copyright{
+    text-align: center;
+    color: $BASE_COLOR_WHITE;
+    @include mq-max($BREAK_POINT_TABLET){
+      margin: 0 auto;
+      width: 214px;
+    }
+    p{
+      @extend .en;
+      line-height: 1;
+      font-size: 12em / $BASE_FONT_SIZE;
+      margin-bottom: 10px;
+      @include mq-max($BREAK_POINT_TABLET){
+        line-height: (18 / 12);
+        letter-spacing: .04em;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

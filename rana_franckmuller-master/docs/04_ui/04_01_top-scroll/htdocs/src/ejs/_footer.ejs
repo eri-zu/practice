@@ -1,0 +1,84 @@
+
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+
+
+<footer>
+  <div class="footer_contents">
+    <img class="footer_contents__bgimg obj-cover" src="<%=relativePath%>assets/img/footer/bg.png">
+    <div class="footer_contents__elements">
+      <div class="footer_contents__elements__linkboxes">
+        <a class="footer_contents__elements__linkbox en">
+          Catalogue
+          <%- include('assets/_arrowLeft') -%>
+        </a>
+        <a class="footer_contents__elements__linkbox en">
+          After Service
+          <%- include('assets/_arrowLeft') -%>
+        </a>
+      </div>
+      <div class="footer_contents__elements__otherBtns">
+        <div class="footer_contents__elements__otherBtns_sns">
+          <a class="footer_contents__elements__otherBtns_sns--facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: currentColor;
+                  }
+                </style>
+              </defs>
+              <g id="facebook" transform="translate(15 15)">
+                <path id="パス_221" data-name="パス 221" class="cls-1" d="M28.344,0H1.656A1.655,1.655,0,0,0,0,1.656V28.344A1.656,1.656,0,0,0,1.656,30H16.024V18.383h-3.91V13.855h3.91V10.516c0-3.875,2.367-5.985,5.823-5.985a32.078,32.078,0,0,1,3.494.178v4.05h-2.4c-1.88,0-2.244.893-2.244,2.2V13.85H25.18l-.58,4.533H20.7V30h7.645A1.656,1.656,0,0,0,30,28.344V1.656A1.656,1.656,0,0,0,28.344,0Z" transform="translate(-15 -15)"/>
+              </g>
+            </svg>
+          </a>
+          <a class="footer_contents__elements__otherBtns_sns--twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: currentColor;
+                  }
+                </style>
+              </defs>
+              <path id="Twitter" class="cls-1" d="M26.25,0H3.75A3.751,3.751,0,0,0,0,3.75v22.5A3.751,3.751,0,0,0,3.75,30h22.5A3.751,3.751,0,0,0,30,26.25V3.75A3.751,3.751,0,0,0,26.25,0Zm-3.8,11.183c.007.165.007.33.007.495A10.944,10.944,0,0,1,5.633,20.9a7.4,7.4,0,0,0,.915.052,7.713,7.713,0,0,0,4.778-1.65,3.846,3.846,0,0,1-3.593-2.67,3.868,3.868,0,0,0,1.732-.068A3.854,3.854,0,0,1,6.383,12.8v-.052a3.89,3.89,0,0,0,1.74.48A3.861,3.861,0,0,1,6.93,8.085a10.921,10.921,0,0,0,7.927,4.02,4.251,4.251,0,0,1-.1-.878A3.847,3.847,0,0,1,21.412,8.6a7.649,7.649,0,0,0,2.445-.93,3.869,3.869,0,0,1-1.7,2.13,7.794,7.794,0,0,0,2.213-.608,7.836,7.836,0,0,1-1.915,1.991Z"/>
+            </svg>
+          </a>
+          <a class="footer_contents__elements__otherBtns_sns--instagram">
+            <svg id="Instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.004 30.002">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: currentColor;
+                  }
+                </style>
+              </defs>
+              <path id="パス_222" data-name="パス 222" class="cls-1" d="M15,2.7c4.005,0,4.48.015,6.061.087a8.3,8.3,0,0,1,2.785.516,4.647,4.647,0,0,1,1.725,1.122A4.647,4.647,0,0,1,26.693,6.15a8.3,8.3,0,0,1,.516,2.785c.072,1.582.087,2.056.087,6.061s-.015,4.48-.087,6.061a8.3,8.3,0,0,1-.516,2.785,4.967,4.967,0,0,1-2.847,2.847,8.3,8.3,0,0,1-2.785.516c-1.581.072-2.056.087-6.061.087s-4.48-.015-6.061-.087a8.3,8.3,0,0,1-2.785-.516,4.647,4.647,0,0,1-1.725-1.122,4.648,4.648,0,0,1-1.122-1.725,8.3,8.3,0,0,1-.516-2.785C2.718,19.48,2.7,19,2.7,15s.015-4.48.087-6.061A8.3,8.3,0,0,1,3.3,6.154,4.647,4.647,0,0,1,4.429,4.429,4.647,4.647,0,0,1,6.153,3.307,8.3,8.3,0,0,1,8.939,2.79C10.52,2.718,10.995,2.7,15,2.7M15,0c-4.074,0-4.585.017-6.184.09a11.01,11.01,0,0,0-3.641.7A7.353,7.353,0,0,0,2.518,2.52,7.353,7.353,0,0,0,.787,5.174a11.01,11.01,0,0,0-.7,3.641C.017,10.415,0,10.926,0,15s.017,4.585.09,6.184a11.01,11.01,0,0,0,.7,3.641,7.353,7.353,0,0,0,1.73,2.657,7.353,7.353,0,0,0,2.657,1.73,11.01,11.01,0,0,0,3.641.7c1.6.073,2.111.09,6.184.09s4.585-.017,6.184-.09a11.01,11.01,0,0,0,3.641-.7,7.67,7.67,0,0,0,4.387-4.387,11.01,11.01,0,0,0,.7-3.641c.073-1.6.09-2.111.09-6.184s-.017-4.585-.09-6.184a11.01,11.01,0,0,0-.7-3.641,7.353,7.353,0,0,0-1.73-2.657A7.353,7.353,0,0,0,24.826.787a11.01,11.01,0,0,0-3.641-.7C19.585.017,19.074,0,15,0Z"/>
+              <path id="パス_223" data-name="パス 223" class="cls-1" d="M15,7.3A7.7,7.7,0,1,0,22.7,15,7.7,7.7,0,0,0,15,7.3ZM15,20a5,5,0,1,1,5-5A5,5,0,0,1,15,20Z"/>
+              <circle id="楕円形_1" data-name="楕円形 1" class="cls-1" cx="1.8" cy="1.8" r="1.8" transform="translate(21.207 5.193)"/>
+            </svg>
+
+          </a>
+        </div>
+        <div class="footer_contents__elements__otherBtns_lang">
+          <a class="footer_contents__elements__otherBtns_lang--en en">EN</a>
+          <a class="footer_contents__elements__otherBtns_lang--kr en">KR</a>
+          <a class="footer_contents__elements__otherBtns_lang--cn en">CN</a>
+        </div>
+      </div>
+      <div class="footer_contents__elements__companyinfo">
+        <a href="" class="en">Mail Magazine</a>
+        <a href="" class="en">Term & Use </a>
+        <a href="" class="en">Privacy Policy</a>
+        <a href="" class="en">Contact</a>
+      </div>
+      <div class="footer_contents__elements__copyright">
+        <p>@2018 The Franck Muller group - All intellectual Property rights reserved.</p>
+        <p>WORLD COMMERCE CORPORATION All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>

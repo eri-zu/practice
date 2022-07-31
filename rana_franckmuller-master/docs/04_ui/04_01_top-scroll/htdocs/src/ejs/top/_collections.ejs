@@ -1,0 +1,43 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+%>
+
+<section class="collections c-section">
+  <div class="c-section--inner">
+    <h1 class="c-section--h1"><span>02</span>Collections</h1>
+    <div class="collections--contents">
+      <div class="collections--contents--first collections--contents--div">
+        <a class="collections--contents--item  collections--contents--item--mens hover-item hover-item-img" href="">
+          <div class="bg"></div>
+          <%#- include('../../../dist/assets/svg/line1.svg') -%>
+          <div class="imgHover_Animation--wrapper">
+            <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+            <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+          </div>
+          <p>Men’s Watch</p>
+        </a>
+        <a class="collections--contents--item collections--contents--item--ladies hover-item hover-item-img" href="">
+          <div class="bg"></div>
+          <%#- include('../../../dist/assets/svg/line2.svg') -%>
+          <div class="imgHover_Animation--wrapper">
+            <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+            <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+          </div>
+          <p>Ladies’ Watch</p>
+        </a>
+      </div>
+      <div class="collections--contents--second collections--contents--div">
+        <a class="collections--contents--item collections--contents--item--jewellery  hover-item hover-item-img" href="">
+          <div class="bg"></div>
+          <%#- include('../../../dist/assets/svg/line3.svg') -%>
+          <div class="imgHover_Animation--wrapper">
+            <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+            <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+          </div>
+          <p>Jewellery</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

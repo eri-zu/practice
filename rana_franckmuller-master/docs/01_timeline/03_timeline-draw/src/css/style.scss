@@ -1,0 +1,248 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+@import "./_init/import";
+@import "./_init/reset"; // リセットCSS、フォントサイズ sss
+
+/* --------------------------------------------------------------------------------
+*   parts
+-------------------------------------------------------------------------------- */
+@import "./_parts/_common/**/*.scss";
+@import "./_parts/_compornents/**/*.scss";
+
+/* --------------------------------------------------------------------------------
+*   page
+-------------------------------------------------------------------------------- */
+html {
+  overflow: hidden;
+}
+#wrapper.id_top {
+
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #E8E6DD;
+  
+  .header {
+    position: absolute;
+    left: 0;
+    top: rem(20 ,$fz);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 rem(20 ,$fz);
+    z-index: 2;
+    
+    .item {
+      // opacity: 0;
+      position: relative;
+    }    
+
+  }
+
+  #inner {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    
+    .bgWrap {
+      position: absolute;
+      left: rem(0 ,$fz);
+      top: rem(0 ,$fz);
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
+      
+      .bg {
+        background: url(../resource/img/image.png);
+        background-size: cover;
+        background-position: center center;
+        width: 100%;
+        height: 100%;
+        
+        opacity: 0;
+      }
+
+      .border {
+        position: absolute;
+        left: rem(0 ,$fz);
+        top: rem(0 ,$fz);
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        border: rem(6 ,$fz) solid #F0EEE8;
+        z-index: 2;
+      }
+
+      .imgBox {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        margin-top: rem(-57 ,$fz);
+        margin-left: rem(-38 ,$fz);
+        width: rem(210 ,$fz);
+        height: rem(172 ,$fz);
+        // background: rgba(0,0,0,.6);
+        
+        // opacity: 0;
+      }
+    }
+
+    .textWrap {
+      position: absolute;
+      left: rem(20 ,$fz);
+      top: rem(120 ,$fz);
+      z-index: 2;
+      
+      .tit {
+        margin-bottom: rem(15 ,$fz);
+        position: relative;
+        
+        // opacity: 0;
+      }
+
+      .text {
+        display: inline-block;
+        margin-left: rem(6 ,$fz);
+        position: relative;
+        
+        // opacity: 0;
+      }
+    }
+
+    .scroll {
+      position: absolute;
+      z-index: 3;
+      bottom: rem(20 ,$fz);
+      left: rem(20 ,$fz);
+      
+      // opacity: 0;
+    }
+
+    .indicator {
+      position: absolute;
+      z-index: 2;
+      bottom: rem(20 ,$fz);
+      right: rem(20 ,$fz);
+      
+      // opacity: 0;
+    }
+
+    .boxBar {
+
+      // background-color: #fff;
+      // width: rem(200 ,$fz);
+      // height: rem(100 ,$fz);
+      
+      // position: relative;
+      
+      .boxBarTarget {
+        opacity: 0;
+        font-size: rem(15 ,$fz);
+        letter-spacing: 0.5em;
+        
+        color: #fff;
+      }
+      
+      .dotWrap_h {
+
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        
+        display: flex;
+        align-items: center;
+
+        .dot {
+          width: rem(2 ,$fz);
+          height: 1px;
+          margin-right: rem(2 ,$fz);
+          background-color: #666666;
+          
+          opacity: 0;
+        }
+        
+      }
+      .dotWrap_v {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        .dot {
+          width: 1px;
+          height: rem(2 ,$fz);
+          margin-bottom: rem(2 ,$fz);
+          background-color: #666666;
+          flex: 0 0 auto;
+          
+          // opacity: 0;
+        }
+        
+      }
+      
+      .barWrap_h {
+        width: rem(100 ,$fz);
+        height: 1px;
+        
+        .bar {
+          width: 0%;
+          height: 100%;
+          background: #666666;
+        }
+      }
+      .barWrap_h.top {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .barWrap_v.left {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .barWrap_v {
+        width: 1px;
+        height: rem(100 ,$fz);
+        
+        .bar {
+          width: 100%;
+          height: 0%;
+          background: #666666;
+        }
+      }
+
+      .barWrap_h.bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .barWrap_v.right {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      
+    
+    }
+
+
+
+  }
+  
+}

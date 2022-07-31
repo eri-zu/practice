@@ -1,0 +1,31 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+  include('_newsEvent_info'); var edata = newsEvent_info();
+%>
+
+<section class="news-event c-section">
+  <div class="c-section--inner">
+    <h1 class="c-section--h1"><span>03</span>News & Events</h1>
+    <div class="news-event--contents">
+      <% for (var item of edata) {%>
+      <a class="news-event--contents--item hover-item hover-item-img" href="<%=item.link%>">
+        <div class="news-event--contents--img">
+          <div class="imgHover_Animation--wrapper">
+            <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+            <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+            <img src="<%=item.img%>"/ class="img">
+          </div>
+        </div>
+        <div class="news-event--contents--info">
+          <p class="news-event--contents--date date"><%=item.date%></p>
+          <p class="news-event--contents--title text"><%=item.title%></p>
+        </div>
+
+      </a>
+      <% }; %>
+    </div>
+    <a class="news-event--more" href="">View More
+    <%- include(relativePath+'../assets/_arrowLeft') -%></a>
+  </div>
+</section>

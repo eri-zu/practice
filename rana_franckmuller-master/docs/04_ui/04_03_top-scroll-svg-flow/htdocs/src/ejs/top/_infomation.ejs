@@ -1,0 +1,17 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+  include('_newsEvent_info'); var edata = newsEvent_info();
+%>
+<div class="infomation-modal">
+  <div class="infomation-modal__inner">
+    <h2>Information</h2>
+    <a href="#close" class="infomation-modal--close">close</a>
+    <div class="infomation-modal--links">
+      <a href="#">Watch Collections
+      <%- include(relativePath+'../assets/_arrowLeft') -%></a>
+      <a href="">Shops
+      <%- include(relativePath+'../assets/_arrowLeft') -%></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,459 @@
+.watch-menu--modals--wrapper{
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+  max-width: 1000px;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  &.active{
+
+
+  }
+}
+.watch-menu--modal{
+  background: $BASE_COLOR_WHITE;
+  &-item{
+
+    display: flex;
+
+  }
+
+  &-collection--item{
+    margin-bottom: 20px;
+    .item_query{
+      &.active{
+        color: $BASE_COLOR_BROWN
+      }
+    }
+    &:last-child{
+      .watch-menu--modal-collection--item--list{
+        border: none;
+      }
+    }
+  }
+}
+
+
+.watch-menu--modal-collection{
+  visibility: hidden;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1) ;
+  height: 0;
+  &.active{
+    height: auto;
+    transform: translateY(0%);
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+}
+
+.watch-menu--modal-collection--item{
+  transition: transform 400ms $easeINCubic;
+  &--title{
+    @extend .en;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  &--sp_btn{
+    display: none;
+  }
+  &--list{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 20px;
+    border-right: 1px solid $BASE_COLOR_GLAY;
+  }
+  .watch-collections--item{
+    width: calc(25% - 17px + (17px/4));
+    margin-right: 17px;
+    margin-bottom: 24px;
+    &:nth-child(5n){
+      margin-right: 17px;
+    }
+    &:nth-child(4n){
+      margin-right: 0px;
+    }
+    &:nth-child(n+5){
+      margin-bottom: 0;
+    }
+
+
+    &--thumbnail{
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    &--new{
+      display: none;
+    }
+
+    &--title{
+      @extend .jp;
+      font-size: 10px;
+      line-height: 1.2;
+    }
+
+
+    &--favo{
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+.watch-menu--modal--footer{
+  width: 180px;
+  margin: 0 auto;
+  &--item{
+    height: 40px;
+    text-align: center;
+  }
+  &--allitems{
+    border-top: 1px solid $BASE_COLOR_GLAY;
+    border-bottom: 1px solid $BASE_COLOR_GLAY;
+    margin-bottom: 20px;
+    a{
+      color: $BASE_COLOR_BLACK;
+      @extend .jp;
+      font-size: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      line-height: 40px;
+    }
+  }
+  &--about{
+    padding-bottom: 20px;
+    a{
+      border: 1px solid $BASE_COLOR_DARKBROWN;
+      display: block;
+      @extend .en;
+      text-decoration: none;
+      color: $BASE_COLOR_DARKBROWN;
+      line-height: 40px;
+      svg{
+        @extend .svg;
+        left: 10px
+      }
+    }
+  }
+}
+
+
+.watch-menu--modal-price{
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translateY(-100%);
+  &.active{
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateY(0%);
+  }
+  &--inner{
+    display: flex;
+    padding: 20px 20px;
+  }
+
+
+  &--item{
+    width: calc(20% - 10px + 2px);
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: $BASE_COLOR_LIGHTGRAY;
+    height: 30px;
+    color: $BASE_COLOR_BLACK;
+    line-height: 30px;
+    text-decoration: none;
+    @extend .jp;
+    font-size: 12px;
+    font-weight: 500;
+    &.active{
+      color: $BASE_COLOR_BROWN;
+    }
+    text-align: center;
+    background-image: url(../img/watch/menubar/price.svg);
+    background-position: 10px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    &:last-child{
+      margin-right: 0;
+    }
+
+  }
+
+
+
+  &--footer{
+    width: 180px;
+    height: 40px;
+    margin: 0 auto;
+    padding: 0  0 20px;
+    text-align: center;
+
+    a{
+      @extend .jp;
+      font-size: 10px;
+      font-weight: 500;
+      color: $BASE_COLOR_BLACK;
+      display: block;
+      border-top: 1px solid $BASE_COLOR_GLAY;
+      border-bottom: 1px solid $BASE_COLOR_GLAY;
+      line-height: 40px;
+      text-decoration: none;
+    }
+  }
+}
+
+.watch-menu--modal-search{
+  padding: 20px;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  &.active{
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  }
+  &--input{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    &--inner{
+      width: 100%;
+      position: relative;
+      &::after{
+        display: block;
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        content: '';
+        background-image: url(../img/watch/menubar/search.svg);
+        top: (40px - 22px)/2;
+        right: 0px;
+      }
+      input{
+        border-radius: 8px;
+        background: $BASE_COLOR_LIGHTGRAY;
+        height: 40px;
+        width: 100%;
+        padding: 0 10px;
+        @extend .jp;
+        font-size: 16px;
+        @include placeholder(){
+          color: $BASE_COLOR_GLAY;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+
+  &--btns{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 20px;
+  }
+  &--btn{
+    @extend .jp;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 30px;
+    cursor: pointer;
+    width: calc(20% - 10px + (10px / 5));
+    margin-right: 10px;
+    margin-bottom:10px;
+    background-color: $BASE_COLOR_LIGHTGRAY;
+    border-radius: 8px;
+    height: 30px;
+    &.active{
+      color: $BASE_COLOR_BROWN;
+    }
+
+    &:nth-child(5),&:last-child{
+      margin-right: 0;
+    }
+    &:nth-child(n+5){
+      margin-bottom: 0;
+    }
+  }
+
+  &--footer{
+    margin-top: 20px;
+
+    a{
+      display: block;
+      width: 180px;
+      margin: 0 auto;
+      line-height: 40px;
+      text-align: center;
+      border-top: 1px solid $BASE_COLOR_GLAY;
+      border-bottom: 1px solid $BASE_COLOR_GLAY;
+      @extend .jp;
+      color: $BASE_COLOR_BLACK;
+      font-size: 10px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+}
+
+
+@include mq-max(1160px){
+  .watch-menu--modals--wrapper{
+    padding-left: 6.9vw;
+    padding-right: 6.9vw;
+
+  }
+  .watch-menu--modal-item{
+    width: 300%;
+    overflow: hidden;
+  }
+  .watch-menu--modal-collection{
+    transform: translateY(-100%);
+    overflow: hidden;
+  }
+  .watch-menu--modal-collection--item{
+    width: 100%;
+    &--list{
+      border: none;
+    }
+    .watch-collections--item{
+      text-align: center;
+
+    }
+  }
+  .watch-menu--modal-collection--item{
+    &--title{
+      margin-top: 20px;
+      margin-bottom: 46px;
+    }
+    &--sp_btn{
+      display: block;
+      position: absolute;
+      top: 20px;
+      height: 20px;
+      width: 100%;
+
+      span{
+        cursor: pointer;
+        opacity: .2;
+        padding: 4px;
+        &.active{
+          opacity: 1;
+        }
+        svg{
+          width: 12px;
+          height: 20px;
+        }
+      }
+      &--left{
+        position: absolute;
+        left: 20px;
+        svg{
+          transform: rotate(180deg);
+        }
+      }
+      &--right{
+        position: absolute;
+        right: 20px;
+        svg{
+          transform: rotate(0deg);
+        }
+
+      }
+    }
+
+    &--sp_indicator{
+      display: flex;
+      position: absolute;
+      top: 20px + 16px + 10px;
+      width: 40px;
+      left: calc(50% - 20px);
+      justify-content: space-between;
+
+      span{
+        cursor: pointer;
+        width: 6px;
+        height: 6px;
+        border: 1px solid $BASE_COLOR_BLACK;
+        border-radius: 50%;
+        background: none;
+        &.active{
+          background: $BASE_COLOR_BLACK;
+        }
+      }
+    }
+  }
+  .watch-menu--modal-price{
+    &--inner{
+      flex-flow: column;
+    }
+    &--item{
+      width: 100%;
+      margin-bottom: 10px;
+      margin-right: 0;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      background-position:20px;
+    }
+  }
+  .watch-menu--modal-search{
+    //width: 100%;
+    &--input{
+      width: 100%;
+      &--inner{
+        &::after{
+          right: 10px;
+        }
+        input{
+          box-sizing: border-box;
+        }
+      }
+    }
+    &--btns{
+      flex-flow: column;
+    }
+    &--btn{
+      width: 100%;
+      &:nth-child(n+5){
+        margin-bottom: 10px;
+      }
+    }
+  }
+};
+@include mq-max(700px){
+  .watch-menu--modals--wrapper.active{
+    margin-top: -49px;
+
+  }
+};
+
+@include mq-max($BREAK_POINT_SP){
+  .watch-menu--modals--wrapper{
+    padding-left: 5.3333vw;
+    padding-right: 5.3333vw;
+
+  }
+};

@@ -1,0 +1,10 @@
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+  include('_collections_item'); var cdata = collection_info();
+%>
+
+<div class="watch-collections watch-item watch-collection--watchlist">
+  <div class="watch-collections__inner watch-item--inner">
+  </div>
+</div>

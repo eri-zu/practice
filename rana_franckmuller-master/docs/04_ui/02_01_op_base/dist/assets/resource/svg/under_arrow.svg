@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.023 6">
+  <defs>
+    <style>
+      .under_arrow_svg1 {
+        fill: none;
+      }
+
+      .under_arrow_svg2, .under_arrow_svg3 {
+        stroke: none;
+      }
+
+      .under_arrow_svg3 {
+        fill: #be966f;
+      }
+    </style>
+  </defs>
+  <g id="btn" transform="translate(-205.988 -623.989)">
+    <g id="矢印" transform="translate(0 -18)">
+      <g id="グループ_3" data-name="グループ 3">
+        <g id="シェイプ_3" data-name="シェイプ 3" class="under_arrow_svg1">
+          <path class="under_arrow_svg2" d="M215.295,641.989l.716.752L211,647.989l-.717-.75Z"/>
+          <path class="under_arrow_svg3" d="M 215.2946929931641 641.9887084960938 L 216.0108795166016 642.7404174804688 L 210.9989166259766 647.9891967773438 L 210.2823944091797 647.2391967773438 L 215.2946929931641 641.9887084960938 Z"/>
+        </g>
+        <g id="シェイプ_3-2" data-name="シェイプ 3" class="under_arrow_svg1">
+          <path class="under_arrow_svg2" d="M205.989,642.74l.716-.752,5.013,5.25-.716.75Z"/>
+          <path class="under_arrow_svg3" d="M 206.7046051025391 641.9887084960938 L 211.7176971435547 647.2391967773438 L 211.0018005371094 647.9891967773438 L 205.9889068603516 642.7404174804688 L 206.7046051025391 641.9887084960938 Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

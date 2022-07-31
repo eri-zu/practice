@@ -1,0 +1,30 @@
+
+<%
+  var absolutePath = filename.split(site.developDir)[filename.split(site.developDir).length -1].replace('.ejs','.html');
+  var relativePath = '../'.repeat([absolutePath.split('/').length -1]);
+  include('_footer_info'); var fdata = getfooterinfo();
+%>
+<section class="c-section footer_links">
+  <div class="c-section--inner footer_links--inner">
+  <% for (var item of fdata) {%>
+  <div class="footer_links__item">
+    <div class="footer_links__item_img">
+    <div class="imgHover_Animation--wrapper">
+      <div class="imgHover_Animation--item imgHover_Animation--item--horizontal"></div>
+      <div class="imgHover_Animation--item imgHover_Animation--item--vertical"></div>
+      <img src="<%=relativePath%><%=item.img%>" alt="<%=item.title%>">
+    </div>
+    </div>
+    <div class="footer_links__item_info">
+      <p class="footer_links__item_info__title en"><%=item.title%></p>
+      <p class="footer_links__item_info__description jp"><%=item.desc%></p>
+      <p class="footer_links__item_info__more en">
+        <a href="<%=item.link%>">View More
+          <%- include(relativePath+'assets/_arrowLeft') -%>
+        </a>
+      </p>
+    </div>
+  </div>
+  <% }; %>
+  </div>
+</section>
