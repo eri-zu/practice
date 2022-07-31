@@ -25,8 +25,27 @@ export default class Slider extends Base {
     this.setEvents();
   }
 
-  setup() {
-    this.loadTexture();
+  async setup() {
+    const texture = await this.loadTexture();
+    this.createRect(texture);
+  }
+
+  async loadTexture() {
+    const textureLoader = new THREE.TextureLoader();
+    const path = "./assets/resource/img/1.jpg";
+
+    const p = new Promise((resolve) => {
+      const texture = textureLoader.load(path, () => {
+        // load成功時の処理
+        resolve(texture);
+      });
+    });
+
+    return await p;
+  }
+
+  createRect(TEXTURE) {
+    new Rect(this.scene, this.camera, this.renderer, TEXTURE);
   }
 
   // async loadTexture() {
@@ -53,25 +72,6 @@ export default class Slider extends Base {
   //     new Rect(this.scene, this.camera, this.renderer, textures[i]);
   //   }
   // }
-
-  async loadTexture() {
-    // ------------------------------------------------------------
-    // 単体
-    // ------------------------------------------------------------
-    const textureLoader = new THREE.TextureLoader();
-    const path = "./assets/resource/img/1.jpg";
-
-    const p = new Promise((resolve) => {
-      const texture = textureLoader.load(path, () => {
-        // load成功時の処理
-        resolve(texture);
-      });
-    });
-
-    const TEXTURE = await p;
-
-    new Rect(this.scene, this.camera, this.renderer, TEXTURE);
-  }
 
   timeline() {}
 
