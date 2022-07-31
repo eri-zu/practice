@@ -17,6 +17,9 @@ export default class Slider extends Base {
     this.camera = camera;
     this.renderer = renderer;
 
+    this.aspect =
+      this.renderer.domElement.width / this.renderer.domElement.height;
+
     this.setup();
     this.setEvents();
   }
@@ -38,7 +41,7 @@ export default class Slider extends Base {
 
   ready() {
     // geometry
-    const geometry = new THREE.PlaneGeometry(4, 2);
+    const geometry = new THREE.PlaneGeometry(2 * this.aspect, 2);
 
     // material
     const material = new THREE.MeshBasicMaterial({

@@ -16,8 +16,8 @@ export default class Camera extends Base {
     this.scene = scene;
 
     this.fov = 45;
-    this.aspect = gb.r.w / gb.r.h;
-    // this.aspect = 600 / 400;
+    // this.aspect = gb.r.w / gb.r.h;
+    this.aspect = 600 / 300;
     this.near = 0.1;
     this.far = 100;
 
@@ -67,8 +67,8 @@ export default class Camera extends Base {
     var h = gb.renderer.domElement.height;
 
     this.camera = new THREE.OrthographicCamera(
-      -2, // left
-      2, // right
+      -1 * this.aspect, // left
+      1 * this.aspect, // right
       1, // top
       -1, // bottom
       this.near,
