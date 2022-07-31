@@ -1183,7 +1183,7 @@ a:active {
 
 .slider__img-dummy {
   width: 100%;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .slider__img-dummy img {
