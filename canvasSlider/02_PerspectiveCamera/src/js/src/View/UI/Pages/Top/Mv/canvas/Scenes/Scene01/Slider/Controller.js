@@ -17,6 +17,8 @@ export default class Slider extends Base {
     this.camera = camera;
     this.renderer = renderer;
 
+    this.isLoaded = false;
+
     this.aspect =
       this.renderer.domElement.width / this.renderer.domElement.height;
 
@@ -26,20 +28,28 @@ export default class Slider extends Base {
 
   setup() {
     this.loadTexture();
-    this.ready();
-    this.add();
+    // this.ready();
+    // this.add();
   }
 
   loadTexture() {
-    this.textures = [];
-    this.textureLoader = new THREE.TextureLoader();
-
+    const textureLoader = new THREE.TextureLoader();
     const path = "./assets/resource/img/1.jpg";
 
-    this.texture = this.textureLoader.load(path);
+    const p = new Promise((resolve) => {
+      const texture = textureLoader.load(path, () => {
+        // load成功時の処理
+        resolve(texture);
+      });
+    });
+
+    p.then((texture) => {
+      this.ready(texture);
+      this.add();
+    });
   }
 
-  ready() {
+  ready(texture) {
     // geometry
     const geometry = new THREE.PlaneGeometry(600, 300);
 
@@ -47,7 +57,7 @@ export default class Slider extends Base {
     const material = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       side: THREE.DoubleSide,
-      map: this.texture,
+      map: texture,
     });
 
     // mesh
