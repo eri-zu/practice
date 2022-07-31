@@ -17,8 +17,8 @@ export default class Camera extends Base {
 
     this.fov = 75;
     // this.aspect = gb.r.w / gb.r.h;
-    this.w = 600;
-    this.h = 300;
+    this.w = gb.canvas_w;
+    this.h = gb.canvas_h;
     this.aspect = this.w / this.h;
     this.near = 1;
     this.far = 50000;
@@ -115,6 +115,10 @@ export default class Camera extends Base {
   }
 
   setCameraByPixel() {
+    this.h = gb.canvas_h;
+
+    console.log(this.h);
+
     const vFov = this.fov * (Math.PI / 180);
     const z = this.h / (2 * Math.tan(vFov * 0.5));
     this.camera.position.set(0, 0, z);
@@ -159,13 +163,13 @@ export default class Camera extends Base {
     this.setCameraByPixel();
 
     // frustum
-    this.updateFrustum();
+    // this.updateFrustum();
 
-    this.w = this.frustum.planes[0].constant + this.frustum.planes[1].constant;
-    this.h = this.frustum.planes[2].constant + this.frustum.planes[3].constant;
-    this.depth =
-      this.frustum.planes[4].constant + this.frustum.planes[5].constant;
+    // this.w = this.frustum.planes[0].constant + this.frustum.planes[1].constant;
+    // this.h = this.frustum.planes[2].constant + this.frustum.planes[3].constant;
+    // this.depth =
+    //   this.frustum.planes[4].constant + this.frustum.planes[5].constant;
 
-    log(this.frustum);
+    // log(this.frustum);
   }
 }

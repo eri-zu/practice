@@ -88,8 +88,10 @@ export default class Scene extends Base {
   state() {}
 
   onResize() {
-    var w = gb.r.w * window.devicePixelRatio;
-    var h = gb.r.h * window.devicePixelRatio;
+    // var w = gb.r.w * window.devicePixelRatio;
+    // var h = gb.r.h * window.devicePixelRatio;
+    var w = gb.canvas_w;
+    var h = gb.canvas_h;
 
     gb.camera.onResize();
 

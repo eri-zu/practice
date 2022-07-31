@@ -25,8 +25,8 @@ export default class Content extends Base {
 
   setup() {
     // canvas size
-    this.w = this.wrap.clientWidth;
-    this.h = this.wrap.clientHeight;
+    this.w = gb.canvas_w = this.wrap.clientWidth;
+    this.h = gb.canvas_h = this.wrap.clientHeight;
 
     // renderer
     gb.renderer = this.renderer = new THREE.WebGLRenderer({
@@ -64,17 +64,17 @@ export default class Content extends Base {
   timeline() {}
 
   onResize() {
-    const w = this.wrap.clientWidth;
-    const h = this.wrap.clientHeight;
+    this.w = gb.canvas_w = this.wrap.clientWidth;
+    this.h = gb.canvas_h = this.wrap.clientHeight;
 
     this.scene01.onResize();
 
-    this.renderer.setSize(w, h);
+    this.renderer.setSize(this.w, this.h);
 
     if (this.scene01.isEffectComposer) {
       this.scene01.composer.setSize(
-        w * window.devicePixelRatio,
-        h * window.devicePixelRatio
+        this.w * window.devicePixelRatio,
+        this.h * window.devicePixelRatio
       );
     }
   }
