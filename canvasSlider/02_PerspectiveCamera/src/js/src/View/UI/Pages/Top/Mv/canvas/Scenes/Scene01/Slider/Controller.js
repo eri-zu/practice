@@ -8,6 +8,7 @@ import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 import * as THREE from "three";
+import Rect from "./Rect/Controller";
 
 export default class Slider extends Base {
   constructor(scene, camera, renderer) {
@@ -16,8 +17,6 @@ export default class Slider extends Base {
     this.scene = scene;
     this.camera = camera;
     this.renderer = renderer;
-
-    this.isLoaded = false;
 
     this.aspect =
       this.renderer.domElement.width / this.renderer.domElement.height;
@@ -28,11 +27,37 @@ export default class Slider extends Base {
 
   setup() {
     this.loadTexture();
-    // this.ready();
-    // this.add();
   }
 
-  loadTexture() {
+  // async loadTexture() {
+  //   const textureLoader = new THREE.TextureLoader();
+  //   const path = "./assets/resource/img/";
+
+  //   const texturePromise = [];
+
+  //   for (let i = 1; i <= 5; i++) {
+  //     const src = path + i + ".jpg";
+  //     const p = new Promise((resolve) => {
+  //       const texture = textureLoader.load(src, () => {
+  //         // load成功時の処理
+  //         resolve(texture);
+  //       });
+  //     });
+
+  //     texturePromise.push(p);
+  //   }
+
+  //   const textures = await Promise.all(texturePromise);
+
+  //   for (let i = 0; i < textures.length; i++) {
+  //     new Rect(this.scene, this.camera, this.renderer, textures[i]);
+  //   }
+  // }
+
+  async loadTexture() {
+    // ------------------------------------------------------------
+    // 単体
+    // ------------------------------------------------------------
     const textureLoader = new THREE.TextureLoader();
     const path = "./assets/resource/img/1.jpg";
 
@@ -43,29 +68,9 @@ export default class Slider extends Base {
       });
     });
 
-    p.then((texture) => {
-      this.ready(texture);
-      this.add();
-    });
-  }
+    const TEXTURE = await p;
 
-  ready(texture) {
-    // geometry
-    const geometry = new THREE.PlaneGeometry(600, 300);
-
-    // material
-    const material = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      side: THREE.DoubleSide,
-      map: texture,
-    });
-
-    // mesh
-    this.mesh = new THREE.Mesh(geometry, material);
-  }
-
-  add() {
-    this.scene.add(this.mesh);
+    new Rect(this.scene, this.camera, this.renderer, TEXTURE);
   }
 
   timeline() {}
