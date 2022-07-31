@@ -15,16 +15,18 @@ export default class Camera extends Base {
 
     this.scene = scene;
 
-    this.fov = 45;
+    this.fov = 75;
     // this.aspect = gb.r.w / gb.r.h;
-    this.aspect = 600 / 300;
-    this.near = 0.1;
-    this.far = 100;
+    this.w = 600;
+    this.h = 300;
+    this.aspect = this.w / this.h;
+    this.near = 1;
+    this.far = 50000;
 
     this.setup();
-    // this.create();
+    this.create();
     // this.createForShader();
-    this.createOrthographic();
+    // this.createOrthographic();
     // this.setTrackballControll();
     this.setEvents();
     this.onResize();
@@ -47,12 +49,12 @@ export default class Camera extends Base {
     // ピクセル等倍
     this.setCameraByPixel();
 
-    this.updateFrustum();
+    // this.updateFrustum();
 
-    this.w = this.frustum.planes[0].constant + this.frustum.planes[1].constant;
-    this.h = this.frustum.planes[2].constant + this.frustum.planes[3].constant;
-    this.depth =
-      this.frustum.planes[4].constant + this.frustum.planes[5].constant;
+    // this.w = this.frustum.planes[0].constant + this.frustum.planes[1].constant;
+    // this.h = this.frustum.planes[2].constant + this.frustum.planes[3].constant;
+    // this.depth =
+    //   this.frustum.planes[4].constant + this.frustum.planes[5].constant;
 
     console.log(this.camera.position, "camerapos");
   }
@@ -113,16 +115,11 @@ export default class Camera extends Base {
   }
 
   setCameraByPixel() {
-    var fov = this.fov;
-    var vFOV = fov * (Math.PI / 180); // convert to radians
-    var vpHeight = gb.r.h; // viewport height;
-    // var z = vpHeight / (2 * Math.tan(vFOV / 2));
-    var z = 3;
-    this.z = z;
+    const vFov = this.fov * (Math.PI / 180);
+    const z = this.h / (2 * Math.tan(vFov * 0.5));
     this.camera.position.set(0, 0, z);
     this.camera.lookAt(new THREE.Vector3());
-
-    log("z", z);
+    console.log(this.camera.position);
 
     // var param = {
     //   "fov": 45,
