@@ -17,13 +17,14 @@ export default class Camera extends Base {
 
     this.fov = 45;
     this.aspect = gb.r.w / gb.r.h;
+    // this.aspect = 600 / 400;
     this.near = 0.1;
     this.far = 100;
 
     this.setup();
-    this.create();
+    // this.create();
     // this.createForShader();
-    // this.createOrthographic();
+    this.createOrthographic();
     // this.setTrackballControll();
     this.setEvents();
     this.onResize();
@@ -66,10 +67,10 @@ export default class Camera extends Base {
     var h = gb.renderer.domElement.height;
 
     this.camera = new THREE.OrthographicCamera(
-      -1,
-      1,
-      1,
-      -1,
+      -2, // left
+      2, // right
+      1, // top
+      -1, // bottom
       this.near,
       this.far
     );

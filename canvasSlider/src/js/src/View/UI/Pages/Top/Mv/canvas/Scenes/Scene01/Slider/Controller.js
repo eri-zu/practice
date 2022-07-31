@@ -38,7 +38,7 @@ export default class Slider extends Base {
 
   ready() {
     // geometry
-    const geometry = new THREE.PlaneGeometry(2, 1);
+    const geometry = new THREE.PlaneGeometry(4, 2);
 
     // material
     const material = new THREE.MeshBasicMaterial({
