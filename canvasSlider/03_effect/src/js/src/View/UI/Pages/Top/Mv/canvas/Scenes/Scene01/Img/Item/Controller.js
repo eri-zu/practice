@@ -46,7 +46,7 @@ export default class Controller extends Base {
     console.log(-Math.PI * 2);
 
     gsap.set(this.wrap.rotation, {
-      y: (-Math.PI * 2) / 100,
+      y: (-Math.PI * 2) / 120,
       x: (-Math.PI * 2) / 100,
     });
   }
