@@ -20,7 +20,7 @@ import Cube from "./Basics/Cube/Controller.js";
 // import Circle from './Basics/Circle.js';
 // import Img from './Basics/Img/Img_shaderMaterial.js';
 // import Text from './Basics/Text.js';
-import Slider from "./Slider/Controller.js";
+import Img from "./Img/Controller.js";
 // custom objects
 
 export default class Objects extends Base {
@@ -58,7 +58,7 @@ export default class Objects extends Base {
     // this.Img = new Img(this.scene, this.camera);
     // this.Text = new Text(this.scene, this.camera);
 
-    new Slider(this.scene, this.camera, this.renderer);
+    new Img(this.scene, this.camera, this.renderer);
 
     // custom
     // this.sLine = new StraightLineAnimation(this.scene, this.camera);
