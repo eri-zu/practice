@@ -26,6 +26,8 @@ export default class Controller extends Base {
   }
 
   ready() {
+    this.wrap = new THREE.Group();
+
     const geometry = new THREE.PlaneGeometry(600, 300);
 
     const material = new THREE.MeshBasicMaterial({
@@ -34,10 +36,19 @@ export default class Controller extends Base {
     });
 
     this.mesh = new THREE.Mesh(geometry, material);
+    this.mesh.position.z = -100; // ちょっと距離取らないと見切れるので
   }
 
   add() {
-    this.scene.add(this.mesh);
+    this.wrap.add(this.mesh);
+    this.scene.add(this.wrap);
+
+    console.log(-Math.PI * 2);
+
+    gsap.set(this.wrap.rotation, {
+      y: (-Math.PI * 2) / 100,
+      x: (-Math.PI * 2) / 100,
+    });
   }
 
   onResize() {}

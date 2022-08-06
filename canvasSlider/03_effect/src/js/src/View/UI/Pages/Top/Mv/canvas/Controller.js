@@ -35,7 +35,7 @@ export default class Content extends Base {
     });
     if (this.isRetina) this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(this.w, this.h);
-    this.renderer.setClearColor(0x000000, 1.0);
+    // this.renderer.setClearColor(0x000000, 1.0);
 
     // append
     this.wrap.append(this.renderer.domElement);
