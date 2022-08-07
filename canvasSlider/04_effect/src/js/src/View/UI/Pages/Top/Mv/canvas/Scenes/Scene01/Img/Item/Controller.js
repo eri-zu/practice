@@ -12,13 +12,11 @@ import vs from "./vertex.glsl";
 import fs from "./fragment.glsl";
 
 export default class Controller extends Base {
-  constructor(TEXTURE, scene) {
+  constructor(scene, TEXTURES) {
     super();
 
-    this.TEXTURE = TEXTURE;
     this.scene = scene;
-
-    this.clock = new THREE.Clock();
+    this.TEXTURES = TEXTURES;
 
     this.isUEv = true;
 
@@ -32,42 +30,26 @@ export default class Controller extends Base {
   }
 
   ready() {
-    this.wrap = new THREE.Group();
-
-    const geometry = new THREE.PlaneGeometry(600, 300, 32, 32);
+    const geo = new THREE.PlaneGeometry(600, 300, 32, 32);
 
     this.material = new THREE.RawShaderMaterial({
-      vertexShader: vs,
       fragmentShader: fs,
+      vertexShader: vs,
       uniforms: {
-        uTexture: { value: this.TEXTURE },
-        uTime: { value: 0 },
-        uFrequency: { value: new THREE.Vector2(5, 2) },
+        uTexture: { value: this.TEXTURES[0] },
       },
       side: THREE.DoubleSide,
-      // wireframe: true,
       transparent: true,
     });
 
-    this.mesh = new THREE.Mesh(geometry, this.material);
-    this.mesh.position.set(0, 0, 0);
-    // this.mesh.position.z = -100; // ちょっと距離取らないと見切れるので
+    this.mesh = new THREE.Mesh(geo, this.material);
   }
 
   add() {
-    this.wrap.add(this.mesh);
-    this.scene.add(this.wrap);
-
-    // gsap.set(this.wrap.rotation, {
-    //   y: (-Math.PI * 2) / 120,
-    //   x: (-Math.PI * 2) / 100,
-    // });
+    this.scene.add(this.mesh);
   }
 
-  update() {
-    const elpasedTime = this.clock.getElapsedTime();
-    this.material.uniforms.uTime.value = elpasedTime;
-  }
+  update() {}
 
   onResize() {}
 

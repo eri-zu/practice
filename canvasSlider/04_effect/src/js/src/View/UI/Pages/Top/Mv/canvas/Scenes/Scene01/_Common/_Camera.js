@@ -121,8 +121,8 @@ export default class Camera extends Base {
     const z = this.h / (2 * Math.tan(vFov * 0.5));
     console.log(z);
     // const z = -1000;
-    // this.camera.position.set(0, 0, z);
-    this.camera.position.set(100, -50, 450);
+    this.camera.position.set(0, 0, z);
+    // this.camera.position.set(100, -50, 450);
     this.camera.lookAt(new THREE.Vector3());
 
     // var param = {

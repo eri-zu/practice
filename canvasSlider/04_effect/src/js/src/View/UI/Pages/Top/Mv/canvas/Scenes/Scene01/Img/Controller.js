@@ -23,25 +23,36 @@ export default class Slider extends Base {
   }
 
   async setup() {
-    const TEXTURE = await this.loadTexture();
-    this.ready(TEXTURE);
+    const TEXTURES = await this.loadTexture();
+    this.ready(TEXTURES);
   }
 
   async loadTexture() {
     const textureLoader = new THREE.TextureLoader();
-    const path = "./assets/resource/img/1.jpg";
 
-    const p = new Promise((resolve) => {
-      const texture = textureLoader.load(path, () => {
-        resolve(texture);
+    const texturePromsise = [];
+
+    const src = [
+      "./assets/resource/img/1.jpg",
+      "./assets/resource/img/2.jpg",
+      "./assets/resource/img/3.jpg",
+    ];
+
+    for (let i = 0; i < src.length; i++) {
+      const p = new Promise((resolve, reject) => {
+        const texture = textureLoader.load(src[i], () => {
+          resolve(texture);
+        });
       });
-    });
 
-    return await p;
+      texturePromsise.push(p);
+    }
+
+    return await Promise.all(texturePromsise);
   }
 
-  ready(TEXTURE) {
-    new Item(TEXTURE, this.scene);
+  ready(TEXTURES) {
+    new Item(this.scene, TEXTURES);
   }
 
   onResize() {}
