@@ -18,7 +18,9 @@ export default class Controller extends Base {
     this.TEXTURE = TEXTURE;
     this.scene = scene;
 
-    console.log(this.TEXTURE);
+    this.clock = new THREE.Clock();
+
+    this.isUEv = true;
 
     this.setup();
     this.setEvents();
@@ -32,24 +34,22 @@ export default class Controller extends Base {
   ready() {
     this.wrap = new THREE.Group();
 
-    const geometry = new THREE.PlaneGeometry(600, 300);
+    const geometry = new THREE.PlaneGeometry(600, 300, 32, 32);
 
-    // const material = new THREE.MeshBasicMaterial({
-    //   color: 0xffffff,
-    //   map: this.TEXTURE,
-    // });
-
-    const material = new THREE.RawShaderMaterial({
+    this.material = new THREE.RawShaderMaterial({
       vertexShader: vs,
       fragmentShader: fs,
       uniforms: {
         uTexture: { value: this.TEXTURE },
+        uTime: { value: 0 },
+        uFrequency: { value: new THREE.Vector2(5, 2) },
       },
       side: THREE.DoubleSide,
+      // wireframe: true,
       transparent: true,
     });
 
-    this.mesh = new THREE.Mesh(geometry, material);
+    this.mesh = new THREE.Mesh(geometry, this.material);
     this.mesh.position.z = -100; // ちょっと距離取らないと見切れるので
   }
 
@@ -57,12 +57,15 @@ export default class Controller extends Base {
     this.wrap.add(this.mesh);
     this.scene.add(this.wrap);
 
-    console.log(-Math.PI * 2);
-
     gsap.set(this.wrap.rotation, {
       y: (-Math.PI * 2) / 120,
       x: (-Math.PI * 2) / 100,
     });
+  }
+
+  update() {
+    const elpasedTime = this.clock.getElapsedTime();
+    this.material.uniforms.uTime.value = elpasedTime;
   }
 
   onResize() {}
