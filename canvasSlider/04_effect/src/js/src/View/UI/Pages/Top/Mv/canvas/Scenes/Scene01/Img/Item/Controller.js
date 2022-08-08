@@ -38,7 +38,7 @@ export default class Controller extends Base {
       fragmentShader: fs,
       vertexShader: vs,
       uniforms: {
-        uTrans: { value: this.target.value },
+        uProgress: { value: this.target.value },
         uTexture0: { value: this.TEXTURES[0] },
         uTexture1: { value: this.TEXTURES[1] },
         uDisp: { value: this.TEXTURES[2] },
@@ -55,7 +55,7 @@ export default class Controller extends Base {
   }
 
   update() {
-    this.material.uniforms.uTrans.value = this.target.value;
+    this.material.uniforms.uProgress.value = this.target.value;
   }
 
   onResize() {}
@@ -63,8 +63,8 @@ export default class Controller extends Base {
   show() {
     const tl = gsap.timeline();
 
-    tl.to(this.target, 5, {
-      value: 1.5,
+    tl.to(this.target, 1, {
+      value: 1,
       ease: "expo.out",
     });
   }
@@ -72,7 +72,7 @@ export default class Controller extends Base {
   hide() {
     const tl = gsap.timeline();
 
-    tl.to(this.target, 5, {
+    tl.to(this.target, 1, {
       value: 0,
       ease: "expo.out",
     });
