@@ -14,6 +14,7 @@ export default class Content extends Base {
     super();
 
     this.wrap = document.querySelector(".canvaswrap");
+    gb.canvas = document.querySelector("canvas");
 
     this.isUEv = true; // update
     this.isREv = true; // update
@@ -77,5 +78,13 @@ export default class Content extends Base {
         this.h * window.devicePixelRatio
       );
     }
+  }
+
+  setEvents() {
+    super.setEvents();
+
+    gb.canvas.addEventListener("mouseenter", (e) => {
+      console.log("aaaaa");
+    });
   }
 }

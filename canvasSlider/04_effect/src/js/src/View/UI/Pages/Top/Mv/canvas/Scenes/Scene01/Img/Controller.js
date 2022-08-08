@@ -35,7 +35,7 @@ export default class Slider extends Base {
     const src = [
       "./assets/resource/img/1.jpg",
       "./assets/resource/img/2.jpg",
-      "./assets/resource/img/3.jpg",
+      "./assets/resource/img/disp.png",
     ];
 
     for (let i = 0; i < src.length; i++) {

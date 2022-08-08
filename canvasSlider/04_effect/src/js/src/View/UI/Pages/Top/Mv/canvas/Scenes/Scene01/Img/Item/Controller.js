@@ -18,6 +18,8 @@ export default class Controller extends Base {
     this.scene = scene;
     this.TEXTURES = TEXTURES;
 
+    this.target = { value: 0 };
+
     this.isUEv = true;
 
     this.setup();
@@ -36,7 +38,10 @@ export default class Controller extends Base {
       fragmentShader: fs,
       vertexShader: vs,
       uniforms: {
-        uTexture: { value: this.TEXTURES[0] },
+        uTrans: { value: this.target.value },
+        uTexture0: { value: this.TEXTURES[0] },
+        uTexture1: { value: this.TEXTURES[1] },
+        uDisp: { value: this.TEXTURES[2] },
       },
       side: THREE.DoubleSide,
       transparent: true,
@@ -49,11 +54,41 @@ export default class Controller extends Base {
     this.scene.add(this.mesh);
   }
 
-  update() {}
+  update() {
+    this.material.uniforms.uTrans.value = this.target.value;
+  }
 
   onResize() {}
 
+  show() {
+    const tl = gsap.timeline();
+
+    tl.to(this.target, 5, {
+      value: 1.5,
+      ease: "expo.out",
+    });
+  }
+
+  hide() {
+    const tl = gsap.timeline();
+
+    tl.to(this.target, 5, {
+      value: 0,
+      ease: "expo.out",
+    });
+  }
+
   setEvents() {
     super.setEvents();
+
+    gb.renderer.domElement.addEventListener("mouseenter", (e) => {
+      console.log("mouseenter");
+      this.show();
+    });
+
+    gb.renderer.domElement.addEventListener("mouseleave", (e) => {
+      console.log("mouseleave");
+      this.hide();
+    });
   }
 }
