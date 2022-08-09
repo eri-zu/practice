@@ -5,7 +5,9 @@ uniform mat4 modelMatrix;
 attribute vec3 position; // デフォルトattribute
 attribute vec2 uv; // デフォルトattribute
 
-varying vec2 vUv; // fragementに送るが、同じ名前は使えないので変えること
+// fragementに送るが、同じ名前は使えないので変えること
+varying vec2 vUv; 
+
 
 void main() {
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);

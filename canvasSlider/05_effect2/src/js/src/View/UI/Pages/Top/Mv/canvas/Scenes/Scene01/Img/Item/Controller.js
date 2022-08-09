@@ -10,6 +10,7 @@ import gsap from "gsap";
 import * as THREE from "three";
 import vs from "./vertex.glsl";
 import fs from "./fragment.glsl";
+import GUI from "lil-gui";
 
 export default class Controller extends Base {
   constructor(scene, TEXTURES) {
@@ -28,7 +29,11 @@ export default class Controller extends Base {
 
   setup() {
     this.ready();
+    this.setImage();
     this.add();
+
+    // const gui = new GUI();
+    // gui.add(this.target, "value", 0, 1.5, 0.1);
   }
 
   ready() {
@@ -41,13 +46,36 @@ export default class Controller extends Base {
         uProgress: { value: this.target.value },
         uTexture0: { value: this.TEXTURES[0] },
         uTexture1: { value: this.TEXTURES[1] },
-        uDisp: { value: this.TEXTURES[2] },
+        uResolution: { value: new THREE.Vector4() },
       },
       side: THREE.DoubleSide,
       transparent: true,
     });
 
     this.mesh = new THREE.Mesh(geo, this.material);
+  }
+
+  setImage() {
+    this.canvasAspect = gb.canvas_h / gb.canvas_w;
+    this.imgAspect =
+      this.TEXTURES[0].image.height / this.TEXTURES[0].image.width;
+
+    let aspect1;
+    let aspect2;
+
+    if (this.canvasAspect > this.imgAspect) {
+      console.log("a");
+      aspect1 = (gb.canvas_w / gb.canvas_h) * this.imgAspect;
+      aspect2 = 1;
+    } else {
+      aspect1 = 1;
+      aspect2 = gb.canvas_h / gb.canvas_w / this.imgAspect;
+    }
+
+    this.material.uniforms.uResolution.value.x = gb.canvas_w;
+    this.material.uniforms.uResolution.value.y = gb.canvas_h;
+    this.material.uniforms.uResolution.value.z = aspect1;
+    this.material.uniforms.uResolution.value.w = aspect2;
   }
 
   add() {
@@ -63,7 +91,7 @@ export default class Controller extends Base {
   show() {
     const tl = gsap.timeline();
 
-    tl.to(this.target, 1, {
+    tl.to(this.target, 10, {
       value: 1,
       ease: "expo.out",
     });
@@ -72,7 +100,7 @@ export default class Controller extends Base {
   hide() {
     const tl = gsap.timeline();
 
-    tl.to(this.target, 1, {
+    tl.to(this.target, 10, {
       value: 0,
       ease: "expo.out",
     });
