@@ -1,0 +1,68 @@
+.btnwrap {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  cursor: pointer;
+  position: relative;
+  transform: translate3d(0, 0, 0);
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  position: relative;
+}
+
+.bar {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+}
+
+.inner.open {
+  .bar + .bar {
+    margin-top: 7px;
+  }
+}
+
+.inner.close {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  .barwrap {
+    transform-origin: 50% 50%;
+
+    &:nth-child(1),
+    &:nth-child(3) {
+      .menubtn__bar {
+        transform: scaleX(0);
+      }
+    }
+
+    &:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+    &:nth-child(3) {
+      transform: translateY(5px) rotate(45deg);
+    }
+  }
+
+  .barwrap + .barwrap {
+    margin-top: 4px;
+  }
+}

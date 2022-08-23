@@ -1,0 +1,66 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // js
+  pointer-events: none;
+}
+
+.bg {
+  background-color: rgb(226, 0, 18);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  // js
+  opacity: 0;
+}
+
+.inner {
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 100%;
+}
+
+.menubtn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  z-index: 101;
+}
+
+.navItem {
+  overflow: hidden;
+}
+
+.navLink {
+  display: block;
+  display: flex;
+  align-items: center;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  color: #fff;
+
+  // js
+  transform: translateY(100%);
+}
+
+.navText {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  margin-left: 7px;
+  color: #fff;
+}
