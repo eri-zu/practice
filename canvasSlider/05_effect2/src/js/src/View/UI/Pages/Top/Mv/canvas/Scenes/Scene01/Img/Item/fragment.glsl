@@ -8,23 +8,23 @@ varying vec2 vUv; // fragementに送るが、同じ名前は使えないので�
 
 void main() {
 
+	// background-size: coverぽく
 	vec2 newUv = (vUv - vec2(0.5)) * uResolution.zw + vec2(0.5);
-	float x = uProgress;
 
-	// uProgressに線形補完？
-	// (x * 2.0 + newUv.y - 1.0) < 0.0の時 x = 0
-	// (x * 2.0 + newUv.y - 1.0) > 1.0の時 x = 1.0
-	// 0 < (x * 2.0 + newUv.y - 1.0) 1の時 線形補完
-	float sx = smoothstep(0.0, 1.0, (x * 2.0 + newUv.y - 1.0)); // -1 から 3とかの値
-	// x = smoothstep(0.0, 1.0, x); 
+	// smooth stepで帰ってくる値
+	// float progress = smoothstep(0.0, 1.0, (uProgress * 2.0 + newUv.y - 1.0)); // -1 から 3とかの値
+	// float progress = smoothstep(0.0, 1.0, uProgress * 2.0 + newUv.y); // 0から1の値 なんかeasing的なイメージ？
+	// float progress = uProgress * 2.0 + newUv.y; // 0から1の値 なんかeasing的なイメージ？
 
+	// x < 0の時、0, x >1.0の時、0 < x < 1の時0-1の範囲の単調増加する値を返す 
+	float progress = smoothstep(0.0, 1.0, uProgress + newUv.x); 
 
-	// vec4 texture0 = texture2D(uTexture0, (newUv - 0.0) * (1.0 - sx) + 0.0);
-	// vec4 texture1 = texture2D(uTexture1, (newUv - 0.0) * sx + 0.0);
-	vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - sx) + 0.5);
-	vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * sx + 0.5);
+	// vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5);
+	// vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5);
+	vec4 texture0 = texture2D(uTexture0, newUv * (1.0 - progress)); // 1.0 → 0.9        
+	vec4 texture1 = texture2D(uTexture1, newUv * progress);
 
-	vec4 color = mix(texture0, texture1, sx);
+	vec4 color = mix(texture0, texture1, progress);
 
 	gl_FragColor = color;
 
@@ -39,24 +39,4 @@ void main() {
 
 	// 0.8以下はxは0になる
 
-
-
-	// float intensity = 0.5; // 値が大きいと、大きいグニャ
-
-	// // 元画像の1pixelごとの色情報
-	// vec4 texture0Color = texture2D(uTexture0, vUv); 
-	// vec4 texture1Color = texture2D(uTexture1, vUv);
-
-	// // yを時間ごとに変える
-	// vec4 _currentImg = texture2D(uTexture0, vec2(vUv.x, vUv.y + uProgress * (texture1Color * intensity)));
-	// vec4 _nextImg = texture2D(uTexture1, vec2(vUv.x, vUv.y + (1.0 - uProgress) * (texture0Color * intensity)));
-
-	// // uProgressが0の時_currentImg
-	// // uProgressが1の時_nextImg
-	// // uProgressが0.3の時、_currentImg30%, _nextImg70%
-	// vec4 finalTexture = mix(_currentImg, _nextImg, uProgress);
-	// gl_FragColor = finalTexture;
 }
-
-// 上が伸びちゃうので、高さのある画像使って、background-coverみたいに配置しないとダメかも
-// https://qiita.com/ykob/items/4ede3cb11684c8a403f8

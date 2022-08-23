@@ -1,0 +1,12 @@
+.hoverOp {
+  // media query
+  @include min(769) {
+    transition: opacity 0.45s $easeOutQuint 0s;
+    // transition: opacity 0.1s $easeOutQuad 0s;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5 !important;
+    }
+  }
+}

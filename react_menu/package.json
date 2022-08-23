@@ -1,0 +1,21 @@
+{
+  "name": "test-react",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export -o ../../../dist/ui/38_reactPageTrasition/",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "gsap": "^3.8.0",
+    "next": "12.0.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.43.4"
+  },
+  "devDependencies": {
+    "eslint": "7",
+    "eslint-config-next": "12.0.4"
+  }
+}
