@@ -1,18 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { Drawer } from "./Drawer";
 import { MenuButton } from "./MenuButton";
+import { closeDrawer, openDrawer } from "./RendererDrawer";
+import {
+  closeMenuButton,
+  onEnterCloseButton,
+  onEnterOpenButton,
+  openMenuButton,
+} from "./RendererMenuButton";
 import gsap from "gsap";
 
 export const Menu = () => {
   const tl = useRef(gsap.timeline());
   const btn = useRef(null);
   const drawer = useRef(null);
-  const btnRenderer = useRef(null);
+  const isFirstRender = useRef(false);
   const [isOpen, setMenuStatus] = useState(false);
-
-  // useEffect(() => {
-  //   btnRenderer.current =
-  // }, []);
 
   const open = () => {
     tl.current.kill();
@@ -20,9 +23,9 @@ export const Menu = () => {
 
     tl.current
       // btn
-      .add()
+      .add(openMenuButton(btn.current))
       // drawer
-      .add();
+      .add(openDrawer(drawer.current), 0);
   };
 
   const close = () => {
@@ -31,29 +34,38 @@ export const Menu = () => {
 
     tl.current
       // btn
-      .add()
+      .add(closeMenuButton(btn.current))
       // drawer
-      .add();
+      .add(closeDrawer(drawer.current), 0);
   };
 
   const onClickHandler = () => {
-    console.log(isOpen);
-
     setMenuStatus(!isOpen);
   };
 
+  const onEnter = () => {
+    isOpen
+      ? tl.current.add(onEnterCloseButton(btn.current))
+      : tl.current.add(onEnterOpenButton(btn.current));
+  };
+
   useEffect(() => {
-    if (isOpen) {
-      close();
+    if (isFirstRender.current) {
+      isOpen ? open() : close();
     } else {
-      open();
+      isFirstRender.current = true;
     }
   }, [isOpen]);
 
   return (
     <>
-      <MenuButton onClick={onClickHandler} ref={btn} />
-      <Drawer ref={drawer} />
+      <MenuButton
+        ref={btn}
+        onClick={onClickHandler}
+        isOpen={isOpen}
+        onMouseEnter={onEnter}
+      />
+      <Drawer ref={drawer} isOpen={isOpen} />
     </>
   );
 };

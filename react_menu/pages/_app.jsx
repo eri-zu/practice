@@ -3,8 +3,8 @@ import { ConfigContext } from "../components/context";
 import { useCallback, useEffect, useReducer, useState } from "react";
 import { config } from "../components/context/config";
 import { useRouter } from "next/router";
-import { Header } from "../components/header.jsx";
 import styles from "../styles/pages/centerComp.module.scss";
+import { Layout } from "../components/Layout";
 
 const reducer = (state, action) => {
   return { comp: action.comp };
@@ -47,10 +47,11 @@ function MyApp({ Component }) {
 
   return (
     <ConfigContext.Provider value={siteConfig}>
-      <Header />
-      <div className={styles.centerComp}>
-        <CurrentComp.comp hide={isHide} hideDone={hideDone} />
-      </div>
+      <Layout>
+        <div className={styles.centerComp}>
+          <CurrentComp.comp hide={isHide} hideDone={hideDone} />
+        </div>
+      </Layout>
     </ConfigContext.Provider>
   );
 }
