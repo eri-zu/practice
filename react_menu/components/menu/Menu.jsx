@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Drawer } from "./Drawer";
 import { MenuButton } from "./MenuButton";
-import { closeDrawer, openDrawer } from "./RendererDrawer";
+import { hideDrawer, showDrawer } from "./RendererDrawer";
 import {
-  closeMenuButton,
-  onEnterCloseButton,
-  onEnterOpenButton,
-  openMenuButton,
+  showOpenBtnTimeline,
+  onEnterCloseBtn,
+  onEnterOpenBtn,
+  showCloseBtnTimeline,
 } from "./RendererMenuButton";
 import gsap from "gsap";
 
@@ -23,9 +23,9 @@ export const Menu = () => {
 
     tl.current
       // btn
-      .add(openMenuButton(btn.current))
+      .add(showCloseBtnTimeline(btn.current))
       // drawer
-      .add(openDrawer(drawer.current), 0);
+      .add(showDrawer(drawer.current), 0);
   };
 
   const close = () => {
@@ -34,9 +34,9 @@ export const Menu = () => {
 
     tl.current
       // btn
-      .add(closeMenuButton(btn.current))
+      .add(showOpenBtnTimeline(btn.current))
       // drawer
-      .add(closeDrawer(drawer.current), 0);
+      .add(hideDrawer(drawer.current), 0);
   };
 
   const onClickHandler = () => {
@@ -45,8 +45,8 @@ export const Menu = () => {
 
   const onEnter = () => {
     isOpen
-      ? tl.current.add(onEnterCloseButton(btn.current))
-      : tl.current.add(onEnterOpenButton(btn.current));
+      ? tl.current.add(onEnterCloseBtn(btn.current))
+      : tl.current.add(onEnterOpenBtn(btn.current));
   };
 
   useEffect(() => {

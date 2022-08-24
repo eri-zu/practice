@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import style from "../../styles/components/Menu/menuButton.module.scss";
 import React from "react";
-import { onEnterOpenButton, onEnterCloseButton } from "./RendererMenuButton";
+import { onEnterOpenBtn, onEnterCloseBtn } from "./RendererMenuButton";
 
 export const MenuButton = React.forwardRef((props, ref) => {
   const { onClick, isOpen, onMouseEnter } = props;

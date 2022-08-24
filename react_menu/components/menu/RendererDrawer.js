@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-export const openDrawer = (drawer) => {
+export const showDrawer = (drawer) => {
   const bg = drawer.querySelector(".js-drawer_bg");
 
   const tl = gsap.timeline();
@@ -13,7 +13,7 @@ export const openDrawer = (drawer) => {
   return tl;
 };
 
-export const closeDrawer = (drawer) => {
+export const hideDrawer = (drawer) => {
   const bg = drawer.querySelector(".js-drawer_bg");
 
   const tl = gsap.timeline();

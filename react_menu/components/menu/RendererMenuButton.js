@@ -1,9 +1,8 @@
 import gsap from "gsap";
 
-export const openMenuButton = (wrap) => {
+export const showCloseBtnTimeline = (wrap) => {
   const openBtn = wrap.querySelector(".js-menubtn_open");
   const openBars = openBtn.querySelectorAll(".js-menubtn_bar");
-
   const closeBtn = wrap.querySelector(".js-menubtn_close");
   const closeBars = closeBtn.querySelectorAll(".js-menubtn_bar");
 
@@ -31,8 +30,6 @@ export const openMenuButton = (wrap) => {
         scaleX: 1,
         ease: "expo.out",
         transformOrigin: "0% 0%",
-        x: 0,
-        delay: 0.1,
       },
       0.05 * i + 0.5
     );
@@ -41,10 +38,9 @@ export const openMenuButton = (wrap) => {
   return tl;
 };
 
-export const closeMenuButton = (wrap) => {
+export const showOpenBtnTimeline = (wrap) => {
   const openBtn = wrap.querySelector(".js-menubtn_open");
   const openBars = openBtn.querySelectorAll(".js-menubtn_bar");
-
   const closeBtn = wrap.querySelector(".js-menubtn_close");
   const closeBars = closeBtn.querySelectorAll(".js-menubtn_bar");
 
@@ -72,16 +68,15 @@ export const closeMenuButton = (wrap) => {
         scaleX: 1,
         transformOrigin: "0% 0",
         ease: "expo.out",
-        delay: 0.05,
       },
-      0.5 + 0.05 * i
+      0.05 * i + 0.5
     );
   });
 
   return tl;
 };
 
-export const onEnterOpenButton = (wrap) => {
+export const onEnterOpenBtn = (wrap) => {
   const openBtn = wrap.querySelector(".js-menubtn_open");
   const openBars = openBtn.querySelectorAll(".js-menubtn_bar");
 
@@ -90,9 +85,7 @@ export const onEnterOpenButton = (wrap) => {
   // openbtn
   openBars.forEach((el, i) => {
     tl
-      //set
-      .set(el, { transformOrigin: "100% 0" })
-      // hide
+      // hide open
       .to(
         el,
         0.5,
@@ -103,14 +96,13 @@ export const onEnterOpenButton = (wrap) => {
         },
         0.05 * i
       )
-      // // set
-      .set(el, { transformOrigin: "0% 0" }, 0.05 * i + 0.5)
-      // show
+      // show open
       .to(
         el,
         0.5,
         {
           scaleX: 1,
+          transformOrigin: "0% 0%",
           ease: "expo.out",
         },
         0.05 * i + 0.5
@@ -120,7 +112,7 @@ export const onEnterOpenButton = (wrap) => {
   return tl;
 };
 
-export const onEnterCloseButton = (wrap) => {
+export const onEnterCloseBtn = (wrap) => {
   const closeBtn = wrap.querySelector(".js-menubtn_close");
   const closeBars = closeBtn.querySelectorAll(".js-menubtn_bar");
 
@@ -129,9 +121,7 @@ export const onEnterCloseButton = (wrap) => {
   // closebtn
   closeBars.forEach((el, i) => {
     tl
-      //set
-      .set(el, { transformOrigin: "100% 0" })
-      // hide
+      // hide close
       .to(
         el,
         0.5,
@@ -142,14 +132,13 @@ export const onEnterCloseButton = (wrap) => {
         },
         0.05 * i
       )
-      // // set
-      .set(el, { transformOrigin: "0% 0" }, 0.05 * i + 0.5)
-      // show
+      // show close
       .to(
         el,
         0.5,
         {
           scaleX: 1,
+          transformOrigin: "0% 0%",
           ease: "expo.out",
         },
         0.05 * i + 0.5
