@@ -4,9 +4,11 @@
   left: 0;
   width: 100%;
   z-index: 2;
+
   a {
     font-size: 10px;
   }
+
   a + a {
     margin-left: 20px;
   }

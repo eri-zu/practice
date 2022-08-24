@@ -1,11 +1,13 @@
 import gsap from "gsap";
 
-export const showCloseBtnTimeline = (wrap) => {
-  const openBtn = wrap.querySelector(".js-menubtn_open");
-  const openBars = openBtn.querySelectorAll(".js-menubtn_bar");
-  const closeBtn = wrap.querySelector(".js-menubtn_close");
-  const closeBars = closeBtn.querySelectorAll(".js-menubtn_bar");
+// ここはサーバーサイドレンダリングで、サーバーで動くコード
+// サーバーにdocumentないからエラー
+// phpでdocument無理
+// phpの代わりにjsで動かしてる reactは
+// サーバーで動くコードとフロントで動くコード
+// documentはフロントでしか動かん
 
+export const showCloseBtnTimeline = ({ openBars, closeBars }) => {
   const tl = gsap.timeline();
 
   // hide open
@@ -38,12 +40,7 @@ export const showCloseBtnTimeline = (wrap) => {
   return tl;
 };
 
-export const showOpenBtnTimeline = (wrap) => {
-  const openBtn = wrap.querySelector(".js-menubtn_open");
-  const openBars = openBtn.querySelectorAll(".js-menubtn_bar");
-  const closeBtn = wrap.querySelector(".js-menubtn_close");
-  const closeBars = closeBtn.querySelectorAll(".js-menubtn_bar");
-
+export const showOpenBtnTimeline = ({ openBars, closeBars }) => {
   const tl = gsap.timeline();
 
   // hide close
@@ -76,10 +73,7 @@ export const showOpenBtnTimeline = (wrap) => {
   return tl;
 };
 
-export const onEnterOpenBtn = (wrap) => {
-  const openBtn = wrap.querySelector(".js-menubtn_open");
-  const openBars = openBtn.querySelectorAll(".js-menubtn_bar");
-
+export const onEnterOpenBtn = ({ openBars }) => {
   const tl = gsap.timeline();
 
   // openbtn
@@ -112,10 +106,7 @@ export const onEnterOpenBtn = (wrap) => {
   return tl;
 };
 
-export const onEnterCloseBtn = (wrap) => {
-  const closeBtn = wrap.querySelector(".js-menubtn_close");
-  const closeBars = closeBtn.querySelectorAll(".js-menubtn_bar");
-
+export const onEnterCloseBtn = ({ closeBars }) => {
   const tl = gsap.timeline();
 
   // closebtn

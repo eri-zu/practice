@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import style from "../../styles/components/Menu/menuButton.module.scss";
-import React from "react";
+import React, { memo } from "react";
 import { onEnterOpenBtn, onEnterCloseBtn } from "./RendererMenuButton";
 
 export const MenuButton = React.forwardRef((props, ref) => {
