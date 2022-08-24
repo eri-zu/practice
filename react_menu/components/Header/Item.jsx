@@ -14,8 +14,18 @@ export const Item = (props) => {
   const tl = useRef(gsap.timeline());
 
   useEffect(() => {
+    // dom取得
     dom.current = { bar: item.current.querySelector(".js-header_item_bar") };
+
+    // activeにはbarセット
+    if (item.current.classList.contains("isActive")) setBar();
   }, []);
+
+  const setBar = () => {
+    tl.current.set(dom.current.bar, {
+      scaleX: 1,
+    });
+  };
 
   const showBar = () => {
     tl.current.to(dom.current.bar, 0.7, {
