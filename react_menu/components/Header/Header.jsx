@@ -1,7 +1,6 @@
 import Link from "next/link";
 import classNames from "classnames";
 import styles from "../../styles/components/header.module.scss";
-import { useEffect } from "react";
 import { Item } from "./Item";
 import { useRouter } from "next/router";
 

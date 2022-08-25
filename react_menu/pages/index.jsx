@@ -1,7 +1,8 @@
-import styles from "../styles/pages/top/Home.module.scss";
+import styles from "../styles/pages/top/home.module.scss";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { showTL, hideTL } from "../components/pageAnime";
+import { Slider } from "../components/slider/Slider";
 
 export default function Home({ hide, hideDone }) {
   const tl = useRef(gsap.timeline());
@@ -21,12 +22,21 @@ export default function Home({ hide, hideDone }) {
   }, [hide]);
 
   const pagename = "TOP";
+
   return (
     <div className={styles.wrap}>
-      <div ref={spans}>
-        {pagename.split("").map((t, i) => (
-          <span key={i + pagename}>{t}</span>
-        ))}
+      <div className={styles.inner}>
+        <section className={styles.section}>
+          <div ref={spans} className={styles.title}>
+            {pagename.split("").map((t, i) => (
+              <span key={i + pagename}>{t}</span>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <Slider></Slider>
+        </section>
       </div>
     </div>
   );

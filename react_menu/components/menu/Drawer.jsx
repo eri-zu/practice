@@ -25,7 +25,7 @@ export const Drawer = React.forwardRef((props, ref) => {
             {menus.map((menu) => {
               return (
                 <li className={classNames([style.navItem])} key={menu.name}>
-                  <Link href={menu.link} className={style.navLink}>
+                  <Link href={menu.link}>
                     <a>
                       <span className={style.navText}>{menu.name}</span>
                     </a>

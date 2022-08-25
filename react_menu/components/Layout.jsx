@@ -1,5 +1,6 @@
-import { Header } from "./Header/Header";
+import { Header } from "./header/Header";
 import { Menu } from "./menu/Menu";
+import styles from "../styles/components/layout.module.scss";
 
 export const Layout = (props) => {
   const { children } = props;
@@ -7,7 +8,7 @@ export const Layout = (props) => {
     <div>
       <Menu></Menu>
       <Header />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 };

@@ -43,18 +43,18 @@
 
 .navItem {
   overflow: hidden;
-}
 
-.navLink {
-  display: block;
-  display: flex;
-  align-items: center;
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
-  color: #fff;
+  a {
+    display: block;
+    display: flex;
+    align-items: center;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    color: #fff;
 
-  // js
-  transform: translateY(100%);
+    // js
+    transform: translateY(100%);
+  }
 }
 
 .navText {

@@ -48,7 +48,7 @@ function MyApp({ Component }) {
   return (
     <ConfigContext.Provider value={siteConfig}>
       <Layout>
-        <div className={styles.centerComp}>
+        <div>
           <CurrentComp.comp hide={isHide} hideDone={hideDone} />
         </div>
       </Layout>
