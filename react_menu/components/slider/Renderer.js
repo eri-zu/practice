@@ -24,13 +24,17 @@ export default class Renderer {
   }
 
   calc() {
-    const marginLeft = parseInt(
+    this.calcWidth();
+    this.maxmove = this.w * this.len;
+  }
+
+  calcWidth() {
+    this.marginLeft = parseInt(
       window.getComputedStyle(this.item[1]).marginLeft
     );
-    this.w = this.item[0].clientWidth + marginLeft;
-    this.maxmove = this.w * this.len;
+    this.w = this.item[0].clientWidth + this.marginLeft;
 
-    console.log(marginLeft);
+    return this.w;
   }
 
   updatePos() {

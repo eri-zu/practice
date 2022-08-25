@@ -3,37 +3,81 @@ import styles from "../../styles/components/slider/slider.module.scss";
 import Link from "next/link";
 import ArrowLeftSVG from "./ArrowLeftSVG.js";
 import ArrowRightSVG from "./ArrowRightSVG.js";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Order from "./Order";
 import Renderer from "./Renderer";
+import Swipe from "./Swipe";
 
 export const Slider = () => {
+  /**
+   * init
+   */
   // num
-  const len = 18;
+  const len = 10;
   const array = [...Array(len).keys()];
 
   // dom
-  const arrowRight = useRef(null);
-  const arrowLeft = useRef(null);
   const wrap = useRef(null);
-
-  // val
+  const timer = useRef(null);
+  const arrowL = useRef(null);
+  const arrowR = useRef(null);
   const tl = useRef(gsap.timeline());
   const order = useRef(null);
   const renderer = useRef(null);
-  const number = useRef(1);
+  const swipe = useRef(null);
 
-  // init
+  // val
+  const number = useRef(1);
+  const visibleNum = useRef(1);
+  const [isActiveArrowL, setArrowLStatus] = useState(false);
+  const [isActiveArrowR, setArrowRStatus] = useState(true);
+  const [isSwipeR, setSwipeStatusR] = useState(true);
+  const [isSwipeL, setSwipeStatusL] = useState(true);
+
   useEffect(() => {
+    // instance
     order.current = new Order(len);
     renderer.current = new Renderer(wrap.current, len);
+    swipe.current = new Swipe(wrap.current, wrap.current);
+
+    // 見えてる枚数計算
+    const w = renderer.current.calcWidth();
+    visibleNum.current =
+      window.innerWidth >= 768 ? Math.floor((window.innerWidth - 100) / w) : 1;
+
+    // swipe
+    swipe.current.onStart = () => {};
+    swipe.current.onMove = () => {};
+    swipe.current.onEnd = () => {};
+    swipe.current.onSwipe = (sign) => {
+      if (sign > 0) {
+        if (!isSwipeR) return;
+        change("next");
+      } else {
+        if (!isSwipeL) return;
+        change("prev");
+      }
+    };
+
+    // update
+    update();
+    return () => {
+      cancelAnimationFrame(timer.current);
+    };
+  }, []);
+
+  /**
+   * func
+   */
+  // update
+  const update = useCallback(() => {
+    timer.current = requestAnimationFrame(update);
+    renderer.current.updatePos();
   }, []);
 
   // change
-  const change = (direction) => {
-    if (!order.current) return;
-
+  const change = useCallback((direction) => {
     if (tl.current) tl.current.kill();
 
     // index
@@ -48,12 +92,24 @@ export const Slider = () => {
       number.current = "reset";
     }
 
+    // timeline
     tl.current = gsap.timeline();
+    tl.current.add(renderer.current.changePos(number.current));
 
-    tl.current
-      // move
-      .add(renderer.current.changePos(number.current));
-  };
+    // pointer events
+    if (order.current.current == len - visibleNum.current) {
+      setArrowRStatus(false);
+      setSwipeStatusR(false);
+    } else if (order.current.current == 0) {
+      setArrowLStatus(false);
+      setSwipeStatusL(false);
+    } else {
+      setArrowRStatus(true);
+      setArrowLStatus(true);
+      setSwipeStatusR(true);
+      setSwipeStatusL(true);
+    }
+  }, []);
 
   return (
     <div className={classNames([styles.slider])} ref={wrap}>
@@ -62,8 +118,12 @@ export const Slider = () => {
           styles.arrow,
           styles.arrowLeft,
           "js-slider_arrow_left",
+          isActiveArrowL ? styles.isActive : styles.isNotActive,
         ])}
-        onClick={change("prev")}
+        onClick={() => {
+          change("prev");
+        }}
+        ref={arrowL}
       >
         {/* <ArrowLeftSVG /> */}LEFT
       </div>
@@ -72,8 +132,12 @@ export const Slider = () => {
           styles.arrow,
           styles.arrowRight,
           "js-slider_arrow_right",
+          isActiveArrowR ? styles.isActive : styles.isNotActive,
         ])}
-        onClick={change("next")}
+        onClick={() => {
+          change("next");
+        }}
+        ref={arrowR}
       >
         {/* <ArrowRightSVG /> */}RIGHT
       </div>
@@ -86,13 +150,13 @@ export const Slider = () => {
                   className={classNames([styles.item, "js-slider_item"])}
                   key={i}
                 >
-                  <Link href="">
+                  <Link href="/">
                     <a>
                       <p className={styles.imgwrap}>
                         <img src={`img/${i + 1}.jpg`}></img>
                       </p>
                       <div className={styles.titlewrap}>
-                        <p className={styles.title}>title</p>
+                        <p className={styles.title}>{`title${i}`}</p>
                       </div>
                       <div className={styles.txtwrap}>
                         <p className={styles.txt}>
@@ -111,3 +175,7 @@ export const Slider = () => {
     </div>
   );
 };
+
+// svg?
+// arrow status?
+// swipe

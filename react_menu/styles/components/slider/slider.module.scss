@@ -12,7 +12,7 @@
 .arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(50%);
+  transform: translateY(-50%);
   z-index: 1;
   cursor: pointer;
 
@@ -26,25 +26,38 @@
 
   // width: 30px;
   // height: 26px;
+
+  &.isActive {
+    pointer-events: auto;
+    background-color: #222;
+  }
+
+  &.isNotActive {
+    pointer-events: none;
+    background-color: #ccc;
+  }
 }
 
 .arrowRight {
   right: 20px;
 
-  // width: 30px;
-  // height: 26px;
+  &.isActive {
+    pointer-events: auto;
+    background-color: #222;
+  }
+
+  &.isNotActive {
+    pointer-events: none;
+    background-color: #ccc;
+  }
 }
 
 .inner {
-  // height: 100%;
-  // width: 100%;
   margin-left: 100px;
-}
 
-.list {
-  // width: 100%;
-  // position: relative;
-  // overflow: hidden;
+  @include media-max("sp") {
+    margin-left: 50px;
+  }
 }
 
 .listInner {
@@ -55,9 +68,12 @@
 
 .item {
   min-width: 250px;
-  min-height: 350px;
   max-width: 250px;
-  max-height: 350px;
+
+  @include media-max("sp") {
+    min-width: calc(100% - 50px);
+    max-width: calc(100% - 50px);
+  }
 
   border: 1px solid #000;
 
@@ -98,28 +114,4 @@
   overflow: hidden;
   -webkit-box-orient: vertical !important;
   -webkit-line-clamp: 5;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-
-  .svgwrap {
-    width: 31.75px;
-    height: 58.88px;
-
-    @include media-max("sp") {
-      width: 21px;
-      height: auto;
-    }
-  }
-
-  &.-left {
-    left: 20px;
-  }
-  &.-right {
-    right: 20px;
-  }
 }
