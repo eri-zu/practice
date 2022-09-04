@@ -89,18 +89,20 @@ export default class Controller extends Base {
   onResize() {}
 
   show() {
-    const tl = gsap.timeline();
+    if (this.tl) this.tl.kill();
+    this.tl = gsap.timeline();
 
-    tl.to(this.target, 10, {
+    this.tl.to(this.target, 5, {
       value: 1,
       ease: "expo.out",
     });
   }
 
   hide() {
-    const tl = gsap.timeline();
+    if (this.tl) this.tl.kill();
+    this.tl = gsap.timeline();
 
-    tl.to(this.target, 10, {
+    this.tl.to(this.target, 5, {
       value: 0,
       ease: "expo.out",
     });

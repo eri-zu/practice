@@ -16,27 +16,62 @@ void main() {
 	// float progress = smoothstep(0.0, 1.0, uProgress * 2.0 + newUv.y); // 0から1の値 なんかeasing的なイメージ？
 	// float progress = uProgress * 2.0 + newUv.y; // 0から1の値 なんかeasing的なイメージ？
 
-	// x < 0の時、0, x >1.0の時、0 < x < 1の時0-1の範囲の単調増加する値を返す 
-	float progress = smoothstep(0.0, 1.0, uProgress + newUv.x); 
+	// uProgress + newUv.x < 0の時、0 
+	// uProgress + newUv.x >1.0の時、1
+	// 0 < uProgress + newUv.x < 1の時0-1の範囲の単調増加する値を返す 
+	// float progress = smoothstep(0.0, 1.0, uProgress + newUv.y); 
+	// float progress = smoothstep(0.0, 1.0, uProgress * 2.0 + newUv.y - 1.0); 
 
-	// vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5);
-	// vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5);
-	vec4 texture0 = texture2D(uTexture0, newUv * (1.0 - progress)); // 1.0 → 0.9        
-	vec4 texture1 = texture2D(uTexture1, newUv * progress);
+	// // vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5);
+	// // vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5);
+	// vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5); // 1.0 → 0.9        
+	// vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5) ;
+	// vec4 color = mix(texture0, texture1, progress);
 
+
+	// float progress = smoothstep(0.0, 1.0, uProgress + newUv.y); // maxが1帰ってきちゃうからだめ
+
+	// uProgressが1の時あかん
+	// uProgressが0の時おk
+	// float progress = smoothstep(0.0, 1.0, uProgress + newUv.y - 1.0); // newUv.yが〇の時0が帰ってきてtexture0がmaxで帰ってきちゃう
+
+	float progress = smoothstep(0.0, 1.0, uProgress * 2.0 + newUv.y - 1.0); 	
+
+	vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5);
+	vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5);
 	vec4 color = mix(texture0, texture1, progress);
 
+  // progressは0sの時0で帰ってきて欲しい
+	// progressは最初0, アニメーション終わったら1が帰ってきて欲しい
+	// uProgresが1の時、progressは１が帰ってき欲しい
+
 	gl_FragColor = color;
-
-
-	// x = 0.1 y = 0 x = -0.8 => x = 0;
-	// x = 0.1 y = 0.8 => x= x = 0
-	// x = 0.1 y = 0.81 => x = 0.01
-	// x= 0.1 y =0.9 => x = 0.1
-	// x= 0.1y = 1, x = 0.2 => 0.2
-
-	// newUv.y 0.5 x（） 0.1
-
-	// 0.8以下はxは0になる
-
 }
+
+// uProgressが１の時 progressが1帰ってき欲しい newUv.yがいかなる値であっても
+// 値を0から１に収めたい
+
+// ① 左下に向かってzoomしつつ画像切り替え
+// float progress = smoothstep(0.0, 1.0, uProgress); 	
+// vec4 texture0 = texture2D(uTexture0, (newUv) * (1.0 - progress));
+// vec4 texture1 = texture2D(uTexture1, (newUv) * progress);
+// vec4 color = mix(texture0, texture1, progress);
+
+// ②中心を起点にzoomしつつ画像切り替え
+// float progress = smoothstep(0.0, 1.0, uProgress); 
+// vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5);
+// vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5);
+// vec4 color = mix(texture0, texture1, progress);
+// ★0.5引いて真ん中起点にしつつ、帰り値も0 から 1の範囲にするために最後0.5を足す
+
+// ③下向きにグニッといって欲しいのでuvyを動かせばいいかなと思う
+// float progress = smoothstep(0.0, 1.0, uProgress + newUv.y); 
+// vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5); // 1.0 → 0.9        
+// vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5) ;
+// vec4 color = mix(texture0, texture1, progress);
+// gl_FragColor = color;
+
+// ④progressが最初は0, 最後は1であれば、うまくいきそう？
+// vec4 texture0 = texture2D(uTexture0, (newUv - 0.5) * (1.0 - progress) + 0.5); 
+// vec4 texture1 = texture2D(uTexture1, (newUv - 0.5) * progress + 0.5) ;
+// について、progressが最初は0, 最後は1であれば、問題なさそう（最初の画像がきちんと表示される）

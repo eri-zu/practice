@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import styles from "../../styles/components/slider/slider.module.scss";
 import Link from "next/link";
-import ArrowLeftSVG from "./ArrowLeftSVG.js";
-import ArrowRightSVG from "./ArrowRightSVG.js";
+import { ArrowLeftSVG } from "./ArrowLeftSVG";
+// import { ArrowLeftSVG } from "./ArrowLeftSVG.svg";
+import { ArrowRightSVG } from "./ArrowRightSVG";
 import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Order from "./Order";
@@ -125,7 +126,7 @@ export const Slider = () => {
         }}
         ref={arrowL}
       >
-        {/* <ArrowLeftSVG /> */}LEFT
+        <ArrowLeftSVG />
       </div>
       <div
         className={classNames([
@@ -139,7 +140,7 @@ export const Slider = () => {
         }}
         ref={arrowR}
       >
-        {/* <ArrowRightSVG /> */}RIGHT
+        <ArrowRightSVG />
       </div>
       <div className={classNames([styles.inner, "js-slider_inner"])}>
         <div className={classNames([styles.list])}>
@@ -179,3 +180,7 @@ export const Slider = () => {
 // svg?
 // arrow status?
 // swipe
+
+// orderは親のstateで管理
+// useAnimationFrame
+// ロジックは全てjsxに書く

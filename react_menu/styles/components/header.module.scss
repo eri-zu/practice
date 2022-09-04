@@ -54,7 +54,10 @@
   background-color: #222;
   transform: scaleX(0);
 
-  // &.isActive {
+  // .isActive & {
   //   transform: scaleX(1);
+  // }
+  // .isNotActive & {
+  //   transform: scaleX(0);
   // }
 }

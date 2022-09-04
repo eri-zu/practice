@@ -29,17 +29,20 @@ export const Header = () => {
               <ul className={classNames([styles.navList])}>
                 {menus.map((menu) => {
                   return (
-                    // <li className={classNames([styles.navItem])} key={menu.name}>
-                    //   <Link href={menu.link}>
-                    //     <a>
-                    //       <span className={styles.navText}>
-                    //         {menu.name.toUpperCase()}
-                    //       </span>
-                    //       <span className={classNames([styles.navLine])}></span>
-                    //     </a>
-                    //   </Link>
-                    // </li>
-                    <Item menu={menu} key={menu.name} />
+                    <li
+                      className={classNames([styles.navItem])}
+                      key={menu.name}
+                    >
+                      <Link href={menu.link}>
+                        <a>
+                          <span className={styles.navText}>
+                            {menu.name.toUpperCase()}
+                          </span>
+                          <span className={classNames([styles.navLine])}></span>
+                        </a>
+                      </Link>
+                    </li>
+                    // <Item menu={menu} key={menu.name} />
                   );
                 })}
               </ul>
