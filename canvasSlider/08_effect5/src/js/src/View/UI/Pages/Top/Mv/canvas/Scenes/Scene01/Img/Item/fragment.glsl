@@ -19,13 +19,16 @@ void main() {
 	vec4 textureColor0 = texture2D(uTexture0, newUV);
 	vec4 textureColor1 = texture2D(uTexture1, newUV);
 
-	float displace1 = (textureColor0.r + textureColor0.g + textureColor0.b) * 0.33;
-	float displace2 = (textureColor1.r + textureColor1.g + textureColor1.b) * 0.33;
-	
-	vec4 t1 = texture2D(uTexture0, vec2(newUV.x, newUV.y + uProgress * (displace2 * uIntensity)));
-	vec4 t2 = texture2D(uTexture1, vec2(newUV.x, newUV.y + (1.0 - uProgress) * (displace1 * uIntensity)));
+	// float displace0 = (textureColor0.r + textureColor0.g + textureColor0.b) * 0.33;
+	// float displace1 = (textureColor1.r + textureColor1.g + textureColor1.b) * 0.33;
+	// vec4 t1 = texture2D(uTexture0, vec2(newUV.x, newUV.y + uProgress * (displace1 * uIntensity)));
+	// vec4 t2 = texture2D(uTexture1, vec2(newUV.x, newUV.y + (1.0 - uProgress) * (displace0 * uIntensity)));
+
+	vec4 t1 = texture2D(uTexture0, vec2(newUV.x, newUV.y + uProgress * (textureColor1 * uIntensity)));
+	vec4 t2 = texture2D(uTexture1, vec2(newUV.x, newUV.y + (1.0 - uProgress) * (textureColor0 * uIntensity)));
 
 	gl_FragColor = mix(t1, t2, uProgress);
 }
 
-
+// vec4にfloat かけたら何？vec4が返ってくる？
+// uProgress=0の時、(1.0 - uProgress) * (textureColor0 * uIntensity)は - newUV.y？？
