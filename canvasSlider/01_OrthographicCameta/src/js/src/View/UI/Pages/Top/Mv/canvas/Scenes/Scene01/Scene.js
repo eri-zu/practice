@@ -51,7 +51,7 @@ export default class Scene extends Base {
     this.camera = gb.camera.camera;
 
     // light
-    this.light = new _Light(this.scene);
+    // this.light = new _Light(this.scene);
 
     // objects
     this.obj = new Objects(this.scene, this.camera, this.renderer);

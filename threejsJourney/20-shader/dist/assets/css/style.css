@@ -1139,6 +1139,22 @@ a:active {
 -------------------------------------------------------------------------------- */
 }
 
+#wrapper.id_top .canvaswrap {
+  width: 107px;
+  height: 268.5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#wrapper.id_top canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 1;
+}
+
 .demoSvg {
   width: 521px;
   margin: auto;

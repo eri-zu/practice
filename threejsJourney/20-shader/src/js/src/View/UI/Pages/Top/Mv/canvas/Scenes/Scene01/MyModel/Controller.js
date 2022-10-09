@@ -18,7 +18,6 @@ export default class Plane extends Base {
     this.camera = camera;
     this.renderer = renderer;
 
-    this.gui = new dat.GUI();
     this.clock = new THREE.Clock();
 
     this.isUEv = true;
@@ -32,13 +31,18 @@ export default class Plane extends Base {
   setup() {
     this.loadTexture();
     this.ready();
-    this.add();
+
+    setTimeout(() => {
+      this.setImage();
+      this.add();
+    }, 1000);
   }
 
   loadTexture() {
     this.textureLoader = new THREE.TextureLoader();
     this.flagTexture = this.textureLoader.load(
       "./assets/resource/img/flag-french.jpg"
+      // "./assets/resource/img/slot.png"
     );
   }
 
@@ -46,25 +50,11 @@ export default class Plane extends Base {
     /**
      * geometry
      */
-    this.geometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32); // w, h, wseg, hseg
+    this.geometry = new THREE.PlaneGeometry(1, 1, 30, 30); // w, h, wseg, hseg
 
-    /**
-     * attribute
-     */
-
-    const count = this.geometry.attributes.position.count;
-    const randoms = new Float32Array(count); // lengthがcountのarrayを作成
-    for (let i = 0; i < count; i++) {
-      randoms[i] = Math.random();
-    }
-
-    // geometryにaRandomという名前でnew THREE.BufferAttribute(randoms, 1)というvalue を持つattributeを作る
-    this.geometry.setAttribute(
-      "aRandom", //name
-      new THREE.BufferAttribute(randoms, 1) // randomsという配列をbufferattributeに変換
-    );
-
-    console.log(this.geometry);
+    // const SEGX = 10;
+    // const SEGY = 20;
+    // this.geometry = new THREE.PlaneBufferGeometry(107, 268.5, SEGX, SEGY);
 
     /**
      * material
@@ -75,33 +65,39 @@ export default class Plane extends Base {
       vertexShader: testVertexShader,
       fragmentShader: testFragmentShader,
       uniforms: {
-        uFrequeny: { value: new THREE.Vector2(10, 5) }, // objectで渡すこと（typeはもう渡さなくていい）
+        uFrequeny: { value: new THREE.Vector2(10, 10) }, // objectで渡すこと（typeはもう渡さなくていい）
         uTime: { value: 0 },
-        uColor: { value: new THREE.Color("orange") },
+        uResolution: { value: new THREE.Vector4() },
         uTexture: { value: this.flagTexture },
       },
       side: THREE.DoubleSide, // 裏表描画
       transparent: true,
     });
 
-    this.gui
-      .add(this.material.uniforms.uFrequeny.value, "x")
-      .min(0)
-      .max(20)
-      .step(0.01)
-      .name("frequencyX");
-    this.gui
-      .add(this.material.uniforms.uFrequeny.value, "y")
-      .min(0)
-      .max(20)
-      .step(0.01)
-      .name("frequencyY");
-
-    /**
-     * mesh
-     */
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.mesh.scale.y = 2 / 3;
+    // this.mesh.scale.y = 2 / 3;
+  }
+
+  setImage() {
+    this.canvasAspect = gb.r.h / gb.r.w;
+    this.imgAspect =
+      this.flagTexture.image.height / this.flagTexture.image.width;
+
+    let aspect1;
+    let aspect2;
+
+    if (this.canvasAspect > this.imgAspect) {
+      aspect1 = (gb.r.w / gb.r.h) * this.imgAspect;
+      aspect2 = 1;
+    } else {
+      aspect1 = 1;
+      aspect2 = gb.r.h / gb.r.w / this.imgAspect;
+    }
+
+    this.material.uniforms.uResolution.value.x = gb.r.w;
+    this.material.uniforms.uResolution.value.y = gb.r.h;
+    this.material.uniforms.uResolution.value.z = aspect1;
+    this.material.uniforms.uResolution.value.w = aspect2;
   }
 
   add() {

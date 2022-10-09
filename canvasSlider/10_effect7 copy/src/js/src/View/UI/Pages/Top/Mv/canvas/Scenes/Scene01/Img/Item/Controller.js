@@ -57,6 +57,9 @@ export default class Controller extends Base {
       transparent: true,
     });
 
+    console.log(this.time);
+    console.log(this.target.value);
+
     this.mesh = new THREE.Mesh(geo, this.material);
   }
 

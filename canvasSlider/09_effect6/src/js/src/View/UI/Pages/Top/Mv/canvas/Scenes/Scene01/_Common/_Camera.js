@@ -17,8 +17,8 @@ export default class Camera extends Base {
 
     this.fov = 45;
     // this.aspect = gb.r.w / gb.r.h;
-    this.w = gb.canvas_w;
-    this.h = gb.canvas_h;
+    this.w = gb.w;
+    this.h = gb.h;
     this.aspect = this.w / this.h;
     this.near = 1;
     this.far = 50000;
@@ -115,7 +115,7 @@ export default class Camera extends Base {
   }
 
   setCameraByPixel() {
-    this.h = gb.canvas_h;
+    this.h = gb.h;
 
     const vFov = this.fov * (Math.PI / 180);
     const z = this.h / (2 * Math.tan(vFov * 0.5));
