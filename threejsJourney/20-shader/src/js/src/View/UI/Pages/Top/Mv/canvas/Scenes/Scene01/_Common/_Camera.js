@@ -116,7 +116,7 @@ export default class Camera extends Base {
     // var z = vpHeight / (2 * Math.tan(vFOV / 2));
     var z = 0.25;
     this.z = z;
-    this.camera.position.set(0.25, -0.25, 1);
+    this.camera.position.set(0, 0, 1);
     this.camera.lookAt(new THREE.Vector3());
 
     log("z", z);

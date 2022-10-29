@@ -1145,6 +1145,7 @@ a:active {
   position: absolute;
   top: 0;
   left: 0;
+  border: 1px solid #000;
 }
 
 #wrapper.id_top canvas {

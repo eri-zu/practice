@@ -8,7 +8,6 @@ import Base from "@BALANCeLibs/Base.js";
 import * as THREE from "three";
 import testVertexShader from "./shaders/test/vertex.glsl";
 import testFragmentShader from "./shaders/test/fragment.glsl";
-import * as dat from "lil-gui";
 
 export default class Plane extends Base {
   constructor(scene, camera, renderer) {
@@ -17,6 +16,8 @@ export default class Plane extends Base {
     this.scene = scene;
     this.camera = camera;
     this.renderer = renderer;
+
+    this.isUpdate = false;
 
     this.clock = new THREE.Clock();
 
@@ -28,60 +29,59 @@ export default class Plane extends Base {
     this.timeline();
   }
 
-  setup() {
-    this.loadTexture();
-    this.ready();
+  async setup() {
+    const texture = await this.loadTexture();
+    this.ready(texture);
+    this.setImage(texture);
+    this.add();
+    this.isUpdate = true;
 
-    setTimeout(() => {
-      this.setImage();
-      this.add();
-    }, 1000);
+    console.log(texture);
   }
 
-  loadTexture() {
-    this.textureLoader = new THREE.TextureLoader();
-    this.flagTexture = this.textureLoader.load(
-      "./assets/resource/img/flag-french.jpg"
-      // "./assets/resource/img/slot.png"
-    );
+  async loadTexture() {
+    const textureLoader = new THREE.TextureLoader();
+
+    // "./assets/resource/img/flag-french.jpg"
+    const src = ["./assets/resource/img/slot.png"];
+
+    const p = new Promise((resolve, reject) => {
+      const texture = textureLoader.load(src, () => {
+        resolve(texture);
+      });
+    });
+
+    return await p;
   }
 
-  ready() {
-    /**
-     * geometry
-     */
-    this.geometry = new THREE.PlaneGeometry(1, 1, 30, 30); // w, h, wseg, hseg
+  ready(texture) {
+    // this.geometry = new THREE.PlaneGeometry(1, 1, 30, 30); // w, h, wseg, hseg
+    // this.geometry = new THREE.PlaneGeometry(1, 1, 30, 30); // w, h, wseg, hseg
+    this.geometry = new THREE.PlaneGeometry(0.39, 1, 30, 30); // w, h, wseg, hseg
 
     // const SEGX = 10;
     // const SEGY = 20;
     // this.geometry = new THREE.PlaneBufferGeometry(107, 268.5, SEGX, SEGY);
 
-    /**
-     * material
-     * RawShaderMaterialになってもmaterial propertyのうちいくつかは引き継がれる
-     * map, alphamap, opacity, colorらへんは無理
-     */
     this.material = new THREE.RawShaderMaterial({
       vertexShader: testVertexShader,
       fragmentShader: testFragmentShader,
       uniforms: {
-        uFrequeny: { value: new THREE.Vector2(10, 10) }, // objectで渡すこと（typeはもう渡さなくていい）
+        uFrequeny: { value: new THREE.Vector2(10, 10) },
         uTime: { value: 0 },
         uResolution: { value: new THREE.Vector4() },
-        uTexture: { value: this.flagTexture },
+        uTexture: { value: texture },
       },
       side: THREE.DoubleSide, // 裏表描画
       transparent: true,
     });
 
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    // this.mesh.scale.y = 2 / 3;
   }
 
-  setImage() {
+  setImage(texture) {
     this.canvasAspect = gb.r.h / gb.r.w;
-    this.imgAspect =
-      this.flagTexture.image.height / this.flagTexture.image.width;
+    this.imgAspect = texture.image.height / texture.image.width;
 
     let aspect1;
     let aspect2;
@@ -105,6 +105,7 @@ export default class Plane extends Base {
   }
 
   update() {
+    if (!this.isUpdate) return;
     const elapsedTime = this.clock.getElapsedTime();
 
     // update material

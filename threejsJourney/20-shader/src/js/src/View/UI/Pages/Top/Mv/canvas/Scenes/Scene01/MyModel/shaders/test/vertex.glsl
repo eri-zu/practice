@@ -17,7 +17,7 @@ void main() {
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
   float theta = abs(modelPosition.y * PI) + PI * 0.5;
-  // float elevation = sin(theta) * 10.0;
+  
   float elevation = sin(theta) * 0.2;
   modelPosition.z += elevation;
 
