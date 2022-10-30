@@ -6,71 +6,156 @@
     <form action="">
       <div class="inner">
         <ul class="list">
-          <li class="item">
-            <label class="must" for="name">名前</label>
+          <li class="item js-validitem">
+            <label class="must" for="lastname">名前</label>
             <div class="inputwrap">
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="lastname"
+                id="lastname"
+                placeholder="姓"
+                data-required="true"
+              />
+            </div>
+            <div class="inputwrap">
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="名"
+                data-required="true"
+              />
+            </div>
+            <div class="errorwrap">
+              <p class="error">入力してください。</p>
+            </div>
+          </li>
+
+          <li class="item js-validitem">
+            <label for="furigana">ふりがな</label>
+            <div class="inputwrap">
+              <input
+                type="text"
+                name="furigana"
+                id="furigana"
                 placeholder="山田太郎"
-                class="required"
               />
             </div>
           </li>
-          <!-- <li class="item">
-            <label for="job">職業</label>
+
+          <!-- <li class="item js-validitem">
+            <label for="job" class="must">職業</label>
             <div class="inputwrap">
               <input
                 type="text"
                 name="job"
                 id="job"
                 placeholder="CEO"
-                class="required"
+                data-required="false"
               />
             </div>
+            <div class="errorwrap">
+              <p class="error">入力してください。</p>
+            </div>
+          </li> -->
+
+          <li class="item js-validitem">
+            <label for="job" class="must">職業</label>
+            <div class="inputwrap">
+              <select name="job" data-required="true" id="job">
+                <option value="" selected disabled>選択してください</option>
+                <option value="engineer">エンジニア</option>
+                <option value="designer">デザイナー</option>
+                <option value="derector">ディレクター</option>
+              </select>
+            </div>
+            <div class="errorwrap">
+              <p class="error">選択してください。</p>
+            </div>
           </li>
-          <li class="item">
-            <label for="tel">電話番号</label>
+
+          <li class="item js-validitem">
+            <label for="opportunity" class="must">弊社を知ったきっかけ</label>
+            <div class="inputwrap">
+              <select name="opportunity" data-required="true" id="opportunity">
+                <option value="" selected disabled>選択してください</option>
+                <option value="introduction">紹介</option>
+                <option value="internet">インターネット</option>
+                <option value="other">そのほか</option>
+              </select>
+            </div>
+            <div class="errorwrap">
+              <p class="error">選択してください。</p>
+            </div>
+          </li>
+
+          <li class="item js-validitem">
+            <label for="tel" class="must">電話番号</label>
             <div class="inputwrap">
               <input
                 type="tel"
                 name="tel"
                 id="tel"
                 placeholder="0798888888"
-                class="required"
+                data-required="true"
               />
             </div>
+            <div class="errorwrap">
+              <p class="error">正しく入力してください。</p>
+            </div>
           </li>
-          <li class="item">
-            <label class="must" for="email">メールアドレス</label>
+
+          <li class="item js-validitem">
+            <label for="email">メールアドレス</label>
             <div class="inputwrap">
               <input
                 type="email"
                 name="email"
                 id="email"
                 placeholder="abc@gmail.com"
-                class="required"
               />
+            </div>
+            <div class="errorwrap">
+              <p class="error">正しく入力してください。</p>
             </div>
           </li>
 
-          <li class="item">
+          <li class="item js-validitem">
             <label for="comment">お問い合わせ内容</label>
             <div class="inputwrap">
               <textarea
                 placeholder="お問い合わせ内容"
                 name="comment"
                 id="comment"
-                class="must required"
                 cols="30"
                 rows="10"
+                data-required="true"
               ></textarea>
             </div>
-          </li> -->
+            <div class="errorwrap">
+              <p class="error">正しく入力してください。</p>
+            </div>
+          </li>
         </ul>
 
-        <div class="checkarea"></div>
+        <div class="checkarea js-validitem">
+          <input
+            type="checkbox"
+            id="privacy"
+            name="privacy"
+            data-required="true"
+          />
+          <label for="privacy">
+            <div class="checkbox"></div>
+            <div class="checktxt">
+              <a href="">プライバシーポリシー</a>
+              に同意する
+            </div>
+          </label>
+          <div class="errorwrap">
+            <p class="error">チェックしてください。</p>
+          </div>
+        </div>
 
         <div class="btnarea">
           <div class="btnwrap">

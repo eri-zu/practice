@@ -1122,18 +1122,6 @@ a:active {
   color: #ff405e;
 }
 
-.error {
-  color: #E83434;
-}
-
-.error {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 5.1rem;
-  width: 100%;
-}
-
 .underline {
   text-decoration: underline;
 }
@@ -1150,8 +1138,8 @@ a:active {
 }
 
 #wrapper.id_top .section {
+  padding: 100px 0px;
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1165,31 +1153,45 @@ a:active {
   margin: 0 auto;
 }
 
-#wrapper.id_top label {
+#wrapper.id_top .item:nth-child(n + 2) {
+  margin-top: 24px;
+}
+
+#wrapper.id_top .item label {
   font-size: 12px;
   color: #aaa;
   display: inline-block;
-}
-
-#wrapper.id_top input,
-#wrapper.id_top textarea {
-  background-color: #f2f2f2;
-  padding: 10px 18px 10px;
-  font-size: 14px;
-  width: 100%;
-}
-
-#wrapper.id_top input::placeholder,
-#wrapper.id_top textarea::placeholder {
-  color: #aaa;
 }
 
 #wrapper.id_top .inputwrap {
   margin-top: 10px;
 }
 
-#wrapper.id_top .item:nth-child(n + 2) {
-  margin-top: 24px;
+#wrapper.id_top .inputwrap input,
+#wrapper.id_top .inputwrap textarea {
+  background-color: #f2f2f2;
+  padding: 10px 18px 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+#wrapper.id_top .inputwrap input::placeholder,
+#wrapper.id_top .inputwrap textarea::placeholder {
+  color: #aaa;
+}
+
+#wrapper.id_top .errorwrap {
+  margin-top: 10px;
+  display: none;
+}
+
+#wrapper.id_top .errorwrap.isActive {
+  display: block;
+}
+
+#wrapper.id_top .error {
+  font-size: 10px;
+  color: #e60012;
 }
 
 #wrapper.id_top .btnarea {
@@ -1226,6 +1228,78 @@ a:active {
   position: absolute;
   top: 0;
   left: 100%;
+}
+
+#wrapper.id_top .checkarea {
+  margin-top: 40px;
+}
+
+#wrapper.id_top .checkarea label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wrapper.id_top .checkarea .error {
+  text-align: center;
+}
+
+#wrapper.id_top .checkbox {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #000;
+  position: relative;
+}
+
+#wrapper.id_top .checkbox::before {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 2.5px;
+  width: 5px;
+  height: 8px;
+  z-index: 1;
+  transform: rotate(40deg);
+  border-bottom: 1.5px solid #000;
+  border-right: 1.5px solid #000;
+}
+
+#wrapper.id_top input[type="checkbox"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#wrapper.id_top input[type="checkbox"]:checked + label .checkbox::before {
+  display: block;
+}
+
+#wrapper.id_top .checktxt {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+#wrapper.id_top .checktxt a {
+  text-decoration: underline;
+}
+
+#wrapper.id_top select {
+  background-color: #f2f2f2;
+  padding: 10px 18px 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+#wrapper.id_top select:invalid {
+  color: #aaa;
+}
+
+#wrapper.id_top select option {
+  color: black;
+}
+
+#wrapper.id_top select option:first-child {
+  color: #aaa;
 }
 
 .demoSvg {

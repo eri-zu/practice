@@ -1,8 +1,9 @@
 @charset "utf-8";
 
 .section {
+  padding: 100px 0px;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,31 +17,44 @@
   margin: 0 auto;
 }
 
-label {
-  font-size: 12px;
-  color: #aaa;
-  display: inline-block;
-}
-
-input,
-textarea {
-  background-color: #f2f2f2;
-  padding: 10px 18px 10px;
-  font-size: 14px;
-  width: 100%;
-  &::placeholder {
+.item {
+  &:nth-child(n + 2) {
+    margin-top: 24px;
+  }
+  label {
+    font-size: 12px;
     color: #aaa;
+    display: inline-block;
   }
 }
 
 .inputwrap {
   margin-top: 10px;
+
+  input,
+  textarea {
+    background-color: #f2f2f2;
+    padding: 10px 18px 10px;
+    font-size: 14px;
+    width: 100%;
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
 }
 
-.item {
-  &:nth-child(n + 2) {
-    margin-top: 24px;
+.errorwrap {
+  margin-top: 10px;
+  display: none;
+  &.isActive {
+    display: block;
   }
+}
+
+.error {
+  font-size: 10px;
+  color: #e60012;
 }
 
 .btnarea {
@@ -79,4 +93,77 @@ input[type="submit"] {
     top: 0;
     left: 100%;
   }
+}
+
+.checkarea {
+  margin-top: 40px;
+
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .error {
+    text-align: center;
+  }
+}
+
+.checkbox {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #000;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 2.5px;
+    width: 5px;
+    height: 8px;
+    z-index: 1;
+    transform: rotate(40deg);
+    border-bottom: 1.5px solid #000;
+    border-right: 1.5px solid #000;
+  }
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+  pointer-events: none;
+  // display: none;
+
+  &:checked + label {
+    .checkbox::before {
+      display: block;
+    }
+  }
+}
+
+.checktxt {
+  margin-left: 10px;
+  font-size: 12px;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+select {
+  background-color: #f2f2f2;
+  padding: 10px 18px 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+select:invalid {
+  color: #aaa;
+}
+select option {
+  color: black;
+}
+select option:first-child {
+  color: #aaa;
 }

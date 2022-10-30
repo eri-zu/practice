@@ -18,9 +18,7 @@ export default class Controller extends Base {
   }
 
   setup() {
-    console.log("setup");
     this.top = new Top();
-    this.top.timeline();
   }
 
   timeline() {}

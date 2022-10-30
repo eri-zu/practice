@@ -3,7 +3,7 @@
 *   link
 *
 -------------------------------------------------------------------------------- */
-  
+
 a {
   color: $link-color;
   text-decoration: none;
@@ -39,26 +39,14 @@ a:active {
   text-shadow: 5px 5px 2px #ccc;
 }
 
-
 /* --------------------------------------------------------------------------------
 *
 *   color
 *
 -------------------------------------------------------------------------------- */
-  
+
 .highlight {
   color: #ff405e;
-}
-
-.error {
-  color: #E83434;
-}
-.error {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: rem(51 ,$fz);
-  width: 100%;
 }
 
 .underline {

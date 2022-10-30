@@ -9,6 +9,7 @@ import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 import { CustomEase } from "@BALANCeLibs/View/gsap/CustomEase/CustomEase.js";
 import { Conf } from "@/Conf";
+import Varidation from "./Varidation/Controller";
 
 export default class Controller extends Base {
   constructor() {
@@ -18,7 +19,9 @@ export default class Controller extends Base {
     this.setEvents();
   }
 
-  setup() {}
+  setup() {
+    new Varidation()
+  }
 
   update() {}
 
