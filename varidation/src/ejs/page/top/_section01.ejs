@@ -7,7 +7,7 @@
       <div class="inner">
         <ul class="list">
           <li class="item js-validitem">
-            <label class="must" for="lastname">名前</label>
+            <label class="must title" for="lastname">名前</label>
             <div class="inputwrap">
               <input
                 type="text"
@@ -31,8 +31,8 @@
             </div>
           </li>
 
-          <li class="item js-validitem">
-            <label for="furigana">ふりがな</label>
+          <li class="item">
+            <label for="furigana" class="title">ふりがな</label>
             <div class="inputwrap">
               <input
                 type="text"
@@ -60,7 +60,7 @@
           </li> -->
 
           <li class="item js-validitem">
-            <label for="job" class="must">職業</label>
+            <label for="job" class="must title">職業</label>
             <div class="inputwrap">
               <select name="job" data-required="true" id="job">
                 <option value="" selected disabled>選択してください</option>
@@ -75,7 +75,9 @@
           </li>
 
           <li class="item js-validitem">
-            <label for="opportunity" class="must">弊社を知ったきっかけ</label>
+            <label for="opportunity" class="must title"
+              >弊社を知ったきっかけ</label
+            >
             <div class="inputwrap">
               <select name="opportunity" data-required="true" id="opportunity">
                 <option value="" selected disabled>選択してください</option>
@@ -90,7 +92,7 @@
           </li>
 
           <li class="item js-validitem">
-            <label for="tel" class="must">電話番号</label>
+            <label for="tel" class="must title">電話番号</label>
             <div class="inputwrap">
               <input
                 type="tel"
@@ -106,7 +108,7 @@
           </li>
 
           <li class="item js-validitem">
-            <label for="email">メールアドレス</label>
+            <label for="email" class="title">メールアドレス</label>
             <div class="inputwrap">
               <input
                 type="email"
@@ -121,7 +123,22 @@
           </li>
 
           <li class="item js-validitem">
-            <label for="comment">お問い合わせ内容</label>
+            <input type="file" name="resume" id="resume" data-required="true" />
+            <label for="resume" class="title must">履歴書</label>
+            <div class="inputwrap">
+              <label for="resume">
+                <div class="attachbtn">
+                  <p class="attachtxt">ファイルを選択</p>
+                </div>
+              </label>
+            </div>
+            <div class="errorwrap">
+              <p class="error">選択してください。</p>
+            </div>
+          </li>
+
+          <li class="item js-validitem">
+            <label for="comment" class="title">お問い合わせ内容</label>
             <div class="inputwrap">
               <textarea
                 placeholder="お問い合わせ内容"

@@ -37,6 +37,7 @@ export default class Controller extends Base {
   }
 
   check(target) {
+    console.log(this.errors);
     let value = target.value;
     const isEmpty = !value;
     const id = target.id;
@@ -67,11 +68,20 @@ export default class Controller extends Base {
       }
     }
 
+    console.log(value, isRequired, isEmpty, errorDom, id);
+
     // text
-    if (type == "text" || type == "textarea" || type == "select-one") {
+    if (
+      type == "text" ||
+      type == "textarea" ||
+      type == "select-one" ||
+      type == "file"
+    ) {
       if (isRequired && isEmpty) {
+        console.log("aaaaa");
         this.isError(id, errorDom);
       } else {
+        console.log("bbbb");
         this.deleteError(id, errorDom);
       }
     }
@@ -97,6 +107,7 @@ export default class Controller extends Base {
   }
 
   isError(id, errorDom) {
+    console.log("isError!!", id);
     this.errors[id] = "isError";
     if (errorDom) errorDom.classList.add("isActive");
   }
@@ -107,7 +118,7 @@ export default class Controller extends Base {
   }
 
   checkBtn(errorCount) {
-    // console.log(errorCount);
+    console.log(errorCount);
     // エラーカウント判定
     if (errorCount == 0) {
       this.btn.classList.add("isActive");
@@ -128,10 +139,27 @@ export default class Controller extends Base {
     this.inputs.forEach((input, i) => {
       events.forEach((event, i) => {
         input.addEventListener(event, (e) => {
-          console.log("aaa");
+          console.log("aaaa");
           this.check(e.target);
         });
       });
+    });
+
+    // display noneにしてるので、blurとかinputにかけてもきかない
+    // const windowevents = ["focus", "blur"];
+
+    // windowevents.forEach((windowevent, i) => {
+    //   window.addEventListener(windowevent, (e) => {
+    //     setTimeout(() => {
+    //       this.check(document.querySelector('input[type="file"]'));
+    //     }, 1000);
+    //   });
+    // });
+
+    window.addEventListener("focus", (e) => {
+      // console.log("focus");
+      // fileモーダル消えた時、focus
+      this.check(document.querySelector('input[type="file"]'));
     });
   }
 }
