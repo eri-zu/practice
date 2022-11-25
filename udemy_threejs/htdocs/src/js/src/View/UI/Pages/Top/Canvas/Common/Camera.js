@@ -69,6 +69,7 @@ export default class CameraController extends Base {
   onResize() {
     this.aspect = gb.w / gb.h;
     this.camera.updateProjectionMatrix();
+    if (this.isPixel) this.camera.position.z = this.positionZ;
   }
 
   setEvents() {
