@@ -1,0 +1,57 @@
+// scss
+@import "base/_base";
+@import "base/_reset";
+@import "mixin/_mixin";
+@import "setting/_variables";
+
+body {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	&::before {
+		content: '';
+		background-color: #D8EAED;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 100%;
+		transition: right 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	&::after {
+		content: '';
+		background-color: #D8EAED;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	&.slideIn::before {
+		right: 0; // 100->0へ動く（クリックされたらスライドイン）
+	}
+	&.slideOut::after {
+		left: 0; // 0->100へ動く（予め覆っておき、あとで外してスライドアウト）
+	}
+}
+
+.wrapper {
+	max-width: 1080px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+p {
+	max-width: 1080px;
+	width: 100%;
+	img {
+		width: 100%;
+	}
+}
+

@@ -37,7 +37,6 @@ export default class Controller extends Base {
   }
 
   check(target) {
-    console.log(this.errors);
     let value = target.value;
     const isEmpty = !value;
     const id = target.id;
@@ -67,8 +66,6 @@ export default class Controller extends Base {
         this.deleteError(id, errorDom);
       }
     }
-
-    console.log(value, isRequired, isEmpty, errorDom, id);
 
     // text
     if (
@@ -107,7 +104,6 @@ export default class Controller extends Base {
   }
 
   isError(id, errorDom) {
-    console.log("isError!!", id);
     this.errors[id] = "isError";
     if (errorDom) errorDom.classList.add("isActive");
   }
@@ -118,7 +114,6 @@ export default class Controller extends Base {
   }
 
   checkBtn(errorCount) {
-    console.log(errorCount);
     // エラーカウント判定
     if (errorCount == 0) {
       this.btn.classList.add("isActive");
@@ -139,27 +134,22 @@ export default class Controller extends Base {
     this.inputs.forEach((input, i) => {
       events.forEach((event, i) => {
         input.addEventListener(event, (e) => {
-          console.log("aaaa");
           this.check(e.target);
         });
       });
     });
 
     // display noneにしてるので、blurとかinputにかけてもきかない
-    // const windowevents = ["focus", "blur"];
-
-    // windowevents.forEach((windowevent, i) => {
-    //   window.addEventListener(windowevent, (e) => {
-    //     setTimeout(() => {
-    //       this.check(document.querySelector('input[type="file"]'));
-    //     }, 1000);
-    //   });
-    // });
-
-    window.addEventListener("focus", (e) => {
-      // console.log("focus");
-      // fileモーダル消えた時、focus
+    // focusイベントが早すぎるので,,,ずらす
+    window.addEventListener("change", (e) => {
+      console.log("change");
       this.check(document.querySelector('input[type="file"]'));
+    });
+    window.addEventListener("focus", (e) => {
+      setTimeout(() => {
+        console.log("focus");
+        this.check(document.querySelector('input[type="file"]'));
+      }, 500);
     });
   }
 }
