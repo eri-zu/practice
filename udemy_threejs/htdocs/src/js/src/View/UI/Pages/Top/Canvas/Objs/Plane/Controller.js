@@ -27,11 +27,14 @@ export default class Controller extends Base {
   }
 
   setGeometry() {
-    this.geometry = new THREE.PlaneGeometry(2, 2);
+    this.geometry = new THREE.PlaneGeometry(gb.w, gb.h);
   }
 
   setMaterial() {
-    this.material = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    this.material = new THREE.MeshBasicMaterial({
+      color: 0x000000,
+      side: THREE.DoubleSide,
+    });
   }
 
   setMesh() {

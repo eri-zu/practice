@@ -21,6 +21,8 @@ export default class CameraController extends Base {
     this.fov = 75; // 視野角
     this.near = 1;
     this.far = 50000;
+    this.isPixel = true;
+    this.isControl = false;
 
     this.setup();
     this.setEvents();
@@ -28,7 +30,7 @@ export default class CameraController extends Base {
 
   setup() {
     this.setCamera();
-    this.setControls();
+    if (this.isControl) this.setControls();
   }
 
   setCamera() {
@@ -40,8 +42,19 @@ export default class CameraController extends Base {
     );
 
     this.camera.position.set(0, 0, 3);
+    if (this.isPixel) this.camera.position.z = this.positionZ;
+
     this.camera.lookAt(0, 0, 0);
     this.scene.add(this.camera);
+  }
+
+  get positionZ() {
+    // ラジアンに
+    this.fovRad = m.radian(this.fov / 2);
+    // dist : windowサイズがぴったりおさまるカメラ距離
+    const z = gb.h / 2 / Math.tan(this.fovRad);
+
+    return z;
   }
 
   setControls() {
@@ -50,7 +63,7 @@ export default class CameraController extends Base {
   }
 
   update() {
-    this.controls.update();
+    if (this.controls) this.controls.update();
   }
 
   onResize() {

@@ -27,7 +27,7 @@ export default class Controller extends Base {
   }
 
   setGeometry() {
-    this.geometry = new THREE.BoxGeometry(1, 1, 1);
+    this.geometry = new THREE.BoxGeometry(100, 100, 100);
   }
 
   setMaterial() {
