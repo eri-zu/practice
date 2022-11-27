@@ -16,6 +16,8 @@ export default class Controller extends Base {
   constructor() {
     super();
 
+    console.log("aaaa");
+
     this.wrap = document.querySelector(".canvaswrap");
 
     this.isREv = true;

@@ -18,18 +18,33 @@ export default class CameraController extends Base {
     this.scene = scene;
 
     this.aspect = gb.w / gb.h;
-    this.fov = 75; // 視野角
-    this.near = 1;
-    this.far = 10000;
-    this.isPixel = true;
+
+    this.isPerspective = false;
+    this.isPixel = false;
     this.isControl = false;
+
+    if (this.isPerspective) {
+      this.fov = 75; // 視野角
+      this.near = 1;
+      this.far = 10000;
+      this.z = 3;
+    } else {
+      this.width = 1;
+      this.height = 1;
+      this.near = 0.1;
+      this.far = 100;
+      this.z = 3;
+    }
 
     this.setup();
     this.setEvents();
   }
 
   setup() {
-    this.setPerspectiveCamera();
+    this.isPerspective
+      ? this.setPerspectiveCamera()
+      : this.setOrthographicCamera();
+
     if (this.isControl) this.setControls();
   }
 
@@ -41,7 +56,7 @@ export default class CameraController extends Base {
       this.far
     );
 
-    this.camera.position.set(0, 0, 3);
+    this.camera.position.set(0, 0, this.z);
     if (this.isPixel) this.camera.position.z = this.positionZ;
 
     this.camera.lookAt(0, 0, 0);
@@ -49,7 +64,16 @@ export default class CameraController extends Base {
   }
 
   setOrthographicCamera() {
-    this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 100);
+    this.camera = new THREE.OrthographicCamera(
+      -this.width,
+      this.width,
+      this.height,
+      -this.height,
+      this.near,
+      this.far
+    );
+    this.camera.position.z = this.z;
+    this.scene.add(this.camera);
   }
 
   get positionZ() {
@@ -72,8 +96,25 @@ export default class CameraController extends Base {
 
   onResize() {
     this.aspect = gb.w / gb.h;
-    this.camera.updateProjectionMatrix();
+
     if (this.isPixel) this.camera.position.z = this.positionZ;
+
+    if (!this.isPerspective) {
+      if (this.aspect > 1) {
+        this.width = 1;
+        this.height = this.width * (gb.h / gb.w);
+      } else {
+        this.width = this.aspect;
+        this.height = 1;
+      }
+
+      this.camera.left = -this.width;
+      this.camera.right = this.width;
+      this.camera.top = this.height;
+      this.camera.bottom = -this.height;
+    }
+
+    this.camera.updateProjectionMatrix();
   }
 
   setEvents() {

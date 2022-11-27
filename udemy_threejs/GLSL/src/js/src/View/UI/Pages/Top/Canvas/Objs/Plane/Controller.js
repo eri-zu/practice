@@ -8,6 +8,8 @@ import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 import * as THREE from "three";
+import vs from "./shader/vertex.glsl";
+import fs from "./shader/fragment.glsl";
 
 export default class Controller extends Base {
   constructor(scene) {
@@ -27,13 +29,18 @@ export default class Controller extends Base {
   }
 
   setGeometry() {
-    this.geometry = new THREE.PlaneGeometry(gb.w, gb.h);
+    this.geometry = new THREE.PlaneGeometry(2, 2);
   }
 
   setMaterial() {
-    this.material = new THREE.MeshBasicMaterial({
-      color: 0x000000,
-      side: THREE.DoubleSide,
+    // this.material = new THREE.MeshBasicMaterial({
+    //   color: 0x000000,
+    //   side: THREE.DoubleSide,
+    // });
+
+    this.material = new THREE.RawShaderMaterial({
+      vertexShader: vs,
+      fragmentShader: fs,
     });
   }
 

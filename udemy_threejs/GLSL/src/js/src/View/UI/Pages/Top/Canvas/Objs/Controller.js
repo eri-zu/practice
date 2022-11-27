@@ -21,14 +21,14 @@ export default class Controller extends Base {
   }
 
   setup() {
-    this.box = new Box(this.scene);
+    // this.box = new Box(this.scene);
     this.plane = new Plane(this.scene);
   }
 
   add() {}
 
   update() {
-    this.box.update();
+    // this.box.update();
     this.plane.update();
   }
 
