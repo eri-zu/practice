@@ -32,7 +32,9 @@ export default class Controller extends Base {
     this.plane.update();
   }
 
-  onResize() {}
+  onResize() {
+    this.plane.onResize();
+  }
 
   setEvents() {
     super.setEvents();

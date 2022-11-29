@@ -17,6 +17,8 @@ export default class Controller extends Base {
 
     this.scene = scene;
 
+    this.isMEv = true;
+
     this.setup();
     this.setEvents();
   }
@@ -33,16 +35,13 @@ export default class Controller extends Base {
   }
 
   setMaterial() {
-    // this.material = new THREE.MeshBasicMaterial({
-    //   color: 0x000000,
-    //   side: THREE.DoubleSide,
-    // });
-
     this.material = new THREE.RawShaderMaterial({
       vertexShader: vs,
       fragmentShader: fs,
       uniforms: {
         uColor: { value: new THREE.Color(0xff0000) },
+        uMouse: { value: { x: 0.0, y: 0.0 } },
+        uResolution: { value: { x: gb.w, y: gb.h } },
       },
     });
   }
@@ -55,13 +54,22 @@ export default class Controller extends Base {
     this.scene.add(this.mesh);
   }
 
-  update() {
-    // this.mesh.rotation.x += 0.02;
-    // this.mesh.rotation.y += 0.02;
-    // this.mesh.rotation.z += 0.02;
+  onMouseMove(e) {
+    this.material.uniforms.uMouse.value.x = e.touches
+      ? e.touches[0].clientX
+      : e.clientX;
+
+    this.material.uniforms.uMouse.value.y = e.touches
+      ? e.touches[0].clientY
+      : e.clientY;
   }
 
-  onResize() {}
+  update() {}
+
+  onResize() {
+    this.material.uniforms.uResolution.value.x = gb.w;
+    this.material.uniforms.uResolution.value.y = gb.h;
+  }
 
   setEvents() {
     super.setEvents();

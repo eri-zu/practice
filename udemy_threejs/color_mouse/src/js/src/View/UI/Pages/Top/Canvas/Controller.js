@@ -59,7 +59,6 @@ export default class Controller extends Base {
   update() {
     this.cameraController.update();
     this.Objs.update();
-
     this.renderer.render(this.scene, this.cameraController.camera);
   }
 
