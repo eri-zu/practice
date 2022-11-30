@@ -7,7 +7,7 @@
 import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
-import Box from "./Box/Controller";
+// import Box from "./Box/Controller";
 import Plane from "./Plane/Controller";
 
 export default class Controller extends Base {
