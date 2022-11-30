@@ -18,9 +18,12 @@ void main() {
 
   if(inRect(vPosition, vec2(0.5), 0.4)) {
     color *= vec3(1.0, 1.0, 0.0);
+  } else if(inRect(vPosition, vec2(-0.5), 0.2) ) {
+    color *= vec3(0.0, 1.0, 0.0);
   } else {
     color *= vec3(0.0, 0.0, 0.0);
   }
+
 
   gl_FragColor = vec4(vec3(color), 1.0);
 }
