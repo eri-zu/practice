@@ -59,7 +59,6 @@ export default class Controller extends Base {
 
   update() {
     const elapsedTime = this.clock.getElapsedTime();
-    console.log(elapsedTime);
     this.material.uniforms.uTime.value = elapsedTime;
   }
 
