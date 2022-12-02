@@ -10,6 +10,7 @@ import gsap from "gsap";
 import * as THREE from "three";
 import vs from "./shader/vertex.glsl";
 import fs from "./shader/fragment.glsl";
+import fs2 from "./shader/fragment2.glsl";
 
 export default class Controller extends Base {
   constructor(scene) {
@@ -40,7 +41,8 @@ export default class Controller extends Base {
 
     this.material = new THREE.RawShaderMaterial({
       vertexShader: vs,
-      fragmentShader: fs,
+      // fragmentShader: fs,
+      fragmentShader: fs2,
     });
   }
 
