@@ -24,10 +24,10 @@ void main() {
   vec3 color = vec3(1.0, 1.0, 0.0);
 
   // 回転・タイル
-  vec2 tilecount = vec2(6.0);
+  vec2 tilecount = vec2(6.0); // タイル数
   vec2 center = vec2(0.5, 0.5); // 中心座標
   mat2 mat = getRotationMatrix(uTime);
-  vec2 position = mod(vUv * tilecount, 1.0); // mod(x, y) xをyで割った時のあまり uv座標は0 - 6.0の範囲になる
+  vec2 position = mod(vUv * tilecount, 1.0); // 座標系を6倍して、0 - 1.0に書いていたものを6つ書く
   vec2 rotatedPosition = mat * (position - center) + center; 
   
   if(inRect(rotatedPosition, center, 0.5)) {
@@ -38,6 +38,8 @@ void main() {
 
   gl_FragColor = vec4(vec3(color), 1.0);
 }
+
+// position 0.2, 1.2, 2.2, 3.2 ... 9.2は全ておなじ出力結果
 
 // 0 〜 1を6倍
 // 0.1 / 1.0 -> 0.1
