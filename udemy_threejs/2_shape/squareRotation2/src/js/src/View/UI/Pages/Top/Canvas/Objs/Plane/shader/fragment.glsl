@@ -24,7 +24,7 @@ mat2 getRotationMatrix(float theta) {
 void main() {
   vec3 color = vec3(1.0, 1.0, 0.0);
 
-  // 回転・タイル
+  // 回転
   vec2 center = vec2(0.5, 0.5); // 中心座標
   mat2 mat = getRotationMatrix(uTime);
   vec2 position = vPosition.xy - center; // 空間を移動させる前に図形の中心を(0, 0)に移動
