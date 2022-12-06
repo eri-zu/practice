@@ -9,22 +9,19 @@ vec2 rotate(vec2 pt, float theta) {
   float c = cos(theta);
   mat2 mat = mat2(c, s, -s, c); 
 
-  pt.y /= uAspect;
+  // pt.y /= uAspect;
   pt = mat * pt;
-  pt.y *= uAspect;
+  // pt.x /= uAspect;
+  // pt.y *= uAspect;
+  pt.y *= 3.0;
 
   return pt;
 }
 
 void main() {
-  // やり方1 up side down
-  // vec2 newUv = vec2(vUv.x, 1.0 - vUv.y);
-  // vec3 color = texture2D(uTexture, newUv).rgb;
-  // gl_FragColor = vec4(color, 1.0);
-
-  // やり方2 flip
   vec2 center = vec2(0.5);
   vec2 newUv = vUv;
+
   newUv -= center;
   newUv = rotate(newUv, PI * 0.5);
   newUv += center;
@@ -37,7 +34,6 @@ void main() {
   // }
 
   vec3 color = texture2D(uTexture, newUv).rgb;
-
 
   gl_FragColor = vec4(color, 1.0);
 }

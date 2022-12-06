@@ -16,6 +16,7 @@ export default class Controller extends Base {
     super();
 
     this.scene = scene;
+    this.clock = new THREE.Clock();
 
     this.setup();
     this.setEvents();
@@ -48,13 +49,13 @@ export default class Controller extends Base {
   }
 
   setMaterial() {
-    console.log(this.texture);
     this.material = new THREE.RawShaderMaterial({
       vertexShader: vs,
       fragmentShader: fs,
       uniforms: {
         uTexture: { value: this.texture },
-        uAspect: { value: 2.0 / 1.5 },
+        uTime: { value: 0.0 },
+        uDuration: { value: 6.0 },
       },
     });
   }
@@ -67,7 +68,12 @@ export default class Controller extends Base {
     this.scene.add(this.mesh);
   }
 
-  update() {}
+  update() {
+    if (!this.material) return;
+
+    const elapsedTime = this.clock.getElapsedTime();
+    this.material.uniforms.uTime.value = elapsedTime;
+  }
 
   onResize() {}
 

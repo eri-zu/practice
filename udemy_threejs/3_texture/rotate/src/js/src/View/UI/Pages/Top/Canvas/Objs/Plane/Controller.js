@@ -44,7 +44,7 @@ export default class Controller extends Base {
   }
 
   setGeometry() {
-    this.geometry = new THREE.PlaneGeometry(2.0, 1.5);
+    this.geometry = new THREE.PlaneGeometry(3.0, 2.0);
   }
 
   setMaterial() {
@@ -54,7 +54,7 @@ export default class Controller extends Base {
       fragmentShader: fs,
       uniforms: {
         uTexture: { value: this.texture },
-        uAspect: { value: 2.0 / 1.5 },
+        uAspect: { value: 2.0 / 1.0 },
       },
     });
   }
