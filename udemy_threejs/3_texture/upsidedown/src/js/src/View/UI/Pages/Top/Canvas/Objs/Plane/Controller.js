@@ -44,7 +44,7 @@ export default class Controller extends Base {
   }
 
   setGeometry() {
-    this.geometry = new THREE.PlaneGeometry(2, 2);
+    this.geometry = new THREE.PlaneGeometry(2, 1.5);
   }
 
   setMaterial() {
