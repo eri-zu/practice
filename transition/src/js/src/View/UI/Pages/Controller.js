@@ -16,8 +16,6 @@ export default class Controller extends Base {
 
     this.setup();
     this.setEvents();
-
-    // this.timeline();
   }
 
   setup() {
@@ -34,8 +32,5 @@ export default class Controller extends Base {
 
   setEvents() {
     super.setEvents();
-
-    // $(window).on('loadingEnd', this.timeline.bind(this));
-    // $(window).on("loadingEnd", this.setup.bind(this));
   }
 }
