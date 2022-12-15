@@ -9,11 +9,12 @@ vec2 rotate(vec2 pt, float theta) {
   float c = cos(theta);
   mat2 mat = mat2(c, s, -s, c); 
 
-  // pt.y /= uAspect;
+  pt.y /= 2.0;
   pt = mat * pt;
-  // pt.x /= uAspect;
-  // pt.y *= uAspect;
-  pt.y *= 3.0;
+  pt.y *= 2.0;
+
+  // pt.x /= 2.0;
+  // pt.y *= 2.0;
 
   return pt;
 }
@@ -23,8 +24,8 @@ void main() {
   vec2 newUv = vUv;
 
   newUv -= center;
-  newUv = rotate(newUv, PI * 0.5);
-  newUv += center;
+  // newUv = rotate(newUv, PI * 0.5);
+  // newUv += center;
 
   // vec3 color;
   // if (newUv.x<0.0||newUv.x>1.0||newUv.y<0.0||newUv.y>1.0){

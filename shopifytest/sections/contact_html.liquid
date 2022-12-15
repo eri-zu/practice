@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="ja" class="htmlTop">
+<head>
+<!-- ************************************************************
+//
+//  meta
+//
+// ************************************************************ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<!-- fb ogp -->
+<meta property="og:title" content="" /> 
+<meta property="og:description" content="" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="" /> 
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ja_JP" />
+
+<!-- twitter ogp -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:url" content="">
+<!-- <meta name="twitter:site" content=""> -->
+<meta name="twitter:image" content="">
+
+{{ 'choku.css' | asset_url | stylesheet_tag }}
+<!-- ************************************************************
+//
+//  log
+//
+// ************************************************************ -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+</head>
+
+<body id="contact" class="">
+
+<div id="wrapper" class="id_contact">
+<div id="inner">
+  {% render 'choku_header_parts' %}
+
+  <section class="contact">
+  <div class="contact_inner">
+    <div class="contact__title">
+      <h2 class="title">Contact Us</h2>
+    </div>
+    <div class="contact__form">
+      {%- form 'contact', id: 'ContactForm' -%}
+        {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>{% render 'icon-success' %} {{ 'templates.contact.form.post_success' | t }}</h2>
+          {%- elsif form.errors -%}
+            <div class="form__message">
+              <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>{% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}</h2>
+            </div>
+            <ul class="form-status-list caption-large" role="list">
+              <li>
+                <a href="#ContactForm-email" class="link">
+                  {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+                </a>
+              </li>
+            </ul>
+          {%- endif -%}
+        <ul class="contact__list">
+          <li class="contact__item">
+            <input autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="Name">
+          </li>
+          <li class="contact__item">
+        <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="Email*"
+          >
+            {%- if form.errors contains 'email' -%}
+                <small class="contact__field-error" id="ContactForm-email-error">
+                  <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                  <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+                </small>
+              {%- endif -%}
+          </li>
+          <li class="contact__item">
+            <input type="tel" id="ContactForm-phone" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="Phone Number">
+          </li>
+          <li class="contact__item">
+            <textarea
+          id="ContactForm-body"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          placeholder="Message*"
+        >
+          {{- form.body -}}
+        </textarea>
+          </li>
+        </ul>
+        <div class="contact__submit">
+          <div class="contact__submit-btnwrap css-hover" data-csshover="loop">
+            <button type="submit" class="btn">
+              <span class="btn__txt css-hover_txt">Submit</span>
+              <div class="btn__txt-loop">
+                <div class="btn__txt-loopinner css-hover_loop">
+                  <span class="btn__txt">Submit</span>
+                  <span class="btn__txt">Submit</span>
+                  <span class="btn__txt">Submit</span>
+                  <span class="btn__txt">Submit</span>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+{% render 'choku_footer' %}
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

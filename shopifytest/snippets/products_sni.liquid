@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="ja" class="htmlTop">
+<head>
+<!-- ************************************************************
+//
+//  meta
+//
+// ************************************************************ -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<!-- fb ogp -->
+<meta property="og:title" content="" /> 
+<meta property="og:description" content="" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="" /> 
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ja_JP" />
+
+<!-- twitter ogp -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:url" content="">
+<!-- <meta name="twitter:site" content=""> -->
+<meta name="twitter:image" content="">
+
+<script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    {{ content_for_header }}
+<!-- ************************************************************
+//
+//  log
+//
+// ************************************************************ -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+  {{ 'choku.css' | asset_url | stylesheet_tag }}
+</head>
+
+<body id="products" class="">
+
+<div id="wrapper" class="id_products">
+<div id="inner">
+  {{ 'choku_custom.css' | asset_url | stylesheet_tag }}
+  {% render 'choku_header_parts' %}  
+
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <section class="products">
+  <div class="products__inner">
+    <div class="products__title">
+      <h2 class="title">All Products</h2>
+    </div>
+      <ul class="products__list">
+        {% for collection in collections %}
+          {% if collection.handle == 'frontpage' %}
+           {% else %}
+        <li class="products__item js-accordion_item">
+          <div class="products__head js-accordion_head">
+            <div class="products__head-numwrap">
+              <p class="products__head-num">#001 ~ #00{{ collection.products.length }}</p>
+            </div>
+            <div class="products__head-titlewrap">
+              <p class="products__head-title js-accordion_title">{{ collection.title }}</p>
+            </div>
+            <div class="arrowwrap js-accordion_arrow">
+              <div class="arrow"></div>
+            </div>
+          </div>
+          <div class="products__body js-accordion_body">
+            <ul class="products__body-list">
+              {% for product in collection.products %}
+              <li class="products__body-item">
+                <!-- ************************************************************
+//  product
+// ************************************************************ -->
+<div class="product">
+  <div class="product__block">
+    <div class="product__numwrap">
+      <p class="product__num">#00{{ forloop.index }}</p>
+    </div>
+    <div class="product__titlewrap is-sp">
+      <p class="product__title">{{ product.title }}</p>
+    </div>
+  </div>
+
+  <div class="product__block">
+    <div class="product__titlewrap is-pc">
+      <p class="product__title">{{ product.title }}</p>
+    </div>
+    <div class="product__infoarea">
+      <ul class="product__infoList">
+        
+        {% if product.metafields.custom.ingredient != blank %}
+        <li class="product__infoItem">
+          <span class="product__infoTitle">Ingredient:</span>
+          <span class="product__infoTxt">{{ product.metafields.custom.ingredient }}</span>
+        </li>
+        {% endif %}
+                
+        {% if product.metafields.custom.distillation != blank %}
+        <li class="product__infoItem">
+          <span class="product__infoTitle">Distillation:</span>
+          <span class="product__infoTxt">{{ product.metafields.custom.distillation }}</span>
+        </li>
+        {% endif %}
+                
+        {% if product.metafields.custom.terroir != blank %}
+        <li class="product__infoItem">
+          <span class="product__infoTitle">Terroir:</span>
+          <span class="product__infoTxt">{{ product.metafields.custom.terroir }}</span>
+        </li>
+        {% endif %}
+                
+        {% if product.metafields.custom.vintage != blank %}
+        <li class="product__infoItem">
+          <span class="product__infoTitle">Vintage:</span>
+          <span class="product__infoTxt">{{ product.metafields.custom.vintage }}</span>
+        </li>
+        {% endif %}
+
+        {% if product.metafields.custom.abv != blank %}
+        <li class="product__infoItem">
+          <span class="product__infoTitle">ABV:</span>
+          <span class="product__infoTxt">{{ product.metafields.custom.abv }}</span>
+        </li>
+          {% endif %}
+
+        {% if product.metafields.custom.vol != blank %}
+        <li class="product__infoItem">
+          <span class="product__infoTitle">Vol:</span>
+          <span class="product__infoTxt">{{ product.metafields.custom.vol }}</span>
+        </li>
+          {% endif %}
+        
+      </ul>
+    </div>
+    <div class="product__descriwrap">
+      <p class="product__descri">
+        {{ product.description | strip_html }}
+      </p>
+    </div>
+<!--                 <a href="{{ routes.cart_url }}/add?id={{ product.selected_or_first_available_variant.id }}&quantity=1">追加</a> -->
+    <div class="product__btnarea">
+      <div 
+        class="product__btnwrap css-hover js-hover" 
+        data-hover="cart" 
+        data-csshover="loop"
+      >
+<!--                 
+         {%- assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id -%}
+        {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+          <input
+              type="hidden"
+              name="id"
+              value="{{ product.selected_or_first_available_variant.id }}"
+              disabled
+            > -->
+          <button
+              type="submit"
+              name="add"
+               class="btn"
+              onclick="location.href='{{ routes.cart_url }}/add?id={{ product.selected_or_first_available_variant.id }}&quantity=1'"
+              {% if product.selected_or_first_available_variant.available == false %}
+                disabled
+              {% endif %}
+            >
+          {%- if product.selected_or_first_available_variant.available -%}
+          <span class="btn__txt css-hover_txt">Add to cart</span>
+             {%- else -%}
+            <span class="btn__txt css-hover_txt">Sold out</span>
+            {%- endif -%}
+          <div class="btn__txt-loop">
+            <div class="btn__txt-loopinner css-hover_loop">
+              {%- if product.selected_or_first_available_variant.available -%}
+              <span class="btn__txt">Add to cart</span>
+              <span class="btn__txt">Add to cart</span>
+              <span class="btn__txt">Add to cart</span>
+              <span class="btn__txt">Add to cart</span>
+              {%- else -%}
+                <span class="btn__txt">Sold out</span>
+              <span class="btn__txt">Sold out</span>
+              <span class="btn__txt">Sold out</span>
+              <span class="btn__txt">Sold out</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </button>
+<!--           {%- endform -%} -->
+      </div>
+    </div>
+  </div>
+
+  <div class="product__block">
+    <div class="product__imgwrap js-hover_cart_imgwrap">
+      <img src="{{ product.images[0].src | img_url : 'master' }}" alt="" class="js-hover_cart_img"/>
+      <div class="product__imgcover js-hover_cart_imgcover"></div>
+    </div>
+  </div>
+</div>
+
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        
+       {% endif %}
+        {% endfor %}
+      </ul>
+  </div>
+</section>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {% if seo_media -%}
+      "image": [
+        {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
+      ],
+    {%- endif %}
+    "description": {{ product.description | strip_html | json }},
+    {% if product.selected_or_first_available_variant.sku != blank -%}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    {%- endif %}
+    "brand": {
+      "@type": "Brand",
+      "name": {{ product.vendor | json }}
+    },
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type" : "Offer",
+          {%- if variant.sku != blank -%}
+            "sku": {{ variant.sku | json }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 12 -%}
+              "gtin12": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 13 -%}
+            "gtin13": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 14 -%}
+            "gtin14": {{ variant.barcode }},
+          {%- endif -%}
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency" : {{ cart.currency.iso_code | json }},
+          "url" : {{ request.origin | append: variant.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+  {%- if settings.cart_type == 'drawer' -%}
+      {%- render 'cart-drawer' -%}
+    {%- endif -%}
+<script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}'
+      };
+
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
+      }
+
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+      }
+
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+      }
+    </script>
+{% render 'choku_footer' %}

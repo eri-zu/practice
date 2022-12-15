@@ -21,7 +21,7 @@ export default class Controller extends Base {
 
   setup() {
     new Pages();
-    gb.transition = new Transition();
+    // gb.transition = new Transition();
   }
 
   timeline() {}

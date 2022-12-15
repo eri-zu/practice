@@ -20,8 +20,6 @@ export default class Controller extends Base {
 
   setup() {
     if (document.querySelector(".id_top")) new Top();
-    if (document.querySelector(".id_about")) new About();
-    if (document.querySelector(".id_works")) new Works();
   }
 
   timeline() {}

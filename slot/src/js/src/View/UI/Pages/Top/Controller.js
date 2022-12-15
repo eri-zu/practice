@@ -6,7 +6,7 @@
 
 import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
-
+import Slot from "./Slot/Controller";
 import gsap from "gsap";
 import { CustomEase } from "@BALANCeLibs/View/gsap/CustomEase/CustomEase.js";
 
@@ -21,13 +21,7 @@ export default class Controller extends Base {
   }
 
   setup() {
-    this.pageShow();
-  }
-
-  pageShow() {
-    setTimeout(() => {
-      gb.transition.hide();
-    }, 1000);
+    new Slot();
   }
 
   update() {}
