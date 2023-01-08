@@ -62,7 +62,7 @@ export default class Controller extends Base {
       })
       // 一番上まで回してから好きなところで止める
       .to(this.num, 4, {
-        value: lap * this.len + m.randomInt(0, this.len),
+        value: lap * this.len,
         ease: "power3.out",
       });
   }

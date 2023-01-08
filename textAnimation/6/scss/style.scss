@@ -1,0 +1,24 @@
+// scss
+@import "base/_base";
+@import "base/_reset";
+@import "mixin/_mixin";
+@import "setting/_variables";
+
+.wrapper {
+	max-width: 680px;
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 100px;
+	// perspective: 400px;
+	transform-style: preserve-3d;
+	perspective: 400px;
+}
+
+body {
+	overflow: hidden;
+}
+p {
+	line-height: 2;
+	font-size: 2rem;
+	font-weight: bold;
+}

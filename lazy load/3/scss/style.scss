@@ -1,0 +1,25 @@
+// scss
+@import "base/_base";
+@import "base/_reset";
+@import "mixin/_mixin";
+@import "setting/_variables";
+
+.header {
+	height: 10rem;
+	width: 500px;
+	background-color: yellow;
+	margin: 0 auto;
+}
+
+.img-list {
+	margin: 0 auto;
+	width: 500px;
+	.img-item {
+		width: 100%;
+		opacity: 1;
+		transition: opacity 0.5s ease-in 0s;
+		img {
+			width: 100%;
+		}
+	}
+}
