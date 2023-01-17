@@ -15,29 +15,27 @@ export default class Controller extends Base {
     this.wrap = document.querySelector(".js-grid_wrap");
     this.items = document.querySelectorAll(".js-grid_item");
 
-    this.widthArray = [];
-    this.heightArray = [];
-
-    this.h = 0;
-    this.h2 = 0;
-    this.h3 = 0;
-    this.h4 = 0;
+    this.isREv = true;
 
     this.setup();
     this.setEvents();
   }
 
   setup() {
-    this.getWidth();
+    this.setParameter();
     this.getHeight();
-    this.setLeft();
     this.setTop();
   }
 
-  getWidth() {
-    this.items.forEach((el, i) => {
-      this.widthArray.push(el.offsetWidth);
-    });
+  setParameter() {
+    this.upperNum = window.innerWidth >= 768 ? 5 : 4;
+    this.heightArray = [];
+    this.h0 = 0;
+    this.h00 = 0;
+    this.h1 = 0;
+    this.h2 = 0;
+    this.h3 = 0;
+    this.h4 = 0;
   }
 
   getHeight() {
@@ -46,75 +44,94 @@ export default class Controller extends Base {
     });
   }
 
-  get defaultLeftHeight() {
-    return this.heightArray[0] + this.heightArray[2] + this.heightArray[4];
-  }
+  defaultHeight(i) {
+    let h;
 
-  get defaultRightHeight() {
-    return this.heightArray[1] + this.heightArray[3];
-  }
-
-  setLeft() {
-    this.items.forEach((el, i) => {
-      if (i <= 4) {
-        // 上位5位
-        i % 2 == 0 ? (el.style.left = 0) : (el.style.right = 0);
-      } else {
-        // 5位以下
-        if (i % 4 == 1) {
-          el.style.left = 0;
-        } else if (i % 4 == 2) {
-          el.style.right = "50%";
-        } else if (i % 4 == 3) {
-          el.style.left = "50%";
-        } else if (i % 4 == 0) {
-          el.style.right = 0;
+    if (i < this.upperNum) {
+      h = 0;
+    } else {
+      if (window.innerWidth >= 768) {
+        if (i % 4 == 1 || i % 4 == 2) {
+          h = this.heightArray[0] + this.heightArray[2] + this.heightArray[4]; // 左
+        } else {
+          h = this.heightArray[1] + this.heightArray[3]; // 右
         }
+      } else {
+        h =
+          this.heightArray[0] +
+          this.heightArray[1] +
+          this.heightArray[2] +
+          this.heightArray[3];
       }
-    });
+    }
+
+    return h;
   }
 
   setTop() {
+    let h = 0;
+
     this.items.forEach((el, i) => {
-      if (i <= 4) {
+      if (window.innerWidth >= 768) {
         // 上位5位
-        if (i <= 1) {
-          el.style.top = 0;
-        } else if (i == 4) {
-          el.style.top = `${this.heightArray[i - 2] + this.heightArray[0]}px`;
-        } else {
-          el.style.top = `${this.heightArray[i - 2]}px`;
+        if (i < this.upperNum) {
+          if (i % 2 == 0) {
+            this.h0 += this.heightArray[i];
+            h = this.h0;
+          } else {
+            this.h00 += this.heightArray[i];
+            h = this.h00;
+          }
+        }
+        // 上位5位以下
+        else {
+          if (i % 4 == 1) {
+            this.h1 += this.heightArray[i];
+            h = this.h1;
+          }
+          if (i % 4 == 2) {
+            this.h2 += this.heightArray[i];
+            h = this.h2;
+          }
+          if (i % 4 == 3) {
+            this.h3 += this.heightArray[i];
+            h = this.h3;
+          }
+          if (i % 4 == 0) {
+            this.h4 += this.heightArray[i];
+            h = this.h4;
+          }
         }
       } else {
-        if (i % 4 == 1) {
-          this.h += this.heightArray[i];
-          el.style.top = `${
-            this.defaultLeftHeight + this.h - this.heightArray[i]
-          }px`;
+        // 上位5位
+        if (i < this.upperNum) {
+          this.h0 += this.heightArray[i];
+          h = this.h0;
         }
-        if (i % 4 == 2) {
-          this.h2 += this.heightArray[i];
-          el.style.top = `${
-            this.defaultLeftHeight + this.h2 - this.heightArray[i]
-          }px`;
-        }
-        if (i % 4 == 3) {
-          this.h3 += this.heightArray[i];
-          el.style.top = `${
-            this.defaultRightHeight + this.h3 - this.heightArray[i]
-          }px`;
-        }
-        if (i % 4 == 0) {
-          this.h4 += this.heightArray[i];
-          el.style.top = `${
-            this.defaultRightHeight + this.h4 - this.heightArray[i]
-          }px`;
+
+        // 上位5位以下
+        else {
+          if (i % 2 == 0) {
+            this.h1 += this.heightArray[i];
+            h = this.h1;
+          } else {
+            this.h2 += this.heightArray[i];
+            h = this.h2;
+          }
         }
       }
+
+      el.style.top = `${this.defaultHeight(i) + h - this.heightArray[i]}px`;
     });
   }
 
-  onResize() {}
+  setWrapHeight() {}
+
+  onResize() {
+    this.setParameter();
+    this.getHeight();
+    this.setTop();
+  }
 
   setEvents() {
     super.setEvents();
