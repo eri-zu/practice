@@ -11,17 +11,19 @@ import * as THREE from "three";
 import CameraController from "./Common/Camera";
 import LightController from "./Common/Light";
 import Objs from "./Objs/Controller";
-
+import Font from "./Font/Controller";
 export default class Controller extends Base {
   constructor() {
     super();
-
-    console.log("aaaa");
 
     this.wrap = document.querySelector(".canvaswrap");
 
     this.isREv = true;
     this.isUEv = true;
+
+    new Font();
+
+    return;
 
     this.setup();
     this.setEvents();

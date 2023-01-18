@@ -25,6 +25,7 @@ export default class Controller extends Base {
     this.setParameter();
     this.getHeight();
     this.setTop();
+    this.setWrapHeight();
   }
 
   setParameter() {
@@ -45,23 +46,33 @@ export default class Controller extends Base {
   }
 
   defaultHeight(i) {
-    let h;
+    // 上位5位
+    let h = 0;
 
-    if (i < this.upperNum) {
-      h = 0;
-    } else {
-      if (window.innerWidth >= 768) {
-        if (i % 4 == 1 || i % 4 == 2) {
-          h = this.heightArray[0] + this.heightArray[2] + this.heightArray[4]; // 左
-        } else {
-          h = this.heightArray[1] + this.heightArray[3]; // 右
+    // 上位5位以下
+    if (i >= this.upperNum) {
+      // if (window.innerWidth >= 768) {
+      //   if (i % 4 == 1 || i % 4 == 2) {
+      //     h = this.heightArray[0] + this.heightArray[2] + this.heightArray[4]; // 左
+      //   } else {
+      //     h = this.heightArray[1] + this.heightArray[3]; // 右
+      //   }
+      // } else {
+      //   for (let j = 0; j < this.upperNum; j++) {
+      //     h += this.heightArray[j];
+      //   }
+      // }
+
+      for (let j = 0; j < this.upperNum; j++) {
+        if (window.innerWidth >= 768) {
+          if (i % 4 == 1 || i % 4 == 2) {
+            if (j % 2 !== 0) continue;
+          } else {
+            if (j % 2 == 0) continue;
+          }
         }
-      } else {
-        h =
-          this.heightArray[0] +
-          this.heightArray[1] +
-          this.heightArray[2] +
-          this.heightArray[3];
+
+        h += this.heightArray[j];
       }
     }
 
@@ -125,12 +136,31 @@ export default class Controller extends Base {
     });
   }
 
-  setWrapHeight() {}
+  setWrapHeight() {
+    let h;
+
+    if (window.innerWidth >= 768) {
+      h = Math.max(
+        this.h1 + this.defaultHeight(5),
+        this.h2 + this.defaultHeight(7),
+        this.h3 + this.defaultHeight(5),
+        this.h4 + this.defaultHeight(7)
+      );
+    } else {
+      h = Math.max(
+        this.h1 + this.defaultHeight(5),
+        this.h2 + this.defaultHeight(7)
+      );
+    }
+
+    this.wrap.style.height = `${h}px`;
+  }
 
   onResize() {
     this.setParameter();
     this.getHeight();
     this.setTop();
+    this.setWrapHeight();
   }
 
   setEvents() {
