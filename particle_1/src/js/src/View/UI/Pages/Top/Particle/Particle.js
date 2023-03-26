@@ -9,14 +9,16 @@ import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 
 export default class Controller extends Base {
-  constructor(el) {
+  constructor(el, i, areaWidth) {
     super();
 
     this.el = el;
+    this.i = i;
 
     this.frame = 0;
     this.x = 0;
     this.y = 0;
+    this.areaW = areaWidth;
 
     this.setup();
     this.setEvents();
@@ -35,11 +37,11 @@ export default class Controller extends Base {
 
     const randomNum = m.randomInt(1, 3);
     if (randomNum == 1) {
-      this.w = 4;
+      this.w = this.areaW * 0.045;
     } else if (randomNum == 2) {
-      this.w = 8;
+      this.w = this.areaW * 0.045 * 2;
     } else {
-      this.w = 12;
+      this.w = this.areaW * 0.045 * 3;
     }
 
     this.el.style.width = `${this.w}px`;
@@ -69,18 +71,19 @@ export default class Controller extends Base {
         {
           x: this.x * this.directionX,
           y: this.y * this.directionY,
+          z: 0,
           // ease: "expo.out",
         },
         0
       )
       .to(
         this.el,
-        0.3,
+        0.5,
         {
           scale: 0,
           opacity: 0,
         },
-        0.5
+        0.5 + this.i * 0.015
       );
   }
 

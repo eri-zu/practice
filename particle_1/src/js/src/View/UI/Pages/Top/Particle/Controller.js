@@ -36,10 +36,12 @@ export default class Controller extends Base {
       this.particlewrap.innerHTML += dom;
     }
 
+    const areaWidth = this.area.clientWidth;
+
     this.particles = [];
 
     document.querySelectorAll(".js-particle_item").forEach((el, i) => {
-      const p = new Particle(el);
+      const p = new Particle(el, i, areaWidth);
       this.particles.push(p);
     });
   }
