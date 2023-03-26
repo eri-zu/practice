@@ -18,7 +18,8 @@ export default class Particle extends Base {
     this.startFallDown = false; // 落下開始
     this.life = 1;
 
-    const forcePower = Math.random() * 30 + 10; // 打ち上げる力
+    const forcePower = Math.random() * 5 + 5; // 打ち上げる力
+    // const forcePower = 0; // 打ち上げる力
     direction -= angle / 2; // 円錐型の開始の角度
     direction += Math.random() * angle; // 広がりの中で様々な角度
 
@@ -26,7 +27,6 @@ export default class Particle extends Base {
       x: Math.cos(m.radian(direction)) * forcePower,
       y: Math.sin(m.radian(direction)) * forcePower,
     };
-    console.log(direction, this.forceVec);
 
     this.setup();
     this.setEvents();
@@ -41,7 +41,7 @@ export default class Particle extends Base {
     this.degreeXV = 0; //m.randomInt(0.1, 1);
 
     // 位置y
-    this.vy = m.randomInt(-20, -40); // 全体的に上にあげる力
+    this.vy = m.randomInt(-5, -7.5); // 全体的に上にあげる力
     this.gravity = 0.8;
 
     // 回転
@@ -53,11 +53,17 @@ export default class Particle extends Base {
     this.degreeHV = 3;
 
     // 色
+    // this.colors = {
+    //   r: [253, 239, 234, 4, 129, 147, 1, 1, 74],
+    //   g: [208, 151, 139, 125, 196, 198, 128, 128, 158],
+    //   b: [0, 4, 43, 176, 168, 239, 53, 103, 187],
+    // };
     this.colors = {
       r: [223, 0, 235, 255, 102, 0, 5],
       g: [0, 232, 188, 210, 6, 82, 121],
       b: [73, 87, 43, 0, 113, 145, 138],
     };
+
     this.colorindex = Math.round(Math.random() * (this.colors.r.length - 1));
     this.color = `rgba(${this.colors.r[this.colorindex]}, ${
       this.colors.g[this.colorindex]
@@ -65,11 +71,12 @@ export default class Particle extends Base {
   }
 
   init() {
-    this.per = Math.min(1, window.innerWidth / 1280);
+    this.per = Math.min(1, window.innerWidth / 414);
+    // this.per = 1;
 
     this.size = {
-      w: m.randomInt(8, 10) * gb.conf.devicePixelRatio * this.per,
-      h: m.randomInt(8, 15) * gb.conf.devicePixelRatio * this.per,
+      w: m.randomInt(6, 8) * gb.conf.devicePixelRatio * this.per,
+      h: m.randomInt(6, 13) * gb.conf.devicePixelRatio * this.per,
     };
 
     this.pos = {
@@ -79,20 +86,11 @@ export default class Particle extends Base {
   }
 
   draw() {
-    // 蛇行（落下するときは蛇行なし）
-    if (!this.startFallDown) {
-      // this.vx = Math.sin(m.radian(this.degreeX)) * this.radiusX;
-      // this.pos.x += this.vx;
-      // this.degreeX += this.degreeXV;
-    }
-
     // 落下
-    // if (this.startFallDown) this.vy *= 0.9; // スローダウンで落ちる
     this.vy *= 0.9; // スローダウンで落ちる
     this.vy += this.gravity;
     this.pos.y += this.vy + this.forceVec.y;
     this.pos.x += this.forceVec.x;
-
     this.forceVec.x *= 0.95;
     this.forceVec.y *= 0.95;
 
@@ -104,7 +102,7 @@ export default class Particle extends Base {
     this.rotation += this.rotationV;
 
     // life（爆発後から減っていく）
-    if (this.startFallDown) this.life -= 0.01;
+    if (this.startFallDown) this.life -= 0.016;
 
     // 描画 method1
     this.ctx.translate(this.pos.x, this.pos.y);
