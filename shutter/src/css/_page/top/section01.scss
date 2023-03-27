@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.area {
+  width: 345px;
+  height: 514px;
+  background-color: rgba(230, 0, 18, 0.2);
+  position: relative;
+}
+
+.circle {
+  --top: 0px;
+  --left: 0px;
+  top: var(--top);
+  left: var(--left);
+
+  position: absolute;
+  width: 88 / 325 * 100%;
+
+  border: 16px solid #e60012;
+  border-radius: 50%;
+
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.circleIn {
+  width: 100%;
+  aspect-ratio: 1;
+}

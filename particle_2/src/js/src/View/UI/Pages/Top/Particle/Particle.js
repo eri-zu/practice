@@ -15,7 +15,6 @@ export default class Controller extends Base {
     this.el = el;
     this.i = i;
 
-    this.frame = 0;
     this.x = 0;
     this.y = 0;
     this.areaW = areaWidth;

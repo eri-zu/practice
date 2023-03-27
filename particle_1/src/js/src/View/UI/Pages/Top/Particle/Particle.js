@@ -15,7 +15,6 @@ export default class Controller extends Base {
     this.el = el;
     this.i = i;
 
-    this.frame = 0;
     this.x = 0;
     this.y = 0;
     this.areaW = areaWidth;
@@ -25,38 +24,31 @@ export default class Controller extends Base {
   }
 
   setup() {
-    this.ready();
+    this.setParameter();
   }
 
-  ready() {
+  setParameter() {
+    const baseW = this.areaW * 0.045;
+    const w = m.randomInt(1, 3) * baseW;
+
     this.w = 10;
     this.x = m.randomInt(10, 60);
     this.y = m.randomInt(10, 60);
     this.directionX = Math.random() < 0.5 ? -1 : 1;
     this.directionY = Math.random() < 0.5 ? -1 : 1;
 
-    const randomNum = m.randomInt(1, 3);
-    if (randomNum == 1) {
-      this.w = this.areaW * 0.045;
-    } else if (randomNum == 2) {
-      this.w = this.areaW * 0.045 * 2;
-    } else {
-      this.w = this.areaW * 0.045 * 3;
-    }
-
-    this.el.style.width = `${this.w}px`;
-    this.el.style.height = `${this.w}px`;
+    this.el.style.width = `${w}px`;
+    this.el.style.height = `${w}px`;
   }
 
-  timeline() {}
-
-  update() {
-    // this.x++;
-    // this.y++;
-    // this.el.style.transform = `translate3d(${this.x}px, ${this.y}px, 0px)`;
+  ready(centerX, centerY) {
+    this.el.style.setProperty("--left", `${centerX}px`);
+    this.el.style.setProperty("--top", `${centerY}px`);
   }
 
-  show() {
+  show(centerX, centerY) {
+    this.ready(centerX, centerY);
+
     const tl = gsap.timeline();
 
     tl

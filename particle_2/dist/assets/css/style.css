@@ -1160,7 +1160,7 @@ a:active {
   position: absolute;
   top: var(--top);
   left: var(--left);
-  opacity: 1;
+  opacity: 0;
 }
 
 #wrapper.id_top .particle img {
@@ -1181,7 +1181,7 @@ a:active {
   border: 16px solid #e60012;
   border-radius: 50%;
   opacity: 0;
-  transform: scale(0.7);
+  transform: scale(0.6);
 }
 
 #wrapper.id_top .circleIn {

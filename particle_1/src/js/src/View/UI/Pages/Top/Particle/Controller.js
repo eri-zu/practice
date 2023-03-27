@@ -18,24 +18,25 @@ export default class Controller extends Base {
 
     this.num = 15;
 
-    this.isUEv = true;
-    this.isUpdate = false;
-
     this.setup();
     this.setEvents();
   }
 
   setup() {
+    this.createParticle();
     this.ready();
   }
 
-  ready() {
+  createParticle() {
     const dom =
       "<div class='particle js-particle_item'><img src='./assets/resource/img/particle1.png' /></div>";
+
     for (let i = 0; i < this.num; i++) {
       this.particlewrap.innerHTML += dom;
     }
+  }
 
+  ready() {
     const areaWidth = this.area.clientWidth;
 
     this.particles = [];
@@ -46,21 +47,9 @@ export default class Controller extends Base {
     });
   }
 
-  timeline() {}
-
-  update() {
-    if (!this.isUpdate) return;
-
+  show(centerX, centerY) {
     this.particles.forEach((el, i) => {
-      el.update();
-    });
-  }
-
-  show() {
-    // this.isUpdate = true;
-
-    this.particles.forEach((el, i) => {
-      el.show();
+      el.show(centerX, centerY);
     });
   }
 
@@ -68,7 +57,10 @@ export default class Controller extends Base {
     super.setEvents();
 
     this.area.addEventListener("click", (e) => {
-      this.show();
+      const centerX = e.offsetX;
+      const centerY = e.offsetY;
+
+      this.show(centerX, centerY);
     });
   }
 }
