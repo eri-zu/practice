@@ -52,7 +52,7 @@ export default class Controller extends Base {
       scale: 1,
     });
 
-    // this.el.style.transform = "translate(0px, 0px) scale(1)";
+    // this.el.style.transform = "translate(0px, 0px) scale(1, 1)";
   }
 
   show(centerX, centerY) {

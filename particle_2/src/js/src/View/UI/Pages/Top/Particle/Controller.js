@@ -23,16 +23,19 @@ export default class Controller extends Base {
   }
 
   setup() {
+    this.createDOM();
     this.ready();
   }
 
-  ready() {
+  createDOM() {
     const dom =
       "<div class='particle js-particle_item'><img src='./assets/resource/img/particle2.png' /></div>";
     for (let i = 0; i < this.num; i++) {
       this.particlewrap.innerHTML += dom;
     }
+  }
 
+  ready() {
     const areaWidth = this.area.clientWidth;
 
     this.particles = [];
@@ -58,7 +61,6 @@ export default class Controller extends Base {
       const centerX = e.offsetX;
       const centerY = e.offsetY;
 
-      console.log(centerX, centerY);
       this.show(centerX, centerY);
     });
   }
