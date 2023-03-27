@@ -21,10 +21,9 @@
 }
 
 .particle {
-  --top: 20px;
-  --left: 100px;
+  --top: 0px;
+  --left: 0px;
   position: absolute;
-  transform: translateX(-50%, -50%);
   top: var(--top);
   left: var(--left);
 
@@ -38,4 +37,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+.circle {
+  --top: 0px;
+  --left: 0px;
+  top: var(--top);
+  left: var(--left);
+
+  position: absolute;
+  width: 88 / 325 * 100%;
+
+  border: 16px solid #e60012;
+  border-radius: 50%;
+
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.circleIn {
+  width: 100%;
+  aspect-ratio: 1;
 }

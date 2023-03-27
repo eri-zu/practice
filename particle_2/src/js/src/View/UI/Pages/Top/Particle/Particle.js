@@ -31,6 +31,7 @@ export default class Controller extends Base {
   setParameter() {
     const baseW = this.areaW * 0.03;
     const w = m.randomInt(1, 3) * baseW;
+
     this.x = m.randomInt(10, 60);
     this.y = m.randomInt(10, 60);
     this.directionX = Math.random() < 0.5 ? -1 : 1;

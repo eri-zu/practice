@@ -1155,10 +1155,9 @@ a:active {
 }
 
 #wrapper.id_top .particle {
-  --top: 20px;
-  --left: 100px;
+  --top: 0px;
+  --left: 0px;
   position: absolute;
-  transform: translateX(-50%, -50%);
   top: var(--top);
   left: var(--left);
   opacity: 1;
@@ -1170,6 +1169,24 @@ a:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#wrapper.id_top .circle {
+  --top: 0px;
+  --left: 0px;
+  top: var(--top);
+  left: var(--left);
+  position: absolute;
+  width: 27.07692%;
+  border: 16px solid #e60012;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+#wrapper.id_top .circleIn {
+  width: 100%;
+  aspect-ratio: 1;
 }
 
 .demoSvg {

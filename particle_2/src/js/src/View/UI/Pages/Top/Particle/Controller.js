@@ -8,6 +8,7 @@ import Base from "@BALANCeLibs/Base.js";
 import * as m from "@BALANCeLibs/Util/Math.js";
 import gsap from "gsap";
 import Particle from "./Particle";
+import Circle from "./Circle";
 
 export default class Controller extends Base {
   constructor() {
@@ -15,6 +16,7 @@ export default class Controller extends Base {
 
     this.area = document.querySelector(".js-particle_area");
     this.particlewrap = document.querySelector(".js-particle_wrap");
+    this.circleDOM = document.querySelector(".js-particle_circle");
 
     this.num = 12;
 
@@ -23,11 +25,11 @@ export default class Controller extends Base {
   }
 
   setup() {
-    this.createDOM();
+    this.createParticle();
     this.ready();
   }
 
-  createDOM() {
+  createParticle() {
     const dom =
       "<div class='particle js-particle_item'><img src='./assets/resource/img/particle2.png' /></div>";
     for (let i = 0; i < this.num; i++) {
@@ -44,13 +46,18 @@ export default class Controller extends Base {
       const p = new Particle(el, i, areaWidth);
       this.particles.push(p);
     });
+
+    this.circle = new Circle(this.circleDOM);
   }
 
-  timeline() {}
-
   show(centerX, centerY) {
+    if (this.tl) this.tl.kill();
+
+    this.tl = gsap.timeline();
+
+    this.tl.add(this.circle.show(centerX, centerY), 0);
     this.particles.forEach((el, i) => {
-      el.show(centerX, centerY);
+      this.tl.add(el.show(centerX, centerY), 0);
     });
   }
 
