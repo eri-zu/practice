@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.area {
+  width: 345px;
+  height: 514px;
+  background-color: rgba(230, 0, 18, 0.2);
+  position: relative;
+}
+
+.particle {
+  --top: 20px;
+  --left: 100px;
+  position: absolute;
+  transform: translateX(-50%, -50%);
+  top: var(--top);
+  left: var(--left);
+
+  opacity: 1;
+
+  img {
+    width: 100%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
