@@ -1,0 +1,14 @@
+@keyframes fuwafuwa {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-2px) translateX(0px);
+  }
+  55% {
+    transform: translateY(-2px) translateX(0px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
