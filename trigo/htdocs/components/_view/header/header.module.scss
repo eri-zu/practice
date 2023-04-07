@@ -1,0 +1,42 @@
+@import "../../../styles/import.scss";
+
+.header {
+  padding: 30px 0px 20px;
+}
+
+.item {
+  a {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  &:nth-child(n + 2) {
+    margin-left: 45px;
+  }
+  a {
+    font-size: 22px;
+    color: $accent;
+    letter-spacing: 0.08em;
+  }
+}
+
+.logoarea {
+  text-align: center;
+}
+
+.nav {
+  margin-top: 15px;
+}
+
+.logo {
+  display: inline-block;
+  width: 168px;
+}

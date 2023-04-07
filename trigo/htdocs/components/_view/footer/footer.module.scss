@@ -1,0 +1,24 @@
+@import "../../../styles/import.scss";
+
+.footer {
+  height: 50px;
+  background-color: $accent;
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.txt {
+  text-align: center;
+
+  small {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+}

@@ -1,4 +1,6 @@
 import styles from "./mv.module.scss";
+import EmblemSVG from "../../../public/svg/emblem.svg";
+import AnniversarySVG from "../../../public/svg/anniversary.svg";
 
 export const Mv = () => {
   return (
@@ -11,7 +13,14 @@ export const Mv = () => {
       <div className={styles.txtwrap}>
         <p className={styles.txt}>いらっしゃいませ〜</p>
       </div>
-      <div className={styles.aniversary}></div>
+      <div className={styles.aniversary}>
+        {/* <img
+          src="/img/pic_emblem.png"
+          alt="創業35年の昭和レトロな園田の手焼きパン屋トリーゴ"
+        /> */}
+        <AnniversarySVG></AnniversarySVG>
+        <div className={styles.year}>35</div>
+      </div>
     </section>
   );
 };

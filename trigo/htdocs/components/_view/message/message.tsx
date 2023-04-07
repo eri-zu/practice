@@ -1,5 +1,7 @@
 import { ReactElement } from "react";
 import styles from "./message.module.scss";
+import { H2Title } from "@/components/_atoms/h2Title/h2Title";
+import classNames from "classnames";
 
 const txts: string[] = [
   "いつもありがとうございます。",
@@ -9,6 +11,7 @@ const txts: string[] = [
   "みなさまに支えられ創業から早35年経ちました。",
   "これからもおいしいパンを\nご家庭にお届けします。",
   'どこよりも愛されるお店を目指して。"',
+  "ー 店長 ー",
 ];
 
 export const Message = (): ReactElement => {
@@ -16,17 +19,22 @@ export const Message = (): ReactElement => {
     <section className={styles.wrap}>
       <div className={styles.inner}>
         <div className={styles.titlewrap}>
-          <h2 className={styles.title}>メッセージ</h2>
+          <H2Title>メッセージ</H2Title>
         </div>
         <div className={styles.txtarea}>
           {txts.map((el, i) => {
             return (
-              <p className={styles.italic} key={`txt${i}`}>
+              <p
+                key={`txt${i}`}
+                className={classNames([
+                  styles.txt,
+                  i !== txts.length - 1 && styles.italic,
+                ])}
+              >
                 {el}
               </p>
             );
           })}
-          <p>ー 店長 ー</p>
         </div>
       </div>
     </section>

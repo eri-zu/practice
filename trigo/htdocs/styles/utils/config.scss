@@ -73,3 +73,9 @@ $en_condense: din-condensed, sans-serif;
   font-family: "kodomo";
   src: url("/font/KodomoRounded.otf") format("opentype");
 }
+@font-face {
+  font-family: "kodomo_light";
+  src: url("/font/KodomoRounded-Light.otf") format("opentype");
+}
+
+$accent: #9a221c;

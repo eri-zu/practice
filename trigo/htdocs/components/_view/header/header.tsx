@@ -1,11 +1,11 @@
-import styles from "./header.module.scss";
 import Link from "next/link";
 import { ReactElement } from "react";
-
-interface NavItem {
+import styles from "./header.module.scss";
+import LogoSVG from "../../../public/svg/logo.svg";
+type NavItem = {
   name: string;
   link: string;
-}
+};
 
 // array: number[]  中の要素の型[]
 
@@ -19,18 +19,20 @@ interface NavItem {
 // }
 
 const nav: NavItem[] = [
-  { name: "メニュー", link: "" },
-  { name: "メッセージ", link: "" },
-  { name: "サービス", link: "" },
-  { name: "ニュース", link: "" },
-  { name: "アクセス", link: "" },
+  { name: "メニュー", link: "#menu" },
+  { name: "メッセージ", link: "#message" },
+  { name: "サービス", link: "#service" },
+  { name: "ニュース", link: "#news" },
+  { name: "アクセス", link: "#access" },
 ];
 
 export const Header = (): ReactElement => {
   return (
     <header className={styles.header}>
       <div className={styles.logoarea}>
-        <div className={styles.logo}></div>
+        <h1 className={styles.logo}>
+          <LogoSVG></LogoSVG>
+        </h1>
       </div>
       <nav className={styles.nav}>
         <ul className={styles.list}>

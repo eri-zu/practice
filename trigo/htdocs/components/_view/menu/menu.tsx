@@ -1,5 +1,7 @@
 import { ReactElement } from "react";
 import styles from "./menu.module.scss";
+import { H2Title } from "@/components/_atoms/h2Title/h2Title";
+import { LeadText } from "@/components/_atoms/leadText/leadText";
 
 type MenuItem = {
   img: string;
@@ -61,13 +63,13 @@ export const Menu = (): ReactElement => {
       <div className={styles.inner}>
         <div className={styles.head}>
           <div className={styles.titlewrap}>
-            <h2 className={styles.title}>メニュー</h2>
+            <H2Title>メニュー</H2Title>
           </div>
           <div className={styles.leadwrap}>
-            <p className={styles.lead}>
+            <LeadText>
               一部のメニューをご紹介します。<br></br>
-              店内にはその他にもたくさんございますのでぜひお越しください。
-            </p>
+              店内にはその他にもたくさんございますので、ぜひお越しください。
+            </LeadText>
           </div>
         </div>
 
@@ -76,7 +78,7 @@ export const Menu = (): ReactElement => {
             {data.map((el, i) => {
               return (
                 <li className={styles.item} key={`item${i}`}>
-                  <div className={styles.img}>
+                  <div className={styles.imgwrap}>
                     <img src={el.img} alt="" />
                   </div>
                   <div className={styles.namewrap}>
