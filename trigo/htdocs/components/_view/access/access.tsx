@@ -1,12 +1,16 @@
 import styles from "./access.module.scss";
 import { H2Title } from "@/components/_atoms/h2Title/h2Title";
 import { ReactNode } from "react";
-import Link from "next/link";
+import ClockSVG from "../../../public/svg/clock.svg";
+import MapIconSVG from "../../../public/svg/mapicon.svg";
+import TelephoneSVG from "../../../public/svg/telephone.svg";
 
 type accessItem = {
   title: string;
   detail: ReactNode;
+  icon: ReactNode;
 };
+
 const data: accessItem[] = [
   {
     title: "住所",
@@ -16,20 +20,31 @@ const data: accessItem[] = [
         <br />
         兵庫県尼崎市東園田町9-21-21岡崎ハイツ1階
         <br />
-        <span>
-          <a
-            href="https://goo.gl/maps/dCsUdXSeSkmgk3u96"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google mapで見る
-          </a>
-        </span>
+        <a
+          href="https://goo.gl/maps/dCsUdXSeSkmgk3u96"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google mapで見る
+        </a>
       </>
     ),
+    icon: <MapIconSVG></MapIconSVG>,
   },
-  { title: "電話番号", detail: "06-6493-3625" },
-  { title: "営業時間", detail: "6:30~21:00（年中無休)" },
+  {
+    title: "電話番号",
+    detail: (
+      <a href="tel:06-6493-3625" target="_blank" rel="noopener noreferrer">
+        06-6493-3625
+      </a>
+    ),
+    icon: <TelephoneSVG></TelephoneSVG>,
+  },
+  {
+    title: "営業時間",
+    detail: "6:30~21:00（年中無休)",
+    icon: <ClockSVG></ClockSVG>,
+  },
 ];
 
 export const Access = () => {
@@ -49,6 +64,7 @@ export const Access = () => {
                 return (
                   <li className={styles.item} key={`item${i}`}>
                     <div className={styles.itemTitleArea}>
+                      <div className={styles.itemTitleIcon}>{el.icon}</div>
                       <p className={styles.itemTitle}>{el.title}</p>
                     </div>
                     <div className={styles.itemDetailArea}>

@@ -12,7 +12,7 @@ export default class Controller {
     this.list = this.inner.querySelector(".js-list");
 
     this.x = 0;
-    this.speed = 1;
+    this.speed = 0.8;
 
     this.setup();
   }
@@ -34,7 +34,7 @@ export default class Controller {
 
     const x = -1 * this.x;
 
-    this.inner.style.transform = `translate3d(${x}px, 0px, 0px)`;
+    this.inner.style.transform = `translate3d(${x.toFixed(0)}px, 0px, 0px)`;
   }
 
   onResize() {

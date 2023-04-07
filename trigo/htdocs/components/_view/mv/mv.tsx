@@ -1,5 +1,4 @@
 import styles from "./mv.module.scss";
-import EmblemSVG from "../../../public/svg/emblem.svg";
 import AnniversarySVG from "../../../public/svg/anniversary.svg";
 
 export const Mv = () => {
