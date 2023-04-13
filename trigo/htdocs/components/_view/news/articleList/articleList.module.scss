@@ -1,11 +1,18 @@
 @import "@/styles/import.scss";
 
 .item {
-  &:nth-child(n + 2) {
-    margin-top: 80px;
+  &:nth-child(1) {
+    padding-top: 36px;
 
     @include media-max("sp") {
-      margin-top: 48px;
+      padding-top: 30px;
+    }
+  }
+  &:nth-child(n + 2) {
+    padding-top: 80px;
+
+    @include media-max("sp") {
+      padding-top: 48px;
     }
   }
 }

@@ -34,7 +34,7 @@ export const ArticleList = () => {
     <ul className={styles.list}>
       {data.map((el, i) => {
         return (
-          <li className={styles.item}>
+          <li className={styles.item} id={`article${i}`} key={`article${i}`}>
             <div className={styles.titlewrap}>
               <h3 className={styles.title}>{el.title}</h3>
               <div className={styles.datewrap}>

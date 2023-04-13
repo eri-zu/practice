@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useResize = (cb: () => void = () => {}) => {
+export const useScroll = (cb: () => void = () => {}) => {
   useEffect(() => {
     window.addEventListener("scroll", cb);
 

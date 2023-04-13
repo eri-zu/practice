@@ -4,8 +4,6 @@
 //
 //--------------------------------------------------
 
-import gsap from "gsap";
-
 export default class Controller {
   private inner: HTMLDivElement;
   private list: HTMLElement;

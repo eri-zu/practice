@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/pages/home.module.scss";
 import { Mv } from "@/components/_view/top/mv/mv";

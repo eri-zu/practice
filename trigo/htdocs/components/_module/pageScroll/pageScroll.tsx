@@ -4,9 +4,10 @@ import React, { FC, ReactNode } from "react";
 type Props = {
   targetID: string;
   children: ReactNode;
+  className?: string;
 };
 
-export const PageScroll: FC<Props> = ({ targetID, children }) => {
+export const PageScroll: FC<Props> = ({ targetID, children, className }) => {
   const onClick: (arg: React.MouseEvent) => void = (e: React.MouseEvent) => {
     const targetDOM = document.getElementById(targetID);
 
@@ -26,5 +27,9 @@ export const PageScroll: FC<Props> = ({ targetID, children }) => {
     });
   };
 
-  return <div onClick={onClick}>{children}</div>;
+  return (
+    <div onClick={onClick} className={className}>
+      {children}
+    </div>
+  );
 };
