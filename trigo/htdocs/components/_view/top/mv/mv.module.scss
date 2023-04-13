@@ -1,0 +1,50 @@
+@import "@/styles/import.scss";
+
+.wrap {
+  position: relative;
+}
+
+.imgwrap {
+  img {
+    width: 100%;
+  }
+}
+
+.txtwrap {
+  position: absolute;
+  top: 15vw;
+  left: 7vw;
+  animation: fuwafuwa 2s linear infinite;
+}
+
+.txt {
+  font-size: 36 / 1280 * 100vw;
+  font-family: "kodomo";
+  color: #fff;
+  font-weight: 300;
+}
+
+.aniversary {
+  position: absolute;
+  top: 5vw;
+  right: 5vw;
+  // z-index: 1;
+  width: 20vw;
+
+  svg {
+    width: 100%;
+  }
+}
+
+.year {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 130 / 1520 * 100vw;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}

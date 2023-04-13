@@ -1,13 +1,19 @@
-@import "../../../styles/import.scss";
-
+@import "@/styles/import.scss";
 .header {
-  padding: 30px 0px 20px;
+  padding: 30px 0px 25px;
+
+  @include media-max("sp") {
+    height: 100px;
+    padding: 0;
+  }
 }
 
-.item {
-  a {
-    font-size: 20px;
-    font-weight: 700;
+.inner {
+  @include media-max("sp") {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
   }
 }
 
@@ -21,22 +27,43 @@
   &:nth-child(n + 2) {
     margin-left: 45px;
   }
-  a {
-    font-size: 22px;
-    color: $accent;
-    letter-spacing: 0.08em;
+
+  font-size: 22px;
+  color: $accent;
+  letter-spacing: 0.08em;
+
+  div {
+    cursor: pointer;
   }
 }
 
 .logoarea {
   text-align: center;
+
+  @include media-max("sp") {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .nav {
   margin-top: 15px;
+
+  @include media-max("sp") {
+    display: none;
+  }
 }
 
 .logo {
   display: inline-block;
   width: 168px;
+
+  a {
+    display: block;
+  }
+
+  @include media-max("sp") {
+    width: 130px;
+  }
 }

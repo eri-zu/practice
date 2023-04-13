@@ -1,0 +1,119 @@
+@import "@/styles/import.scss";
+
+.wrap {
+  padding: 50px 0px;
+
+  @include media-max("sp") {
+    padding: 40px 0px;
+  }
+}
+
+.inner {
+  max-width: 1080px + 20px + 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contents {
+  margin-top: 36px - 8px;
+}
+
+.item {
+  padding: 8px 0px;
+
+  a {
+    display: inline-flex;
+    align-items: flex-start;
+
+    @include media-max("sp") {
+      flex-direction: column;
+    }
+  }
+}
+
+.date,
+.newsTitle {
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  line-height: 1.75;
+
+  @include media-max("sp") {
+    font-size: 14px;
+  }
+}
+
+.datewrap {
+  padding-left: 25px;
+  position: relative;
+
+  @include media-max("sp") {
+    padding-left: 21px;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: calc(50% + 1px);
+    transform: translateY(-50%);
+    left: 0;
+    background-color: $accent;
+    height: 18px;
+    width: 18px;
+
+    @include media-max("sp") {
+      height: 14px;
+      width: 14px;
+    }
+  }
+}
+
+.datewrap {
+  min-width: 185px;
+  max-width: 185px;
+  margin-right: 35px;
+}
+
+.btnarea {
+  margin-top: 24px;
+  margin-left: 185px + 35px;
+
+  @include media-max("sp") {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+.btn {
+  a {
+    display: flex;
+
+    @include media-max("sp") {
+      display: inline-flex;
+    }
+  }
+}
+
+.btntxt {
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  line-height: 1.75;
+  margin-right: 15px;
+}
+
+.btnicon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1.5px solid $base;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 12px;
+    top: 1px;
+  }
+}

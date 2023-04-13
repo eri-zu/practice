@@ -2,13 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/pages/home.module.scss";
-import { Mv } from "@/components/_view/mv/mv";
-import { Menu } from "@/components/_view/menu/menu";
-import { Message } from "@/components/_view/message/message";
-import { Service } from "@/components/_view/service/service";
-import { TopNews } from "@/components/_view/news/news";
-import { Access } from "@/components/_view/access/access";
-import { Gallery } from "@/components/_view/gallery/gallery";
+import { Mv } from "@/components/_view/top/mv/mv";
+import { BreadMenu } from "@/components/_view/top/breadmenu/breadmenu";
+import { Message } from "@/components/_view/top/message/message";
+import { Service } from "@/components/_view/top/service/service";
+import { TopNews } from "@/components/_view/top/news/news";
+import { Access } from "@/components/_view/top/access/access";
+import { Gallery } from "@/components/_view/top/gallery/gallery";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +26,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Mv></Mv>
-        <Menu></Menu>
+        <BreadMenu></BreadMenu>
         <Message></Message>
         <Service></Service>
         <TopNews></TopNews>

@@ -1,0 +1,28 @@
+@import "@/styles/import.scss";
+
+.contents {
+  padding: 48px 0 80px;
+
+  @include media-max("sp") {
+    padding: 36px 0 64px;
+  }
+}
+
+.articlearea {
+  margin-top: 36px;
+
+  @include media-max("sp") {
+    margin-top: 30px;
+  }
+}
+
+.inner {
+  max-width: 1280px + 30px + 30px;
+  padding: 0 30px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include media-max("sp") {
+    padding: 0 20px;
+  }
+}

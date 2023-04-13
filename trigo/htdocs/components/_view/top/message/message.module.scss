@@ -1,0 +1,64 @@
+@import "@/styles/import.scss";
+
+.isSP {
+  @include media-min("tab") {
+    display: none;
+  }
+}
+
+.wrap {
+  padding: 130px 0;
+  background: url(../../../../public/img/message_bg.png) center/cover fixed
+    no-repeat;
+  position: relative;
+
+  @include media-max("sp") {
+    padding: 80px 0;
+    background-position: left 30% bottom 0%;
+    background-size: cover;
+    background-attachment: scroll;
+    // background-position: left 30% bottom 0%;
+  }
+}
+
+.titlewrap {
+  text-align: center;
+}
+
+.inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.txtarea {
+  margin-top: 50px;
+
+  @include media-max("sp") {
+    margin-top: 36px;
+  }
+}
+
+.txt {
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  line-height: 2;
+  text-align: center;
+  white-space: pre-line;
+
+  @include media-max("sp") {
+    font-size: 14px;
+  }
+
+  &:nth-child(n + 2) {
+    margin-top: 18px;
+  }
+
+  &:last-child {
+    margin-top: 36px;
+  }
+}
+
+.italic {
+  font-style: italic;
+}

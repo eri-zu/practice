@@ -1,0 +1,87 @@
+@import "@/styles/import.scss";
+
+.item {
+  &:nth-child(n + 2) {
+    margin-top: 80px;
+
+    @include media-max("sp") {
+      margin-top: 48px;
+    }
+  }
+}
+
+.datewrap {
+  display: flex;
+}
+
+.iconwrap {
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  svg {
+    width: 100%;
+  }
+}
+
+.date {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  line-height: 1.75;
+
+  @include media-max("sp") {
+    font-size: 12px;
+  }
+}
+
+.title {
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  line-height: 1.75;
+  position: relative;
+  padding-left: 25px;
+
+  @include media-max("sp") {
+    font-size: 18px;
+    padding-left: 24px;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background-color: $accent;
+    height: 20px;
+    width: 20px;
+
+    @include media-max("sp") {
+      top: 7.5px;
+      height: 18px;
+      width: 18px;
+    }
+  }
+}
+
+.txtarea {
+  margin-top: 24px;
+  margin-left: 50px;
+
+  @include media-max("sp") {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    line-height: 1.75;
+    white-space: pre-line;
+
+    @include media-max("sp") {
+      font-size: 14px;
+    }
+  }
+}

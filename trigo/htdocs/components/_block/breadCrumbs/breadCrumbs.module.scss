@@ -1,0 +1,49 @@
+@import "@/styles/import.scss";
+
+.wrap {
+  border-top: 4px solid $accent;
+  border-bottom: 4px solid $accent;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.inner {
+  max-width: 1280px + 50px + 50px;
+  padding: 0 50px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include media-max("sp") {
+    padding: 0 20px;
+  }
+}
+
+.list {
+  display: flex;
+}
+
+.item {
+  position: relative;
+  a {
+    font-size: 18px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 40px;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 41%;
+      right: -23px;
+      width: 7px;
+      height: 7px;
+      border: 0px;
+      border-top: solid 2px #221010;
+      border-right: solid 2px #221010;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+}

@@ -18,7 +18,7 @@ export const Slider = () => {
   });
 
   useEffect(() => {
-    controller.current = new Controller(inner.current);
+    if (inner.current) controller.current = new Controller(inner.current);
   }, []);
 
   return (

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ReactElement } from "react";
 import styles from "./header.module.scss";
 import LogoSVG from "../../../public/svg/logo.svg";
+import { PageScroll } from "@/components/_module/pageScroll/pageScroll";
+
 type NavItem = {
   name: string;
   link: string;
@@ -19,32 +21,36 @@ type NavItem = {
 // }
 
 const nav: NavItem[] = [
-  { name: "メニュー", link: "#menu" },
-  { name: "メッセージ", link: "#message" },
-  { name: "サービス", link: "#service" },
-  { name: "ニュース", link: "#news" },
-  { name: "アクセス", link: "#access" },
+  { name: "パン", link: "breadmenu" },
+  { name: "メッセージ", link: "message" },
+  { name: "サービス", link: "service" },
+  { name: "ニュース", link: "news" },
+  { name: "アクセス", link: "access" },
 ];
 
 export const Header = (): ReactElement => {
   return (
     <header className={styles.header}>
-      <div className={styles.logoarea}>
-        <h1 className={styles.logo}>
-          <LogoSVG></LogoSVG>
-        </h1>
+      <div className={styles.inner}>
+        <div className={styles.logoarea}>
+          <h1 className={styles.logo}>
+            <Link href="/">
+              <LogoSVG></LogoSVG>
+            </Link>
+          </h1>
+        </div>
+        <nav className={styles.nav}>
+          <ul className={styles.list}>
+            {nav.map((el, i) => {
+              return (
+                <li className={styles.item} key={`item${i}`}>
+                  <PageScroll targetID={el.link}>{el.name}</PageScroll>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       </div>
-      <nav className={styles.nav}>
-        <ul className={styles.list}>
-          {nav.map((el, i) => {
-            return (
-              <li className={styles.item} key={`item${i}`}>
-                <Link href={el.link}>{el.name}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
     </header>
   );
 };

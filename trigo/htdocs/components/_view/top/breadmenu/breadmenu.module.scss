@@ -1,0 +1,165 @@
+@import "@/styles/import.scss";
+
+.isSP {
+  @include media-min("tab") {
+    display: none;
+  }
+}
+
+.wrap {
+  padding: 80px 0px;
+
+  @include media-max("sp") {
+    padding: 40px 0px;
+  }
+}
+
+.inner {
+  max-width: 1280px + 30px + 30px;
+  padding: 0 30px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include media-max("sp") {
+    padding: 0 20px;
+  }
+}
+
+.titlewrap {
+  text-align: center;
+}
+
+.leadwrap {
+  margin-top: 32px;
+  text-align: center;
+  white-space: nowrap;
+  @include media-max("sp") {
+    margin-top: 18px;
+  }
+}
+
+.contents {
+  margin-top: 64px;
+
+  @include media-max("sp") {
+    margin-top: 50px;
+  }
+}
+
+.list {
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc(100% / 3);
+  padding: 50px 30px;
+  position: relative;
+
+  @include media-max("sp") {
+    width: calc(100% / 2);
+    padding: 30px 10px;
+  }
+
+  @include media-min("tab") {
+    &:nth-child(3n + 1) {
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 6px;
+        width: 300%;
+        border-top: 6px dashed #9a221c;
+      }
+    }
+  }
+
+  @include media-max("sp") {
+    &:nth-of-type(odd) {
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 6px;
+        width: 200%;
+        border-top: 4px dashed #9a221c;
+      }
+    }
+  }
+}
+
+.imgwrap {
+  text-align: center;
+
+  img {
+    width: 70%;
+    display: inline-block;
+  }
+}
+
+.namewrap {
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 30px;
+
+  @include media-max("sp") {
+    margin-top: 15px;
+  }
+}
+
+.name {
+  font-family: "kodomo";
+  font-weight: 300;
+  color: $accent;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  font-size: 34px;
+
+  @include media-max("sp") {
+    font-size: 20px;
+  }
+}
+
+.txtwrap {
+  margin-top: 15px;
+  @include media-max("sp") {
+    margin-top: 10px;
+  }
+}
+
+.txt {
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  line-height: 1.75;
+
+  @include media-max("sp") {
+    font-size: 13px;
+  }
+}
+
+.news {
+  margin-top: 36px;
+  overflow: hidden;
+  border: 3px solid $accent;
+  background-color: $accent;
+}
+
+.newsTxt {
+  font-size: 14px;
+  white-space: nowrap;
+  // color: $accent;
+  color: #fff;
+
+  &:nth-child(n + 2) {
+    margin-left: 50px;
+  }
+}
+
+.newsTxtList {
+  display: flex;
+}

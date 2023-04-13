@@ -1,3 +1,5 @@
+@import "@/styles/import.scss";
+
 .inner {
   display: flex;
 }
@@ -8,6 +10,10 @@
 
 .item {
   width: 25vw;
+
+  @include media-max("sp") {
+    width: 50vw;
+  }
 
   img {
     width: 100%;

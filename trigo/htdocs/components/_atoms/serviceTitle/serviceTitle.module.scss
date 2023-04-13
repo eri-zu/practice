@@ -1,10 +1,15 @@
+@import "@/styles/import.scss";
+
 .title {
   display: inline-block;
   background-color: #9a221c;
   border-radius: 10px;
   color: #ffffff;
   padding: 10px 20px;
-  margin-bottom: 10px;
-  font-size: 21px;
+  font-size: 22px;
   letter-spacing: 0.08em;
+
+  @include media-max("sp") {
+    font-size: 18px;
+  }
 }
