@@ -2,8 +2,17 @@ import styles from "./menu.module.scss";
 import gsap from "gsap";
 import { PageScroll } from "@/components/_module/pageScroll/pageScroll";
 import { useEffect, useState, useRef } from "react";
-import { showBtn, hideBtn, showMenu, hideMenu } from "./Renderer";
+import {
+  showBtn,
+  hideBtn,
+  showMenu,
+  hideMenu,
+  addScrollLock,
+  removeScrollLock,
+} from "./Renderer";
 import classNames from "classnames";
+// import { addScrollLock } from "@/hooks/useScrollLock";
+// import { removeScrollLock } from "@/hooks/useScrollLock";
 
 type Nav = {
   name: string;
@@ -26,6 +35,8 @@ export const Menu = () => {
   const firstRender = useRef<Boolean>(false);
 
   const show = () => {
+    addScrollLock();
+
     if (tl.current) tl.current.kill();
     tl.current = gsap.timeline();
 
@@ -39,6 +50,8 @@ export const Menu = () => {
   };
 
   const hide = () => {
+    removeScrollLock();
+
     if (tl.current) tl.current.kill();
     tl.current = gsap.timeline();
 
@@ -84,8 +97,18 @@ export const Menu = () => {
         </div>
       </div>
 
-      <div className={styles.drawer} ref={drawer}>
-        <div className={classNames([styles.bg, "js-drawer_bg"])}></div>
+      <div
+        ref={drawer}
+        className={classNames([
+          styles.drawer,
+          showFlag ? styles.isActive : styles.isNotActive,
+        ])}
+      >
+        <div className={classNames([styles.bg, "js-drawer_bg"])}>
+          <div className={styles.img}>
+            <img src="/img/trigokun.png" alt="" />
+          </div>
+        </div>
         <div className={styles.inner}>
           <nav className={styles.nav}>
             <ul className={styles.list}>

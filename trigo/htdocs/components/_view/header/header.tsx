@@ -3,6 +3,8 @@ import { ReactElement } from "react";
 import styles from "./header.module.scss";
 import LogoSVG from "../../../public/svg/logo.svg";
 import { PageScroll } from "@/components/_module/pageScroll/pageScroll";
+import { useRouter } from "next/router";
+import classNames from "classnames";
 
 type NavItem = {
   name: string;
@@ -29,6 +31,8 @@ const nav: NavItem[] = [
 ];
 
 export const Header = (): ReactElement => {
+  const router = useRouter();
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -43,7 +47,15 @@ export const Header = (): ReactElement => {
           <ul className={styles.list}>
             {nav.map((el, i) => {
               return (
-                <li className={styles.item} key={`item${i}`}>
+                <li
+                  key={`item${i}`}
+                  className={classNames([
+                    styles.item,
+                    router.pathname == `/${el.link}`
+                      ? styles.isNews
+                      : styles.isNotNews,
+                  ])}
+                >
                   <PageScroll targetID={el.link}>{el.name}</PageScroll>
                 </li>
               );

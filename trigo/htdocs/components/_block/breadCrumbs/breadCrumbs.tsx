@@ -13,7 +13,7 @@ export const BreadCrumbs = () => {
         <ul className={styles.list}>
           {data.map((el, i) => {
             return (
-              <li className={styles.item}>
+              <li className={styles.item} key={`item${i}`}>
                 <Link href={el.href}>{el.name}</Link>
               </li>
             );

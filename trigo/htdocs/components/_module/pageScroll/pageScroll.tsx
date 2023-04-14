@@ -1,5 +1,7 @@
 import gsap from "gsap";
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useEffect } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 type Props = {
   targetID: string;
@@ -8,14 +10,12 @@ type Props = {
 };
 
 export const PageScroll: FC<Props> = ({ targetID, children, className }) => {
+  const router = useRouter();
+
   const onClick: (arg: React.MouseEvent) => void = (e: React.MouseEvent) => {
     const targetDOM = document.getElementById(targetID);
 
-    //htmlelement or null
-
     if (!targetDOM) return;
-
-    //htmlelement
 
     const targetPos = targetDOM.getBoundingClientRect().top + window.scrollY;
 
@@ -28,8 +28,16 @@ export const PageScroll: FC<Props> = ({ targetID, children, className }) => {
   };
 
   return (
-    <div onClick={onClick} className={className}>
-      {children}
-    </div>
+    <>
+      {router.pathname == "/" ? (
+        <div onClick={onClick} className={className}>
+          {children}
+        </div>
+      ) : (
+        <Link href={`/#${targetID}`} className={className}>
+          {children}
+        </Link>
+      )}
+    </>
   );
 };

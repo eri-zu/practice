@@ -6,7 +6,7 @@
 
 .menubtn {
   position: fixed;
-  top: 17px;
+  top: 20px;
   right: 20px - 5px;
   padding: 5px;
   display: flex;
@@ -61,10 +61,6 @@
   overflow: hidden;
 }
 
-.txtInner {
-  position: relative;
-}
-
 .txt {
   // margin-top: 5px;
   font-size: 10px;
@@ -79,6 +75,14 @@
   }
 }
 
+.img {
+  width: 40%;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 // ------------------------------------------------------------
 // drawer
 // ------------------------------------------------------------
@@ -91,6 +95,14 @@
   height: 100vh;
   height: 100svh;
   z-index: 100;
+
+  &.isActive {
+    pointer-events: auto;
+  }
+
+  &.isNotActive {
+    pointer-events: none;
+  }
 
   @include media-min("tab") {
     display: none;

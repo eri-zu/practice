@@ -35,6 +35,10 @@
   div {
     cursor: pointer;
   }
+
+  &.isNews {
+    border-bottom: 2px dashed #9a221c;
+  }
 }
 
 .logoarea {
