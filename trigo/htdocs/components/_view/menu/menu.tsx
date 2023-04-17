@@ -11,6 +11,9 @@ import {
   removeScrollLock,
 } from "./Renderer";
 import classNames from "classnames";
+import { useContext } from "react";
+import { MenuFlagContext } from "@/components/context/MenuFlag";
+
 // import { addScrollLock } from "@/hooks/useScrollLock";
 // import { removeScrollLock } from "@/hooks/useScrollLock";
 
@@ -28,13 +31,16 @@ const nav: Nav[] = [
 ];
 
 export const Menu = () => {
-  const [showFlag, setShowFlag] = useState(false);
+  // const [showFlag, setShowFlag] = useState(false);
   const btn = useRef<HTMLDivElement | null>(null);
   const drawer = useRef<HTMLDivElement | null>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
   const firstRender = useRef<Boolean>(false);
+  const [menuFlag, setMenuFlag] = useContext(MenuFlagContext);
 
   const show = () => {
+    // console.log("show");
+
     addScrollLock();
 
     if (tl.current) tl.current.kill();
@@ -50,6 +56,7 @@ export const Menu = () => {
   };
 
   const hide = () => {
+    // console.log("hide");
     removeScrollLock();
 
     if (tl.current) tl.current.kill();
@@ -65,16 +72,16 @@ export const Menu = () => {
   };
 
   const onClick = () => {
-    showFlag ? setShowFlag(false) : setShowFlag(true);
+    menuFlag ? setMenuFlag(false) : setMenuFlag(true);
   };
 
   useEffect(() => {
     if (firstRender.current) {
-      showFlag ? show() : hide();
+      menuFlag ? show() : hide();
     } else {
       firstRender.current = true;
     }
-  }, [showFlag]);
+  }, [menuFlag]);
 
   return (
     <>
@@ -101,7 +108,7 @@ export const Menu = () => {
         ref={drawer}
         className={classNames([
           styles.drawer,
-          showFlag ? styles.isActive : styles.isNotActive,
+          menuFlag ? styles.isActive : styles.isNotActive,
         ])}
       >
         <div className={classNames([styles.bg, "js-drawer_bg"])}>

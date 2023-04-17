@@ -5,9 +5,18 @@
   50% {
     transform: translateY(-10px);
   }
-  // 66.66667% {
-  //   transform: translateY(0);
-  // }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fuwafuwa2 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8%);
+  }
   100% {
     transform: translateY(0);
   }

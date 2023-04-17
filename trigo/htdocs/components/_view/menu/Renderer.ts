@@ -79,6 +79,7 @@ export const showMenu = (drawer: HTMLDivElement) => {
 
   tl.to(bg, 0.8, {
     x: 0,
+    z: 0,
     ease: "expo.out",
   });
   items.forEach((el, i) => {
@@ -87,6 +88,7 @@ export const showMenu = (drawer: HTMLDivElement) => {
       0.8,
       {
         y: 0,
+        z: 0,
         ease: "expo.out",
       },
       0.2 + 0.05 * i
@@ -124,6 +126,7 @@ export const hideMenu = (drawer: HTMLDivElement) => {
         0.8,
         {
           y: "100%",
+          z: 0,
           ease: "expo.out",
         },
         0
@@ -147,6 +150,7 @@ export const hideMenu = (drawer: HTMLDivElement) => {
     0.8,
     {
       x: "101%",
+      z: 0,
       ease: "expo.out",
     },
     0.2

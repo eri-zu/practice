@@ -106,6 +106,7 @@
   text-align: center;
   white-space: nowrap;
   margin-top: 30px;
+  position: relative;
 
   @include media-max("sp") {
     margin-top: 15px;
@@ -113,15 +114,38 @@
 }
 
 .name {
-  font-family: "kodomo";
-  font-weight: 300;
-  color: $accent;
-  letter-spacing: -0.02em;
-  -webkit-font-smoothing: antialiased;
-  font-size: 34px;
+  display: inline-block;
+  position: relative;
+  span {
+    font-family: "kodomo";
+    font-weight: 300;
+    color: $accent;
+    letter-spacing: -0.02em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 34px;
+
+    @include media-max("sp") {
+      font-size: 20px;
+    }
+  }
+}
+
+.rank {
+  position: absolute;
+  top: -28px;
+  left: -32px;
+  width: 50px;
+  transform: rotate(-10deg);
 
   @include media-max("sp") {
-    font-size: 20px;
+    width: 30px;
+    top: -18px;
+    left: -18px;
+  }
+
+  svg {
+    // animation: fuwafuwa2 2s linear infinite;
+    width: 100%;
   }
 }
 

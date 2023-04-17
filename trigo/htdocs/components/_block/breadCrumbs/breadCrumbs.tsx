@@ -1,5 +1,8 @@
 import styles from "./breadCrumbs.module.scss";
 import Link from "next/link";
+import { useContext } from "react";
+import { MenuFlagContext } from "@/components/context/MenuFlag";
+import { useRouter } from "next/router";
 
 const data = [
   { href: "/", name: "ホーム" },
@@ -7,6 +10,16 @@ const data = [
 ];
 
 export const BreadCrumbs = () => {
+  const [menuFlag, setMenuFlag] = useContext(MenuFlagContext);
+  const router = useRouter();
+
+  const onClick = () => {
+    if (menuFlag) {
+      setMenuFlag(false);
+    }
+    router.push("/");
+  };
+
   return (
     <div className={styles.wrap}>
       <div className={styles.inner}>
@@ -14,7 +27,14 @@ export const BreadCrumbs = () => {
           {data.map((el, i) => {
             return (
               <li className={styles.item} key={`item${i}`}>
-                <Link href={el.href}>{el.name}</Link>
+                <span
+                  data-href={el.href}
+                  onClick={() => {
+                    if (i == 0) onClick();
+                  }}
+                >
+                  {el.name}
+                </span>
               </li>
             );
           })}

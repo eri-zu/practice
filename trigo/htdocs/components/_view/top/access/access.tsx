@@ -21,7 +21,7 @@ const data: accessItem[] = [
         兵庫県尼崎市東園田町9-21-21岡崎ハイツ1階
         <br />
         <a
-          href="https://goo.gl/maps/dCsUdXSeSkmgk3u96"
+          href="https://goo.gl/maps/L7wJgnMxbpSoWZ6cA"
           target="_blank"
           rel="noopener noreferrer"
         >

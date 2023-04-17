@@ -26,6 +26,13 @@
   a {
     display: inline-flex;
     align-items: flex-start;
+    transition: opacity 0.3s ease-out 0s;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
 
     @include media-max("sp") {
       flex-direction: column;
@@ -87,11 +94,21 @@
 }
 
 .btn {
-  a {
-    display: flex;
+  cursor: pointer;
+  display: flex;
+  transition: opacity 0.3s ease 0s;
 
-    @include media-max("sp") {
-      display: inline-flex;
+  @include media-max("sp") {
+    display: inline-flex;
+  }
+
+  &:hover {
+    @media (hover: hover) {
+      opacity: 0.5;
+
+      .btnicon {
+        transform: scale(1.1);
+      }
     }
   }
 }
@@ -111,6 +128,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: transform 0.3s ease 0s;
 
   svg {
     width: 12px;

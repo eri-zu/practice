@@ -3,7 +3,9 @@ import styles from "./news.module.scss";
 import Link from "next/link";
 import { H2Title } from "@/components/_atoms/h2Title/h2Title";
 import NewsArrowSVG from "@/public/svg/newsArrow.svg";
-
+import { MenuFlagContext } from "@/components/context/MenuFlag";
+import { useContext } from "react";
+import { useRouter } from "next/router";
 const data = [
   {
     date: "2023.4.15",
@@ -33,6 +35,18 @@ const data = [
 ];
 
 export const TopNews = (): ReactElement => {
+  const [menuFlag, setMenuFlag] = useContext(MenuFlagContext);
+  const router = useRouter();
+
+  const onClick = () => {
+    if (!menuFlag) {
+      router.push("/news");
+    } else {
+      setMenuFlag(false); // ？
+      router.push("/news");
+    }
+  };
+
   return (
     <section className={styles.wrap} id="news">
       <div className={styles.inner}>
@@ -58,13 +72,16 @@ export const TopNews = (): ReactElement => {
           </ul>
         </div>
         <div className={styles.btnarea}>
-          <div className={styles.btn}>
-            <Link href="/news">
-              <span className={styles.btntxt}>すべてのニュースを見る</span>
-              <span className={styles.btnicon}>
-                <NewsArrowSVG />
-              </span>
-            </Link>
+          <div
+            className={styles.btn}
+            onClick={() => {
+              onClick();
+            }}
+          >
+            <span className={styles.btntxt}>すべてのニュースを見る</span>
+            <span className={styles.btnicon}>
+              <NewsArrowSVG />
+            </span>
           </div>
         </div>
       </div>

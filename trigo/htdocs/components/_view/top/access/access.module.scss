@@ -54,6 +54,16 @@
   @include media-max("sp") {
     margin-top: 36px;
   }
+
+  a {
+    transition: opacity 0.3s ease 0s;
+
+    &:hover {
+      @media (hover: hover) {
+        opacity: 0.5;
+      }
+    }
+  }
 }
 
 .itemTitleArea {

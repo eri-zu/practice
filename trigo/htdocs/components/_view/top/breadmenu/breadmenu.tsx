@@ -2,6 +2,9 @@ import { ReactElement } from "react";
 import styles from "./breadmenu.module.scss";
 import { H2Title } from "@/components/_atoms/h2Title/h2Title";
 import { LeadText } from "@/components/_atoms/leadText/leadText";
+import Rank1SVG from "../../../../public/svg/rank1.svg";
+import Rank2SVG from "../../../../public/svg/rank2.svg";
+// import { ScrollShowRank } from "@/components/_module/scrollShow/rank/scrollShowRank";
 
 type MenuItem = {
   img: string;
@@ -70,6 +73,8 @@ export const BreadMenu = (): ReactElement => {
               一部のパンをご紹介します。<br></br>
               店内にはその他にもたくさんございますので、
               <br className={styles.isSP}></br>ぜひお越しください。
+              <br />
+              <span>日替わりでお得なパン</span>もご用意しています♪
             </LeadText>
           </div>
         </div>
@@ -83,7 +88,19 @@ export const BreadMenu = (): ReactElement => {
                     <img src={el.img} alt="" />
                   </div>
                   <div className={styles.namewrap}>
-                    <h3 className={styles.name}>{el.name}</h3>
+                    <h3 className={styles.name}>
+                      <span>{el.name}</span>
+                      {i == 0 && (
+                        <div className={styles.rank}>
+                          <Rank1SVG></Rank1SVG>
+                        </div>
+                      )}
+                      {i == 1 && (
+                        <div className={styles.rank}>
+                          <Rank2SVG></Rank2SVG>
+                        </div>
+                      )}
+                    </h3>
                   </div>
                   <div className={styles.txtwrap}>
                     <p className={styles.txt}>{el.txt}</p>

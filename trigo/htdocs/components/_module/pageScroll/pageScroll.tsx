@@ -1,7 +1,8 @@
 import gsap from "gsap";
-import React, { FC, ReactNode, useEffect } from "react";
+import React, { FC, ReactNode, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { MenuFlagContext } from "@/components/context/MenuFlag";
 
 type Props = {
   targetID: string;
@@ -11,8 +12,20 @@ type Props = {
 
 export const PageScroll: FC<Props> = ({ targetID, children, className }) => {
   const router = useRouter();
+  const [menuFlag, setMenuFlag] = useContext(MenuFlagContext);
 
-  const onClick: (arg: React.MouseEvent) => void = (e: React.MouseEvent) => {
+  const onClick = () => {
+    if (menuFlag) setMenuFlag(false);
+    if (router.pathname == "/") {
+      scroll();
+    } else {
+      setTimeout(() => {
+        router.push(`/#${targetID}`);
+      }, 1000);
+    }
+  };
+
+  const scroll = () => {
     const targetDOM = document.getElementById(targetID);
 
     if (!targetDOM) return;
@@ -29,15 +42,9 @@ export const PageScroll: FC<Props> = ({ targetID, children, className }) => {
 
   return (
     <>
-      {router.pathname == "/" ? (
-        <div onClick={onClick} className={className}>
-          {children}
-        </div>
-      ) : (
-        <Link href={`/#${targetID}`} className={className}>
-          {children}
-        </Link>
-      )}
+      <div onClick={onClick} className={className}>
+        {children}
+      </div>
     </>
   );
 };

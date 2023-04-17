@@ -24,8 +24,13 @@
 
 .item {
   position: relative;
-  a {
+
+  span {
     font-size: 18px;
+  }
+
+  &:nth-child(1) {
+    cursor: pointer;
   }
 
   &:not(:last-child) {
