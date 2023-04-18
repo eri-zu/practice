@@ -6,6 +6,8 @@ import NewsArrowSVG from "@/public/svg/newsArrow.svg";
 import { MenuFlagContext } from "@/components/context/MenuFlag";
 import { useContext } from "react";
 import { useRouter } from "next/router";
+import type { News } from "@/types/news";
+
 const data = [
   {
     date: "2023.4.15",
@@ -34,7 +36,11 @@ const data = [
   },
 ];
 
-export const TopNews = (): ReactElement => {
+type Props = {
+  posts: News[];
+};
+
+export const TopNews = ({ posts }: Props): ReactElement => {
   const [menuFlag, setMenuFlag] = useContext(MenuFlagContext);
   const router = useRouter();
 
@@ -55,12 +61,15 @@ export const TopNews = (): ReactElement => {
         </div>
         <div className={styles.contents}>
           <ul className={styles.list}>
-            {data.map((el, i) => {
+            {posts.map((el, i) => {
               return (
                 <li className={styles.item} key={`item${i}`}>
                   <Link href={`/news#article${i}`}>
                     <div className={styles.datewrap}>
-                      <p className={styles.date}>{el.date}</p>
+                      <p className={styles.date}>
+                        {new Date(el.publishedAt).toLocaleDateString()}
+                      </p>
+                      {/* <p className={styles.date}>{el.date}</p> */}
                     </div>
                     <div className={styles.newsTitlewrap}>
                       <p className={styles.newsTitle}>{el.title}</p>
