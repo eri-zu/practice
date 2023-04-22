@@ -11,17 +11,6 @@ type NavItem = {
   link: string;
 };
 
-// array: number[]  中の要素の型[]
-
-// 何も返却しない
-// func = (): void=> {
-//   const
-// }
-// 何も返却しない
-// func = (): number=> {
-//   return 1
-// }
-
 const nav: NavItem[] = [
   { name: "パン", link: "breadmenu" },
   { name: "メッセージ", link: "message" },
@@ -56,7 +45,9 @@ export const Header = (): ReactElement => {
                       : styles.isNotNews,
                   ])}
                 >
-                  <PageScroll targetID={el.link}>{el.name}</PageScroll>
+                  <div className={styles.itemIn}>
+                    <PageScroll targetID={el.link}>{el.name}</PageScroll>
+                  </div>
                 </li>
               );
             })}

@@ -1,4 +1,3 @@
-import { type } from "os";
 import { createContext, useState, FC, ReactNode } from "react";
 
 export const MenuFlagContext = createContext<[boolean, (arg: boolean) => void]>(

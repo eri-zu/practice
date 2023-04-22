@@ -41,6 +41,16 @@
   }
 }
 
+.itemIn {
+  transition: transform 0.3s ease 0s;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
 .logoarea {
   text-align: center;
 
