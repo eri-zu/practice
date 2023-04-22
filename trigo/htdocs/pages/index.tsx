@@ -46,7 +46,6 @@ export default function Home({ posts }: Props) {
 // サーバーのビルド時に呼び出される
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getPosts();
-  // console.log(posts);
 
   return {
     props: {

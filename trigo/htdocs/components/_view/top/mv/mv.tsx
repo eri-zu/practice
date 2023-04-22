@@ -1,6 +1,6 @@
 import styles from "./mv.module.scss";
 import AnniversarySVG from "@/public/svg/anniversary.svg";
-import { EstablishYear } from "@/components/_module/establishYear/establishYear";
+import { currentYear } from "@/helpers/currentYear";
 
 export const Mv = () => {
   return (
@@ -15,9 +15,7 @@ export const Mv = () => {
       </div>
       <div className={styles.aniversary}>
         <AnniversarySVG></AnniversarySVG>
-        <div className={styles.year}>
-          <EstablishYear></EstablishYear>
-        </div>
+        <div className={styles.year}>{currentYear() - 1985}</div>
       </div>
     </section>
   );

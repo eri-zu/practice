@@ -4,7 +4,7 @@ import { H2Title } from "@/components/_atoms/h2Title/h2Title";
 import classNames from "classnames";
 import { ReactNode } from "react";
 import { EstablishYear } from "@/components/_module/establishYear/establishYear";
-
+import { currentYear } from "@/helpers/currentYear";
 const txts: ReactNode = (
   <>
     <p className={classNames([styles.txt, styles.italic])}>
@@ -26,7 +26,7 @@ const txts: ReactNode = (
       優しいお味をお楽しみください。
     </p>
     <p className={classNames([styles.txt, styles.italic])}>
-      みなさまに支えられ創業から早<EstablishYear></EstablishYear>年経ちました。
+      みなさまに支えられ創業から早{currentYear() - 1985}年経ちました。
     </p>
     <p className={classNames([styles.txt, styles.italic])}>
       これからもおいしいパンを
