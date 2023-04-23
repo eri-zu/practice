@@ -27,14 +27,14 @@ export const BreadCrumbs = () => {
           {data.map((el, i) => {
             return (
               <li className={styles.item} key={`item${i}`}>
-                <span
+                <a
                   data-href={el.href}
                   onClick={() => {
                     if (i == 0) onClick();
                   }}
                 >
                   {el.name}
-                </span>
+                </a>
               </li>
             );
           })}

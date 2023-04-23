@@ -93,6 +93,13 @@
   }
 
   a {
+    transition: opacity 0.3s ease 0s;
     text-decoration: underline;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
   }
 }
