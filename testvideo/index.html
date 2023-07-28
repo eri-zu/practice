@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>test</p>
+    <!-- 自動再生 -->
+    <div class="videowrap">
+      <video
+        src="./meiji2.mp4"
+        playsinline
+        muted
+        autoplay
+        loop
+        controls
+      ></video>
+    </div>
+
+    <!-- 自動再生なし（iosで表示されない） -->
+    <div class="videowrap">
+      <video src="./meiji2.mp4" playsinline muted loop controls></video>
+    </div>
+
+    <!-- 自動再生を防ぐために、読み込まれたら、すぐに再生ストップ（再生出たままになる） -->
+    <div class="videowrap">
+      <video
+        src="./meiji2.mp4"
+        playsinline
+        muted
+        loop
+        controls
+        autoplay
+        class="js-video"
+      ></video>
+    </div>
+
+    <!-- 自動再生 コントロールバー後で付与-->
+    <div class="videowrap">
+      <video
+        src="./meiji2.mp4"
+        playsinline
+        muted
+        autoplay
+        loop
+        class="js-video2"
+      ></video>
+    </div>
+
+    <!-- 自動再生 コントロールバ初めてタッチした時に付与-->
+    <div class="videowrap">
+      <video
+        src="./meiji2.mp4"
+        playsinline
+        muted
+        autoplay
+        loop
+        class="js-video3"
+      ></video>
+    </div>
+  </body>
+  <script>
+    const video = document.querySelector(".js-video");
+    const video2 = document.querySelector(".js-video2");
+    const video3 = document.querySelector(".js-video3");
+
+    video.addEventListener("canplay", () => {
+      video.pause();
+    });
+
+    video2.addEventListener("canplay", (e) => {
+      setTimeout(() => {
+        console.log("aaaaa");
+        video2.controls = true;
+      }, 3000);
+    });
+
+    video3.addEventListener("touchend", (e) => {
+      video3.controls = true;
+    });
+  </script>
+</html>

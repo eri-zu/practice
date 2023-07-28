@@ -1,7 +1,5 @@
 import styles from "./mv.module.scss";
 import AnniversarySVG from "@/public/svg/anniversary.svg";
-import Anniversary1SVG from "@/public/svg/anniversary_1.svg";
-import Anniversary2SVG from "@/public/svg/anniversary_2.svg";
 import { currentYear } from "@/helpers/currentYear";
 
 export const Mv = () => {

@@ -3,8 +3,8 @@ import styles from "./message.module.scss";
 import { H2Title } from "@/components/_atoms/h2Title/h2Title";
 import classNames from "classnames";
 import { ReactNode } from "react";
-import { EstablishYear } from "@/components/_module/establishYear/establishYear";
 import { currentYear } from "@/helpers/currentYear";
+
 const txts: ReactNode = (
   <>
     <p className={classNames([styles.txt, styles.italic])}>

@@ -10,12 +10,16 @@ import { Gallery } from "@/components/_view/top/gallery/gallery";
 import { GetStaticProps } from "next";
 import { getPosts } from "@/libs/getPosts";
 import type { News } from "@/types/news";
+import type { Bread } from "@/types/bread";
+// import type Bread
+import { getBreadData } from "@/libs/getPosts";
 
 type Props = {
   posts: News[];
+  breadData: Bread[];
 };
 
-export default function Home({ posts }: Props) {
+export default function Home({ posts, breadData }: Props) {
   return (
     <>
       <main className={styles.main}>
@@ -34,10 +38,12 @@ export default function Home({ posts }: Props) {
 // サーバーのビルド時に呼び出される
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getPosts();
+  const breadData = await getBreadData();
 
   return {
     props: {
       posts,
+      breadData,
     },
   };
 };
