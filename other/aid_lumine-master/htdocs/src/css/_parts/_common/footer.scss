@@ -1,0 +1,99 @@
+/* --------------------------------------------------------------------------------
+*
+*   footer
+*
+-------------------------------------------------------------------------------- */
+#footer {
+
+	background-color: #810082;
+	padding: vw375(25) 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	.text {
+		
+		img {
+			width: vw375(444, true);
+			height: vw375(113, true);
+		}
+
+	}
+
+	@include min(769) {
+
+		padding: 20px 0;
+		justify-content: normal;
+		
+		@include minmax(769, 1200) {
+			padding: vw(20px, 1200px) 0;
+		}
+		@include min(1201) {
+			padding: 20px 0;
+		}
+		@include min(1700) {
+			padding: vw(20px, 1700px) 0;
+		}
+
+		.text.pc {
+
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 50px;
+			width: 100%;
+			
+			@include minmax(769, 1200) {
+				padding: 0 vw(50px, 1200px);
+			}
+			@include min(1201) {
+				padding: 0 50px;
+			}
+			@include min(1700) {
+				padding: 0 vw(50px, 1700px);
+			}
+			
+			.inner:nth-child(1) {
+				img {
+					width: 284px;
+					height: 15px;
+					@include minmax(769, 1200) {
+						width: vw(284px, 1200px);
+						height: vw(15px, 1200px);
+					}
+					@include min(1201) {
+						width: 284px;
+						height: 15px;;
+					}
+					@include min(1700) {
+						width: vw(284px, 1700px);
+						height: vw(15px, 1700px);
+					}
+				}
+			}
+			.inner:nth-child(2) {
+				img {
+					width: 104px;
+					height: 36px;
+					@include minmax(769, 1200) {
+						width: vw(104px, 1200px);
+						height: vw(36px, 1200px);
+					}
+					@include min(1201) {
+						width: 104px;
+						height: 36px;
+					}
+					@include min(1700) {
+						width: vw(104px, 1700px);
+						height: vw(36px, 1700px);
+					}
+				}
+			}
+
+		}
+
+	}
+
+
+
+}

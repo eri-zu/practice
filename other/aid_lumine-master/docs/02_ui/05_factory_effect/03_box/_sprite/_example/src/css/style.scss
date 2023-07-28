@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+@import "./_init/import";
+@import "./_init/reset"; // リセットCSS、フォントサイズ sss
+
+/* --------------------------------------------------------------------------------
+*   parts
+-------------------------------------------------------------------------------- */
+@import "./_parts/_common/**/*.scss";
+@import "./_parts/_compornents/**/*.scss";
+
+/* --------------------------------------------------------------------------------
+*   page
+-------------------------------------------------------------------------------- */
+
+html {
+  background-color: #fff;
+}
+
+#wrapper.id_top {
+
+  .box {
+    display: block;
+    @include sprite($sprite-fukuro3);
+  }
+  .box2 {
+    display: block;
+    @include sprites($spritesheet-sprites);
+  }
+  
+
+  // backgournd-position
+  .box3 {
+    background: url(/assets/resource/img/sprite.png) no-repeat;
+    width: 181px;
+    height: 108px;
+    animation: anim 1s steps(4) infinite;
+  }
+   
+  @keyframes anim {
+    to {
+      background-position: -724px 0;
+    }
+  }
+
+  // transform
+  .box4 {
+      overflow: hidden;
+      width: 181px;
+      height: 108px;
+      
+      .inner {
+        content: "";
+        display: block;
+        width: 724px;
+        height: 108px;
+        background-image: url(/assets/resource/img/sprite.png);
+        background-size: 724px 108px;
+        animation: sprite-image 1s steps(4) infinite;
+      }
+  }
+  .stopAnim {
+    animation-play-state: paused !important;
+  }
+
+  @keyframes sprite-image {
+      0% {
+          transform: translate(0, 0);
+      }
+      100% {
+          transform: translate(-100%, 0);
+      }
+  }
+
+
+
+}

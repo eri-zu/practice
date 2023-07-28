@@ -1,0 +1,32 @@
+<% var rootPATH = './', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+
+	<!-- <div class="circle"></div> -->
+
+	<div class="imgs">
+	<div class="imgMove">
+	<div class="imgInner flex">
+		<div class="img"><img src="./assets/resource/img/movie.png" alt="" class=""></div>
+		<div class="img"><img src="./assets/resource/img/movie.png" alt="" class=""></div>
+		<div class="img"><img src="./assets/resource/img/movie.png" alt="" class=""></div>
+	</div>
+	</div>
+	</div>
+
+</div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+<script src='./assets/js/shader/RGBShiftShader.js'></script>
+</body>
+</html>

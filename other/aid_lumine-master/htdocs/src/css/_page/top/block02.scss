@@ -1,0 +1,607 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+.section01 {
+
+	/* --------------------------------------------------------------------------------
+	*
+	*   block02
+	*
+	-------------------------------------------------------------------------------- */
+	.block02 {
+
+		background: url(../resource/img_sp/sec02_bg.jpg) no-repeat;
+		background-size: cover;
+		background-position: center center;
+		// background: url(../resource/img_sp/material/pattern_red3.png);
+		// background-size: vw375(200) vw375(200);
+		
+		position: relative;
+		
+		// height: 100vh;
+		
+		display: flex;
+		justify-content: center;
+		
+		@include min(769) {
+
+			background: url(../resource/img_pc/sec02_bg.jpg) no-repeat;
+			background-size: cover;
+			background-position: center center; 
+			// background: url(../resource/img_sp/material/pattern_red3.png);
+			// background-size: 200px 200px;
+
+		}
+		
+		.pipe {
+			position: absolute;
+			top: vw375(-21);
+			left: 0;
+			
+			transform: translate3d(0,0,0);
+			
+			opacity: 0;
+			
+			@include min(769) {
+				left: 50%;
+				transform: translateX(-50%);			
+			}
+			@include minmax(769, 1200) {
+				top: vw(-50px, 1200px);
+			}
+			@include min(1201) {
+				top: -50px;
+			}
+			@include min(1700) {
+				top: vw(-50px, 1700px);
+			}
+
+			.base {
+				width: vw375(750, true);
+				height: vw375(95, true);
+				
+				position: relative;
+				z-index: 2;
+				
+				transform: translate3d(0,0,0);
+				
+				@include minmax(769, 1200) {
+					width: vw(1700px, 1200px);
+					height: vw(81px, 1200px);
+				}
+				@include min(1201) {
+					width: 1700px;
+					height: 81px;
+				}
+				@include min(1700) {
+					width: vw(1700px, 1700px);
+					height: vw(81px, 1700px);
+				}
+			}
+
+			.ball {
+			  position: absolute;
+			  top: vw375(31);
+			  right: vw375(66);
+			  
+			  transform: translate3d(0,0,0);
+			  
+			  img {
+			    width: vw375(12);
+			    height: auto;
+			    transform: scale(1);
+			  }  
+			  
+			  // pc全体
+			  @include min(769) {
+
+			  	top: 72px;
+			  	right: 365px;
+
+			  	img {
+			  		width: 23px;
+			  		height: 23px;
+			  	}
+			  	
+			  	// pc small
+			  	@at-root (without: media) {
+			  		@include minmax(769, 1200) {
+
+			  			top: vw(72px, 1200px);
+			  			right: vw(365px, 1200px);
+
+			  			img {
+			  				width: vw(23px, 1200px);
+			  				height: vw(23px, 1200px);
+			  			}
+			  			
+			  		}
+			  	}
+			  	// pc large
+			  	@at-root (without: media) {
+			  		@include min(1700) {
+
+			  			top: vw(72px, 1700px);
+			  			right: vw(365px, 1700px);
+
+			  			img {
+			  				width: vw(23px, 1700px);
+			  				height: vw(23px, 1700px);
+			  			}
+			  			
+			  		}
+			  	}
+
+			  }
+			}
+
+		}
+		
+		.bgs {
+
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			
+			.bgWrap {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+
+			.bgWrap:nth-child(1) {
+
+				bottom: vw375(30);				
+				
+				.bg {
+					background: url(../resource/img_sp/sec02_bg_item3.png) no-repeat;
+					background-size: cover;
+					background-position: center center;
+					
+					width: vw375(708, true);
+					height: vw375(278, true);					
+					
+					position: relative;
+					top: -20px;
+				}
+
+				.sika {
+					position: absolute;
+					top: -49px;
+					left: 0px;
+					img {
+						width: vw375(709, true);
+						height: vw375(332, true);
+					}
+				}
+				.sika.on {
+					opacity: 0;
+				}
+
+
+				// pc全体
+				@include min(769) {
+					
+					bottom: 90px;
+					left: calc(50% - 136px);
+					transform: translateX(-50%);					
+					
+					.bg {
+						background: url(../resource/img_pc/sec02_bg_item1.png) no-repeat;
+						background-size: cover;
+						background-position: center center;
+						
+						width: 1151px;
+						height: 539px;
+					}
+					
+					// pc small
+					@at-root (without: media) {
+						@include minmax(769, 1200) {
+							bottom: vw(90px, 1200px);
+							left: calc(50% - #{vw(136px, 1200px)});
+							
+							.bg {
+								width: vw(1151px, 1200px);
+								height: vw(539px, 1200px);
+							}
+						}
+					}
+					// pc large
+					@at-root (without: media) {
+						@include min(1700) {
+							bottom: vw(90px, 1700px);
+							left: calc(50% - #{vw(136px, 1700px)});
+							
+							.bg {
+								width: vw(1151px, 1700px);
+								height: vw(539px, 1700px);
+							}
+						}
+					}
+
+				}
+
+			}
+			.bgWrap:nth-child(2) {
+				
+				.bg {
+					background: url(../resource/img_sp/sec02_bg_item2.png) no-repeat;
+					background-size: cover;
+					background-position: center center;
+					
+					width: vw375(749, true);
+					height: vw375(277, true);					
+				}
+				
+				// pc全体
+				@include min(769) {
+					bottom: -50px;
+					left: calc(50% + 50px);
+					transform: translateX(-50%);
+					
+					.bg {
+						background: url(../resource/img_pc/sec02_bg_item2.png) no-repeat;
+						background-size: cover;
+						background-position: center center;
+												
+						width: 1593px;
+						height: 395px;
+					}
+					
+					// pc small
+					@at-root (without: media) {
+						@include minmax(769, 1200) {
+							bottom: vw(10px, 1200px);
+							left: calc(50% + #{vw(50px, 1200px)});
+							
+							.bg {
+								width: vw(1593px, 1200px);
+								height: vw(395px, 1200px);
+							}
+						}
+					}
+					// pc large
+					@at-root (without: media) {
+						@include min(1700) {
+							bottom: vw(10px, 1700px);
+							left: calc(50% + #{vw(50px, 1700px)});
+							
+							.bg {
+								width: vw(1593px, 1700px);
+								height: vw(395px, 1700px);
+							}
+						}
+					}
+
+				}
+			}
+			.bgWrap:nth-child(3) {
+				
+				.bg {
+					background: url(../resource/img_sp/sec02_bg_item1.png) no-repeat;
+					background-size: cover;
+					background-position: center center;
+					
+					width: vw375(750, true);
+					height: vw375(174, true);
+				}
+
+				@include min(769) {
+
+					bottom: -20px;
+					left: calc(50% - 59px);
+					transform: translateX(-50%);
+					
+					.bg {
+						background: url(../resource/img_pc/sec02_bg_item3.png) no-repeat;
+						background-size: cover;
+						background-position: center center;
+																			
+						width: 1570px;
+						height: 313px;
+					}
+					
+					// pc small
+					@at-root (without: media) {
+						@include minmax(769, 1200) {
+							bottom: vw(-20px, 1200px);
+							left: calc(50% - #{vw(59px, 1200px)});
+							
+							.bg {
+								width: vw(1570px, 1200px);
+								height: vw(313px, 1200px);
+							}
+						}
+					}
+					// pc large
+					@at-root (without: media) {
+						@include min(1700) {
+							bottom: vw(-20px, 1700px);
+							left: calc(50% - #{vw(59px, 1700px)});
+							
+							.bg {
+								width: vw(1570px, 1700px);
+								height: vw(313px, 1700px);
+							}
+						}
+					}
+
+				}
+			}
+		}
+		
+		.items {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			
+			display: none;
+			
+			.item {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			.item:nth-child(1) {
+				left: vw375(-21);
+				top: vw375(30);
+				img {
+					width: vw375(120, true);
+					height: vw375(95, true);
+					margin-left: vw375(40);
+				}
+				// pc全体
+				@include min(769) {
+					top: 180px;
+					left: calc(50% - 520px);
+					img {
+						width: 105px;
+						height: 83px;
+						margin-left: 0;
+					}
+					// pc small
+					@at-root (without: media) {
+						@include minmax(769, 1200) {
+							top: vw(180px, 1200px);
+							left: calc(50% - #{vw(520px, 1200px)});
+							img {
+								width: vw(105px, 1200px);
+								height: vw(83px, 1200px);
+							}
+						}
+					}
+					// pc large
+					@at-root (without: media) {
+						@include min(1700) {
+							top: vw(180px, 1700px);
+							left: calc(50% - #{vw(520px, 1700px)});
+							img {
+								width: vw(105px, 1700px);
+								height: vw(83px, 1700px);
+							}
+						}
+					}
+
+				}
+			}
+			.item:nth-child(2) {
+				left: vw375(318);
+				top: vw375(70);
+				img {
+					width: vw375(149, true);
+					height: vw375(136, true);
+					margin-left: vw375(-40);
+				}
+				@include min(769) {
+					top: 80px;
+					left: calc(50% + 400px);
+					img {
+						width: 125px;
+						height: 114px;
+						margin-left: 0;
+					}
+				}
+			}
+			.item:nth-child(3) {
+
+				left: vw375(-47);
+				top: vw375(496);
+				img {
+					width: vw375(194, true);
+					height: vw375(193, true);
+					margin-left: vw375(40);
+				}
+				@include min(769) {
+					top: 460px;
+					left: calc(50% - 750px);
+					img {
+						width: 152px;
+						height: 151px;
+						margin-left: 0;
+					}
+				}
+			}
+			.item:nth-child(4) {
+
+				left: vw375(316);
+				top: vw375(351);
+				img {
+					width: vw375(201, true);
+					height: vw375(200, true);
+					margin-left: vw375(-40);
+				}
+				@include min(769) {
+					top: 390px;
+					left: calc(50% + 570px);
+					img {
+						width: 186px;
+						height: 184px;
+						margin-left: 0;
+					}
+				}
+			}
+			.item:nth-child(5) {
+
+				left: vw375(286);
+				top: vw375(520);
+				img {
+					width: vw375(237, true);
+					height: vw375(442, true);
+					margin-left: vw375(-40);
+				}
+				@include min(769) {
+					top: 660px;
+					left: calc(50% + 500px);
+					img {
+						width: 157px;
+						height: 291px;
+						margin-left: 0;
+					}
+				}
+			}
+
+		}
+
+		.inner {
+			padding: vw375(160) 0 vw375(490, true);
+			// pc全体
+			@include min(769) {
+				padding: 130px 0 500px;
+				// pc small
+				@at-root (without: media) {
+					@include minmax(769, 1200) {
+						padding: vw(130px, 1200px) 0 vw(500px, 1200px);
+					}
+				}
+				// pc large
+				@at-root (without: media) {
+					@include min(1700) {
+						padding: vw(130px, 1700px) 0 vw(500px, 1700px);
+					}
+				}
+			}
+		}
+		
+		.tit {
+			margin-bottom: vw375(75, true);
+			svg {
+				width: vw375(434, true);
+				height: vw375(160, true);
+			}
+			// pc全体
+			@include min(769) {
+				margin-bottom: 50px;
+				svg {
+					width: 307px;
+					height: 113px;
+				}
+				// pc small
+				@at-root (without: media) {
+					@include minmax(769, 1200) {
+						margin-bottom: vw(50px, 1200px);
+						svg {
+							width: vw(307px, 1200px);
+							height: vw(113px, 1200px);
+						}
+					}
+				}
+				// pc large
+				@at-root (without: media) {
+					@include min(1700) {
+						margin-bottom: vw(50px, 1700px);
+						svg {
+							width: vw(307px, 1700px);
+							height: vw(113px, 1700px);
+						}
+					}
+				}
+			}
+		}
+		.text {
+			margin-bottom: vw375(95, true);
+			svg {
+				width: vw375(542, true);
+				height: vw375(496, true);
+			}
+			// pc全体
+			@include min(769) {
+				margin: 0;
+				svg {
+					width: 390px;
+					height: 357px;
+				}
+				// pc small
+				@at-root (without: media) {
+					@include minmax(769, 1200) {
+						svg {
+							width: vw(390px, 1200px);
+							height: vw(357px, 1200px);
+						}
+					}
+				}
+				// pc large
+				@at-root (without: media) {
+					@include min(1700) {
+						svg {
+							width: vw(390px, 1700px);
+							height: vw(357px, 1700px);
+						}
+					}
+				}
+			}
+		}
+		.logo {
+			text-align: center;
+			svg {
+				width: vw375(209, true);
+				height: vw375(152, true);
+				
+				path {
+					fill: rgb(215, 188, 110) !important;
+				}
+			}
+			// pc全体
+			@include min(769) {
+				position: relative;
+				left: 192px;
+				top: -15px;
+				svg {
+					width: 160px;
+					height: 116px;
+				}
+				// pc small
+				@at-root (without: media) {
+					@include minmax(769, 1200) {
+						left: vw(192px, 1200px);
+						top: vw(-15px, 1200px);
+						svg {
+							width: vw(160px, 1200px);
+							height: vw(116px, 1200px);
+						}
+					}
+				}
+				// pc large
+				@at-root (without: media) {
+					@include min(1700) {
+						left: vw(192px, 1700px);
+						top: vw(-15px, 1700px);
+						svg {
+							width: vw(160px, 1700px);
+							height: vw(116px, 1700px);
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+}

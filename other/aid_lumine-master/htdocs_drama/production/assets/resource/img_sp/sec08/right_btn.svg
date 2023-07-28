@@ -1,0 +1,17 @@
+<svg id="right_btn.svg" xmlns="http://www.w3.org/2000/svg" width="70" height="140" viewBox="0 0 70 140">
+  <defs>
+    <style>
+      .right_btn_svg1 {
+        fill: #006549;
+      }
+
+      .right_btn_svg2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="長方形_6_のコピー_21" data-name="長方形 6 のコピー 21" class="right_btn_svg1" width="70" height="140"/>
+  <path id="長方形_6_のコピー_20" data-name="長方形 6 のコピー 20" class="right_btn_svg2" d="M1596,16406h-70v70Z" transform="translate(-1526 -16336)"/>
+  <path id="長方形_6_のコピー_19" data-name="長方形 6 のコピー 19" class="right_btn_svg2" d="M1596,16406v-70h-70Z" transform="translate(-1526 -16336)"/>
+</svg>

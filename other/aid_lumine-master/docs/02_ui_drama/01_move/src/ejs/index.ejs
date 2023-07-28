@@ -1,0 +1,31 @@
+<% var rootPATH = './', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+
+	<!-- <div class="tit"><img src="./assets/resource/img/tit_match.png" alt=""></div> -->
+	<div class="tit_matches">
+		<div class="item"><img src="./assets/resource/img/match1.png" alt=""></div>
+	</div>
+
+
+	<div class="itemS"><img src="./assets/resource/img/match1.png" alt=""></div>
+	<div class="itemS2"><img src="./assets/resource/img/match1.png" alt=""></div>
+
+
+	<div class="itemC"><img src="./assets/resource/img/match1.png" alt=""></div>
+
+</div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+<script src='./assets/js/shader/RGBShiftShader.js'></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<svg id="skip.svg" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <style>
+      .skip_svg1 {
+        fill: #006549;
+      }
+
+      .skip_svg2 {
+        fill: #ea571e;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="長方形_5_のコピー_9" data-name="長方形 5 のコピー 9" class="skip_svg1" width="60" height="60"/>
+  <path id="長方形_5_のコピー_12" data-name="長方形 5 のコピー 12" class="skip_svg2" d="M690,742l30,30,30-30H690Z" transform="translate(-690 -742)"/>
+  <path id="長方形_5_のコピー_10" data-name="長方形 5 のコピー 10" class="skip_svg2" d="M750,802l-30-30-30,30h60Z" transform="translate(-690 -742)"/>
+</svg>

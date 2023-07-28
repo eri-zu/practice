@@ -1,0 +1,321 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+.section01 {
+
+	/* --------------------------------------------------------------------------------
+	*
+	*   block01
+	*
+	-------------------------------------------------------------------------------- */
+	.block01 {
+
+		height: 100vh;
+		
+		position: relative;
+		
+		opacity: 0;
+		
+		.bg {
+
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+
+			background: url(../resource/img_sp/sec01_bg.jpg) no-repeat;
+			background-size: cover;
+			background-position: center center;
+			
+			// opacity: 0;
+			
+		}
+
+		.titWrap {
+			position: absolute;
+			bottom: vw375(25);
+			left: vw375(10);
+			
+			.tit {
+
+				svg {
+					width: vw375(650, true);
+					height: vw375(474, true);
+					
+					overflow: visible;
+				}
+			}
+			
+			.parts {
+				position: absolute;
+				left: vw375(-32);
+				top: 0;
+				
+				.partsInner {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					
+					opacity: 0;
+					
+					.bane {
+
+					}
+					.ban {
+						position: relative;
+						z-index: 2;
+					}
+				}
+			}
+			
+			.partsT {
+
+				top: vw375(-658);
+				// top: vw375(-528);
+				
+				.bane {
+					position: relative;
+					top: vw375(22);
+					img {
+						width: vw375(303, true);
+						height: vw375(974, true);
+					}
+				}
+				.ban {
+					img {
+						width: vw375(577, true);
+						height: vw375(313, true);
+					}
+				}
+			}
+			.partsB {
+
+				// top: vw375(115);
+				top: vw375(250);
+				
+				
+				.bane {
+					position: relative;
+					top: vw375(-22);
+					img {
+						width: vw375(303, true);
+						height: vw375(974, true);
+					}
+				}
+				.ban {
+					img {
+						width: vw375(577, true);
+						height: vw375(313, true);
+					}
+				}
+			}
+		}
+
+		// pc全体
+		@include min(769) {
+			
+			.bg {
+				
+				background: url(../resource/img_pc/sec01_bg.jpg) no-repeat;
+				background-size: cover;
+				background-position: center center; 
+				
+			}
+
+			.titWrap {
+				bottom: 50px;
+				left: 40px;
+
+				.tit {
+					svg {
+						width: 536px;
+						height: 391px;
+					}
+
+				}
+
+				.parts {
+					left: -51px;
+				}
+
+				.partsT {
+					top: -940px;
+					// top: -740px;
+					.bane {
+						top: 32px;
+						img {
+							width: 219px;
+							height: auto;
+						}
+					}
+					.ban {
+						img {
+							width: 418px;
+							height: auto;
+						}
+					}
+				}
+				.partsB {
+					top: 401px;
+					// top: 191px;
+					.bane {
+						top: -31px;
+						img {
+							width: 219px;
+							height: auto;
+						}
+					}
+					.ban {
+						img {
+							width: 418px;
+							height: auto;
+						}
+					}
+				}
+				
+			}
+			 
+
+			// pc small
+			@at-root (without: media) {
+				@include minmax(769, 1200) {
+					
+					.bg {
+						
+						background: url(../resource/img_pc/sec01_bg.jpg) no-repeat;
+						background-size: cover;
+						background-position: center center; 
+						
+					}
+
+					.titWrap {
+						bottom: vw(50px, 1200px);
+						left: vw(40px, 1200px);
+						
+						.tit {
+							
+							svg {
+								width: vw(536px, 1200px);
+								height: vw(391px, 1200px);
+							}
+
+						}
+
+						.partsT {
+							top: vw(-940px, 1200px);
+							// top: vw(-740px, 1200px);
+							
+							left: vw(-51px, 1200px);
+							.bane {
+								top: vw(32px, 1200px);
+								img {
+									width: vw(219px, 1200px);
+									height: auto;
+								}
+							}
+							.ban {
+								img {
+									width: vw(418px, 1200px);
+									height: auto;
+								}
+							}
+						}
+						.partsB {
+							top: vw(401px, 1200px);
+							// top: vw(191px, 1200px);
+							left: vw(-51px, 1200px);
+							.bane {
+								top: vw(-31px, 1200px);
+								img {
+									width: vw(219px, 1200px);
+									height: auto;
+								}
+							}
+							.ban {
+								img {
+									width: vw(418px, 1200px);
+									height: auto;
+								}
+							}
+						}
+
+					}
+					
+				}
+			}
+			// pc large
+			@at-root (without: media) {
+				@include min(1700) {
+					
+					.bg {
+						
+						background: url(../resource/img_pc/sec01_bg.jpg) no-repeat;
+						background-size: cover;
+						background-position: center center; 
+						
+					}
+				  	
+				  	.titWrap {
+				  		bottom: vw(50px, 1700px);
+				  		left: vw(40px, 1700px);
+				  		.tit {
+				  			
+				  			svg {
+				  				width: vw(536px, 1700px);
+				  				height: vw(391px, 1700px);
+				  			}
+
+				  		}
+
+				  		.partsT {
+				  			top: vw(-940px, 1700px);
+				  			// top: vw(-740px, 1700px);
+				  			
+				  			left: vw(-51px, 1700px);
+				  			.bane {
+				  				top: vw(32px, 1700px);
+				  				img {
+				  					width: vw(219px, 1700px);
+				  					height: auto;
+				  				}
+				  			}
+				  			.ban {
+				  				img {
+				  					width: vw(418px, 1700px);
+				  					height: auto;
+				  				}
+				  			}
+				  		}
+				  		.partsB {
+				  			top: vw(401px, 1700px);
+				  			// top: vw(191px, 1700px);
+				  			left: vw(-51px, 1700px);
+				  			.bane {
+				  				top: vw(-31px, 1700px);
+				  				img {
+				  					width: vw(219px, 1700px);
+				  					height: auto;
+				  				}
+				  			}
+				  			.ban {
+				  				img {
+				  					width: vw(418px, 1700px);
+				  					height: auto;
+				  				}
+				  			}
+				  		}
+				  	}
+					
+				}
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+@import "./_init/import";
+@import "./_init/reset"; // リセットCSS、フォントサイズ sss
+
+/* --------------------------------------------------------------------------------
+*   parts
+-------------------------------------------------------------------------------- */
+@import "./_parts/_common/**/*.scss";
+@import "./_parts/_compornents/**/*.scss";
+
+/* --------------------------------------------------------------------------------
+*   page
+-------------------------------------------------------------------------------- */
+html {
+  overflow: hidden;
+}
+body {
+	height: 100vh;
+}
+#wrapper.id_top {
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	height: 100vh;
+	
+
+	.imgs {
+		justify-content: center;
+		position: relative;
+		z-index: 2;
+		
+		@include media-max('sp') {
+			overflow: hidden;
+			width: 100vw;
+			
+			.imgInner {
+				justify-content: center;
+			}
+		}
+		
+		.img {
+			
+			margin-right: 90px;
+			pointer-events: none;
+			
+			@include media-max('sp') {
+				margin-right: 20px;
+			}
+			
+			img {
+				
+				// media query
+				@include media-max('sp') {
+					width: 300px;
+					height: auto;
+				}
+			}				
+		}
+		.img:last-child {
+			margin-right: 0;
+		}
+	}
+
+	
+}

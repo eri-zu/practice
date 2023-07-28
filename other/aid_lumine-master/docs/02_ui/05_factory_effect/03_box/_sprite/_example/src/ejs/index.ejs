@@ -1,0 +1,48 @@
+<% var rootPATH = './', PATH = './', page = 'top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+<head>
+<%- include(rootPATH + 'inc/_style'); %>
+<link href="<%- PATH %>assets/css/style.css" rel="stylesheet">
+</head>
+<body id="<%- page %>" class="">
+
+<div id="wrapper" class="id_<%- page %>">
+<div id="inner">
+
+	<div class="box"></div>
+	<div class="box2"></div>	
+	<div class="box3"></div>
+	<div class="box4"><div class="inner"></div></div>
+	
+</div>
+</div>
+
+<%- include(rootPATH + 'inc/_script', {PATH: PATH}); %>
+
+<script>
+	
+	var isToggle = false;
+	var $t = $('.box4 .inner')
+	
+	$(window).on('click', function(event) {
+
+		if (isToggle) {
+
+			$t.removeClass('stopAnim');			
+
+		} else {
+
+			$t.addClass('stopAnim');
+
+		}
+
+		isToggle = !isToggle;
+		
+	});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$sprite-fukuro1-name: 'sprite-fukuro1';
+$sprite-fukuro1-x: 0px;
+$sprite-fukuro1-y: 0px;
+$sprite-fukuro1-offset-x: 0px;
+$sprite-fukuro1-offset-y: 0px;
+$sprite-fukuro1-width: 181px;
+$sprite-fukuro1-height: 108px;
+$sprite-fukuro1-total-width: 724px;
+$sprite-fukuro1-total-height: 108px;
+$sprite-fukuro1-image: '../resource/img/sprite.png';
+$sprite-fukuro1: (0px, 0px, 0px, 0px, 181px, 108px, 724px, 108px, '../resource/img/sprite.png', 'sprite-fukuro1', );
+$sprite-fukuro2-name: 'sprite-fukuro2';
+$sprite-fukuro2-x: 181px;
+$sprite-fukuro2-y: 0px;
+$sprite-fukuro2-offset-x: -181px;
+$sprite-fukuro2-offset-y: 0px;
+$sprite-fukuro2-width: 181px;
+$sprite-fukuro2-height: 108px;
+$sprite-fukuro2-total-width: 724px;
+$sprite-fukuro2-total-height: 108px;
+$sprite-fukuro2-image: '../resource/img/sprite.png';
+$sprite-fukuro2: (181px, 0px, -181px, 0px, 181px, 108px, 724px, 108px, '../resource/img/sprite.png', 'sprite-fukuro2', );
+$sprite-fukuro3-name: 'sprite-fukuro3';
+$sprite-fukuro3-x: 362px;
+$sprite-fukuro3-y: 0px;
+$sprite-fukuro3-offset-x: -362px;
+$sprite-fukuro3-offset-y: 0px;
+$sprite-fukuro3-width: 181px;
+$sprite-fukuro3-height: 108px;
+$sprite-fukuro3-total-width: 724px;
+$sprite-fukuro3-total-height: 108px;
+$sprite-fukuro3-image: '../resource/img/sprite.png';
+$sprite-fukuro3: (362px, 0px, -362px, 0px, 181px, 108px, 724px, 108px, '../resource/img/sprite.png', 'sprite-fukuro3', );
+$sprite-fukuro4-name: 'sprite-fukuro4';
+$sprite-fukuro4-x: 543px;
+$sprite-fukuro4-y: 0px;
+$sprite-fukuro4-offset-x: -543px;
+$sprite-fukuro4-offset-y: 0px;
+$sprite-fukuro4-width: 181px;
+$sprite-fukuro4-height: 108px;
+$sprite-fukuro4-total-width: 724px;
+$sprite-fukuro4-total-height: 108px;
+$sprite-fukuro4-image: '../resource/img/sprite.png';
+$sprite-fukuro4: (543px, 0px, -543px, 0px, 181px, 108px, 724px, 108px, '../resource/img/sprite.png', 'sprite-fukuro4', );
+$spritesheet-width: 724px;
+$spritesheet-height: 108px;
+$spritesheet-image: '../resource/img/sprite.png';
+$spritesheet-sprites: ($sprite-fukuro1, $sprite-fukuro2, $sprite-fukuro3, $sprite-fukuro4);
+$spritesheet: (724px, 108px, '../resource/img/sprite.png', $spritesheet-sprites);
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

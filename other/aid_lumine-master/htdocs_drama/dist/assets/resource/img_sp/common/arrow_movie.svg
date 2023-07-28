@@ -1,0 +1,17 @@
+<svg id="arrow_movie.svg" xmlns="http://www.w3.org/2000/svg" width="140" height="70" viewBox="0 0 140 70">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #006549;
+      }
+
+      .cls-2 {
+        fill: #ea571e;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="長方形_6_のコピー_6" data-name="長方形 6 のコピー 6" class="cls-1" width="140" height="70"/>
+  <path id="長方形_6_のコピー_7" data-name="長方形 6 のコピー 7" class="cls-2" d="M1424,2285v-70h-70Z" transform="translate(-1354 -2215)"/>
+  <path id="長方形_6_のコピー_18" data-name="長方形 6 のコピー 18" class="cls-2" d="M1424,2285h70v-70Z" transform="translate(-1354 -2215)"/>
+</svg>

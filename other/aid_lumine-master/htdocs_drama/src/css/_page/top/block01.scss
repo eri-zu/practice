@@ -1,0 +1,393 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   block01
+*
+-------------------------------------------------------------------------------- */
+.section01 .block01 {
+
+	position: relative;
+
+	.box:nth-child(1) {
+
+		.imgWrap {
+			overflow: hidden;
+		}
+		
+		.img {
+			background: url(../resource/img_sp/sec01/img01.jpg) no-repeat;
+			background-size: cover;
+			background-position: center center;
+			
+			height: vw375(627, true);
+			
+			@include min(769) {
+
+				background: url(../resource/img_pc/sec01/img01.jpg) no-repeat;
+				background-size: cover;
+				background-position: center center;
+				
+			  	height: 548px;
+			}
+		}
+		.text {
+			position: absolute;
+			
+			width: vw375(30, true);
+			height: vw375(423, true);
+			
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			top: vw375(122);
+			right: vw375(30);
+			
+			z-index: 3;
+			
+			.bg {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				
+				background-color: #f7f7f7;
+				transform-origin: 50% 0%;
+			}
+			
+			svg {
+				width: vw375(18, true);
+				height: vw375(376, true);
+				
+				position: relative;
+				z-index: 2;
+				
+				overflow: visible;
+			}
+
+			@include min(769) {
+
+				top: 224px;
+				right: 218px;
+				
+				width: 30px;
+				height: 405px;
+				
+				display: block;
+				padding: 15px 6px;
+				box-sizing: border-box;
+				
+				svg {
+					width: 18px;
+					height: 376px;
+				}
+			}
+		}
+		.list {
+			display: none;
+			@include min(769) {
+			  display: flex;
+			  
+			  font-size: 14px;
+			  letter-spacing: 0.245em;
+			  color: #fff;
+			  font-weight: 700;
+			  
+			  position: absolute;
+			  bottom: 30px;
+			  left: 50%;
+			  transform: translate3d(-50%, 0, 0);
+			  
+			  .item {
+			  	margin-right: 52px;
+			  }
+			}
+		}
+	}
+
+	.box:nth-child(2) {
+
+		padding-bottom: vw375(30);
+		
+		@include min(769) {
+			padding-bottom: 30px;
+		}
+		
+		.titWrap {
+
+			margin-bottom: vw375(35);
+			
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			
+			@include min(769) {
+				margin-bottom: 23px;
+			}
+			
+			.tit {
+
+				margin-top: vw375(40);
+				text-align: center;
+				position: relative;
+				
+				@include max(768) {
+					// transform: scale(#{vw375(.5)});
+					transform-origin: 0% 0%;
+				}
+				
+				@include min(769) {
+					margin-top: 50px;
+				}
+				
+				.base {
+					width: vw375(598, true);
+					height: vw375(91, true);
+					
+					opacity: 0;
+					
+					@include min(769) {
+						width: 598px;
+						height: 91px;
+						
+						opacity: 0;
+					}
+				}
+				
+				.tit_matches {
+					position: absolute;
+					left: 4px;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 2;
+
+					.letter {
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
+
+					.itemW {
+						opacity: 0;
+					}
+					
+					.itemWrap {
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
+					
+					.M {
+						.itemWrap:nth-child(1) {
+
+						}
+						.itemWrap:nth-child(2) {
+							left: 31px;
+							transform: rotate(-25deg);
+						}
+						.itemWrap:nth-child(3) {
+							left: 75px;
+							transform: rotate(-155deg);
+						}
+						.itemWrap:nth-child(4) {
+							left: 107px;
+						}
+					}
+					.A {
+						.itemWrap:nth-child(1) {
+							left: 165px;
+							transform: rotate(-155deg);
+						}
+						.itemWrap:nth-child(2) {
+							left: 211px;
+							transform: rotate(-25deg);
+						}
+						.itemWrap:nth-child(3) {
+							transform: rotate(90deg);
+							left: 190px;
+							top: 16px;
+						}
+					}
+					.T {
+						.itemWrap:nth-child(1) {
+							transform: rotate(-90deg);
+							left: 289px;
+							top: -40px;
+						}
+						.itemWrap:nth-child(2) {
+							transform: rotate(180deg);
+							left: 291px;
+						}
+					}
+					.C {
+						.itemWrap:nth-child(1) {
+							left: 363px;
+						}
+						.itemWrap:nth-child(2) {
+							left: 415px;
+							transform: rotate(90deg);
+							top: -40px;
+						}
+						.itemWrap:nth-child(3) {
+							left: 415px;
+							transform: rotate(-90deg);
+							top: 40px;
+						}
+					}
+					.H {
+						.itemWrap:nth-child(1) {
+							left: 490px;
+						}
+						.itemWrap:nth-child(2) {
+							left: 539px;
+							transform: rotate(90deg);
+							top: 4px;
+						}
+						.itemWrap:nth-child(3) {
+							left: 589px;
+							top: 0;
+						}
+					}
+
+					.item {
+						.itemIn {
+							width: 1px;
+							height: 100%;
+							position: relative;
+							
+							img {
+								margin-left: -4px;
+							}
+						}
+					}
+
+				}
+			}
+			.subTit {
+
+				text-align: center;
+				margin-top: vw375(-2);
+				
+				svg {
+					width: vw375(209, true);
+					height: vw375(134, true);
+					@include min(769) {
+						width: 209px;
+						height: 134px;
+					}
+				}
+			}
+		}
+		.text {
+
+			svg {
+				width: vw375(344, true);
+				height: vw375(60, true);
+			}
+
+
+		}
+		.text.sp {
+
+			display: flex;
+			justify-content: center;
+			margin-bottom: vw375(14);
+
+			@include min(769) {
+				display: none;
+			}
+		}
+		.text.pc {
+			
+			@include min(769) {
+				display: flex;
+				justify-content: center;
+			}
+			margin-bottom: 30px;
+			
+			svg {
+				width: 680px;
+				height: 22px;
+			}
+		}
+
+		.webtext {
+			text-align: center;
+			margin-bottom: vw375(10);
+			svg {
+				width: vw375(290, true);
+				height: vw375(24, true);
+			}
+
+			@include min(769) {
+				margin-bottom: 10px;
+				svg {
+					width: 290px;
+					height: 24px;
+				}
+			}
+		}
+		.logotop {
+			text-align: center;
+			svg {
+				width: vw375(105, true);
+				height: vw375(35, true);
+			}
+			@include min(769) {
+				svg {
+					width: 130px;
+					height: 44px;
+				}
+			}
+		}
+	}
+
+	.scroll {
+
+		// position: absolute;
+		position: fixed;
+	    right: vw375(-20);
+	    bottom: 0;
+	    
+	    @at-root .isIE .section01 .block01 .scroll {
+	    	position: absolute !important;
+	    }
+		    
+		.text {
+			font-size: vw375(11);
+			letter-spacing: 0.245em;
+			
+			transform: rotate(-90deg);
+			transform-origin: 0% 50%;
+			margin-left: vw375(0);
+			position: relative;
+			left: vw375(17);
+			top: vw375(-6);
+			color: #ea571e;
+		}
+		.img {
+			img {
+				width: vw375(72, true);
+				height: vw375(107, true);
+			}
+		}
+
+		@include min(769) {
+			right: -13px;
+			
+			.text {
+				font-size: 14px;
+				left: 29px;
+			}
+			.img {
+				img {
+					width: 60px;
+					height: 90px;
+				}
+			}
+		}
+	}
+
+}

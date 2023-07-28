@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   block06
+*
+-------------------------------------------------------------------------------- */
+.section01 .block06 {
+
+	background-color: #bbbbbb;
+
+	.box:nth-child(1) {
+
+		padding-bottom: vw375(50);
+		
+		@include min(769) {
+			padding-bottom: 90px;
+		}
+		
+		.titWrap {
+
+			margin-bottom: 25px;
+
+			.tit {
+				color: #006549;
+			}
+			.text {
+				background-color: #fff;
+				color: #ea571e;
+			}
+			
+			@include min(769) {
+				padding-top: 49px;
+				margin-left: -644px;
+			}
+			
+		}
+
+		.boxInner{
+
+			margin: 0 vw375(15);
+			width: vw375(660, true);
+			margin-left: auto;
+			
+			position: relative;
+			
+			@include min(769) {
+				margin: 0 auto;
+				width: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			.lineBoxWrap {
+				width: vw375(660, true);
+				height: vw375(440, true);
+				
+				position: absolute !important;
+			    top: vw375(20);
+			    left: vw375(-20);
+			    
+			    @include min(769) {
+			    	width: 527px;
+			    	height: 350px;
+			    	
+			    	top: 50px;
+			    	left: calc(50% - 470px);
+			    }
+			}
+			
+			.img {
+
+				position: relative;
+				z-index: 2;
+
+				background: url(../resource/img_sp/sec06/img01.jpg) no-repeat;
+				background-size: cover;
+				background-position: center center;
+				
+				width: vw375(660, true);
+				height: vw375(440, true);
+				
+				margin-left: auto;
+				margin-bottom: vw375(10);
+				
+				@include min(769) {
+					width: 527px;
+					height: 350px;
+					
+					margin: 0;
+					margin-left: -370px;
+					margin-top: 30px;
+					
+					margin-bottom: 50px;
+				}
+				
+			}
+
+			.tit {
+				font-size: vw375(22);
+				letter-spacing: 0.285em;
+				color: #fff;
+				background-color: #ea571e;
+				
+				display: inline-block;
+				padding: vw375(3) vw375(4) vw375(3) vw375(10);
+				
+				position: relative;
+				z-index: 2;
+				
+				@include min(769) {
+					font-size: 34px;
+					position: absolute;
+					left: calc(50% + 102px);
+					top: 200px;
+					
+					padding: 8px 17px 8px 23px;
+				}
+			}
+
+			.sns {
+				margin-bottom: vw375(30);
+				align-items: center;
+				
+				@include min(769) {
+					position: absolute;
+					left: calc(50% + 102px);
+					top: 260px;
+				}
+				
+				.item {
+					background-color: #006549;
+					transition: background-color .8s $easeOutQuad 0s;
+
+					a {
+						display: block;
+						width: vw375(78, true);
+						height: vw375(78, true);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+					svg {
+					  fill: #fff;
+					  transition: fill .8s $easeOutQuad 0s;
+					}
+
+					@include min(769) {
+						a {
+							width: 58px;
+							height: 58px;
+						}
+					}
+				}
+				.item:hover {
+				  background-color: #fff;
+				  svg {
+				    fill: #006549;
+				  }
+				}
+				.item:nth-child(2) {
+				  svg {
+				    width: vw375(15);
+				    height: vw375(15);
+				    @include min(769) {
+						width: 20px;
+						height: 20px;
+				    }
+				  }
+				}
+				.item:nth-child(3) {
+				  svg {
+				    width: vw375(17);
+				    height: vw375(17);
+				    @include min(769) {
+						width: 22px;
+						height: 22px;
+				    }
+				  }
+				}
+				.item:nth-child(4) {
+				  svg {
+				    width: vw375(17);
+				    height: vw375(17);
+				    @include min(769) {
+						width: 21px;
+						height: 21px;
+				    }
+				  }
+				}
+				.item:nth-child(1) {
+				  svg {
+				    width: vw375(17);
+				    height: vw375(17);
+				    @include min(769) {
+						width: 21px;
+						height: 21px;
+				    }
+				  }
+				}
+			}
+
+			.text {				
+				font-size: vw375(11);
+				line-height: 2.18;
+				color: #fff;			
+				letter-spacing: 0.04em;	
+				text-align: justify;
+				
+				padding-right: vw375(10);
+			}
+			.text.pc {
+
+				padding: 0;
+				
+				@include min(769) {
+					font-size: 13px;
+					line-height: 2;
+					letter-spacing: 0.285em;
+					
+					display: flex;
+					
+					.textIn {
+						width: 419px;
+						height: 146px;
+						text-align: justify;
+					}
+					.textIn:nth-child(1) {
+						margin-right: 33px;
+					}
+				}
+			}
+		}
+
+	
+	}
+
+}

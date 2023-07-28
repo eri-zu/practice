@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   block
+*
+-------------------------------------------------------------------------------- */
+.block {
+
+	@at-root .isIE .block07 {
+		overflow: hidden;
+	}
+
+	.box:nth-child(1) {
+
+		.titWrap {
+
+			padding-left: vw375(22);
+			padding-top: vw375(50);
+			margin-bottom: vw375(70);
+			
+			@include min(769) {
+				display: flex;
+				justify-content: center;
+				
+				padding-top: 65px;
+				
+				.titInner {
+					margin-left: -650px;
+				}
+			}
+			
+			.tit {
+				font-size: vw375(29);
+				letter-spacing: 0.255em;
+				color: #ea571e;
+				
+				@include min(769) {
+					font-size: 42px;
+					letter-spacing: 0.285em;
+				}
+			}
+			.text {
+				font-size: vw375(9);
+				letter-spacing: 0.285em;	
+				background-color: #006549;
+				color: #fff;
+				
+				width: vw375(175);
+				height: vw375(15);
+				display: flex;
+				align-items: center;
+				padding-left: vw375(5);
+				box-sizing: border-box;
+				@include min(769) {
+					padding-left: 5px;
+					font-size: 12px;
+					width: 250px;
+					height: 18px;
+				}
+			}
+		}
+
+	}
+  
+}
+
+.block07 {
+	
+	.box:nth-child(2) {
+
+		& > .titWrap {
+
+			padding-left: vw375(22);
+			padding-top: vw375(50);
+			margin-bottom: vw375(25);
+			
+			@include min(769) {
+				display: flex;
+				justify-content: center;
+				
+				margin-bottom: 50px;
+				margin-left: -649px;
+				padding-top: 93px;
+				
+				.titInner {
+					margin-left: -650px;
+				}
+			}
+			
+			.tit {
+				font-size: vw375(29);
+				letter-spacing: 0.255em;
+				color: #fff;
+				
+				@include min(769) {
+					font-size: 42px;
+					letter-spacing: 0.285em;
+				}
+			}
+			.text {
+				font-size: vw375(9);
+				letter-spacing: 0.285em;	
+				background-color: #006549;
+				color: #fff;
+				
+				width: vw375(175);
+				height: vw375(15);
+				display: flex;
+				align-items: center;
+				padding-left: vw375(5);
+				box-sizing: border-box;
+				@include min(769) {
+					padding-left: 5px;
+					font-size: 12px;
+					width: 250px;
+					height: 18px;
+				}
+			}
+		}
+
+	}
+	 
+}

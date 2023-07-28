@@ -1,0 +1,16 @@
+<svg id="rect_pc.svg" xmlns="http://www.w3.org/2000/svg" width="108" height="36" viewBox="0 0 108 36">
+  <defs>
+    <style>
+      .rect_pc_svg1 {
+        fill: #006549;
+      }
+
+      .rect_pc_svg2 {
+        fill: #ea571e;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="ass" class="rect_pc_svg1" width="108" height="36"/>
+  <path id="長方形_6_のコピー_7" data-name="長方形 6 のコピー 7" class="rect_pc_svg2" d="M434,881H326v36Z" transform="translate(-326 -881)"/>
+</svg>

@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+.section01 {
+
+	/* --------------------------------------------------------------------------------
+	*
+	*   toTop
+	*
+	-------------------------------------------------------------------------------- */
+	.toTopWrap {
+
+		padding-top: vw375(129);
+		position: relative;
+		margin-top: vw375(-75);
+		
+		pointer-events: none;
+		
+		// pc全体
+		@include min(769) {
+
+			padding-top: 100px;
+			position: relative;
+			z-index: 2;
+			margin-top: -281px;
+			
+			// pc small
+			@at-root (without: media) {
+				@include minmax(769, 1200) {
+					
+				}
+			}
+			// pc large
+			@at-root (without: media) {
+				@include min(1700) {
+
+					padding-top: vw(100px, 1700px);
+					margin-top: vw(-281px, 1700px);
+										
+				}
+			}
+
+		}
+
+		
+		.toTop {
+
+			position: absolute;
+			left: 50%;
+			margin-left: vw375(97);
+			transform: translateX(-50%);
+			top: 0;
+			
+			pointer-events: auto;
+			
+			cursor: pointer;
+			
+			img {
+				width: vw375(101, true);
+				height: vw375(259, true);
+			}
+			// pc全体
+			@include min(769) {
+
+				margin-left: 499px;
+				img {
+					width: 65px;
+					height: auto;
+				}
+				
+				// pc small
+				@at-root (without: media) {
+					@include minmax(769, 1200) {
+						
+					}
+				}
+				// pc large
+				@at-root (without: media) {
+					@include min(1700) {
+
+						margin-left: vw(499px, 1700px);
+						img {
+							width: vw(65px, 1700px);
+							height: auto;
+						}
+											
+					}
+				}
+
+			}
+		}
+		.img {
+			img {
+				width: vw375(750, true);
+				height: vw375(584, true);
+				
+			}
+			// pc全体
+			@include min(769) {
+
+				display: flex;
+				justify-content: center;
+				img {
+					width: 1700px;
+					height: 437px;
+				}
+				
+				// pc small
+				@at-root (without: media) {
+					@include minmax(769, 1200) {
+						
+					}
+				}
+				// pc large
+				@at-root (without: media) {
+					@include min(1700) {
+
+						img {
+							width: vw(1700px, 1700px);
+							height: vw(437px, 1700px);
+						}
+											
+					}
+				}
+
+			}
+		}
+
+	}
+
+}
