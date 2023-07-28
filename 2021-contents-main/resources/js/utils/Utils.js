@@ -1,1 +1,0 @@
-export { MathFunc } from './MathFunc';

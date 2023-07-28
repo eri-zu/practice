@@ -1,0 +1,388 @@
+header{
+  height: $HEADER_H ;
+  width: 100%;
+  body:not(.top) &{
+    height: 90px;
+    @include mq-max($BREAK_POINT_TABLET){
+      height: auto;
+      background-color: $BASE_COLOR_LIGHTGRAY;
+      position: fixed;
+      border-bottom: 1px solid $BASE_COLOR_GLAY;
+      width: calc(100% - 40px);
+      margin: 0 20px;
+    };
+    @include mq-max(1160px){
+      width: calc(100% - (6.9vw)*2);
+      margin: 0 6.9vw;
+    }
+    @include mq-max($BREAK_POINT_SP){
+      width: calc(100% - (5.3333vw)*2);
+      margin: 0 5.3333vw;
+    }
+  }
+  top: 0;
+  @include mq-max($BREAK_POINT_TABLET){
+    height: auto;
+  }
+}
+
+.c-header{
+  text-align: center;
+  .watch &{
+
+    padding: 40px 0 20px;
+    @include mq-max($BREAK_POINT_TABLET){
+      padding-top: 20px;
+    };
+  }
+  padding: 40px 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 20;
+  color: $BASE_COLOR_BLACK;
+  @include mq-max($BREAK_POINT_TABLET){
+    padding: 20px 0;
+  }
+  &--logo{
+    color: $BASE_COLOR_BLACK;
+    height: 60px;
+    width: 208px;
+    margin: 0 auto;
+    display: block;
+    @include mq-max($BREAK_POINT_TABLET){
+      width: 120px;
+      height: auto;
+      //z-index: 999;
+      position: relative;
+    }
+    svg path{
+      fill:currentColor;
+    }
+  }
+  &--title{
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    span{
+      @extend .en;
+
+      color: $BASE_COLOR_BLACK;
+      text-align: center;
+      font-size: 30px;
+      letter-spacing: 0.16em;
+      svg{
+        @extend .svg;
+        width: 10px;
+        height: 6px;
+        vertical-align: middle;
+        left: 20px;
+
+      }
+      @include mq-max($BREAK_POINT_SP){
+        font-size: 20px;
+      };
+    }
+
+
+  }
+  &--menu{
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    height: 21px;
+    width: 27px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 999;
+    overflow: hidden;
+    @include mq-max($BREAK_POINT_TABLET){
+      top:20px;
+      right: 20px;
+    }
+    span{
+      position: absolute;
+      top: 9px;
+      right: 0px;
+      display: block;
+      width: 22px;
+      height: 2px;
+      text-indent: -9999px;
+      background-color: $BASE_COLOR_BLACK;
+      overflow: hidden;
+    }
+    &::before,&::after{
+      content: "";
+      position: absolute;
+      right: 0px;
+      height: 2px;
+      background-color: $BASE_COLOR_BLACK;
+      transform: rotate(0) translateY(0) translateX(0);
+
+
+    }
+    &::before{
+      width: 27px;
+
+      top: 0;
+    }
+    &::after{
+      bottom: 0;
+
+      width: 12px;
+    }
+  }
+}
+
+.c-header{
+  &--white &--logo{
+    color: $BASE_COLOR_WHITE;
+  }
+  &--white.active &--logo{
+    color: $BASE_COLOR_BLACK;
+  }
+  &--white &--menu{
+    span,&::before,&::after{
+      background-color: $BASE_COLOR_WHITE;
+    }
+  }
+  &--white.active &--menu{
+    span,&::before,&::after{
+      background-color: $BASE_COLOR_BLACK;
+    }
+  }
+}
+
+//menu animation
+.c-header{
+  .c-header--menu{
+    &::before,&::after{
+      transform: rotate(0) translateY(0) translateX(0);
+    }
+    &::before{
+      transition: transform .2s $easeINCubic .1s , top .1s ease-in-out 0s;
+    }
+    &::after{
+      transition: transform .2s $easeINCubic .1s , bottom .1s ease-in-out 0s;
+    }
+    span{
+      transition: opacity $easeINCubic 0.1s;
+      opacity: 1;
+    }
+
+    &.hover{
+      &::before{
+        transition: transform .2s $easeINCubic .0s , top .1s ease-in-out .2s;
+        transform: translateX(-100%);
+        top: 12.5px;
+      }
+      &::after{
+        transition: transform .2s $easeINCubic .0s , bottom .1s ease-in-out .2s;
+        transform: translateX(100%);
+        bottom: 12.5px;
+      }
+    }
+  }
+  &.active{
+    .c-header--menu{
+      width: 21px;
+      height: 21px;
+      span{
+
+        // width: 5px;
+        // height: 5px;
+        // top: calc(50% - 2.5px);
+        // left: calc(50% - 2.5px);
+        // border-radius: 50%;
+        // transition: opacity $easeINCubic .1s .5s;
+        opacity: 0;
+
+      }
+      &::before{
+        //opacity: 0;
+        backface-visibility:hidden;
+        transform-origin: right 1px;
+        top: 9.5px;
+        position: absolute;
+        left: 0;
+        width: 50%;
+        animation:
+        menuBtnAnimationOpenBefore4 .5s linear .2s forwards;
+      }
+      &::after{
+        //opacity: 0;
+        backface-visibility:hidden;
+        transform-origin: 0px 1px;
+        width: 50%;
+        top: 9.5px;
+        bottom: inherit;
+        right: 0;
+        animation:
+        menuBtnAnimationOpenAfter4 .5s linear .2s forwards;
+
+
+      }
+
+      // &.hover2{
+      //   &::before{
+      //     transform: translateX(0);
+      //     top: 9px;
+      //     animation: menuBtnAnimationOpenBeforeClose 1s linear 0s forwards;
+      //   }
+      //   &::after{
+      //     width: 26px;
+      //     transform: translateX(0);
+      //     bottom: 10px;
+      //     animation: menuBtnAnimationOpenAfterClose .2s linear .8s forwards;
+      //   }
+      // }
+    }
+
+
+
+  }
+}
+
+.c-header--contents{
+  //display: none;
+  height: 100%;
+  background: $BASE_COLOR_WHITE;
+  width: 320px;
+  z-index: 11;
+  position: fixed;
+  visibility: hidden;
+  right: 0;
+  top: 0;
+  transform: translateX(320px);
+  transition: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  border-left: 1px solid #EBEBEB;
+
+  @include mq-max($BREAK_POINT_TABLET){
+    width: 100%;
+    background-color: $BASE_COLOR_LIGHTGRAY;
+    transform: translateX(100%);
+  }
+  &.active{
+    transform: translateX(0);
+    visibility: visible;
+    transition: all 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  &--logo{
+    @extend .c-header--logo;
+    color: $BASE_COLOR_BLACK;
+    margin-top: 20px;
+    @include media(pc){
+      display: none;
+    };
+  }
+  &--links{
+    margin-top: 80px;
+    @include mq-max($BREAK_POINT_TABLET){
+      margin-top: 40px
+    }
+  }
+  &--pages{
+    text-align: center;
+    a{
+      color: $BASE_COLOR_BLACK;
+      @extend .en;
+      text-decoration: none;
+      line-height: 1;
+      display: block;
+      width: 100%;
+      text-align: center;
+      //Top
+      &:nth-child(1),&:nth-child(7),&:nth-child(8),&:nth-child(9){
+        margin-bottom: 40px;
+        font-size: 20em / $BASE_FONT_SIZE;
+      }
+      &:nth-child(2){
+        margin-bottom: 20px;
+        font-size: 20em / $BASE_FONT_SIZE;
+        @include mq-max($BREAK_POINT_TABLET){
+          margin-bottom: 25px;
+        }
+      }
+      &:nth-child(3),&:nth-child(4),&:nth-child(5){
+        margin-bottom: 20px;
+        font-size: 16em / $BASE_FONT_SIZE;
+        @include mq-max($BREAK_POINT_TABLET){
+          margin-bottom: 25px;
+        }
+      }
+      //Favorite
+      &:nth-child(6){
+        color: $BASE_COLOR_DARKBROWN;
+        margin-bottom: 40px;
+        svg{
+          width: 11.9px;
+          height: 11.3px;
+          .star{
+            fill:none;
+            stroke:currentColor;
+          }
+        }
+      }
+      &:last-child{
+        margin-bottom: 20px;
+        color: $BASE_COLOR_DARKBROWN;
+        font-size: 14em / $BASE_FONT_SIZE;
+        width: auto;
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid $BASE_COLOR_DARKBROWN;
+        svg{
+          margin-left: .5em;
+          @extend .svg;
+        }
+        @include mq-max($BREAK_POINT_TABLET){
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+  &--otherBtn{
+    color: $BASE_COLOR_BLACK;
+    width: 260px;
+    margin: 0 auto;
+    font-size: 0;
+    a{
+      @extend .en;
+      line-height: 1;
+      margin-right: 15px;
+      color: inherit;
+      @extend .snsbtn;
+      padding: 0;
+
+      &:last-child{
+        margin-right: 0;
+      }
+      &:nth-child(3){
+        margin-right: 20px;
+      }
+      &:nth-child(n+4){
+        font-size: 1rem;
+        border: 2px solid $BASE_COLOR_BLACK;
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        box-sizing: border-box;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+
+//sp or tb
+@include mq-max($BREAK_POINT_TABLET){
+  .c-header--logo{
+    position: relative;
+  }
+};
