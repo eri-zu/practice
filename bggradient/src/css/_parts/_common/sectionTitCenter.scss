@@ -1,0 +1,35 @@
+.section_title_center {
+  text-align: center;
+  color: #333;
+  &_tit {
+    font-size: 60px;
+    font-family: $en;
+    font-weight: 400;
+    line-height: math.div(64, 60);
+    @include media-max("sp") {
+      font-size: 45px;
+    }
+  }
+  &_subtit {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: math.div(28, 16);
+    margin-top: 20px - (64px - 60px) * 0.5 - (28px - 16px) * 0.5;
+    @include media-max("sp") {
+      font-size: 16px;
+      margin-top: 20px - (math.div(64, 60) * 45px - 45px) * 0.5 -
+        (math.div(28, 16) * 16px - 16px) * 0.5;
+    }
+  }
+  &_des {
+    font-size: 16px;
+    line-height: math.div(30, 16);
+    font-weight: 400;
+    margin-top: 30px - (30px - 16px) * 0.5 - (28px - 16px) * 0.5;
+    @include media-max("sp") {
+      font-size: 16px;
+      margin-top: 30px - (math.div(30, 16) * 16px - 16px) * 0.5 -
+        (math.div(28, 16) * 16px - 16px) * 0.5;
+    }
+  }
+}

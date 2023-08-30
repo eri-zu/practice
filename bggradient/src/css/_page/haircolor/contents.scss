@@ -1,0 +1,148 @@
+.haircolor_contents {
+  margin-top: 140px;
+
+  position: relative;
+  background-color: #f4f4f4;
+  @include media-max("sp") {
+    margin-top: 80px;
+  }
+  &_items {
+    position: relative;
+  }
+  &_item {
+    // padding-top: 500px;
+    padding-top: math.div(500, 1240) * 100%;
+    position: relative;
+    @media screen and (min-width: 769px) {
+      .section_title_center_des br {
+        display: none;
+      }
+    }
+    @include media-max("sp") {
+      padding-top: 300px;
+      padding-top: math.div(600, 768) * 100%;
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: math.div(500, 1240) * 100vw;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      @include media-max("sp") {
+        // height: 300px;
+        height: math.div(600, 768) * 100vw;
+      }
+
+      content: "";
+    }
+    &_innerColor {
+      &::before {
+        @include media-max("sp") {
+          background-image: url("/haircolor/images/img_innerColor_bg_sp.jpg");
+        }
+        @media screen and (min-width: 769px) {
+          background-image: url("/haircolor/images/img_innerColor_bg.jpg");
+        }
+
+        background-position: center;
+      }
+    }
+    &_milkjam {
+      // margin-top: -172px;
+      // padding-top: 400px;
+      padding-top: math.div(400, 1240) * 100%;
+      @include media-max("sp") {
+        // padding-top: 250px;
+        // margin-top: -50px;
+        padding-top: math.div(495, 768) * 100%;
+      }
+      .haircolor_contents_item_inner {
+        margin-top: 0;
+        padding-bottom: 140px;
+        @include media-max("sp") {
+          padding-bottom: 100px;
+        }
+      }
+      &::before {
+        // height: 600px;
+        height: math.div(927, 1240) * 100vw;
+        margin-top: math.div(-137, 1240) * 100%;
+        @include media-max("sp") {
+          // margin-top: math.div(-130, 768) * 100%;
+          // margin-top: -100px * 0.5;
+          margin-top: math.div(-90, 768) * 100%;
+          background-size: cover;
+        }
+
+        @include media-max("sp") {
+          background-image: url("/haircolor/images/img_milkjam_bg_sp.jpg");
+        }
+        @media screen and (min-width: 769px) {
+          background-image: url("/haircolor/images/img_milkjam_bg.jpg");
+        }
+
+        background-position: center top;
+        @include media-max("sp") {
+          // height: 350px;
+          height: math.div(700, 768) * 100vw;
+        }
+      }
+      &::after {
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        display: block;
+        background-color: #f4f4f4;
+      }
+    }
+    &_inner {
+      position: relative;
+      z-index: 1;
+      background-color: #fff;
+      border-radius: 100px;
+      padding-top: 45px;
+      margin-top: -70px;
+      @include media-max("sp") {
+        border-radius: 50px;
+      }
+    }
+
+    &_main {
+      margin-top: 100px;
+      max-width: 870px;
+      margin: 100px auto 0;
+      padding: 0 20px;
+      &_item {
+        display: flex;
+        gap: 0 90px;
+        @include media-max("sp") {
+          flex-flow: column;
+          gap: 75px * 0.5;
+        }
+        & + & {
+          margin-top: 120px;
+        }
+        .products_slider_thumb.active {
+          border-color: #f58758;
+        }
+      }
+    }
+  }
+
+  &_howto {
+    margin-top: 140px;
+    padding-bottom: 178px;
+    @include media-max("sp") {
+      padding-bottom: 100px;
+    }
+    .movie_howto_item_tag {
+      background-color: #f58758;
+    }
+  }
+}

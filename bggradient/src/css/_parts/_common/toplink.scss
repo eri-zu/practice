@@ -1,0 +1,44 @@
+@use "sass:math";
+
+.toplink {
+  // width: math.div(272, 1080) * 100%;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  top: 1.5px;
+
+  @media (hover: hover) {
+    &:hover {
+      .toplink__txt {
+        color: #e363b0;
+      }
+    }
+  }
+}
+
+.toplink__txt {
+  transition: color 1s $easeOutExpo;
+  font-family: $en;
+  font-size: 24px;
+  // color: purple;
+  font-weight: 500;
+  line-height: 1;
+  margin-right: 7px;
+  display: block;
+}
+
+.toplink__arrow {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1px;
+  position: relative;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

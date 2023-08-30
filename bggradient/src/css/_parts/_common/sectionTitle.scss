@@ -1,0 +1,33 @@
+.section__title {
+  color: var(--text-color);
+
+  span {
+    display: block;
+  }
+
+  .-en {
+    font-size: 90px;
+    font-family: $en;
+    font-weight: 300;
+    line-height: 1;
+    position: relative;
+    left: -6px;
+
+    @include media-max("sp") {
+      font-size: 60px;
+      left: -3px;
+    }
+  }
+
+  .-jp {
+    line-height: 1;
+    margin-top: 9px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+
+    @include media-max("sp") {
+      margin-top: 8px;
+    }
+  }
+}

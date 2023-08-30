@@ -1,0 +1,269 @@
+/* --------------------------------------------------------------------------------
+*
+*   news
+*
+-------------------------------------------------------------------------------- */
+@use "sass:math";
+
+// .newsarea__wrapper {
+//   padding-top: 73px;
+
+//   @include media-max("sp") {
+//     padding-top: 80px;
+//   }
+// }
+
+.newsarea__titlearea-inner {
+  max-width: 1040px + 20px + 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  margin: 0 auto;
+  // overflow: hidden;
+
+  @include media-max("sp") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.newsarea__inner {
+  // max-width: 1040px + 20px + 20px;
+  // padding-left: 20px;
+  // padding-right: 20px;
+  // width: 100%;
+  // margin: 0 auto;
+  // // overflow: hidden;
+
+  // @include media-max("sp") {
+  //   padding-left: 20px;
+  //   padding-right: 20px;
+  // }
+}
+
+.newsarea__title {
+  font-size: 54px;
+  font-family: $en;
+  line-height: 1;
+  font-weight: 400;
+  color: #333;
+
+  @include media-max("sp") {
+    font-size: sp(80);
+  }
+}
+
+.newsarea__contents {
+  margin-top: 40px;
+  position: relative;
+
+  position: relative;
+  padding-left: calc(50% - 540px + 20px);
+  padding-right: calc(50% - 540px + 20px);
+
+  @include max(1080) {
+    margin-top: sp(60);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &.isOverflow {
+    position: relative;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+    &::-webkit-scrollbar {
+      /* Chrome, Safari 対応 */
+      display: none;
+    }
+
+    .newsarea__item {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 100%;
+        height: 1px;
+        width: 20px;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.news__contes-inner {
+  position: relative;
+}
+
+.newsarea__list {
+  display: flex;
+  align-items: flex-start;
+}
+
+.newsarea__item {
+  // min-width: 230px;
+  // max-width: 230px;
+
+  // @include minmax(769, 1120) {
+  //   min-width: calc(100% / 3 - 40px * 2 / 3);
+  //   max-width: calc(100% / 3 - 40px * 2 / 3);
+  // }
+
+  min-width: calc(100% / 4 - 40px * 3 / 4);
+  max-width: calc(100% / 4 - 40px * 3 / 4);
+
+  @include minmax(769, 1080) {
+    min-width: calc(100% / 4 - 20px * 3 / 4);
+    max-width: calc(100% / 4 - 20px * 3 / 4);
+  }
+
+  @include media-max("sp") {
+    min-width: 253px;
+    max-width: 253px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 40px;
+
+    @include minmax(769, 1080) {
+      margin-right: 20px;
+    }
+
+    @include media-max("sp") {
+      margin-right: sp(40);
+    }
+  }
+}
+
+.newsarea__card {
+  display: block;
+
+  // @include media-max("sp") {
+  //   width: sp(506);
+  // }
+
+  // @include min(1241) {
+  //   width: vw(230, 1240);
+  // }
+}
+
+.newsarea__imgwrap {
+  width: 100%;
+  padding-top: math.div(153, 230) * 100%;
+  height: 0;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @include media-max("sp") {
+    padding-top: math.div(337, 506) * 100%;
+  }
+
+  img {
+    border-radius: 10px;
+    position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.newsarea__body-titlewrap {
+  margin-top: 25px;
+
+  @include media-max("sp") {
+    margin-top: sp(28);
+  }
+
+  @include minmax(769, 1080) {
+    margin-top: vw(25, 1080);
+  }
+}
+.newsarea__body-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: math.div(25, 14);
+  letter-spacing: 0.01em;
+
+  @include minmax(769, 1080) {
+    font-size: vw(14, 1080);
+  }
+}
+
+.newsarea__body-datewrap {
+  margin-top: 14px;
+
+  @include media-max("sp") {
+    margin-top: sp(28);
+  }
+}
+
+.newsarea__body-date {
+  font-size: 14px;
+  color: #777;
+  font-family: $en;
+  line-height: 1;
+
+  @include minmax(769, 1080) {
+    font-size: vw(14, 1080);
+  }
+
+  @include media-max("sp") {
+    font-size: sp(26);
+  }
+}
+
+.newsarea__nav {
+  position: absolute;
+  top: 64px;
+  z-index: 1;
+  cursor: pointer;
+
+  @include minmax(769, 1080) {
+    top: vw(72, 1080);
+  }
+
+  svg {
+    width: 11px;
+    @include minmax(415, 1120) {
+      width: 8px;
+    }
+  }
+
+  &.-next {
+    right: -25px;
+
+    @include minmax(415, 1120) {
+      right: -15px;
+    }
+  }
+
+  &.-prev {
+    left: -25px;
+
+    @include minmax(415, 1120) {
+      left: -15px;
+    }
+  }
+
+  &.isActive {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &.isDisable {
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
+
+  pointer-events: none;
+  opacity: 0;
+}
+
+.newsarea__nav-arrow {
+}

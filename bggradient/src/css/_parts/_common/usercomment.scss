@@ -1,0 +1,385 @@
+.usercomment__list {
+  display: flex;
+}
+
+.usercomment__item {
+  display: flex;
+  align-items: stretch;
+  min-width: 320px;
+  max-width: 320px;
+
+  &:not(:last-child) {
+    margin-right: 40px;
+
+    @include minmax(769, 1080) {
+      margin-right: 20px;
+    }
+
+    @include media-max("sp") {
+      margin-right: 20px;
+    }
+  }
+
+  @include minmax(769, 1080) {
+    min-width: calc(100% / 3 - 20px * 2 / 3);
+    max-width: calc(100% / 3 - 20px * 2 / 3);
+  }
+
+  @include media-max("sp") {
+    // min-width: vw(504, 768);
+    // max-width: vw(504, 768);
+    min-width: 252px;
+    max-width: 252px;
+  }
+}
+
+.usercomment__titlearea {
+  .id_arganrich_oil & {
+    min-height: 48px;
+
+    @include minmax(769, 1080) {
+      min-height: vw(48, 1080);
+    }
+
+    @include media-max("sp") {
+      // min-height: vw(84, 768);
+      min-height: 42px;
+    }
+  }
+
+  &.-uneri,
+  &.-hairoil,
+  &.-gross,
+  &.-repair,
+  &.-rich {
+    padding-left: 49px;
+
+    @include minmax(769, 1080) {
+      padding-left: vw(49, 1080);
+    }
+
+    @include media-max("sp") {
+      padding-left: 45px;
+    }
+  }
+
+  &.-exmask {
+    padding-left: 72px;
+
+    @include minmax(769, 1080) {
+      padding-left: vw(72, 1080);
+    }
+
+    @include media-max("sp") {
+      padding-left: 70px;
+    }
+  }
+
+  &.-water {
+    padding-left: 49px;
+
+    @include minmax(769, 1080) {
+      padding-left: vw(49, 1080);
+    }
+
+    @include media-max("sp") {
+      padding-left: 50px;
+    }
+  }
+
+  &.-haircream {
+    padding-left: 49px;
+
+    @include minmax(769, 1080) {
+      padding-left: vw(49, 1080);
+    }
+
+    @include media-max("sp") {
+      padding-left: 49px;
+    }
+  }
+
+  &.-balmlight,
+  &.-balm {
+    padding-left: 76px;
+
+    @include minmax(769, 1080) {
+      padding-left: vw(76, 1080);
+    }
+
+    @include media-max("sp") {
+      padding-left: 60px;
+    }
+  }
+}
+
+.usercomment__title {
+  font-size: 16px;
+  line-height: math.div(24, 16);
+  font-weight: 700;
+
+  .id_acidheat_treatment & {
+    color: $purple;
+    text-align: center;
+  }
+
+  .id_arganrich_oil & {
+    text-align: left;
+    color: #333;
+  }
+
+  @include minmax(769, 1080) {
+    font-size: vw(16, 1080);
+  }
+
+  @include media-max("sp") {
+    font-size: 14px;
+    line-height: math.div(42, 28);
+  }
+}
+
+.usercomment__txt {
+  margin-top: 13px;
+  font-size: 14px;
+  line-height: math.div(24, 14);
+
+  @include minmax(769, 1080) {
+    font-size: vw(14, 1080);
+    margin-top: vw(13, 1080);
+  }
+
+  @include media-max("sp") {
+    font-size: 14px;
+    line-height: math.div(50, 28);
+    margin-top: 25px;
+  }
+}
+
+.usercomment__box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  @include media-max("sp") {
+    padding: 24px 15px;
+  }
+
+  .id_acidheat_treatment & {
+    padding: 24px 23px 22px;
+
+    @include media-max("sp") {
+      padding: 24px 15px;
+    }
+  }
+
+  &.-uneri,
+  &.-gross,
+  &.-rich,
+  &.-water,
+  &.-haircream,
+  &.-balmlight {
+    padding: 26px 24px 10px;
+
+    @include media-max("sp") {
+      padding: 20px 15px 10px;
+    }
+  }
+
+  &.-hairoil,
+  &.-repair,
+  &.-exmask,
+  &.-balm {
+    padding: 32px 24px 10px;
+
+    @include media-max("sp") {
+      padding: 20px 15px 10px;
+    }
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+
+    height: 2px;
+
+    .id_acidheat_treatment & {
+      background-color: #b086e4;
+    }
+    .id_arganrich_oil & {
+      background-color: $green;
+    }
+  }
+
+  &::before {
+    top: 0;
+    width: calc(286 / 320 * 100%);
+
+    @include media-max("sp") {
+      // width: calc(447 / 504 * 100%);
+      width: calc(100% - 27.5px);
+    }
+  }
+
+  &::after {
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.usercomment__imgwrap {
+  width: auto;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+
+  .id_acidheat_treatment & {
+    left: 24px;
+
+    @include media-max("sp") {
+      left: 15px;
+    }
+
+    // transform: translateY(-50%);
+
+    &.-mask {
+      top: -35px;
+
+      @include minmax(769, 1080) {
+        top: vw(-35, 1080);
+      }
+    }
+    &.-oil,
+    &.-milk {
+      top: -51px;
+
+      @include minmax(769, 1080) {
+        top: vw(-51, 1080);
+      }
+    }
+  }
+
+  &.-uneri,
+  &.-hairoil,
+  &.-gross,
+  &.-repair,
+  &.-rich {
+    top: -18px;
+  }
+
+  &.-exmask {
+    top: 17px;
+  }
+
+  &.-water {
+    top: -32px;
+  }
+
+  &.-haircream {
+    top: -22px;
+  }
+
+  &.-balmlight,
+  &.-balm {
+    top: 12px;
+  }
+
+  img {
+    // height: 100%;
+
+    &.-mask {
+      width: 36px;
+
+      @include minmax(769, 1080) {
+        width: vw(36, 1080);
+      }
+    }
+
+    &.-oil,
+    &.-milk {
+      width: 26px;
+
+      @include minmax(769, 1080) {
+        width: vw(26, 1080);
+      }
+    }
+
+    &.-uneri,
+    &.-hairoil,
+    &.-gross,
+    &.-repair,
+    &.-rich {
+      width: 32px;
+
+      @include minmax(769, 1080) {
+        width: vw(32, 1080);
+      }
+    }
+
+    &.-exmask {
+      width: 58px;
+
+      @include minmax(769, 1080) {
+        width: vw(58, 1080);
+      }
+    }
+
+    &.-water {
+      width: 37px;
+
+      @include minmax(769, 1080) {
+        width: vw(37, 1080);
+      }
+    }
+
+    &.-haircream {
+      width: 41px;
+
+      @include minmax(769, 1080) {
+        width: vw(41, 1080);
+      }
+    }
+
+    &.-balmlight,
+    &.-balm {
+      width: 60px;
+
+      @include minmax(769, 1080) {
+        width: vw(60, 1080);
+      }
+
+      @include media-max("sp") {
+        width: 50px;
+      }
+    }
+  }
+}
+
+.usercomment__quote {
+  position: absolute;
+  top: -10px;
+  right: 0;
+
+  @include media-max("sp") {
+    top: -5px;
+  }
+
+  svg {
+    width: 24px;
+    height: 20px;
+
+    .id_acidheat_treatment & {
+      fill: #b086e4;
+    }
+    .id_arganrich_oil & {
+      fill: $green;
+    }
+
+    @include media-max("sp") {
+      width: 19px;
+      height: 15px;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@charset "utf-8";
+@use "sass:math";
+/* --------------------------------------------------------------------------------
+*   common
+-------------------------------------------------------------------------------- */
+@import "./_init/import";
+@import "./_init/reset"; // リセットCSS、フォントサイズ sss
+
+/* --------------------------------------------------------------------------------
+*   parts
+-------------------------------------------------------------------------------- */
+@import "./_parts/_common/**/*.scss";
+@import "./_parts/_compornents/**/*.scss";
+
+/* --------------------------------------------------------------------------------
+*   page
+-------------------------------------------------------------------------------- */
+#wrapper.id_top {
+  @import "./_page/top/**/*.scss";
+}
+
+@import "./_page/news/news.scss";
+@import "./_page/styling/styling.scss";
+@import "./_page/sitemap/sitemap.scss";
+@import "./_page/haircolor/style.scss";
+
+#wrapper.id_acidheat_treatment {
+  @import "./_page/acidheat_treatment/*.scss";
+}
+#wrapper.id_arganrich_oil {
+  @import "./_page/argane_oil/*.scss";
+}
+#wrapper.id_404 {
+  @import "./_page/404page/*.scss";
+}
+#wrapper.id_503 {
+  @import "./_page/503page/*.scss";
+}
+
+.btn01 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include media-max("sp") {
+    padding-bottom: 1px;
+  }
+}
+
+.btn01__icon {
+  margin-right: 8px;
+  top: 1px;
+  position: relative;
+
+  @include media-max("sp") {
+    margin-right: 7px;
+    top: 0px;
+  }
+}
+
+.btn01__txt {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1;
+  top: -1px;
+  position: relative;
+  font-family: $en;
+
+  @include media-max("sp") {
+    font-size: 13px;
+    top: 0px;
+  }
+}
+
+.ecbanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ecbannerImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &.-amazon {
+    width: calc(100 / 130 * 100%);
+  }
+  &.-rakuten {
+    width: calc(100 / 130 * 100%);
+  }
+  &.-lohaco {
+    width: calc(112 / 130 * 100%);
+  }
+}
+
+.ecbannerIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: calc(7 / 50 * 100%);
+  right: calc(6.35 / 130 * 100%);
+  // width: calc(7.65 / 130 * 100%);
+
+  // svg {
+  //   width: 100%;
+  //   height: 100%;
+  // }
+
+  svg {
+    width: 7px;
+    height: 7px;
+    @include media-max("sp") {
+      width: 7px;
+      height: 8px;
+    }
+  }
+}
+
+.footer_v2_wrap {
+  background-color: #fff;
+  position: relative;
+}
+
+.is-pc {
+  @include media-max("sp") {
+    display: none !important;
+  }
+}
+
+.is-sp {
+  @include media-min("tab") {
+    display: none !important;
+  }
+}
+
+// .id_acidheat_treatment {
+//   height: 100vh;
+//   overflow: hidden;
+// }

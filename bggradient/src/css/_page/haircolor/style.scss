@@ -1,0 +1,20 @@
+.haircolor_footer {
+  padding-top: 44px + 69px;
+  background-color: #f4f4f4;
+  padding-bottom: 62px;
+
+  .newsarea__wrapper {
+    &.active {
+      padding-top: 76px;
+    }
+  }
+
+  @include media-max("sp") {
+    padding-top: 155px * 0.5;
+    padding-bottom: 70px;
+  }
+}
+
+@import "./titsec";
+@import "./contents";
+@import "./point";

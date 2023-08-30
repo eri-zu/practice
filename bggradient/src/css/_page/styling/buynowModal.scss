@@ -1,0 +1,148 @@
+.styling_buynowModal_wrap {
+  display: none;
+  @include media-max("sp") {
+    display: block;
+  }
+}
+
+.styling_buynowModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+  font-size: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s $easeOutExpo;
+  &_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &_inner {
+    width: math.div(688, 768) * 100%;
+    margin: auto;
+    padding: 140px * 0.5 38px * 0.5 75px * 0.5 62px * 0.5;
+    background-color: #66c4c3;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+
+    @include media-max("sp") {
+      padding: 140px * 0.5 24px 75px * 0.5;
+    }
+
+    &.noec {
+      @include media-max("sp") {
+        padding: 75px * 0.5 24px 75px * 0.5;
+      }
+    }
+  }
+
+  &_closeBtn {
+    position: absolute;
+    width: 45px * 0.5;
+    height: 45px * 0.5;
+    top: 36px * 0.5;
+    right: 38px * 0.5;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &_tit {
+    width: 330px * 0.5;
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &_contents {
+    margin-top: 20px;
+
+    &_link {
+      display: block;
+      background-color: #fff;
+      position: relative;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::before {
+        content: "";
+        display: block;
+        // width: 34px * 0.5;
+        width: 37px * 0.5;
+        height: 39px * 0.5;
+        // background-image: url("/common/images/svg/outerLink.svg");
+        background-image: url("/styling/images/svg_outerlink.svg");
+        // height: 34px * 0.5;
+        position: absolute;
+        background-size: contain;
+        bottom: 15px;
+        right: 15px;
+      }
+      & + & {
+        margin-top: 20px;
+      }
+      img {
+        display: block;
+      }
+      &_amazon {
+        // padding: 20px 0;
+        img {
+          width: 376px * 0.5;
+          margin: auto;
+        }
+      }
+      &_rakuten {
+        // padding: 20px 0;
+        img {
+          width: 379px * 0.5;
+          margin: auto;
+        }
+      }
+      &_lohaco {
+        // padding: 20px 0;
+        img {
+          width: 358px * 0.5;
+          margin: auto;
+        }
+      }
+    }
+
+    &_tit {
+      margin-top: 20px;
+      font-size: 28px * 0.5;
+      line-height: 1;
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+    }
+    &_des {
+      margin-top: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 10px;
+      white-space: nowrap;
+
+      @include media-max("sp") {
+        margin-top: 10px;
+      }
+    }
+  }
+}

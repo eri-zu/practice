@@ -1,0 +1,143 @@
+.argane__ps-head {
+  background-color: #f0f6f1;
+  position: relative;
+  padding: 90px 0 80px;
+  z-index: 1;
+
+  @include media-max("sp") {
+    padding: 75px 0 40px;
+  }
+}
+
+.argane__pc-head-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.argane__ps-head-titlewrap {
+  text-align: center;
+}
+
+.argane__ps-head-title {
+  font-size: 24px;
+  border-bottom: 2px solid $green;
+  display: inline-block;
+  font-weight: 400;
+
+  @include minmax(769, 1240) {
+    font-size: vw(24, 1240);
+  }
+
+  @include media-max("sp") {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 32px;
+    color: $green;
+
+    @include minmax(769, 1240) {
+      font-size: vw(32, 1240);
+    }
+
+    @include media-max("sp") {
+      font-size: 24px;
+    }
+  }
+}
+
+.argane__ps-head-list {
+  display: flex;
+  margin-top: 40px;
+
+  @include minmax(769, 1240) {
+    margin-top: vw(40, 1240);
+  }
+
+  @include media-max("sp") {
+    margin-top: 25px;
+    flex-direction: column;
+  }
+}
+
+.argane__ps-head-item {
+  display: flex;
+  align-items: flex-start;
+
+  @include media-max("sp") {
+    align-items: center;
+  }
+
+  &:nth-child(n + 2) {
+    margin-left: 76px;
+
+    @include media-max("sp") {
+      margin-left: 0px;
+      margin-top: 24px;
+    }
+  }
+}
+
+.argane__ps-head-item-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  path {
+    stroke: $green;
+  }
+
+  width: 34px;
+
+  @include media-max("sp") {
+    width: 28px;
+    margin-top: 0px;
+  }
+}
+
+.argane__ps-head-item-txt {
+  margin-left: 24px;
+
+  @include media-max("sp") {
+    margin-left: 15px;
+  }
+
+  span {
+    display: block;
+  }
+
+  .-small {
+    font-size: 20px;
+    line-height: 1;
+    font-family: $en;
+    color: $green;
+
+    @include minmax(769, 1240) {
+      font-size: vw(20, 1240);
+    }
+
+    @include media-max("sp") {
+      font-size: 18px;
+    }
+  }
+
+  .-large {
+    font-size: 24px;
+    line-height: 1;
+    margin-top: 14px;
+    line-height: math.div(36, 24);
+
+    @include minmax(769, 1240) {
+      font-size: vw(24, 1240);
+    }
+
+    @include media-max("sp") {
+      font-size: 20px;
+      margin-top: 6px;
+    }
+  }
+}

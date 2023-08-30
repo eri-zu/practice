@@ -1,0 +1,101 @@
+.haircolor_titSec {
+  //   margin-top: 160px;
+  max-width: 1080px;
+  padding: 0 20px;
+  margin: 160px auto 0;
+
+  &_des {
+    color: #333;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    margin-top: 40px;
+    @include media-max("sp") {
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  }
+
+  &_items {
+    display: flex;
+    gap: 0 math.div(40, 1040) * 100%;
+    margin-top: 100px;
+
+    @include media-max("sp") {
+      flex-flow: column;
+      margin-top: 60px;
+      gap: 20px;
+    }
+  }
+
+  &_item {
+    position: relative;
+    width: 100%;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .products_box_inner {
+      background-color: #f58758;
+      overflow: hidden;
+      font-size: 0;
+    }
+    .products_box_img {
+      width: math.div(200, 500) * 100%;
+      height: 100%;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+      @include media-max("sp") {
+        // margin-left: 80px;
+
+        width: 120px;
+      }
+    }
+    .products_box_txt {
+      margin-left: math.div(230, 500) * 100%;
+      @include media-max("sp") {
+        margin-left: 120px + 20px;
+      }
+    }
+
+    &_innercolor::after {
+      background-image: url("/haircolor/images/img_titSec_item1.png");
+      width: math.div(167 * 0.5, 500) * 100%;
+      aspect-ratio: 165 / 305;
+      // height: 0;
+      // padding-top: math.div(305, 165) * math.div(167, 500) * 100%;
+      // top: -4px;
+      top: 0;
+      left: math.div(145, 500) * 100%;
+      margin-top: math.div(-4, 500) * 100%;
+      @include media-max("sp") {
+        width: 124px * 0.5;
+        height: 227px * 0.5;
+        left: 157px * 0.5;
+        margin-top: 0;
+      }
+    }
+    &_milkjam::after {
+      background-image: url("/haircolor/images/img_titSec_item2.png");
+
+      left: math.div(115, 500) * 100%;
+
+      width: math.div(257 * 0.5, 500) * 100%;
+      aspect-ratio: 257/308;
+      top: 0;
+
+      margin-top: math.div(-5, 500) * 100%;
+      @include media-max("sp") {
+        width: 173px * 0.5;
+        height: 207px * 0.5;
+        left: 127px * 0.5;
+        top: 3px;
+        margin-top: 0;
+      }
+    }
+  }
+}

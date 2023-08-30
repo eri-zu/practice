@@ -1,0 +1,22 @@
+@use "sass:math";
+
+.argane__howto {
+  padding-bottom: 112px;
+  background-color: #fff;
+
+  @include media-max("sp") {
+    padding-bottom: 55px;
+  }
+
+  .movie_howto_title {
+    font-weight: 300;
+  }
+
+  .movie_howto_title_sub {
+    font-weight: 500;
+  }
+
+  .movie_howto_item_tag {
+    background-color: #5aad69;
+  }
+}

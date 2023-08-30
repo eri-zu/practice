@@ -1,0 +1,36 @@
+@use "sass:math";
+.styling-title-section {
+  max-width: 1080px;
+  margin: 160px auto 0;
+  padding: 0 20px;
+}
+.styling_title_products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: math.div(40, 1040) * 100%;
+  margin-top: 100px;
+  @include media-max("sp") {
+    margin-top: 130px * 0.5 - (16px * 1.5 - 16px) * 0.5;
+    display: block;
+    .products_box + .products_box {
+      margin-top: 20px;
+    }
+  }
+}
+
+.styling-title-des {
+  margin-top: 40px - (30px - 20px) * 0.5;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  line-height: math.div(30, 20);
+  color: #333;
+  @include media-max("sp") {
+    margin-top: 30px - (16px * 1.5 - 16px) * 0.5;
+    font-size: 16px;
+  }
+  @include media-min(769px) {
+    br {
+      display: none;
+    }
+  }
+}

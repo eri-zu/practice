@@ -1,0 +1,164 @@
+.products_slider {
+  position: relative;
+  // width: 100%;
+  flex-shrink: 1;
+  @include media-max("sp") {
+    // width: math.div(560, 769) * 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &_seals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    top: -30px;
+  }
+
+  &_seal {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+    background-color: var(--seal-color);
+    border-radius: 50%;
+
+    @include media-max("sp") {
+      width: 60px;
+      height: 60px;
+    }
+    & + & {
+      margin-top: 10px;
+      @include media-max("sp") {
+        margin-top: 8px;
+      }
+    }
+    p {
+      color: var(--seal-text-color);
+      width: 100%;
+      text-align: center;
+      font-size: 9px;
+      line-height: math.div(13, 9);
+    }
+  }
+
+  &_inner {
+    position: relative;
+    user-select: none;
+  }
+
+  &_arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 15px;
+    height: 36px;
+
+    @include minmax(769, 850) {
+      width: vw(15, 850);
+      height: vw(36, 850);
+    }
+
+    @include media-max("sp") {
+      right: 0;
+      left: 0;
+    }
+
+    cursor: pointer;
+    z-index: 1;
+
+    &[data-direction="left"] {
+      left: -15px - 20px;
+      @include media-max("sp") {
+        left: calc(math.div(620, 770) * -100% - 15px - 36px);
+        // margin-left: math.div(620, 770) * -50%;
+      }
+    }
+
+    &[data-direction="right"] {
+      right: -16px - 20px;
+      transform: rotate(180deg);
+      @include media-max("sp") {
+        right: calc(math.div(620, 770) * -100% - 15px - 36px);
+      }
+    }
+  }
+
+  &_items {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    flex-shrink: 0;
+    margin: auto;
+    aspect-ratio: 1 / 1;
+
+    @include minmax(769, 850) {
+      width: vw(330, 850);
+      height: vw(330, 850);
+    }
+
+    @include media-max("sp") {
+      width: math.div(620, 770) * 100%;
+      min-width: 220px;
+      height: auto;
+
+      // height: 100%;
+    }
+  }
+
+  &_item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    transition: opacity 1s $easeOutExpo;
+    user-select: none;
+    pointer-events: none;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    &.active {
+      // position: relative;
+      opacity: 1;
+      transition-delay: 0.3s;
+    }
+  }
+
+  &_thumbs {
+    display: flex;
+    gap: 0 10px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  &_thumb {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    transition: border-color 1s $easeOutExpo;
+    &.active {
+      border: 1px solid #66c5c3;
+      .id_acidheat_treatment & {
+        border: 1px solid #b086e4;
+      }
+
+      .id_arganrich_oil & {
+        border: 1px solid #c0b27a;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

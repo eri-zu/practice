@@ -1,0 +1,152 @@
+@use "sass:math";
+
+.item_box {
+  display: block;
+  border-radius: 10px;
+  padding: 38px 0;
+  @include media-max("sp") {
+    padding: 20px 0;
+  }
+  &:hover {
+    .item_box_arrow {
+      path {
+        transform: translateX(5px);
+      }
+    }
+  }
+  &_inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &_img {
+    position: absolute;
+    background-size: 100%;
+  }
+
+  &_txt {
+    margin-left: 280px;
+    color: #fff;
+    line-height: 1;
+    @include media-max("sp") {
+      margin-left: 130px * 0.5;
+    }
+    &_tit {
+      font-size: 40px;
+      font-family: $en;
+      font-weight: 400;
+      display: block;
+      @include media-max("sp") {
+        font-size: 48px * 0.5;
+      }
+    }
+    &_des {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      display: block;
+      @include media-max("sp") {
+        font-size: 24px * 0.5;
+      }
+    }
+  }
+
+  &_arrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    path {
+      transition: transform 1s $easeOutExpo;
+    }
+    @include media-max("sp") {
+      width: 25px;
+      height: 25px;
+      right: 10px;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &_acid {
+    background-color: #b086e4;
+    .item_box_img {
+      width: 180px;
+      height: 340px * 0.5;
+      margin-left: 54px;
+      top: auto;
+      bottom: -40px + 12px;
+      @media screen and (min-width: 769px) {
+        background-image: url("/common/images/itembox/01.png");
+      }
+      @include media-max("sp") {
+        background-image: url("/common/images/itembox/01_sp.png");
+        width: math.div(234, 6) * 1px;
+        height: math.div(618, 6) * 1px;
+        margin-left: 34px * 0.5;
+        bottom: -20px + 11px;
+      }
+    }
+  }
+  &_oil {
+    background-color: #78d18c;
+    .item_box_img {
+      width: 442 * 0.5px;
+      height: 290px * 0.5;
+      margin-left: 22px;
+      top: auto;
+      bottom: -40px + 17px;
+      @media screen and (min-width: 769px) {
+        background-image: url("/common/images/itembox/02.png");
+      }
+      @include media-max("sp") {
+        background-image: url("/common/images/itembox/02_sp.png");
+        width: math.div(249, 6) * 1px;
+        height: math.div(528, 6) * 1px;
+        margin-left: 30px * 0.5;
+        bottom: -20px + 13px;
+      }
+    }
+  }
+  &_styling {
+    background-color: #66c5c3;
+    .item_box_img {
+      width: 406px * 0.5;
+      height: 354px * 0.5;
+      margin-left: 40px;
+      bottom: -40px + 12px;
+      @media screen and (min-width: 769px) {
+        background-image: url("/common/images/itembox/03.png");
+      }
+      @include media-max("sp") {
+        background-image: url("/common/images/itembox/03_sp.png");
+        width: math.div(324, 6) * 1px;
+        height: math.div(624, 6) * 1px;
+        margin-left: 16px * 0.5;
+        bottom: -20px + 6px;
+      }
+    }
+  }
+  &_color {
+    background-color: #f58758;
+    .item_box_img {
+      width: 444px * 0.5;
+      height: 322px * 0.5;
+      margin-left: 21px;
+      bottom: -40px + 12px;
+      @media screen and (min-width: 769px) {
+        background-image: url("/common/images/itembox/04.png");
+      }
+      @include media-max("sp") {
+        background-image: url("/common/images/itembox/04_sp.png");
+        width: math.div(162, 6) * 1px;
+        height: math.div(531, 6) * 1px;
+        margin-left: 43px * 0.5;
+        bottom: -20px + 17px;
+      }
+    }
+  }
+}

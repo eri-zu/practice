@@ -1,0 +1,27 @@
+.page_title {
+  &_inner {
+    font-weight: 300;
+    line-height: 1;
+    color: var(--text-color);
+  }
+  &_main {
+    font-family: $en;
+    font-size: 72px;
+    display: block;
+    @include media-max("sp") {
+      font-size: 100px * 0.5;
+    }
+  }
+
+  &_sub {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 27px;
+    display: block;
+    @include media-max("sp") {
+      font-size: 32px * 0.5;
+      margin-top: 10px;
+    }
+    // font-family: $ja;
+  }
+}

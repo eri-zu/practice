@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------------
+*
+*   section01
+*
+-------------------------------------------------------------------------------- */
+
+.acid__product {
+  width: 100%;
+  height: 0;
+  padding-top: calc(650 / 1240 * 100%);
+  position: relative;
+  margin-top: vw(-120, 1240);
+
+  @include media-max("sp") {
+    margin-top: -45px;
+    padding-top: calc(600 / 768 * 100%);
+  }
+}
+
+.acid__product-canvaswrap {
+  margin: 0 0 0 auto;
+  position: relative;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 1;
+  }
+}

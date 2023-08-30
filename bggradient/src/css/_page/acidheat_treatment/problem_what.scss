@@ -1,0 +1,185 @@
+.acid__ps-what {
+  margin-top: -100px;
+
+  @include media-max("sp") {
+    margin-top: 110px;
+  }
+}
+
+.acid__ps-what-inner {
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.acid__ps-what-box {
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 60px 0 64px;
+
+  // width: calc(1140 / 1240 * 100%);
+  // max-width: 1140px;
+  width: calc(100vw - (100vw - 1040px) / 2);
+  z-index: 10;
+  position: relative;
+
+  @include max(1040) {
+    width: 100%;
+  }
+
+  @include media-max("sp") {
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding: 45px 0 60px;
+  }
+}
+
+.acid__ps-what-titlewrap {
+  color: $purple;
+  font-weight: 300;
+  position: absolute;
+  left: 90px;
+  font-size: 56px;
+  font-weight: 300;
+  font-family: $en;
+  top: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  @include minmax(769, 1240) {
+    left: vw(90, 1240);
+  }
+
+  @include media-max("sp") {
+    left: 20px;
+    font-size: 45px;
+  }
+}
+
+.acid__ps-what-boxinner {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 99px 0 90px;
+
+  @include minmax(769, 1240) {
+    padding-left: vw(99, 1240);
+    padding-right: vw(90, 1240);
+  }
+
+  @include media-max("sp") {
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+  }
+}
+
+.acid__ps-what-txtarea {
+  width: calc(320 / 950 * 100%);
+  min-width: calc(320 / 950 * 100%);
+
+  @include media-max("sp") {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+.acid__ps-what-txtarea-title {
+  line-height: 1;
+  font-size: 24px;
+  color: #784eb6;
+  letter-spacing: 0;
+  font-weight: 400;
+
+  text-align: left;
+
+  @include minmax(769, 1240) {
+    // line-height: math.div(64, 24);
+    font-size: vw(24, 1240);
+  }
+
+  @include media-max("sp") {
+    line-height: math.div(64, 40);
+    font-size: 20px;
+  }
+}
+
+.acid__ps-what-txtarea-txt {
+  z-index: 1;
+  line-height: math.div(26, 14);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  // margin-top: px;
+  padding-right: 5px;
+  text-align: left;
+  margin-top: 13px;
+
+  @include minmax(769, 1240) {
+    font-size: vw(14, 1240);
+  }
+
+  @include media-max("sp") {
+    font-size: 14px;
+    line-height: math.div(50, 28);
+    margin-top: 7px;
+  }
+
+  .-super {
+    font-size: 10px;
+    vertical-align: super;
+  }
+
+  .-notion {
+    font-size: 10px;
+    color: #777;
+  }
+}
+
+.acid__ps-what-txtarea-img {
+  margin-top: 39px;
+  padding-right: 5px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.acid__ps-what-imgarea {
+  flex-grow: 1;
+  margin-left: 40px;
+  position: relative;
+
+  @include media-max("sp") {
+    margin-left: 0;
+    margin-top: 34px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @include media-max("sp") {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+.acid__pc-what-cursive {
+  position: absolute;
+  bottom: -90px;
+  right: -35px;
+
+  @include minmax(769, 1240) {
+    bottom: vw(-90, 1240);
+    right: vw(-35, 1240);
+  }
+
+  svg {
+    width: 230px;
+
+    @include minmax(769, 1240) {
+      width: vw(230, 1240);
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<% var rootPATH = '..', contentsPATH = '../components/acidheat_treatment/', PATH
+= '../', page = 'acidheat_treatment'; %>
+
+<!DOCTYPE html>
+<html lang="ja" class="htmlTop">
+  <head>
+    <!-- prettier-ignore -->
+    <%- include(
+      `${rootPATH}/components/common/_meta.ejs`, 
+      {
+        title: "酸熱ケアReシリーズ｜mandom｜LUCIDO-L ルシードエル",
+        description: "酸熱ケアReシリーズをご紹介。あなたらしい髪が自由に楽しめるサロン技術発想のヘアビューティーコスメ「LUCIDO-L（ルシードエル）」公式サイト",
+        url: `${page}/`,
+        type: "article"
+      })
+    %>
+    <%- include(`${rootPATH}/components/common/_css.ejs`)%>
+    <%#- include(`${rootPATH}/components/common/_font.ejs`)%>
+    <%- include(`${rootPATH}/components/common/_script.ejs`)%>
+    <link rel="canonical" href="https://www.lucido-l.jp/acidheat_treatment/" />
+    <%#- include(`${rootPATH}/components/common/_log.ejs`)%>
+  </head>
+  <body id="<%- page %>" class="">
+    <%#-include(`${rootPATH}/components/common/_logbody.ejs`)%>
+    <div id="wrapper" class="id_<%- page %>">
+      <div id="inner">
+        <!-- prettier-ignore -->
+
+        <%#- include(rootPATH + '/components/acidheat_treatment/_grad',{page}) %>
+        <main class="<%=page%>_main">
+          <!-- prettier-ignore -->
+          <%- include(rootPATH + '/components/acidheat_treatment/_lineup',{page}) %>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

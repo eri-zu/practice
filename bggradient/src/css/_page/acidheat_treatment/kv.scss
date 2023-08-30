@@ -1,0 +1,177 @@
+@use "sass:math";
+
+.acid__kv {
+  padding-top: 80px;
+
+  @include media-max("sp") {
+    padding-top: 75px;
+  }
+}
+
+.acid__kv-inner {
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+
+.acid__kv-logoarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100 / 1240 * 100%);
+  position: absolute;
+  top: 80px;
+  left: 0;
+  z-index: 201;
+  background-color: #fff;
+
+  @include media-max("sp") {
+    width: vw(150, 768);
+    height: vw(150, 768);
+    position: absolute;
+    top: 75px;
+    left: 0;
+  }
+}
+
+.acid__kv-logo {
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: vw(42, 1240);
+
+    @include media-max("sp") {
+      width: vw(64, 768);
+    }
+  }
+}
+
+.acid__kv-imgarea-wrap {
+  margin: 0 0 0 auto;
+  width: calc(1140 / 1240 * 100%);
+  position: relative;
+  z-index: 0;
+
+  @include media-max("sp") {
+    width: calc(690 / 768 * 100%);
+  }
+}
+
+.acid__kv-imgarea {
+  width: 100%;
+  height: 0;
+  padding-top: calc(600 / 1140 * 100%);
+  position: relative;
+
+  @include media-max("sp") {
+    padding-top: calc(1000 / 690 * 100%);
+  }
+}
+
+.acid__kv-canvaswrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 0 auto;
+  overflow: hidden;
+  border-bottom-left-radius: 140px;
+  z-index: 1;
+
+  @include minmax(769, 1240) {
+    border-bottom-left-radius: vw(140, 1240);
+  }
+  // opacity: 0;
+
+  // &.isActive {
+  //   opacity: 1;
+  // }
+
+  @include media-max("sp") {
+    border-bottom-left-radius: 70px;
+    // background-color: green;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 1;
+  }
+}
+
+.acid__kv-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  // background-color: #fff;
+  z-index: 200;
+
+  // background-image: url("/assets/img/acidheat_treatment/bg_1.jpg");
+  // background-image: url("../img/acidheat_treatment/bg_1.jpg");
+  background-image: url("/acidheat_treatment/images/bg_gradient3.jpg");
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  pointer-events: none;
+
+  // display: none;
+}
+
+.acid__kv-txt {
+  position: absolute;
+  left: vw(797, 1240);
+  width: vw(159, 1240);
+  top: vw(360, 1240);
+  z-index: 1;
+}
+
+.acid__kv-catchlogo {
+  position: absolute;
+  left: vw(770, 1240);
+  width: vw(131, 1240);
+  top: vw(406, 1240);
+  z-index: 1;
+
+  @include media-max("sp") {
+    left: vw(467, 768);
+    width: vw(162, 768);
+    top: vw(803, 768);
+  }
+}
+
+// ------------------------------------------------------------
+// js
+// ------------------------------------------------------------
+
+// .js-acid_kv_copy {
+//   opacity: 0;
+//   // transform: translateY(50%);
+//   filter: blur(9px);
+// }
+
+// .js-acid_kv_txt {
+//   opacity: 0;
+//   // filter: blur(9px);
+// }
+
+// .js-acid_kv_logoarea {
+//   transform: translateY(-100%);
+// }
+
+.js-acid_kv_logo {
+  opacity: 0;
+}

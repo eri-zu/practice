@@ -1,0 +1,114 @@
+@use "sass:math";
+
+.argane__users {
+  padding-bottom: 112px;
+  padding-top: 133px;
+
+  @include media-max("sp") {
+    padding-top: 95px;
+    padding-bottom: 95px;
+  }
+}
+
+.argane__users-inner {
+  // background-color: green;
+}
+
+.argane__users-titlearea-inner {
+  max-width: 1040px + 20px + 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.argane__users-commentarea {
+  position: relative;
+  padding-top: 91px;
+  padding-left: calc(50% - 540px + 20px);
+  padding-right: calc(50% - 540px + 20px);
+
+  @include media-max("sp") {
+    padding-top: 82px;
+  }
+
+  @include max(1080) {
+    margin-top: sp(60);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &.isOverflow {
+    position: relative;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+    &::-webkit-scrollbar {
+      /* Chrome, Safari 対応 */
+      display: none;
+    }
+
+    .usercomment__item {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 100%;
+        height: 1px;
+        width: 20px;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.argane__users-commentarea-inner {
+  position: relative;
+}
+
+.argane__users-nav {
+  position: absolute;
+  // top: 64px;
+  z-index: 1;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+
+  svg {
+    width: 11px;
+    @include minmax(415, 1120) {
+      width: 8px;
+    }
+  }
+
+  &.-next {
+    right: -25px;
+
+    @include minmax(415, 1120) {
+      right: -15px;
+    }
+  }
+
+  &.-prev {
+    left: -25px;
+
+    @include minmax(415, 1120) {
+      left: -15px;
+    }
+  }
+
+  &.isActive {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &.isDisable {
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
+
+  pointer-events: none;
+  opacity: 0;
+}

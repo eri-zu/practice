@@ -1,0 +1,353 @@
+@use "sass:math";
+
+.argane__kv {
+  padding-top: 80px;
+  // padding-bottom: 693px;
+
+  @include media-max("sp") {
+    padding-top: 75px;
+  }
+}
+
+.argane__kv-inner {
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+
+.argane__kv-logoarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100 / 1240 * 100%);
+
+  @include media-max("sp") {
+    width: vw(150, 768);
+    height: vw(150, 768);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+  }
+}
+
+.argane__kv-logo {
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: vw(54.3, 1240);
+
+    @include media-max("sp") {
+      width: vw(70, 768);
+    }
+  }
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.argane__kv-imgarea-wrap {
+  margin: 0 0 0 auto;
+  width: calc(1140 / 1240 * 100%);
+  @include media-max("sp") {
+    width: calc(690 / 768 * 100%);
+  }
+}
+
+.argane__kv-imgarea {
+  width: 100%;
+  height: 0;
+  padding-top: calc(601 / 1140 * 100%);
+  position: relative;
+
+  background-image: url("/arganrich_oil/images/bg_kv.jpg");
+  // background-image: url("../img/argan_oil/bg_kv.jpg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include media-max("sp") {
+    padding-top: calc(1000 / 690 * 100%);
+    background-image: url("/arganrich_oil/images/bg_kv_sp.jpg");
+    border-bottom-left-radius: vw(140, 768);
+    overflow: hidden;
+  }
+}
+
+.argane__kv-mainimg {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  z-index: 1;
+  img {
+    width: 100%;
+  }
+}
+
+.argane__kv-oilitem {
+  position: absolute;
+
+  img {
+    width: 100%;
+  }
+
+  &.-item1 {
+    top: vw(357, 1240);
+    left: vw(162, 1240);
+    width: vw(44, 1240);
+    z-index: 1;
+
+    @include media-max("sp") {
+      width: vw(24.14, 768);
+      left: vw(521, 768);
+      top: vw(352, 768);
+    }
+  }
+
+  &.-item2 {
+    top: vw(90, 1240);
+    left: vw(142, 1240);
+    width: vw(85, 1240);
+
+    @include media-max("sp") {
+      width: vw(27.95, 768);
+      // top: 650px;
+      // left: 297px;
+      left: vw(294, 768);
+      top: vw(644, 768);
+    }
+  }
+
+  &.-item3 {
+    top: vw(472, 1240);
+    width: vw(44, 1240);
+    left: vw(752, 1240);
+
+    @include media-max("sp") {
+      width: vw(29.22, 768);
+      left: vw(30, 768);
+      top: vw(484, 768);
+    }
+  }
+
+  &.-item4 {
+    width: vw(50, 1240);
+    left: vw(365, 1240);
+    top: vw(203, 1240);
+
+    @include media-max("sp") {
+      width: vw(48.28, 768);
+      left: vw(261, 768);
+      top: vw(213, 768);
+    }
+  }
+
+  &.-item5 {
+    width: vw(30, 1240);
+    left: vw(503, 1240);
+    top: vw(486, 1240);
+
+    @include media-max("sp") {
+      width: vw(47.01, 768);
+      top: vw(627, 768);
+      left: vw(547, 768);
+    }
+  }
+
+  &.-item6 {
+    width: vw(55, 1240);
+    left: vw(553, 1240);
+    top: vw(172, 1240);
+    z-index: 0;
+
+    @include media-max("sp") {
+      width: vw(29.22, 768);
+      top: vw(286, 768);
+      left: vw(530, 768);
+    }
+  }
+
+  &.-item7 {
+    width: vw(29, 1240);
+    left: vw(739, 1240);
+    top: vw(151, 1240);
+
+    @include media-max("sp") {
+      width: vw(41.93, 768);
+      left: vw(619, 768);
+      top: vw(352, 768);
+    }
+  }
+
+  &.-item8 {
+    width: vw(43, 1240);
+    left: vw(840, 1240);
+    top: vw(196, 1240);
+
+    @include media-max("sp") {
+      width: vw(50.83, 768);
+      top: vw(364, 768);
+      left: vw(151, 768);
+    }
+  }
+
+  &.-item9 {
+    width: vw(77, 1240);
+    left: vw(900, 1240);
+    top: vw(379, 1240);
+
+    @include media-max("sp") {
+      width: vw(60.99, 768);
+      left: vw(341, 768);
+      top: vw(329, 768);
+    }
+  }
+
+  &.-item10 {
+    width: vw(127, 1240);
+    left: vw(774, 1240);
+    top: vw(-42, 1240);
+
+    @include media-max("sp") {
+      width: vw(36.85, 768);
+      top: vw(710, 768);
+      left: vw(246, 768);
+    }
+  }
+
+  &.-item11 {
+    width: vw(143, 1240);
+    left: vw(43, 1240);
+    top: vw(212, 1240);
+
+    @include media-max("sp") {
+      width: vw(77.51, 768);
+      left: vw(431, 768);
+      top: vw(628, 768);
+    }
+  }
+
+  &.-item12 {
+    width: vw(78, 1240);
+    left: vw(200, 1240);
+    top: vw(468, 1240);
+
+    @include media-max("sp") {
+      width: vw(83.86, 768);
+      top: vw(693, 768);
+      left: vw(96, 768);
+    }
+  }
+
+  &.-item13 {
+    width: vw(33, 1240);
+    left: vw(257, 1240);
+    top: vw(184, 1240);
+
+    @include media-max("sp") {
+      width: vw(144.85, 768);
+      top: vw(786, 768);
+      left: vw(183, 768);
+    }
+  }
+
+  &.-item14 {
+    width: vw(34, 1240);
+    top: vw(508, 1240);
+    left: vw(355, 1240);
+
+    @include media-max("sp") {
+      width: vw(86.4, 768);
+      top: vw(150, 768);
+      left: vw(138, 768);
+    }
+  }
+
+  &.-item15 {
+    width: vw(45, 1240);
+    left: vw(460, 1240);
+    top: vw(46, 1240);
+
+    @include media-max("sp") {
+      width: vw(181.7, 768);
+      left: vw(-90, 768);
+      top: vw(213, 768);
+    }
+  }
+
+  &.-item16 {
+    top: vw(496, 1240);
+    width: vw(129, 1240);
+    left: vw(541, 1240);
+
+    @include media-max("sp") {
+      width: vw(128.34, 768);
+      top: vw(83, 768);
+      left: vw(479, 768);
+    }
+  }
+
+  &.-item17 {
+    width: vw(25, 1240);
+    left: vw(728, 1240);
+    top: vw(212, 1240);
+
+    @include media-max("sp") {
+      // width: vw(24.14, 768);
+      display: none;
+    }
+  }
+}
+
+.argane__kv-catchlogo {
+  position: absolute;
+  width: vw(127, 1240);
+  left: vw(938, 1240);
+  top: vw(474, 1240);
+
+  @include media-max("sp") {
+    width: vw(230, 768);
+    left: vw(408, 768);
+    top: vw(751, 768);
+  }
+}
+
+// ------------------------------------------------------------
+// js
+// ------------------------------------------------------------
+.js-argane_show_oil {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.js-argane_show_txt {
+  opacity: 0;
+}
+
+.js-argane_show_kv {
+  opacity: 0;
+}
+
+.argane__kv-oilwrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.js-fuwafuwa {
+  transform-style: preserve-3d;
+  perspective: 100px;
+}

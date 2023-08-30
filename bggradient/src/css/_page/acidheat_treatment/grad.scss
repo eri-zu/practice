@@ -1,0 +1,15 @@
+.acideheat_treatment-grad {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("/acidheat_treatment/images/bg_gradient3.jpg");
+  // background-image: url("../img/acidheat_treatment/bg_1.jpg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  // height: 100%;
+  height: vw(3082, 1240);
+  z-index: -1;
+  // background-color: red;
+}

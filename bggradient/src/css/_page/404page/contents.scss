@@ -1,0 +1,32 @@
+@use "sass:math";
+
+.notfound__contents {
+  margin: 160px 0;
+
+  @include media-max("sp") {
+    margin: 145px 0 100px;
+  }
+}
+
+.notfound__contents-inner {
+  max-width: 1040px + 20px + 20px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.notfound__contents-txt {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 0.01em;
+
+  &:nth-child(n + 2) {
+    font-size: 14px;
+    margin-top: 40px;
+  }
+}
+
+.notfound__contents-txtarea {
+  margin-top: 40px;
+}

@@ -1,0 +1,32 @@
+.section__smalltitle {
+  color: var(--text-color);
+
+  span {
+    display: block;
+  }
+
+  .-en {
+    font-size: 54px;
+    font-family: $en;
+    font-weight: 300;
+    line-height: 1;
+    position: relative;
+    left: -3px;
+    @include media-max("sp") {
+      font-size: 45px;
+      left: -1.5px;
+    }
+  }
+
+  .-jp {
+    line-height: 1;
+    margin-top: 21px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+
+    @include media-max("sp") {
+      margin-top: 10px;
+    }
+  }
+}

@@ -1,0 +1,210 @@
+.common_products_items {
+  display: flex;
+  // gap: 40px 40px;
+  gap: 0px 40px;
+  max-width: 320px * 3 + 40 * 2px + 20px;
+  padding: 0 20px;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include minmax(769, 1040) {
+    gap: 0px vw(40, 1040);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 310px;
+  }
+
+  @include media-max("sp") {
+    display: block;
+  }
+}
+
+.common_products_item {
+  width: calc(33.33% - 80px / 3);
+  // min-width: 310px;
+
+  @include minmax(769, 1040) {
+    width: calc(33.33% - (80 / 1040 * 100vw) / 3);
+  }
+
+  border-radius: 10px;
+  position: relative;
+  display: block;
+
+  @include media-max("sp") {
+    width: 100%;
+    border-radius: 5px;
+
+    & + & {
+      margin-top: 30px;
+    }
+  }
+
+  &:hover {
+    .common_products_item_btn path {
+      transform: translateX(5px);
+    }
+  }
+
+  &_img {
+    position: absolute;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &_txt {
+    margin-left: math.div(90, 320) * 100%;
+    color: #fff;
+    margin-top: 27px - (32px - 30px) * 0.5;
+    margin-bottom: 27px - (28px - 12px) * 0.5;
+
+    @include minmax(769, 1040) {
+      margin-top: vw(26, 1040);
+      margin-bottom: vw(19, 1040);
+    }
+
+    @include media-max("sp") {
+      margin-left: 130px * 0.5;
+      margin-top: 0;
+      padding-top: 17px;
+      margin-bottom: 0;
+      padding-bottom: 17px;
+      br {
+        display: none;
+      }
+    }
+
+    &_tit {
+      font-size: 30px;
+      font-family: $en;
+      line-height: math.div(32, 30);
+
+      @include minmax(769, 1040) {
+        font-size: vw(30, 1040);
+      }
+
+      @include media-max("sp") {
+        font-size: 24px;
+        line-height: 1;
+      }
+    }
+
+    &_des {
+      font-size: 12px;
+      line-height: math.div(28, 12);
+      font-weight: 700;
+      margin-top: 13px - (28px - 12px) * 0.5 - (32px - 30px) * 0.5;
+
+      @include minmax(769, 1040) {
+        font-size: vw(12, 1040);
+      }
+
+      @include media-max("sp") {
+        font-size: 12px;
+        line-height: math.div(28, 24);
+        // margin-top: 10px - (14px - 12px) * 0.5;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &_btn {
+    position: absolute;
+    right: math.div(16, 320) * 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+
+    @include minmax(769, 1040) {
+      width: vw(40, 1040);
+      height: vw(40, 1040);
+    }
+
+    @include media-max("sp") {
+      width: 25px;
+      height: 25px;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    path {
+      transition: transform 1s $easeOutExpo;
+    }
+  }
+
+  &_acidheat {
+    background-color: #b086e4;
+
+    .id_arganrich_oil & {
+      background-color: #b086e4;
+    }
+
+    .common_products_item_img {
+      width: math.div(70, 320) * 100%;
+      left: math.div(15, 320) * 100%;
+      top: auto;
+      bottom: 9px;
+
+      @include media-max("sp") {
+        width: 78px * 0.5;
+        left: 34px * 0.5;
+        bottom: 11px;
+      }
+    }
+  }
+
+  &_oil {
+    background-color: #78d18c;
+
+    .id_acidheat_treatment & {
+      background-color: #78d18c;
+    }
+
+    .common_products_item_img {
+      width: math.div(78, 320) * 100%;
+      left: math.div(12, 320) * 100%;
+      bottom: 17px;
+      @include media-max("sp") {
+        width: 83px * 0.5;
+        left: 30px * 0.5;
+        bottom: 13px;
+      }
+    }
+  }
+  &_haircolor {
+    background-color: #f58758;
+    .common_products_item_img {
+      width: math.div(51, 320) * 100%;
+      left: math.div(26, 320) * 100%;
+      bottom: 22px;
+      @include media-max("sp") {
+        width: 54px * 0.5;
+        left: 43px * 0.5;
+        bottom: 17px;
+      }
+    }
+  }
+
+  &_styling {
+    background-color: #66c5c3;
+    .common_products_item_img {
+      width: math.div(89, 320) * 100%;
+      left: math.div(9, 320) * 100%;
+      bottom: 3px;
+      @include media-max("sp") {
+        width: 108px * 0.5;
+        left: 16px * 0.5;
+        bottom: 6px;
+      }
+    }
+  }
+}

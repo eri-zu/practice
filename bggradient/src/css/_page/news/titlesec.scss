@@ -1,0 +1,6 @@
+.news-title-section {
+  margin-top: 160px;
+  @include media-max("sp") {
+    margin-top: 290px * 0.5;
+  }
+}

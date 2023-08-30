@@ -1,0 +1,266 @@
+@use "sass:math";
+.footer {
+  &_logo {
+    a {
+      display: block;
+    }
+  }
+  &_wrap_v3 {
+    background-color: #f4f4f4;
+    // padding: 60px 0 40px 104px;
+    padding: 60px 0 40px 20px;
+
+    @include media-max("sp") {
+      padding: 50px 20px 50px;
+    }
+  }
+  &_inner {
+    display: flex;
+    max-width: 1080px;
+    margin: auto;
+    @include media-max("sp") {
+      display: block;
+    }
+  }
+
+  &_tit {
+    font-family: $en;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    @include media-max("sp") {
+      font-size: 20px;
+    }
+  }
+
+  &_products {
+    margin-left: 116px;
+    margin-top: 5px;
+    @include media-max("sp") {
+      margin: 40px 0 0;
+    }
+    &_items_wrap {
+      margin-top: 10px;
+    }
+    &_item {
+      a {
+        font-size: 14px;
+        letter-spacing: 0.01em;
+        line-height: math.div(25, 14);
+        transition: color 1s $easeOutExpo;
+
+        @media (hover: hover) {
+          &:hover {
+            color: #e363b0;
+          }
+        }
+
+        @include media-max("sp") {
+          font-size: 13px;
+        }
+      }
+      & + & {
+        margin-top: 10px;
+      }
+      & + .footer_products_sitemap {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &_outerlinks {
+    margin-left: 40px;
+    margin-top: 5px;
+    @include media-max("sp") {
+      margin: 50px 0 0;
+    }
+  }
+
+  &_sns {
+    &_items {
+      display: flex;
+      align-items: center;
+      &_wrap {
+        margin-top: 6px;
+        @include media-max("sp") {
+          margin: 15px 0 0;
+        }
+      }
+    }
+
+    &_item {
+      a {
+        display: block;
+        transition: transform 1s $easeOutExpo;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      img {
+        width: 100%;
+      }
+      &_insta {
+        width: math.div(81px, 3);
+        margin-right: 22px;
+        @include media-max("sp") {
+          margin-right: 42px;
+          width: 61px * 0.5;
+        }
+      }
+      &_twitter {
+        // width: math.div(81px, 3);
+        width: 29px;
+        margin-right: 21px;
+        padding: 4px;
+        background-color: #fff;
+        font-size: 0;
+        @include media-max("sp") {
+          margin-right: 41px;
+          width: 67px * 0.5;
+          padding: 10px * 0.5;
+        }
+      }
+      &_three {
+        width: math.div(87px, 3);
+        margin-right: 13px;
+        @include media-max("sp") {
+          margin-right: 32px;
+          width: 67px * 0.5;
+        }
+      }
+      &_atcosme {
+        width: math.div(129px, 3);
+        margin-right: 15px;
+        @include media-max("sp") {
+          margin-right: 34px;
+          width: 99px * 0.5;
+        }
+      }
+      &_youtube {
+        width: math.div(84px, 3);
+        @include media-max("sp") {
+          width: 66px * 0.5;
+        }
+      }
+    }
+  }
+
+  &_buy {
+    margin-top: 51px;
+    @include media-max("sp") {
+      margin-top: 84px * 0.5;
+    }
+
+    &_items {
+      display: flex;
+      flex-wrap: wrap;
+
+      &_wrap {
+        margin-top: 14px;
+      }
+
+      @include media-min("tab") {
+        gap: 10px 10px;
+      }
+      @include media-max("sp") {
+        // gap: 7px 8px;
+      }
+    }
+
+    &_item {
+      width: 130px;
+      position: relative;
+
+      @include media-max("sp") {
+        max-width: 212px * 0.5;
+        width: calc(100% / 3 - 7px * 2 / 3);
+
+        &:nth-child(n + 2) {
+          margin-left: 7px;
+        }
+      }
+
+      a {
+        transition: transform 1s $easeOutExpo;
+        display: block;
+        background-color: #fff;
+        position: relative;
+        // &:hover {
+        //   transform: scale(1.05);
+        // }
+
+        &::after {
+          content: "";
+          display: block;
+          width: 8px;
+          height: 8px;
+          background-image: url("/common/images/svg/outerLink.svg");
+          background-size: 100%;
+          bottom: 7px;
+          right: 7px;
+          position: absolute;
+        }
+      }
+      &_amazon {
+        img {
+          width: 100px;
+          margin-left: 15px;
+          margin-top: 4px;
+          @include media-max("sp") {
+            width: 168px * 0.5;
+            margin: 4px 13px;
+          }
+        }
+      }
+      &_rakuten {
+        img {
+          width: 100px;
+          margin-left: 15px;
+          margin-top: 4px;
+          @include media-max("sp") {
+            width: 168px * 0.5;
+            margin: 4px 13px;
+          }
+        }
+      }
+      &_lohaco {
+        img {
+          width: 112px;
+          margin-left: 9px;
+          margin-top: 1px;
+          @include media-max("sp") {
+            width: 188px * 0.5;
+            margin: 1px 7px;
+          }
+        }
+      }
+    }
+  }
+
+  // &_note {
+  //   padding: 30px 0 14px 100px;
+  //   border-bottom: 1px solid #333;
+  //   background-color: #fff;
+  //   @include media-max("sp") {
+  //     padding: 15px 20px 14px;
+  //   }
+  //   p {
+  //     line-height: math.div(24, 10);
+  //     font-size: 10px;
+  //   }
+  // }
+}
+.footer_v2 * {
+  box-sizing: content-box;
+}
+.footer_sitemap a,
+.footer_sitemap a:visited {
+  color: #fff;
+}
+
+.footer_sitemap {
+  #hairmask-cn &,
+  #hairoil-cn {
+    display: none;
+  }
+}

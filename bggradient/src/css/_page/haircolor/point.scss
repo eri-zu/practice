@@ -1,0 +1,150 @@
+.haircolor_contents_item_point {
+  max-width: 1080px;
+  padding: 0 20px;
+  margin: 160px auto 0;
+
+  &_inner {
+    position: relative;
+    padding: 46px 60px 40px;
+    background-color: rgba(245, 135, 88, 0.05);
+    @include media-max("sp") {
+      padding: 40px 25px;
+    }
+  }
+  &_tit {
+    position: absolute;
+    top: -46px;
+    left: 10px;
+    @include media-max("sp") {
+      left: -10px;
+      top: -40px;
+    }
+  }
+
+  &_contents {
+    color: #333;
+    &_tit {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: math.div(28, 24);
+      @include media-max("sp") {
+        font-size: 20px;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+    }
+    &_des {
+      font-size: 14px;
+      line-height: math.div(25, 14);
+      margin-top: 20px - (25px - 14px) * 0.5 - (28px - 24px) * 0.5;
+      @include media-max("sp") {
+        margin-top: 25px;
+      }
+    }
+
+    &_items {
+      display: flex;
+      margin-top: 52px;
+      gap: 60px 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      @include media-max("sp") {
+        margin-top: 60px;
+        gap: 60px 70px;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 250px;
+        @media screen and (min-width: 989px) {
+          display: none;
+        }
+        @include media-max("sp") {
+          display: none;
+        }
+      }
+    }
+
+    &_item {
+      position: relative;
+      width: calc(33.33% - 40px);
+      min-width: 250px;
+      @include media-max("sp") {
+        width: 100%;
+      }
+      &_style {
+        position: absolute;
+        top: -26px;
+      }
+      &_img {
+        position: relative;
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          background-size: contain;
+          width: 80px;
+          height: 90px;
+          bottom: -22px;
+          right: 0;
+        }
+        img {
+          width: 100%;
+        }
+      }
+      &_tit {
+        display: inline-block;
+        padding: 10px;
+        margin-top: -10px;
+        position: relative;
+        p {
+          font-size: 14px;
+          line-height: 1;
+          color: #fff;
+          font-weight: 700;
+        }
+      }
+
+      &_des {
+        font-size: 14px;
+        line-height: math.div(25, 14);
+        letter-spacing: 0.01em;
+        margin-top: 16px - (25px - 14px) * 0.5;
+        @include media-max("sp") {
+          margin-top: 16px;
+        }
+      }
+
+      &_style1 {
+        .haircolor_contents_item_point_contents_item_tit {
+          background-color: #707cc8;
+        }
+        .haircolor_contents_item_point_contents_item_img {
+          &::after {
+            background-image: url("/haircolor/images/img_style_item1.png");
+          }
+        }
+      }
+      &_style2 {
+        .haircolor_contents_item_point_contents_item_tit {
+          background-color: #e363b0;
+        }
+        .haircolor_contents_item_point_contents_item_img {
+          &::after {
+            background-image: url("/haircolor/images/img_style_item2.png");
+          }
+        }
+      }
+      &_style3 {
+        .haircolor_contents_item_point_contents_item_tit {
+          background-color: #d19053;
+        }
+        .haircolor_contents_item_point_contents_item_img {
+          &::after {
+            background-image: url("/haircolor/images/img_style_item3.png");
+          }
+        }
+      }
+    }
+  }
+}

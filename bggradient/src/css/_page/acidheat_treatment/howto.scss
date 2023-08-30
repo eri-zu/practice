@@ -1,0 +1,28 @@
+@use "sass:math";
+
+.acid__howto {
+  padding-bottom: 112px;
+  background-color: #fff;
+
+  @include media-max("sp") {
+    padding-bottom: 55px;
+  }
+
+  .section__smalltitle {
+    color: $purple;
+  }
+
+  .movie_howto_title {
+    color: $purple;
+    font-weight: 300;
+  }
+
+  .movie_howto_title_sub {
+    color: $purple;
+    font-weight: 500;
+  }
+
+  .movie_howto_item_tag {
+    background-color: #b086e4;
+  }
+}

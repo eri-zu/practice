@@ -1,0 +1,74 @@
+@use "sass:math";
+
+.acid__users {
+  padding-bottom: 112px;
+  padding-top: 133px;
+  background-color: #fff;
+
+  @include media-max("sp") {
+    padding-top: 95px;
+    padding-bottom: 55px;
+  }
+}
+
+.acid__users-inner {
+  max-width: 1040px + 20px + 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.acid__users-commentarea {
+  margin-top: 91px;
+  position: relative;
+
+  @include media-max("sp") {
+    margin-top: 82px;
+  }
+}
+
+.acid__users-nav {
+  position: absolute;
+  // top: 64px;
+  z-index: 1;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+
+  svg {
+    width: 11px;
+    @include minmax(415, 1120) {
+      width: 8px;
+    }
+  }
+
+  &.-next {
+    right: -25px;
+
+    @include minmax(415, 1120) {
+      right: -15px;
+    }
+  }
+
+  &.-prev {
+    left: -25px;
+
+    @include minmax(415, 1120) {
+      left: -15px;
+    }
+  }
+
+  &.isActive {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &.isDisable {
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
+
+  pointer-events: none;
+  opacity: 0;
+}

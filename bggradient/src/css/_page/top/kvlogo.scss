@@ -1,0 +1,56 @@
+.kvLogo {
+  width: 331px;
+  position: absolute;
+  left: 100px;
+  top: 60px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1003;
+  overflow: hidden;
+  font-size: 0;
+
+  @include minmax(769, 1040) {
+    width: vw(331, 1040);
+    left: vw(100, 1040);
+  }
+
+  @include media-max("sp") {
+    // width: vw(432, 768);
+    width: 216px;
+    height: 30px;
+    left: 18px;
+    top: 95px;
+    z-index: 999;
+  }
+
+  path {
+    fill: #561d21;
+  }
+
+  svg {
+    width: 331px;
+    height: 46px;
+
+    @include media-max("sp") {
+      width: 216px;
+      height: 30px;
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// js
+// ------------------------------------------------------------
+
+.js-logo_cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  // display: none;
+  display: block;
+}
