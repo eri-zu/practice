@@ -1,4 +1,3 @@
-
 // = 018 ======================================================================
 // ここではまず、三角関数の最も基本的な要素であるサインとコサインについてのおさ
 // らいをしましょう。
@@ -13,18 +12,21 @@
 // ============================================================================
 
 // 必要なモジュールを読み込み
-import * as THREE from '../lib/three.module.js';
-import { OrbitControls } from '../lib/OrbitControls.js';
+import * as THREE from "../lib/three.module.js";
+import { OrbitControls } from "../lib/OrbitControls.js";
 
 // DOM がパースされたことを検出するイベントで App3 クラスを初期化
-window.addEventListener('DOMContentLoaded', () => {
-  const app = new App3();
-  app.load()
-  .then(() => {
-    app.init();
-    app.render();
-  });
-}, false);
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    const app = new App3();
+    app.load().then(() => {
+      app.init();
+      app.render();
+    });
+  },
+  false
+);
 
 /**
  * three.js を効率よく扱うために自家製の制御クラスを定義
@@ -61,10 +63,10 @@ class App3 {
   static get DIRECTIONAL_LIGHT_PARAM() {
     return {
       color: 0xffffff, // 光の色
-      intensity: 1.0,  // 光の強度
-      x: 1.0,          // 光の向きを表すベクトルの X 要素
-      y: 1.0,          // 光の向きを表すベクトルの Y 要素
-      z: 1.0           // 光の向きを表すベクトルの Z 要素
+      intensity: 1.0, // 光の強度
+      x: 1.0, // 光の向きを表すベクトルの X 要素
+      y: 1.0, // 光の向きを表すベクトルの Y 要素
+      z: 1.0, // 光の向きを表すベクトルの Z 要素
     };
   }
   /**
@@ -73,7 +75,7 @@ class App3 {
   static get AMBIENT_LIGHT_PARAM() {
     return {
       color: 0xffffff, // 光の色
-      intensity: 0.2,  // 光の強度
+      intensity: 0.2, // 光の強度
     };
   }
   static get MATERIAL_PARAM() {
@@ -87,37 +89,39 @@ class App3 {
   static get FOG_PARAM() {
     return {
       fogColor: 0xffffff, // フォグの色
-      fogNear: 10.0,      // フォグの掛かり始めるカメラからの距離
-      fogFar: 20.0        // フォグが完全に掛かるカメラからの距離
+      fogNear: 10.0, // フォグの掛かり始めるカメラからの距離
+      fogFar: 20.0, // フォグが完全に掛かるカメラからの距離
     };
   }
   /**
    * 月と地球の間の距離
    */
-  static get MOON_DISTANCE() {return 3.0;}
+  static get MOON_DISTANCE() {
+    return 3.0;
+  }
 
   /**
    * コンストラクタ
    * @constructor
    */
   constructor() {
-    this.renderer;         // レンダラ
-    this.scene;            // シーン
-    this.camera;           // カメラ
+    this.renderer; // レンダラ
+    this.scene; // シーン
+    this.camera; // カメラ
     this.directionalLight; // ディレクショナルライト
-    this.ambientLight;     // アンビエントライト
-    this.controls;         // オービットコントロール
-    this.axesHelper;       // 軸ヘルパー
+    this.ambientLight; // アンビエントライト
+    this.controls; // オービットコントロール
+    this.axesHelper; // 軸ヘルパー
 
-    this.sphereGeometry;   // ジオメトリ
-    this.earth;            // 地球
-    this.earthMaterial;    // 地球用マテリアル
-    this.earthTexture;     // 地球用テクスチャ
-    this.moon;             // 月
-    this.moonMaterial;     // 月用マテリアル
-    this.moonTexture;      // 月用テクスチャ
+    this.sphereGeometry; // ジオメトリ
+    this.earth; // 地球
+    this.earthMaterial; // 地球用マテリアル
+    this.earthTexture; // 地球用テクスチャ
+    this.moon; // 月
+    this.moonMaterial; // 月用マテリアル
+    this.moonTexture; // 月用テクスチャ
 
-    this.isDown = false;   // キーの押下状態を保持するフラグ
+    this.isDown = false; // キーの押下状態を保持するフラグ
 
     // - Clock オブジェクト ---------------------------------------------------
     // three.js の Clock オブジェクトを使うと、時間の経過を効率よく取得・調査す
@@ -135,24 +139,36 @@ class App3 {
     this.render = this.render.bind(this);
 
     // キーの押下や離す操作を検出できるようにする
-    window.addEventListener('keydown', (keyEvent) => {
-      switch (keyEvent.key) {
-        case ' ':
-          this.isDown = true;
-          break;
-        default:
-      }
-    }, false);
-    window.addEventListener('keyup', (keyEvent) => {
-      this.isDown = false;
-    }, false);
+    window.addEventListener(
+      "keydown",
+      (keyEvent) => {
+        switch (keyEvent.key) {
+          case " ":
+            this.isDown = true;
+            break;
+          default:
+        }
+      },
+      false
+    );
+    window.addEventListener(
+      "keyup",
+      (keyEvent) => {
+        this.isDown = false;
+      },
+      false
+    );
 
     // リサイズイベント
-    window.addEventListener('resize', () => {
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-    }, false);
+    window.addEventListener(
+      "resize",
+      () => {
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.camera.aspect = window.innerWidth / window.innerHeight;
+        this.camera.updateProjectionMatrix();
+      },
+      false
+    );
   }
 
   /**
@@ -164,8 +180,8 @@ class App3 {
       const loader = new THREE.TextureLoader();
 
       // 地球用画像の読み込みとテクスチャ生成
-      const earthPath = './earth.jpg';
-      const moonPath = './moon.jpg';
+      const earthPath = "./earth.jpg";
+      const moonPath = "./moon.jpg";
       loader.load(earthPath, (earthTexture) => {
         // 地球用
         this.earthTexture = earthTexture;
@@ -184,9 +200,14 @@ class App3 {
   init() {
     // レンダラー
     this.renderer = new THREE.WebGLRenderer();
-    this.renderer.setClearColor(new THREE.Color(App3.RENDERER_PARAM.clearColor));
-    this.renderer.setSize(App3.RENDERER_PARAM.width, App3.RENDERER_PARAM.height);
-    const wrapper = document.querySelector('#webgl');
+    this.renderer.setClearColor(
+      new THREE.Color(App3.RENDERER_PARAM.clearColor)
+    );
+    this.renderer.setSize(
+      App3.RENDERER_PARAM.width,
+      App3.RENDERER_PARAM.height
+    );
+    const wrapper = document.querySelector("#webgl");
     wrapper.appendChild(this.renderer.domElement);
 
     // シーンとフォグ
@@ -202,12 +223,12 @@ class App3 {
       App3.CAMERA_PARAM.fovy,
       App3.CAMERA_PARAM.aspect,
       App3.CAMERA_PARAM.near,
-      App3.CAMERA_PARAM.far,
+      App3.CAMERA_PARAM.far
     );
     this.camera.position.set(
       App3.CAMERA_PARAM.x,
       App3.CAMERA_PARAM.y,
-      App3.CAMERA_PARAM.z,
+      App3.CAMERA_PARAM.z
     );
     this.camera.lookAt(App3.CAMERA_PARAM.lookAt);
 
@@ -219,14 +240,14 @@ class App3 {
     this.directionalLight.position.set(
       App3.DIRECTIONAL_LIGHT_PARAM.x,
       App3.DIRECTIONAL_LIGHT_PARAM.y,
-      App3.DIRECTIONAL_LIGHT_PARAM.z,
+      App3.DIRECTIONAL_LIGHT_PARAM.z
     );
     this.scene.add(this.directionalLight);
 
     // アンビエントライト（環境光）
     this.ambientLight = new THREE.AmbientLight(
       App3.AMBIENT_LIGHT_PARAM.color,
-      App3.AMBIENT_LIGHT_PARAM.intensity,
+      App3.AMBIENT_LIGHT_PARAM.intensity
     );
     this.scene.add(this.ambientLight);
 
@@ -281,11 +302,10 @@ class App3 {
     this.moon.position.set(
       cos * App3.MOON_DISTANCE,
       0.0,
-      sin * App3.MOON_DISTANCE,
+      sin * App3.MOON_DISTANCE
     );
 
     // レンダラーで描画
     this.renderer.render(this.scene, this.camera);
   }
 }
-

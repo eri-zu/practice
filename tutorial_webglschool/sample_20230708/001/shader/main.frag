@@ -1,4 +1,4 @@
-// フラグメントシェーダ内で、浮動小数店をどのような精度で扱うか
+// フラグメントシェーダ内で、浮動小数点をどのような精度で扱うか
 // lowp mediump highp
 precision mediump float;
 

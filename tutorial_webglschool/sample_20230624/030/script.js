@@ -1,4 +1,3 @@
-
 // = 030 ======================================================================
 // 影は、現代の CG では当たり前のように描画されていることが多いですが、実はかな
 // り実装難易度の高い技術に分類されます。
@@ -10,19 +9,22 @@
 // ============================================================================
 
 // 必要なモジュールを読み込み
-import * as THREE from '../lib/three.module.js';
-import { OrbitControls } from '../lib/OrbitControls.js';
-import { GLTFLoader } from '../lib/GLTFLoader.js';
+import * as THREE from "../lib/three.module.js";
+import { OrbitControls } from "../lib/OrbitControls.js";
+import { GLTFLoader } from "../lib/GLTFLoader.js";
 
 // DOM がパースされたことを検出するイベントで App3 クラスをインスタンス化する
-window.addEventListener('DOMContentLoaded', () => {
-  const app = new App3();
-  app.load()
-  .then(() => {
-    app.init();
-    app.render();
-  });
-}, false);
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    const app = new App3();
+    app.load().then(() => {
+      app.init();
+      app.render();
+    });
+  },
+  false
+);
 
 /**
  * three.js を効率よく扱うために自家製の制御クラスを定義
@@ -93,8 +95,8 @@ class App3 {
   static get SHADOW_PARAM() {
     return {
       spaceSize: 100.0, // 影を生成するためのカメラの空間の広さ
-      mapSize: 512,     // 影を生成するためのバッファのサイズ
-    }
+      mapSize: 512, // 影を生成するためのバッファのサイズ
+    };
     // - 影を生成するためのバッファとは ---------------------------------------
     // 影を生成する原理は、ものすごく簡単に言えば「距離を格納したバッファの中身
     // と実際の値を比較して、遮蔽物があるか調べる」ということを行っています。
@@ -111,27 +113,31 @@ class App3 {
    * @constructor
    */
   constructor() {
-    this.renderer;         // レンダラ
-    this.scene;            // シーン
-    this.camera;           // カメラ
+    this.renderer; // レンダラ
+    this.scene; // シーン
+    this.camera; // カメラ
     this.directionalLight; // ディレクショナルライト
-    this.ambientLight;     // アンビエントライト
-    this.controls;         // オービットコントロール
-    this.axesHelper;       // 軸ヘルパー
-    this.gltf;             // ロードした glTF 由来のオブジェクト
-    this.mixer;            // アニメーションミキサー
-    this.actions;          // アニメーションのアクション
-    this.plane;            // 床面用プレーン @@@
+    this.ambientLight; // アンビエントライト
+    this.controls; // オービットコントロール
+    this.axesHelper; // 軸ヘルパー
+    this.gltf; // ロードした glTF 由来のオブジェクト
+    this.mixer; // アニメーションミキサー
+    this.actions; // アニメーションのアクション
+    this.plane; // 床面用プレーン @@@
 
     // 再帰呼び出しのための this 固定
     this.render = this.render.bind(this);
 
     // リサイズイベント
-    window.addEventListener('resize', () => {
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-    }, false);
+    window.addEventListener(
+      "resize",
+      () => {
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.camera.aspect = window.innerWidth / window.innerHeight;
+        this.camera.updateProjectionMatrix();
+      },
+      false
+    );
   }
 
   /**
@@ -140,7 +146,7 @@ class App3 {
   load() {
     return new Promise((resolve) => {
       // 読み込むファイルのパス
-      const gltfPath = './Fox.glb';
+      const gltfPath = "./Fox.glb";
       const loader = new GLTFLoader();
       loader.load(gltfPath, (gltf) => {
         this.gltf = gltf;
@@ -150,7 +156,7 @@ class App3 {
         const animations = this.gltf.animations;
         // 取り出したアニメーション情報を順番にミキサーに通してアクション化する
         this.actions = [];
-        for(let i = 0; i < animations.length; ++i){
+        for (let i = 0; i < animations.length; ++i) {
           // アクションを生成
           this.actions.push(this.mixer.clipAction(animations[i]));
           // ループ方式を設定する
@@ -174,9 +180,14 @@ class App3 {
   init() {
     // レンダラー
     this.renderer = new THREE.WebGLRenderer();
-    this.renderer.setClearColor(new THREE.Color(App3.RENDERER_PARAM.clearColor));
-    this.renderer.setSize(App3.RENDERER_PARAM.width, App3.RENDERER_PARAM.height);
-    const wrapper = document.querySelector('#webgl');
+    this.renderer.setClearColor(
+      new THREE.Color(App3.RENDERER_PARAM.clearColor)
+    );
+    this.renderer.setSize(
+      App3.RENDERER_PARAM.width,
+      App3.RENDERER_PARAM.height
+    );
+    const wrapper = document.querySelector("#webgl");
     wrapper.appendChild(this.renderer.domElement);
 
     // レンダラーで影を描画するための機能を有効化する @@@
@@ -194,12 +205,12 @@ class App3 {
       App3.CAMERA_PARAM.fovy,
       App3.CAMERA_PARAM.aspect,
       App3.CAMERA_PARAM.near,
-      App3.CAMERA_PARAM.far,
+      App3.CAMERA_PARAM.far
     );
     this.camera.position.set(
       App3.CAMERA_PARAM.x,
       App3.CAMERA_PARAM.y,
-      App3.CAMERA_PARAM.z,
+      App3.CAMERA_PARAM.z
     );
     this.camera.lookAt(App3.CAMERA_PARAM.lookAt);
 
@@ -211,7 +222,7 @@ class App3 {
     this.directionalLight.position.set(
       App3.DIRECTIONAL_LIGHT_PARAM.x,
       App3.DIRECTIONAL_LIGHT_PARAM.y,
-      App3.DIRECTIONAL_LIGHT_PARAM.z,
+      App3.DIRECTIONAL_LIGHT_PARAM.z
     );
     this.scene.add(this.directionalLight);
 
@@ -219,23 +230,25 @@ class App3 {
     this.directionalLight.castShadow = true;
 
     // 影用のカメラ（平行投影のカメラ）は必要に応じて範囲を広げる @@@
-    this.directionalLight.shadow.camera.top    =  App3.SHADOW_PARAM.spaceSize;
+    this.directionalLight.shadow.camera.top = App3.SHADOW_PARAM.spaceSize;
     this.directionalLight.shadow.camera.bottom = -App3.SHADOW_PARAM.spaceSize;
-    this.directionalLight.shadow.camera.left   = -App3.SHADOW_PARAM.spaceSize;
-    this.directionalLight.shadow.camera.right  =  App3.SHADOW_PARAM.spaceSize;
+    this.directionalLight.shadow.camera.left = -App3.SHADOW_PARAM.spaceSize;
+    this.directionalLight.shadow.camera.right = App3.SHADOW_PARAM.spaceSize;
 
     // 影用のバッファのサイズは変更することもできる @@@
-    this.directionalLight.shadow.mapSize.width  = App3.SHADOW_PARAM.mapSize;
+    this.directionalLight.shadow.mapSize.width = App3.SHADOW_PARAM.mapSize;
     this.directionalLight.shadow.mapSize.height = App3.SHADOW_PARAM.mapSize;
 
     // ライトの設定を可視化するためにヘルパーを使う @@@
-    const cameraHelper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
+    const cameraHelper = new THREE.CameraHelper(
+      this.directionalLight.shadow.camera
+    );
     this.scene.add(cameraHelper);
 
     // アンビエントライト（環境光）
     this.ambientLight = new THREE.AmbientLight(
       App3.AMBIENT_LIGHT_PARAM.color,
-      App3.AMBIENT_LIGHT_PARAM.intensity,
+      App3.AMBIENT_LIGHT_PARAM.intensity
     );
     this.scene.add(this.ambientLight);
 
@@ -288,4 +301,3 @@ class App3 {
     this.renderer.render(this.scene, this.camera);
   }
 }
-
